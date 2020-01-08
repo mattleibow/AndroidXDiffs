@@ -60,20 +60,8 @@ IGenericLifecycleObserver
 Removed constructor:
 
 ```csharp
-public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<Android.Arch.Persistence.Room.RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
+public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
 ```
-
-
-#### Type Changed: AndroidX.Room.RoomDatabase
-
-#### Type Changed: AndroidX.Room.RoomDatabase.MigrationContainer
-
-Removed method:
-
-```csharp
-public virtual System.Collections.Generic.IList<Android.Arch.Persistence.Room.Migration.Migration> FindMigrationPath (int, int);
-```
-
 
 
 #### Type Changed: AndroidX.Room.RoomMasterTable
@@ -94,16 +82,6 @@ Removed constructor:
 
 ```csharp
 public StringUtil ();
-```
-
-
-#### Type Changed: AndroidX.Room.Util.TableInfo
-
-Removed constructors:
-
-```csharp
-public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>);
-public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.Index>);
 ```
 
 
@@ -148,46 +126,6 @@ System.IDisposable
 
 ### Namespace AndroidX.ConstraintLayout.Solver.Widgets
 
-#### Type Changed: AndroidX.ConstraintLayout.Solver.Widgets.ConstraintWidget
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintAnchor> Anchors { get; }
-+public virtual System.Collections.Generic.IList<ConstraintAnchor> Anchors { get; }
--protected System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintAnchor> MListAnchors { get; set; }
-+protected System.Collections.Generic.IList<ConstraintAnchor> MListAnchors { get; set; }
--protected System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget.DimensionBehaviour> MListDimensionBehaviors { get; set; }
-+protected System.Collections.Generic.IList<ConstraintWidget.DimensionBehaviour> MListDimensionBehaviors { get; set; }
--protected System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> MListNextMatchConstraintsWidget { get; set; }
-+protected System.Collections.Generic.IList<ConstraintWidget> MListNextMatchConstraintsWidget { get; set; }
--protected System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> MListNextVisibleWidget { get; set; }
-+protected System.Collections.Generic.IList<ConstraintWidget> MListNextVisibleWidget { get; set; }
-```
-
-
-#### Type Changed: AndroidX.ConstraintLayout.Solver.Widgets.ConstraintWidgetContainer
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.Guideline> HorizontalGuidelines { get; }
-+public virtual System.Collections.Generic.IList<Guideline> HorizontalGuidelines { get; }
--public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.Guideline> VerticalGuidelines { get; }
-+public virtual System.Collections.Generic.IList<Guideline> VerticalGuidelines { get; }
-```
-
-
-#### Type Changed: AndroidX.ConstraintLayout.Solver.Widgets.Helper
-
-Modified properties:
-
-```diff
--protected System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> MWidgets { get; set; }
-+protected System.Collections.Generic.IList<ConstraintWidget> MWidgets { get; set; }
-```
-
-
 #### Type Changed: AndroidX.ConstraintLayout.Solver.Widgets.Optimizer
 
 Modified fields:
@@ -195,23 +133,6 @@ Modified fields:
 ```diff
 -public const int OptimizationStandard = 3;
 +public const int OptimizationStandard = 7;
-```
-
-
-#### Type Changed: AndroidX.ConstraintLayout.Solver.Widgets.WidgetContainer
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> Children { get; }
-+public virtual System.Collections.Generic.IList<ConstraintWidget> Children { get; }
-```
-
-Removed methods:
-
-```csharp
-public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> FindWidgets (int, int, int, int);
-public static Rectangle GetBounds (System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget>);
 ```
 
 
@@ -329,19 +250,6 @@ Removed property:
 
 ```csharp
 public Android.Graphics.ColorFilter ColorFilter { get; }
-```
-
-
-
-### Namespace AndroidX.TvProvider.Media.Tv
-
-#### Type Changed: AndroidX.TvProvider.Media.Tv.PreviewChannelHelper
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.Media.TV.PreviewChannel> AllChannels { get; }
-+public virtual System.Collections.Generic.IList<PreviewChannel> AllChannels { get; }
 ```
 
 
@@ -509,152 +417,6 @@ public TwoStatePreference.SavedState (Android.OS.Parcel);
 
 
 
-### Namespace AndroidX.Leanback.App
-
-#### Type Changed: AndroidX.Leanback.App.GuidedStepFragment
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> Actions { get; set; }
-+public virtual System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> Actions { get; set; }
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> ButtonActions { get; set; }
-+public virtual System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> ButtonActions { get; set; }
-```
-
-Removed methods:
-
-```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
-```
-
-
-#### Type Changed: AndroidX.Leanback.App.GuidedStepSupportFragment
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> Actions { get; set; }
-+public virtual System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> Actions { get; set; }
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> ButtonActions { get; set; }
-+public virtual System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> ButtonActions { get; set; }
-```
-
-Removed methods:
-
-```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
-```
-
-
-
-### Namespace AndroidX.Leanback.Media
-
-#### Type Changed: AndroidX.Leanback.Media.PlaybackGlue
-
-Modified properties:
-
-```diff
--protected virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Media.PlaybackGlue.PlayerCallback> PlayerCallbacks { get; }
-+protected virtual System.Collections.Generic.IList<PlaybackGlue.PlayerCallback> PlayerCallbacks { get; }
-```
-
-
-
-### Namespace AndroidX.Leanback.Widget
-
-#### Type Changed: AndroidX.Leanback.Widget.DetailsOverviewRow
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Action> Actions { get; }
-+public System.Collections.Generic.IList<Action> Actions { get; }
-```
-
-
-#### Type Changed: AndroidX.Leanback.Widget.GuidedAction
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> SubActions { get; set; }
-+public virtual System.Collections.Generic.IList<GuidedAction> SubActions { get; set; }
-```
-
-#### Type Changed: AndroidX.Leanback.Widget.GuidedAction.BuilderBase
-
-Removed method:
-
-```csharp
-public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>);
-```
-
-
-
-#### Type Changed: AndroidX.Leanback.Widget.GuidedActionAdapter
-
-Removed constructor:
-
-```csharp
-public GuidedActionAdapter (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, GuidedActionAdapter.IClickListener, GuidedActionAdapter.IFocusListener, GuidedActionsStylist, bool);
-```
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> Actions { get; set; }
-+public virtual System.Collections.Generic.IList<GuidedAction> Actions { get; set; }
-```
-
-
-#### Type Changed: AndroidX.Leanback.Widget.ItemBridgeAdapter
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Presenter> PresenterMapper { get; set; }
-+public virtual System.Collections.Generic.IList<Presenter> PresenterMapper { get; set; }
-```
-
-
-#### Type Changed: AndroidX.Leanback.Widget.Parallax
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.ParallaxEffect> Effects { get; }
-+public virtual System.Collections.Generic.IList<ParallaxEffect> Effects { get; }
-```
-
-
-#### Type Changed: AndroidX.Leanback.Widget.ParallaxEffect
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Parallax.PropertyMarkerValue> PropertyRanges { get; }
-+public System.Collections.Generic.IList<Parallax.PropertyMarkerValue> PropertyRanges { get; }
--public System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.ParallaxTarget> Targets { get; }
-+public System.Collections.Generic.IList<ParallaxTarget> Targets { get; }
-```
-
-
-
-### Namespace AndroidX.Leanback.Widget.Picker
-
-#### Type Changed: AndroidX.Leanback.Widget.Picker.Picker
-
-Removed method:
-
-```csharp
-public virtual void SetColumns (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Picker.PickerColumn>);
-```
-
-
-
 ### Namespace AndroidX.Core.App
 
 #### Type Changed: AndroidX.Core.App.JobIntentService
@@ -690,41 +452,6 @@ JobIntentService.IGenericWorkItem
 System.IDisposable
 ```
 
-
-
-
-#### Type Changed: AndroidX.Core.App.NotificationCompat
-
-Removed method:
-
-```csharp
-public static System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> GetInvisibleActions (Android.App.Notification);
-```
-
-#### Type Changed: AndroidX.Core.App.NotificationCompat.MessagingStyle.MessagingStyle
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.MessagingStyle.Message> Messages { get; }
-+public virtual System.Collections.Generic.IList<NotificationCompat.MessagingStyle.Message> Messages { get; }
-```
-
-
-#### Type Changed: AndroidX.Core.App.NotificationCompat.MessagingStyle.WearableExtender
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> Actions { get; }
-+public System.Collections.Generic.IList<NotificationCompat.Action> Actions { get; }
-```
-
-Removed method:
-
-```csharp
-public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action>);
-```
 
 
 
@@ -769,31 +496,6 @@ public override Java.Lang.Object OnRetainNonConfigurationInstance ();
 
 #### Removed Type AndroidX.Fragment.App.FragmentActivity.NonConfigurationInstances
 
-#### Type Changed: AndroidX.Fragment.App.FragmentController
-
-Removed methods:
-
-```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> GetActiveFragments (System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
-
-[Obsolete ("deprecated")]
-public virtual void RestoreAllState (Android.OS.IParcelable, System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
-
-[Obsolete ("deprecated")]
-public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> RetainNonConfig ();
-```
-
-
-#### Type Changed: AndroidX.Fragment.App.FragmentManager
-
-Modified properties:
-
-```diff
--public abstract System.Collections.Generic.IList<Android.Support.V4.App.Fragment> Fragments { get; }
-+public abstract System.Collections.Generic.IList<Fragment> Fragments { get; }
-```
-
-
 
 ### Namespace AndroidX.Loader.Content
 
@@ -834,19 +536,6 @@ Removed method:
 public void Apply (Android.Content.ISharedPreferencesEditor);
 ```
 
-
-
-
-### Namespace AndroidX.Core.Graphics
-
-#### Type Changed: AndroidX.Core.Graphics.PathUtils
-
-Removed methods:
-
-```csharp
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path);
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path, float);
-```
 
 
 
@@ -1003,35 +692,6 @@ public static int CheckFlagsArgument (int, int);
 
 
 
-### Namespace AndroidX.Core.View.Accessibiity
-
-#### Type Changed: AndroidX.Core.View.Accessibiity.AccessibilityNodeInfoCompat
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat> ActionList { get; }
-+public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat.AccessibilityActionCompat> ActionList { get; }
-```
-
-Removed methods:
-
-```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string);
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string);
-```
-
-
-#### Type Changed: AndroidX.Core.View.Accessibiity.AccessibilityNodeProviderCompat
-
-Removed method:
-
-```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string, int);
-```
-
-
-
 ### Namespace AndroidX.CursorAdapter.Widget
 
 #### Type Changed: AndroidX.CursorAdapter.Widget.CursorAdapter
@@ -1064,15 +724,6 @@ CursorFilter.ICursorFilterClient
 
 ### Namespace AndroidX.MediaRouter.App
 
-#### Type Changed: AndroidX.MediaRouter.App.MediaRouteChooserDialog
-
-Removed method:
-
-```csharp
-public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo>);
-```
-
-
 #### Type Changed: AndroidX.MediaRouter.App.MediaRouteChooserDialogFragment
 
 Removed method:
@@ -1089,36 +740,6 @@ Removed method:
 ```csharp
 public virtual Android.Support.V7.App.MediaRouteCastDialog OnCreateCastDialog (Android.Content.Context);
 ```
-
-
-
-### Namespace AndroidX.Palette.Graphics
-
-#### Type Changed: AndroidX.Palette.Graphics.Palette
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch> Swatches { get; }
-+public System.Collections.Generic.IList<Palette.Swatch> Swatches { get; }
--public System.Collections.Generic.IList<Android.Support.V7.Graphics.Target> Targets { get; }
-+public System.Collections.Generic.IList<Target> Targets { get; }
-```
-
-Removed method:
-
-```csharp
-public static Palette From (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
-```
-
-#### Type Changed: AndroidX.Palette.Graphics.Palette.Builder
-
-Removed constructor:
-
-```csharp
-public Palette.Builder (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
-```
-
 
 
 
@@ -1144,45 +765,7 @@ public override void SetAlpha (int);
 
 ### Namespace AndroidX.MediaRouter.Media
 
-#### Type Changed: AndroidX.MediaRouter.Media.MediaRouteProviderDescriptor
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouteDescriptor> Routes { get; }
-+public System.Collections.Generic.IList<MediaRouteDescriptor> Routes { get; }
-```
-
-#### Type Changed: AndroidX.MediaRouter.Media.MediaRouteProviderDescriptor.Builder
-
-Removed method:
-
-```csharp
-public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<Android.Support.V7.Media.MediaRouteDescriptor>);
-```
-
-
-
 #### Type Changed: AndroidX.MediaRouter.Media.MediaRouter
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.ProviderInfo> Providers { get; }
-+public System.Collections.Generic.IList<MediaRouter.ProviderInfo> Providers { get; }
--public System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo> Routes { get; }
-+public System.Collections.Generic.IList<MediaRouter.RouteInfo> Routes { get; }
-```
-
-#### Type Changed: AndroidX.MediaRouter.Media.MediaRouter.ProviderInfo
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo> Routes { get; }
-+public System.Collections.Generic.IList<MediaRouter.RouteInfo> Routes { get; }
-```
-
 
 #### Removed Type AndroidX.MediaRouter.Media.MediaRouter.RouteGroup
 
@@ -1209,16 +792,6 @@ Modified properties:
 ```
 
 
-#### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView.Recycler
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder> ScrapList { get; }
-+public System.Collections.Generic.IList<RecyclerView.ViewHolder> ScrapList { get; }
-```
-
-
 #### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView.ViewFlinger
 
 Removed methods:
@@ -1232,34 +805,8 @@ public virtual void SmoothScrollBy (int, int, int, int);
 
 
 
-#### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper
-
-#### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper.Callback
-
-Removed method:
-
-```csharp
-public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder, System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder>, int, int);
-```
-
-
-
 
 ### Namespace AndroidX.AppCompat.View.Menu
-
-#### Type Changed: AndroidX.AppCompat.View.Menu.MenuBuilder
-
-Modified properties:
-
-```diff
--public virtual System.Collections.Generic.IList<Android.Support.V7.View.Menu.MenuItemImpl> ActionItems { get; }
-+public virtual System.Collections.Generic.IList<MenuItemImpl> ActionItems { get; }
--public virtual System.Collections.Generic.IList<Android.Support.V7.View.Menu.MenuItemImpl> NonActionItems { get; }
-+public virtual System.Collections.Generic.IList<MenuItemImpl> NonActionItems { get; }
--public virtual System.Collections.Generic.IList<Android.Support.V7.View.Menu.MenuItemImpl> VisibleItems { get; }
-+public virtual System.Collections.Generic.IList<MenuItemImpl> VisibleItems { get; }
-```
-
 
 #### Type Changed: AndroidX.AppCompat.View.Menu.MenuPopupHelper
 
@@ -1296,22 +843,6 @@ Removed method:
 ```csharp
 public virtual void SetEpicenterBounds (Android.Graphics.Rect);
 ```
-
-
-
-### Namespace AndroidX.GridLayout.Widget
-
-#### Type Changed: AndroidX.GridLayout.Widget.GridLayout
-
-#### Type Changed: AndroidX.GridLayout.Widget.GridLayout.Axis
-
-Modified properties:
-
-```diff
--public System.Collections.Generic.IList<Android.Support.V7.Widget.GridLayout.Arc> Arcs { get; set; }
-+public System.Collections.Generic.IList<GridLayout.Arc> Arcs { get; set; }
-```
-
 
 
 

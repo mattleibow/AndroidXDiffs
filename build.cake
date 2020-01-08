@@ -51,6 +51,22 @@ string Map(string fullname)
         return Map(fullname) + "[]";
     }
 
+    if (fullname.StartsWith("System.Collections.Generic.IList`1[") && fullname.EndsWith("]")) {
+        fullname = fullname.Substring(35, (fullname.Length - 35) - 1);
+        return "System.Collections.Generic.IList`1[" + Map(fullname) + "]";
+    }
+
+    if (fullname.StartsWith("System.Collections.Generic.ICollection`1[") && fullname.EndsWith("]")) {
+        fullname = fullname.Substring(41, (fullname.Length - 41) - 1);
+        return "System.Collections.Generic.ICollection`1[" + Map(fullname) + "]";
+    }
+
+    if (fullname.StartsWith("System.Collections.Generic.IDictionary`2[") && fullname.EndsWith("]")) {
+        fullname = fullname.Substring(41, (fullname.Length - 41) - 1);
+        var fnparts = fullname.Split(',');
+        return "System.Collections.Generic.IDictionary`2[" + Map(fnparts[0]) + "," + Map(fnparts[1]) + "]";
+    }
+
     var parts = fullname.Split('+');
     var map = mappings.FirstOrDefault(m => m.SupportFullName == parts[0]);
     if (map == null)
@@ -67,8 +83,7 @@ var androidx = XDocument.Load("assemblies/AndroidX.Merged.api-info.xml");
 // base
 Information("Mapping base classes...");
 var xclasses = support.XPathSelectElements("//class").ToList();
-foreach (var xclass in xclasses)
-{
+foreach (var xclass in xclasses) {
     var xbase = xclass.Attribute("base");
     if (xbase != null)
         xbase.Value = Map(xbase.Value);
