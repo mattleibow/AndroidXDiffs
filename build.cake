@@ -183,5 +183,5 @@ support.Save("output/AndroidSupport.api-info.xml");
 androidx.Save("output/AndroidX.api-info.xml");
 
 Information("Generating diff...");
-StartProcess("api-tools", "diff output/AndroidSupport.api-info.xml output/AndroidX.api-info.xml --output output/Diff.md");
-StartProcess("api-tools", "diff output/AndroidSupport.api-info.xml output/AndroidX.api-info.xml --ignore-nonbreaking --output output/Diff.breaking.md");
+StartProcess("api-tools", "diff output/AndroidSupport.api-info.xml output/AndroidX.api-info.xml --ignore-param-names --ignore-virtual --output output/Diff.md");
+StartProcess("api-tools", "diff output/AndroidSupport.api-info.xml output/AndroidX.api-info.xml --ignore-param-names --ignore-virtual --ignore-nonbreaking --output output/Diff.breaking.md");

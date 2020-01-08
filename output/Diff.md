@@ -30,7 +30,7 @@ ILifecycleEventObserver
 Removed method:
 
 ```csharp
-public virtual void OnStateChanged (ILifecycleOwner p0, Lifecycle.Event p1);
+public virtual void OnStateChanged (ILifecycleOwner, Lifecycle.Event);
 ```
 
 
@@ -40,13 +40,13 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void MarkState (Lifecycle.State state);
+ public virtual void MarkState (Lifecycle.State);
 ```
 
 Added method:
 
 ```csharp
-public virtual void SetCurrentState (Lifecycle.State state);
+public virtual void SetCurrentState (Lifecycle.State);
 ```
 
 
@@ -64,7 +64,7 @@ public Lifecycling ();
 Added constructor:
 
 ```csharp
-public LiveData (Java.Lang.Object value);
+public LiveData (Java.Lang.Object);
 ```
 
 #### Type Changed: AndroidX.Lifecycle.LiveData.LifecycleBoundObserver
@@ -88,7 +88,7 @@ ILifecycleEventObserver
 Added constructor:
 
 ```csharp
-public MutableLiveData (Java.Lang.Object value);
+public MutableLiveData (Java.Lang.Object);
 ```
 
 
@@ -109,19 +109,10 @@ ILifecycleEventObserver
 
 #### Type Changed: AndroidX.Lifecycle.Transformations
 
-Modified methods:
-
-```diff
--public LiveData Map (LiveData source, AndroidX.Arch.Core.Util.IFunction func)
-+public LiveData Map (LiveData source, AndroidX.Arch.Core.Util.IFunction mapFunction)
--public LiveData SwitchMap (LiveData trigger, AndroidX.Arch.Core.Util.IFunction func---switchMapFunction---)
-+public LiveData SwitchMap (LiveData source, AndroidX.Arch.Core.Util.IFunction +++func+++switchMapFunction)
-```
-
 Added method:
 
 ```csharp
-public static LiveData DistinctUntilChanged (LiveData source);
+public static LiveData DistinctUntilChanged (LiveData);
 ```
 
 
@@ -132,13 +123,13 @@ public static LiveData DistinctUntilChanged (LiveData source);
 ```csharp
 public abstract class KeyedFactory : Java.Lang.Object, Android.Runtime.IJavaObject, ViewModelProvider.IFactory, System.IDisposable {
 	// constructors
-	protected ViewModelProvider.KeyedFactory (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ViewModelProvider.KeyedFactory (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Java.Lang.Object Create (Java.Lang.Class modelClass);
-	public virtual Java.Lang.Object Create (string p0, Java.Lang.Class p1);
+	public virtual Java.Lang.Object Create (Java.Lang.Class);
+	public virtual Java.Lang.Object Create (string, Java.Lang.Class);
 }
 ```
 
@@ -149,9 +140,9 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static ViewModelStore Of (AndroidX.Fragment.App.Fragment fragment);
+ public static ViewModelStore Of (AndroidX.Fragment.App.Fragment);
  [Obsolete ("deprecated")]
- public static ViewModelStore Of (AndroidX.Fragment.App.FragmentActivity activity);
+ public static ViewModelStore Of (AndroidX.Fragment.App.FragmentActivity);
 ```
 
 
@@ -160,7 +151,7 @@ Obsoleted methods:
 ```csharp
 public interface ILifecycleEventObserver : Android.Runtime.IJavaObject, ILifecycleObserver, System.IDisposable {
 	// methods
-	public virtual void OnStateChanged (ILifecycleOwner p0, Lifecycle.Event p1);
+	public virtual void OnStateChanged (ILifecycleOwner, Lifecycle.Event);
 }
 ```
 
@@ -199,7 +190,7 @@ public Java.Lang.Class[] Views { get; set; }
 Removed constructor:
 
 ```csharp
-public DatabaseConfiguration (Android.Content.Context context, string name, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory sqliteOpenHelperFactory, RoomDatabase.MigrationContainer migrationContainer, System.Collections.Generic.IList<Android.Arch.Persistence.Room.RoomDatabase.Callback> callbacks, bool allowMainThreadQueries, RoomDatabase.JournalMode journalMode, bool requireMigration, System.Collections.Generic.ICollection<Java.Lang.Integer> migrationNotRequiredFrom);
+public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<Android.Arch.Persistence.Room.RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
 ```
 
 Added constructors:
@@ -207,10 +198,10 @@ Added constructors:
 ```csharp
 
 [Obsolete ("deprecated")]
-public DatabaseConfiguration (Android.Content.Context context, string name, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory sqliteOpenHelperFactory, RoomDatabase.MigrationContainer migrationContainer, System.Collections.Generic.IList<RoomDatabase.Callback> callbacks, bool allowMainThreadQueries, RoomDatabase.JournalMode journalMode, Java.Util.Concurrent.IExecutor queryExecutor, bool requireMigration, System.Collections.Generic.ICollection<Java.Lang.Integer> migrationNotRequiredFrom);
+public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, Java.Util.Concurrent.IExecutor, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
 
 [Obsolete ("deprecated")]
-public DatabaseConfiguration (Android.Content.Context context, string name, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory sqliteOpenHelperFactory, RoomDatabase.MigrationContainer migrationContainer, System.Collections.Generic.IList<RoomDatabase.Callback> callbacks, bool allowMainThreadQueries, RoomDatabase.JournalMode journalMode, Java.Util.Concurrent.IExecutor queryExecutor, Java.Util.Concurrent.IExecutor transactionExecutor, bool multiInstanceInvalidation, bool requireMigration, bool allowDestructiveMigrationOnDowngrade, System.Collections.Generic.ICollection<Java.Lang.Integer> migrationNotRequiredFrom);
+public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, Java.Util.Concurrent.IExecutor, Java.Util.Concurrent.IExecutor, bool, bool, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
 ```
 
 Added properties:
@@ -228,13 +219,13 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual bool IsMigrationRequiredFrom (int version);
+ public virtual bool IsMigrationRequiredFrom (int);
 ```
 
 Added method:
 
 ```csharp
-public virtual bool IsMigrationRequired (int fromVersion, int toVersion);
+public virtual bool IsMigrationRequired (int, int);
 ```
 
 
@@ -333,13 +324,13 @@ public Java.Lang.Class Entity { get; set; }
 Added constructor:
 
 ```csharp
-public InvalidationTracker (RoomDatabase database, System.Collections.Generic.IDictionary<System.String,System.String> shadowTablesMap, System.Collections.Generic.IDictionary<System.String,System.Collections.Generic.ICollection<string>> viewTables, string[] tableNames);
+public InvalidationTracker (RoomDatabase, System.Collections.Generic.IDictionary<System.String,System.String>, System.Collections.Generic.IDictionary<System.String,System.Collections.Generic.ICollection<string>>, string[]);
 ```
 
 Added method:
 
 ```csharp
-public virtual void NotifyObserversByTableNames (string[] tables);
+public virtual void NotifyObserversByTableNames (string[]);
 ```
 
 
@@ -370,8 +361,8 @@ Obsoleted constructors:
 Added properties:
 
 ```csharp
-public virtual Java.Util.Concurrent.IExecutor QueryExecutor { get; }
-public virtual Java.Util.Concurrent.IExecutor TransactionExecutor { get; }
+public Java.Util.Concurrent.IExecutor QueryExecutor { get; }
+public Java.Util.Concurrent.IExecutor TransactionExecutor { get; }
 ```
 
 Obsoleted methods:
@@ -389,7 +380,7 @@ Added methods:
 
 ```csharp
 public virtual void AssertNotSuspendingTransaction ();
-public virtual Android.Database.ICursor Query (AndroidX.Sqlite.Db.ISupportSQLiteQuery query, Android.OS.CancellationSignal signal);
+public virtual Android.Database.ICursor Query (AndroidX.Sqlite.Db.ISupportSQLiteQuery, Android.OS.CancellationSignal);
 ```
 
 #### Type Changed: AndroidX.Room.RoomDatabase.Builder
@@ -397,12 +388,12 @@ public virtual Android.Database.ICursor Query (AndroidX.Sqlite.Db.ISupportSQLite
 Added methods:
 
 ```csharp
-public virtual RoomDatabase.Builder CreateFromAsset (string databaseFilePath);
-public virtual RoomDatabase.Builder CreateFromFile (Java.IO.File databaseFile);
+public virtual RoomDatabase.Builder CreateFromAsset (string);
+public virtual RoomDatabase.Builder CreateFromFile (Java.IO.File);
 public virtual RoomDatabase.Builder EnableMultiInstanceInvalidation ();
 public virtual RoomDatabase.Builder FallbackToDestructiveMigrationOnDowngrade ();
-public virtual RoomDatabase.Builder SetQueryExecutor (Java.Util.Concurrent.IExecutor executor);
-public virtual RoomDatabase.Builder SetTransactionExecutor (Java.Util.Concurrent.IExecutor executor);
+public virtual RoomDatabase.Builder SetQueryExecutor (Java.Util.Concurrent.IExecutor);
+public virtual RoomDatabase.Builder SetTransactionExecutor (Java.Util.Concurrent.IExecutor);
 ```
 
 
@@ -411,7 +402,7 @@ public virtual RoomDatabase.Builder SetTransactionExecutor (Java.Util.Concurrent
 Added method:
 
 ```csharp
-public virtual void OnDestructiveMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase db);
+public virtual void OnDestructiveMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
 ```
 
 
@@ -420,13 +411,13 @@ public virtual void OnDestructiveMigration (AndroidX.Sqlite.Db.ISupportSQLiteDat
 Removed method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Arch.Persistence.Room.Migration.Migration> FindMigrationPath (int start, int end);
+public virtual System.Collections.Generic.IList<Android.Arch.Persistence.Room.Migration.Migration> FindMigrationPath (int, int);
 ```
 
 Added method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Migration.Migration> FindMigrationPath (int start, int end);
+public virtual System.Collections.Generic.IList<Migration.Migration> FindMigrationPath (int, int);
 ```
 
 
@@ -448,22 +439,15 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- protected virtual void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase db);
-```
-
-Modified methods:
-
-```diff
--protected abstract void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase p0---db---)
-+protected virtual void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase +++p0+++db)
+ protected virtual void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
 ```
 
 Added methods:
 
 ```csharp
-protected virtual void OnPostMigrate (AndroidX.Sqlite.Db.ISupportSQLiteDatabase database);
-protected virtual void OnPreMigrate (AndroidX.Sqlite.Db.ISupportSQLiteDatabase database);
-protected virtual RoomOpenHelper.ValidationResult OnValidateSchema (AndroidX.Sqlite.Db.ISupportSQLiteDatabase db);
+protected virtual void OnPostMigrate (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
+protected virtual void OnPreMigrate (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
+protected virtual RoomOpenHelper.ValidationResult OnValidateSchema (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
 ```
 
 
@@ -472,13 +456,13 @@ protected virtual RoomOpenHelper.ValidationResult OnValidateSchema (AndroidX.Sql
 ```csharp
 public class ValidationResult : Java.Lang.Object {
 	// constructors
-	public RoomOpenHelper.ValidationResult (bool isValid, string expectedFoundMsg);
-	protected RoomOpenHelper.ValidationResult (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public RoomOpenHelper.ValidationResult (bool, string);
+	protected RoomOpenHelper.ValidationResult (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public string ExpectedFoundMsg { get; set; }
 	public bool IsValid { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -547,35 +531,35 @@ public class Fts4Attribute : System.Attribute {
 ```csharp
 public class FtsOptions : Java.Lang.Object {
 	// constructors
-	protected FtsOptions (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FtsOptions (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string TokenizerIcu = "icu";
 	public static const string TokenizerPorter = "porter";
 	public static const string TokenizerSimple = "simple";
 	public static const string TokenizerUnicode61 = "unicode61";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public sealed class MatchInfo : Java.Lang.Enum {
 		// properties
 		public static FtsOptions.MatchInfo Fts3 { get; }
 		public static FtsOptions.MatchInfo Fts4 { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public static FtsOptions.MatchInfo ValueOf (string name);
+		public static FtsOptions.MatchInfo ValueOf (string);
 		public static FtsOptions.MatchInfo[] Values ();
 	}
 	public sealed class Order : Java.Lang.Enum {
 		// properties
 		public static FtsOptions.Order Asc { get; }
 		public static FtsOptions.Order Desc { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public static FtsOptions.Order ValueOf (string name);
+		public static FtsOptions.Order ValueOf (string);
 		public static FtsOptions.Order[] Values ();
 	}
 }
@@ -633,7 +617,7 @@ public interface IJunction : Android.Runtime.IJavaObject, Java.Lang.Annotation.I
 ```csharp
 public interface IMultiInstanceInvalidationCallback : Android.OS.IInterface, Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void OnInvalidation (string[] p0);
+	public virtual void OnInvalidation (string[]);
 }
 ```
 
@@ -642,9 +626,9 @@ public interface IMultiInstanceInvalidationCallback : Android.OS.IInterface, And
 ```csharp
 public interface IMultiInstanceInvalidationService : Android.OS.IInterface, Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void BroadcastInvalidation (int p0, string[] p1);
-	public virtual int RegisterCallback (IMultiInstanceInvalidationCallback p0, string p1);
-	public virtual void UnregisterCallback (IMultiInstanceInvalidationCallback p0, int p1);
+	public virtual void BroadcastInvalidation (int, string[]);
+	public virtual int RegisterCallback (IMultiInstanceInvalidationCallback, string);
+	public virtual void UnregisterCallback (IMultiInstanceInvalidationCallback, int);
 }
 ```
 
@@ -667,15 +651,15 @@ public class JunctionAttribute : System.Attribute {
 public abstract class MultiInstanceInvalidationCallbackStub : Android.OS.Binder, Android.OS.IInterface, Android.Runtime.IJavaObject, IMultiInstanceInvalidationCallback, System.IDisposable {
 	// constructors
 	public MultiInstanceInvalidationCallbackStub ();
-	protected MultiInstanceInvalidationCallbackStub (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MultiInstanceInvalidationCallbackStub (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual Android.OS.IBinder AsBinder ();
-	public static IMultiInstanceInvalidationCallback AsInterface (Android.OS.IBinder obj);
-	public virtual void OnInvalidation (string[] p0);
-	public virtual bool OnTransact (int code, Android.OS.Parcel data, Android.OS.Parcel reply, int flags);
+	public static IMultiInstanceInvalidationCallback AsInterface (Android.OS.IBinder);
+	public virtual void OnInvalidation (string[]);
+	public virtual bool OnTransact (int, Android.OS.Parcel, Android.OS.Parcel, int);
 }
 ```
 
@@ -685,12 +669,12 @@ public abstract class MultiInstanceInvalidationCallbackStub : Android.OS.Binder,
 public class MultiInstanceInvalidationService : Android.App.Service {
 	// constructors
 	public MultiInstanceInvalidationService ();
-	protected MultiInstanceInvalidationService (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MultiInstanceInvalidationService (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public override Android.OS.IBinder OnBind (Android.Content.Intent intent);
+	public override Android.OS.IBinder OnBind (Android.Content.Intent);
 }
 ```
 
@@ -700,17 +684,17 @@ public class MultiInstanceInvalidationService : Android.App.Service {
 public abstract class MultiInstanceInvalidationServiceStub : Android.OS.Binder, Android.OS.IInterface, Android.Runtime.IJavaObject, IMultiInstanceInvalidationService, System.IDisposable {
 	// constructors
 	public MultiInstanceInvalidationServiceStub ();
-	protected MultiInstanceInvalidationServiceStub (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MultiInstanceInvalidationServiceStub (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual Android.OS.IBinder AsBinder ();
-	public static IMultiInstanceInvalidationService AsInterface (Android.OS.IBinder obj);
-	public virtual void BroadcastInvalidation (int p0, string[] p1);
-	public virtual bool OnTransact (int code, Android.OS.Parcel data, Android.OS.Parcel reply, int flags);
-	public virtual int RegisterCallback (IMultiInstanceInvalidationCallback p0, string p1);
-	public virtual void UnregisterCallback (IMultiInstanceInvalidationCallback p0, int p1);
+	public static IMultiInstanceInvalidationService AsInterface (Android.OS.IBinder);
+	public virtual void BroadcastInvalidation (int, string[]);
+	public virtual bool OnTransact (int, Android.OS.Parcel, Android.OS.Parcel, int);
+	public virtual int RegisterCallback (IMultiInstanceInvalidationCallback, string);
+	public virtual void UnregisterCallback (IMultiInstanceInvalidationCallback, int);
 }
 ```
 
@@ -731,15 +715,15 @@ public StringUtil ();
 Removed constructors:
 
 ```csharp
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey> foreignKeys);
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey> foreignKeys, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.Index> indices);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.Index>);
 ```
 
 Added constructors:
 
 ```csharp
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,AndroidX.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<TableInfo.ForeignKey> foreignKeys);
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,AndroidX.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<TableInfo.ForeignKey> foreignKeys, System.Collections.Generic.ICollection<TableInfo.Index> indices);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,AndroidX.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<TableInfo.ForeignKey>);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,AndroidX.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<TableInfo.ForeignKey>, System.Collections.Generic.ICollection<TableInfo.Index>);
 ```
 
 Added fields:
@@ -756,13 +740,13 @@ Obsoleted constructors:
 
 ```diff
  [Obsolete ("deprecated")]
- public TableInfo.Column (string name, string type, bool notNull, int primaryKeyPosition);
+ public TableInfo.Column (string, string, bool, int);
 ```
 
 Added constructor:
 
 ```csharp
-public TableInfo.Column (string name, string type, bool notNull, int primaryKeyPosition, string defaultValue, int createdFrom);
+public TableInfo.Column (string, string, bool, int, string, int);
 ```
 
 Added property:
@@ -778,11 +762,11 @@ public string DefaultValue { get; set; }
 ```csharp
 public class CopyLock : Java.Lang.Object {
 	// constructors
-	protected CopyLock (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public CopyLock (string name, Java.IO.File lockDir, bool processLock);
+	protected CopyLock (IntPtr, Android.Runtime.JniHandleOwnership);
+	public CopyLock (string, Java.IO.File, bool);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void Lock ();
 	public virtual void Unlock ();
@@ -794,14 +778,14 @@ public class CopyLock : Java.Lang.Object {
 ```csharp
 public class CursorUtil : Java.Lang.Object {
 	// constructors
-	protected CursorUtil (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected CursorUtil (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Android.Database.ICursor CopyAndClose (Android.Database.ICursor c);
-	public static int GetColumnIndex (Android.Database.ICursor c, string name);
-	public static int GetColumnIndexOrThrow (Android.Database.ICursor c, string name);
+	public static Android.Database.ICursor CopyAndClose (Android.Database.ICursor);
+	public static int GetColumnIndex (Android.Database.ICursor, string);
+	public static int GetColumnIndexOrThrow (Android.Database.ICursor, string);
 }
 ```
 
@@ -810,18 +794,18 @@ public class CursorUtil : Java.Lang.Object {
 ```csharp
 public class DBUtil : Java.Lang.Object {
 	// constructors
-	protected DBUtil (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DBUtil (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public static Android.OS.CancellationSignal CreateCancellationSignal ();
-	public static void DropFtsSyncTriggers (AndroidX.Sqlite.Db.ISupportSQLiteDatabase db);
+	public static void DropFtsSyncTriggers (AndroidX.Sqlite.Db.ISupportSQLiteDatabase);
 
 	[Obsolete ("deprecated")]
-public static Android.Database.ICursor Query (AndroidX.Room.RoomDatabase db, AndroidX.Sqlite.Db.ISupportSQLiteQuery sqLiteQuery, bool maybeCopy);
-	public static Android.Database.ICursor Query (AndroidX.Room.RoomDatabase db, AndroidX.Sqlite.Db.ISupportSQLiteQuery sqLiteQuery, bool maybeCopy, Android.OS.CancellationSignal signal);
-	public static int ReadVersion (Java.IO.File databaseFile);
+public static Android.Database.ICursor Query (AndroidX.Room.RoomDatabase, AndroidX.Sqlite.Db.ISupportSQLiteQuery, bool);
+	public static Android.Database.ICursor Query (AndroidX.Room.RoomDatabase, AndroidX.Sqlite.Db.ISupportSQLiteQuery, bool, Android.OS.CancellationSignal);
+	public static int ReadVersion (Java.IO.File);
 }
 ```
 
@@ -830,12 +814,12 @@ public static Android.Database.ICursor Query (AndroidX.Room.RoomDatabase db, And
 ```csharp
 public class FileUtil : Java.Lang.Object {
 	// constructors
-	protected FileUtil (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FileUtil (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static void Copy (Java.Nio.Channels.IReadableByteChannel input, Java.Nio.Channels.FileChannel output);
+	public static void Copy (Java.Nio.Channels.IReadableByteChannel, Java.Nio.Channels.FileChannel);
 }
 ```
 
@@ -844,17 +828,17 @@ public class FileUtil : Java.Lang.Object {
 ```csharp
 public class FtsTableInfo : Java.Lang.Object {
 	// constructors
-	protected FtsTableInfo (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public FtsTableInfo (string name, System.Collections.Generic.ICollection<string> columns, System.Collections.Generic.ICollection<string> options);
-	public FtsTableInfo (string name, System.Collections.Generic.ICollection<string> columns, string createSql);
+	protected FtsTableInfo (IntPtr, Android.Runtime.JniHandleOwnership);
+	public FtsTableInfo (string, System.Collections.Generic.ICollection<string>, System.Collections.Generic.ICollection<string>);
+	public FtsTableInfo (string, System.Collections.Generic.ICollection<string>, string);
 	// properties
 	public System.Collections.ICollection Columns { get; set; }
 	public string Name { get; set; }
 	public System.Collections.ICollection Options { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static FtsTableInfo Read (AndroidX.Sqlite.Db.ISupportSQLiteDatabase database, string tableName);
+	public static FtsTableInfo Read (AndroidX.Sqlite.Db.ISupportSQLiteDatabase, string);
 }
 ```
 
@@ -863,12 +847,12 @@ public class FtsTableInfo : Java.Lang.Object {
 ```csharp
 public class SneakyThrow : Java.Lang.Object {
 	// constructors
-	protected SneakyThrow (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected SneakyThrow (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static void ReThrow (Java.Lang.Exception e);
+	public static void ReThrow (Java.Lang.Exception);
 }
 ```
 
@@ -877,15 +861,15 @@ public class SneakyThrow : Java.Lang.Object {
 ```csharp
 public class ViewInfo : Java.Lang.Object {
 	// constructors
-	protected ViewInfo (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public ViewInfo (string name, string sql);
+	protected ViewInfo (IntPtr, Android.Runtime.JniHandleOwnership);
+	public ViewInfo (string, string);
 	// properties
 	public string Name { get; set; }
 	public string Sql { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static ViewInfo Read (AndroidX.Sqlite.Db.ISupportSQLiteDatabase database, string viewName);
+	public static ViewInfo Read (AndroidX.Sqlite.Db.ISupportSQLiteDatabase, string);
 }
 ```
 
@@ -976,7 +960,7 @@ public interface IContentView : Android.Runtime.IJavaObject, Java.Lang.Annotatio
 ```csharp
 public interface IInspectableProperty : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	// properties
-	public virtual bool HasAttributeId { get; }
+	public bool HasAttributeId { get; }
 	// methods
 	public virtual int AttributeId ();
 	public virtual IInspectablePropertyEnumEntry[] EnumMapping ();
@@ -1031,10 +1015,10 @@ public sealed class InspectablePropertyValueType : Java.Lang.Enum {
 	public static InspectablePropertyValueType IntFlag { get; }
 	public static InspectablePropertyValueType None { get; }
 	public static InspectablePropertyValueType ResourceId { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static InspectablePropertyValueType ValueOf (string name);
+	public static InspectablePropertyValueType ValueOf (string);
 	public static InspectablePropertyValueType[] Values ();
 }
 ```
@@ -1048,7 +1032,7 @@ Added methods:
 
 ```csharp
 public virtual bool AllowsGoneWidget ();
-public virtual void SetAllowsGoneWidget (bool supportGone);
+public virtual void SetAllowsGoneWidget (bool);
 ```
 
 
@@ -1067,7 +1051,7 @@ Modified fields:
 Added method:
 
 ```csharp
-public virtual Java.Lang.Object GetParameters (int mId);
+public virtual Java.Lang.Object GetParameters (int);
 ```
 
 
@@ -1147,12 +1131,12 @@ protected System.Collections.Generic.IList<ConstraintWidget> MNextChainWidget { 
 Added methods:
 
 ```csharp
-public virtual void CreateObjectVariables (AndroidX.ConstraintLayout.Solver.LinearSystem system);
-public virtual float GetBiasPercent (int orientation);
-public virtual ConstraintWidget.DimensionBehaviour GetDimensionBehaviour (int orientation);
-public virtual int GetLength (int orientation);
-public virtual void SetFrame (int start, int end, int orientation);
-public virtual void SetLength (int length, int orientation);
+public virtual void CreateObjectVariables (AndroidX.ConstraintLayout.Solver.LinearSystem);
+public virtual float GetBiasPercent (int);
+public virtual ConstraintWidget.DimensionBehaviour GetDimensionBehaviour (int);
+public virtual int GetLength (int);
+public virtual void SetFrame (int, int, int);
+public virtual void SetLength (int, int);
 ```
 
 
@@ -1177,7 +1161,7 @@ public bool MVerticalWrapOptimized { get; set; }
 public System.Collections.IList MWidgetGroups { get; set; }
 public int MWrapFixedHeight { get; set; }
 public int MWrapFixedWidth { get; set; }
-public virtual System.Collections.Generic.IList<ConstraintWidgetGroup> WidgetGroups { get; }
+public System.Collections.Generic.IList<ConstraintWidgetGroup> WidgetGroups { get; }
 ```
 
 
@@ -1219,16 +1203,16 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> FindWidgets (int x, int y, int width, int height);
-public static Rectangle GetBounds (System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> widgets);
+public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> FindWidgets (int, int, int, int);
+public static Rectangle GetBounds (System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget>);
 ```
 
 Added methods:
 
 ```csharp
-public virtual void Add (ConstraintWidget[] widgets);
-public virtual System.Collections.Generic.IList<ConstraintWidget> FindWidgets (int x, int y, int width, int height);
-public static Rectangle GetBounds (System.Collections.Generic.IList<ConstraintWidget> widgets);
+public virtual void Add (ConstraintWidget[]);
+public virtual System.Collections.Generic.IList<ConstraintWidget> FindWidgets (int, int, int, int);
+public static Rectangle GetBounds (System.Collections.Generic.IList<ConstraintWidget>);
 ```
 
 
@@ -1237,13 +1221,13 @@ public static Rectangle GetBounds (System.Collections.Generic.IList<ConstraintWi
 ```csharp
 public class Analyzer : Java.Lang.Object {
 	// constructors
-	protected Analyzer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected Analyzer (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static void DetermineGroups (ConstraintWidgetContainer layoutWidget);
-	public static void SetPosition (System.Collections.Generic.IList<ConstraintWidgetGroup> groups, int orientation, int containerLength);
+	public static void DetermineGroups (ConstraintWidgetContainer);
+	public static void SetPosition (System.Collections.Generic.IList<ConstraintWidgetGroup>, int, int);
 }
 ```
 
@@ -1252,16 +1236,16 @@ public class Analyzer : Java.Lang.Object {
 ```csharp
 public class ChainHead : Java.Lang.Object {
 	// constructors
-	protected ChainHead (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public ChainHead (ConstraintWidget first, int orientation, bool isRtl);
+	protected ChainHead (IntPtr, Android.Runtime.JniHandleOwnership);
+	public ChainHead (ConstraintWidget, int, bool);
 	// properties
-	public virtual ConstraintWidget First { get; }
-	public virtual ConstraintWidget FirstMatchConstraintWidget { get; }
-	public virtual ConstraintWidget FirstVisibleWidget { get; }
-	public virtual ConstraintWidget Head { get; }
-	public virtual ConstraintWidget Last { get; }
-	public virtual ConstraintWidget LastMatchConstraintWidget { get; }
-	public virtual ConstraintWidget LastVisibleWidget { get; }
+	public ConstraintWidget First { get; }
+	public ConstraintWidget FirstMatchConstraintWidget { get; }
+	public ConstraintWidget FirstVisibleWidget { get; }
+	public ConstraintWidget Head { get; }
+	public ConstraintWidget Last { get; }
+	public ConstraintWidget LastMatchConstraintWidget { get; }
+	public ConstraintWidget LastVisibleWidget { get; }
 	protected ConstraintWidget MFirst { get; set; }
 	protected ConstraintWidget MFirstMatchConstraintWidget { get; set; }
 	protected ConstraintWidget MFirstVisibleWidget { get; set; }
@@ -1276,9 +1260,9 @@ public class ChainHead : Java.Lang.Object {
 	protected System.Collections.IList MWeightedMatchConstraintsWidgets { get; set; }
 	protected int MWidgetsCount { get; set; }
 	protected int MWidgetsMatchCount { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual float TotalWeight { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public float TotalWeight { get; }
 	// methods
 	public virtual void Define ();
 }
@@ -1289,15 +1273,15 @@ public class ChainHead : Java.Lang.Object {
 ```csharp
 public class ConstraintWidgetGroup : Java.Lang.Object {
 	// constructors
-	protected ConstraintWidgetGroup (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ConstraintWidgetGroup (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public System.Collections.IList MConstrainedGroup { get; set; }
 	public System.Collections.Generic.IList<int> MGroupDimensions { get; set; }
 	public bool MSkipSolver { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual System.Collections.Generic.IList<ConstraintWidget> GetStartWidgets (int orientation);
+	public virtual System.Collections.Generic.IList<ConstraintWidget> GetStartWidgets (int);
 }
 ```
 
@@ -1309,8 +1293,8 @@ public class ConstraintWidgetGroup : Java.Lang.Object {
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Float Get (Android.Views.ViewGroup object);
-public override void Set (Java.Lang.Object object, Java.Lang.Object value);
+public virtual Java.Lang.Float Get (Android.Views.ViewGroup);
+public override void Set (Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -1319,8 +1303,8 @@ public override void Set (Java.Lang.Object object, Java.Lang.Object value);
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Integer Get (Android.Graphics.Drawables.Drawable object);
-public override void Set (Java.Lang.Object object, Java.Lang.Object value);
+public virtual Java.Lang.Integer Get (Android.Graphics.Drawables.Drawable);
+public override void Set (Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -1329,23 +1313,8 @@ public override void Set (Java.Lang.Object object, Java.Lang.Object value);
 Added methods:
 
 ```csharp
-public virtual Android.Graphics.Matrix Get (Android.Widget.ImageView object);
-public override void Set (Java.Lang.Object object, Java.Lang.Object value);
-```
-
-
-
-### Namespace Google.Android.Material.Behavior
-
-#### Type Changed: Google.Android.Material.Behavior.SwipeDismissBehavior
-
-Modified methods:
-
-```diff
--public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
--public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
+public virtual Android.Graphics.Matrix Get (Android.Widget.ImageView);
+public override void Set (Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -1411,7 +1380,7 @@ CircularRevealHelper.IDelegate
 Added methods:
 
 ```csharp
-public virtual void ActualDraw (Android.Graphics.Canvas p0);
+public virtual void ActualDraw (Android.Graphics.Canvas);
 public virtual bool ActualIsOpaque ();
 ```
 
@@ -1421,16 +1390,16 @@ public virtual bool ActualIsOpaque ();
 ```csharp
 public class CircularRevealWidgetCircularRevealProperty : Android.Util.Property {
 	// constructors
-	protected CircularRevealWidgetCircularRevealProperty (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected CircularRevealWidgetCircularRevealProperty (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static Android.Util.Property CircularReveal { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual CircularRevealWidgetRevealInfo Get (ICircularRevealWidget object);
-	public override Java.Lang.Object Get (Java.Lang.Object object);
-	public virtual void Set (ICircularRevealWidget object, CircularRevealWidgetRevealInfo value);
-	public override void Set (Java.Lang.Object object, Java.Lang.Object value);
+	public virtual CircularRevealWidgetRevealInfo Get (ICircularRevealWidget);
+	public override Java.Lang.Object Get (Java.Lang.Object);
+	public virtual void Set (ICircularRevealWidget, CircularRevealWidgetRevealInfo);
+	public override void Set (Java.Lang.Object, Java.Lang.Object);
 }
 ```
 
@@ -1439,16 +1408,16 @@ public class CircularRevealWidgetCircularRevealProperty : Android.Util.Property 
 ```csharp
 public class CircularRevealWidgetCircularRevealScrimColorProperty : Android.Util.Property {
 	// constructors
-	protected CircularRevealWidgetCircularRevealScrimColorProperty (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected CircularRevealWidgetCircularRevealScrimColorProperty (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static Android.Util.Property CircularRevealScrimColor { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Java.Lang.Integer Get (ICircularRevealWidget object);
-	public override Java.Lang.Object Get (Java.Lang.Object object);
-	public virtual void Set (ICircularRevealWidget object, Java.Lang.Integer value);
-	public override void Set (Java.Lang.Object object, Java.Lang.Object value);
+	public virtual Java.Lang.Integer Get (ICircularRevealWidget);
+	public override Java.Lang.Object Get (Java.Lang.Object);
+	public virtual void Set (ICircularRevealWidget, Java.Lang.Integer);
+	public override void Set (Java.Lang.Object, Java.Lang.Object);
 }
 ```
 
@@ -1500,38 +1469,38 @@ AndroidX.Core.View.INestedScrollingChild3
 public class NavigationMenuPresenter : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.AppCompat.View.Menu.IMenuPresenter, System.IDisposable {
 	// constructors
 	public NavigationMenuPresenter ();
-	protected NavigationMenuPresenter (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected NavigationMenuPresenter (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual AndroidX.AppCompat.View.Menu.MenuItemImpl CheckedItem { get; set; }
-	public virtual int HeaderCount { get; }
-	public virtual int Id { get; set; }
-	public virtual Android.Graphics.Drawables.Drawable ItemBackground { get; set; }
-	public virtual int ItemHorizontalPadding { get; set; }
-	public virtual int ItemIconPadding { get; set; }
-	public virtual Android.Content.Res.ColorStateList ItemTextColor { get; set; }
-	public virtual Android.Content.Res.ColorStateList ItemTintList { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public AndroidX.AppCompat.View.Menu.MenuItemImpl CheckedItem { get; set; }
+	public int HeaderCount { get; }
+	public int Id { get; set; }
+	public Android.Graphics.Drawables.Drawable ItemBackground { get; set; }
+	public int ItemHorizontalPadding { get; set; }
+	public int ItemIconPadding { get; set; }
+	public Android.Content.Res.ColorStateList ItemTextColor { get; set; }
+	public Android.Content.Res.ColorStateList ItemTintList { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddHeaderView (Android.Views.View view);
-	public virtual bool CollapseItemActionView (AndroidX.AppCompat.View.Menu.MenuBuilder menu, AndroidX.AppCompat.View.Menu.MenuItemImpl item);
-	public virtual void DispatchApplyWindowInsets (AndroidX.Core.View.WindowInsetsCompat insets);
-	public virtual bool ExpandItemActionView (AndroidX.AppCompat.View.Menu.MenuBuilder menu, AndroidX.AppCompat.View.Menu.MenuItemImpl item);
+	public virtual void AddHeaderView (Android.Views.View);
+	public virtual bool CollapseItemActionView (AndroidX.AppCompat.View.Menu.MenuBuilder, AndroidX.AppCompat.View.Menu.MenuItemImpl);
+	public virtual void DispatchApplyWindowInsets (AndroidX.Core.View.WindowInsetsCompat);
+	public virtual bool ExpandItemActionView (AndroidX.AppCompat.View.Menu.MenuBuilder, AndroidX.AppCompat.View.Menu.MenuItemImpl);
 	public virtual bool FlagActionItems ();
-	public virtual Android.Views.View GetHeaderView (int index);
-	public virtual AndroidX.AppCompat.View.Menu.IMenuView GetMenuView (Android.Views.ViewGroup root);
-	public virtual Android.Views.View InflateHeaderView (int res);
-	public virtual void InitForMenu (Android.Content.Context context, AndroidX.AppCompat.View.Menu.MenuBuilder menu);
-	public virtual void OnCloseMenu (AndroidX.AppCompat.View.Menu.MenuBuilder menu, bool allMenusAreClosing);
-	public virtual void OnRestoreInstanceState (Android.OS.IParcelable parcelable);
+	public virtual Android.Views.View GetHeaderView (int);
+	public virtual AndroidX.AppCompat.View.Menu.IMenuView GetMenuView (Android.Views.ViewGroup);
+	public virtual Android.Views.View InflateHeaderView (int);
+	public virtual void InitForMenu (Android.Content.Context, AndroidX.AppCompat.View.Menu.MenuBuilder);
+	public virtual void OnCloseMenu (AndroidX.AppCompat.View.Menu.MenuBuilder, bool);
+	public virtual void OnRestoreInstanceState (Android.OS.IParcelable);
 	public virtual Android.OS.IParcelable OnSaveInstanceState ();
-	public virtual bool OnSubMenuSelected (AndroidX.AppCompat.View.Menu.SubMenuBuilder subMenu);
-	public virtual void RemoveHeaderView (Android.Views.View view);
-	public virtual void SetCallback (AndroidX.AppCompat.View.Menu.IMenuPresenterCallback cb);
-	public virtual void SetItemIconTintList (Android.Content.Res.ColorStateList tint);
-	public virtual void SetItemTextAppearance (int resId);
-	public virtual void SetUpdateSuspended (bool updateSuspended);
-	public virtual void UpdateMenuView (bool cleared);
+	public virtual bool OnSubMenuSelected (AndroidX.AppCompat.View.Menu.SubMenuBuilder);
+	public virtual void RemoveHeaderView (Android.Views.View);
+	public virtual void SetCallback (AndroidX.AppCompat.View.Menu.IMenuPresenterCallback);
+	public virtual void SetItemIconTintList (Android.Content.Res.ColorStateList);
+	public virtual void SetItemTextAppearance (int);
+	public virtual void SetUpdateSuspended (bool);
+	public virtual void UpdateMenuView (bool);
 }
 ```
 
@@ -1545,7 +1514,7 @@ public class NavigationMenuPresenter : Java.Lang.Object, Android.Runtime.IJavaOb
 Added method:
 
 ```csharp
-public override bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e);
+public override bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout, Java.Lang.Object, Android.Views.MotionEvent);
 ```
 
 
@@ -1574,33 +1543,18 @@ Google.Android.Material.CircularReveal.CircularRevealHelper.IDelegate
 
 ### Namespace Google.Android.Material.AppBar
 
-#### Type Changed: Google.Android.Material.AppBar.AppBarLayout
-
-#### Type Changed: Google.Android.Material.AppBar.AppBarLayout.Behavior.Behavior
-
-Modified methods:
-
-```diff
--public override void OnNestedScroll (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dx, int dy---dyConsumed---, int consumed---dxUnconsumed---, int type---dyUnconsumed---, int p7---type---)
-+public override void OnNestedScroll (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dxConsumed, int +++dy+++dyConsumed, int +++consumed+++dxUnconsumed, int +++type+++dyUnconsumed, int +++p7+++type)
--public override void OnRestoreInstanceState (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout state, Java.Lang.Object appBarLayout, Android.OS.IParcelable p2---state---)
-+public override void OnRestoreInstanceState (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object appBarLayout, Android.OS.IParcelable +++p2+++state)
-```
-
-
-
 #### Type Changed: Google.Android.Material.AppBar.HeaderScrollingViewBehavior
 
 Removed method:
 
 ```csharp
-public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Android.Views.View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed);
+public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout, Android.Views.View, int, int, int, int);
 ```
 
 Added method:
 
 ```csharp
-protected override void LayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, int layoutDirection);
+protected override void LayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout, Java.Lang.Object, int);
 ```
 
 
@@ -1609,36 +1563,12 @@ protected override void LayoutChild (AndroidX.CoordinatorLayout.Widget.Coordinat
 Added method:
 
 ```csharp
-public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Android.Views.View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed);
+public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout, Android.Views.View, int, int, int, int);
 ```
 
 
 
 ### Namespace Google.Android.Material.BottomSheet
-
-#### Type Changed: Google.Android.Material.BottomSheet.BottomSheetBehavior
-
-Modified methods:
-
-```diff
--public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
--public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
-```
-
-#### Type Changed: Google.Android.Material.BottomSheet.BottomSheetBehavior.BottomSheetCallback
-
-Modified methods:
-
-```diff
--public abstract void OnSlide (Android.Views.View bottomSheet, float slideOffset)
-+public abstract void OnSlide (Android.Views.View bottomSheet, float newState)
--public abstract void OnStateChanged (Android.Views.View bottomSheet, int newState---p1---)
-+public abstract void OnStateChanged (Android.Views.View p0, int +++newState+++p1)
-```
-
-
 
 #### Type Changed: Google.Android.Material.BottomSheet.BottomSheetDialogFragment
 
@@ -1663,7 +1593,7 @@ AndroidX.Core.View.INestedScrollingParent3
 Added method:
 
 ```csharp
-public virtual void OnNestedScroll (Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, int[] consumed);
+public virtual void OnNestedScroll (Android.Views.View, int, int, int, int, int, int[]);
 ```
 
 #### Type Changed: AndroidX.CoordinatorLayout.Widget.CoordinatorLayout.Behavior
@@ -1672,44 +1602,13 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void OnNestedScroll (CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type);
+ public virtual void OnNestedScroll (CoordinatorLayout, Java.Lang.Object, Android.Views.View, int, int, int, int, int);
 ```
 
 Added method:
 
 ```csharp
-public virtual void OnNestedScroll (CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, int[] consumed);
-```
-
-
-
-
-### Namespace Google.Android.Material.FloatingActionButton
-
-#### Type Changed: Google.Android.Material.FloatingActionButton.FloatingActionButton
-
-Modified methods:
-
-```diff
--public virtual void Show (FloatingActionButton.OnVisibilityChangedListener visibility)
-+public virtual void Show (FloatingActionButton.OnVisibilityChangedListener listener)
-```
-
-#### Type Changed: Google.Android.Material.FloatingActionButton.FloatingActionButton.Behavior
-
-Modified methods:
-
-```diff
--public virtual bool GetInsetDodgeRect (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, Android.Graphics.Rect rect---p2---)
-+public virtual bool GetInsetDodgeRect (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, Android.Graphics.Rect +++rect+++p2)
--public override void OnAttachedToLayoutParams (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout.LayoutParams layoutParams)
-+public override void OnAttachedToLayoutParams (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout.LayoutParams p0)
--public virtual bool OnDependentViewChanged (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, Android.Views.View dependency---p2---)
-+public virtual bool OnDependentViewChanged (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, Android.Views.View +++dependency+++p2)
--public virtual bool OnLayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, int layoutDirection---p2---)
-+public virtual bool OnLayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, int +++layoutDirection+++p2)
--public virtual void SetInternalAutoHideListener (FloatingActionButton.OnVisibilityChangedListener listener)
-+public virtual void SetInternalAutoHideListener (FloatingActionButton.OnVisibilityChangedListener p0)
+public virtual void OnNestedScroll (CoordinatorLayout, Java.Lang.Object, Android.Views.View, int, int, int, int, int, int[]);
 ```
 
 
@@ -1722,7 +1621,7 @@ Modified methods:
 Removed property:
 
 ```csharp
-public override Android.Graphics.ColorFilter ColorFilter { get; }
+public Android.Graphics.ColorFilter ColorFilter { get; }
 ```
 
 
@@ -1734,8 +1633,8 @@ public override Android.Graphics.ColorFilter ColorFilter { get; }
 Added constructors:
 
 ```csharp
-public ExifInterface (Java.IO.File file);
-public ExifInterface (Java.IO.FileDescriptor fileDescriptor);
+public ExifInterface (Java.IO.File);
+public ExifInterface (Java.IO.FileDescriptor);
 ```
 
 Obsoleted fields:
@@ -1756,16 +1655,16 @@ public static const string TagXmp = "Xmp";
 Added properties:
 
 ```csharp
-public virtual long DateTimeDigitized { get; }
-public virtual long DateTimeOriginal { get; }
+public long DateTimeDigitized { get; }
+public long DateTimeOriginal { get; }
 ```
 
 Added methods:
 
 ```csharp
-public virtual byte[] GetAttributeBytes (string tag);
-public virtual long[] GetAttributeRange (string tag);
-public virtual bool HasAttribute (string tag);
+public virtual byte[] GetAttributeBytes (string);
+public virtual long[] GetAttributeRange (string);
+public virtual bool HasAttribute (string);
 ```
 
 
@@ -1780,34 +1679,6 @@ Modified properties:
 -public virtual System.Collections.Generic.IList<Android.Support.Media.TV.PreviewChannel> AllChannels { get; }
 +public virtual System.Collections.Generic.IList<PreviewChannel> AllChannels { get; }
 ```
-
-
-
-### Namespace AndroidX.Emoji.Text
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat.IMetadataRepoLoader
-
-Modified methods:
-
-```diff
--public abstract void Load (EmojiCompat.MetadataRepoLoaderCallback loaderCallback)
-+public abstract void Load (EmojiCompat.MetadataRepoLoaderCallback p0)
-```
-
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat.MetadataRepoLoaderCallback
-
-Modified methods:
-
-```diff
--public abstract void OnFailed (Java.Lang.Throwable throwable)
-+public abstract void OnFailed (Java.Lang.Throwable p0)
--public abstract void OnLoaded (MetadataRepo metadataRepo)
-+public abstract void OnLoaded (MetadataRepo p0)
-```
-
 
 
 
@@ -1830,7 +1701,7 @@ AndroidX.Core.Widget.ITintableCompoundDrawablesView
 Added method:
 
 ```csharp
-public static Scene GetCurrentScene (Android.Views.ViewGroup sceneRoot);
+public static Scene GetCurrentScene (Android.Views.ViewGroup);
 ```
 
 
@@ -1846,26 +1717,8 @@ Obsoleted constructors:
 Added constructor:
 
 ```csharp
-public TransitionValues (Android.Views.View view);
+public TransitionValues (Android.Views.View);
 ```
-
-
-
-### Namespace AndroidX.Legacy.App
-
-#### Type Changed: AndroidX.Legacy.App.ActionBarDrawerToggle
-
-#### Type Changed: AndroidX.Legacy.App.ActionBarDrawerToggle.IDelegate
-
-Modified methods:
-
-```diff
--public abstract void SetActionBarDescription (int contentDescRes)
-+public abstract void SetActionBarDescription (int p0)
--public abstract void SetActionBarUpIndicator (Android.Graphics.Drawables.Drawable upDrawable, int contentDescRes---p1---)
-+public abstract void SetActionBarUpIndicator (Android.Graphics.Drawables.Drawable p0, int +++contentDescRes+++p1)
-```
-
 
 
 
@@ -1876,7 +1729,7 @@ Modified methods:
 Added constructor:
 
 ```csharp
-public AccessibilityDelegateCompat (Android.Views.View.AccessibilityDelegate originalDelegate);
+public AccessibilityDelegateCompat (Android.Views.View.AccessibilityDelegate);
 ```
 
 
@@ -1899,38 +1752,31 @@ System.IDisposable
 Added method:
 
 ```csharp
-public virtual void DispatchNestedScroll (int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow, int type, int[] consumed);
+public virtual void DispatchNestedScroll (int, int, int, int, int[], int, int[]);
 ```
 
 
 #### Type Changed: AndroidX.Core.View.ViewCompat
 
-Modified methods:
-
-```diff
--public bool HasAccessibilityDelegate (Android.Views.View v)
-+public bool HasAccessibilityDelegate (Android.Views.View view)
-```
-
 Added methods:
 
 ```csharp
-public static int AddAccessibilityAction (Android.Views.View view, Java.Lang.ICharSequence label, Accessibiity.IAccessibilityViewCommand command);
-public static int AddAccessibilityAction (Android.Views.View view, string label, Accessibiity.IAccessibilityViewCommand command);
-public static void DispatchNestedScroll (Android.Views.View view, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow, int type, int[] consumed);
-public static void EnableAccessibleClickableSpanSupport (Android.Views.View view);
-public static AccessibilityDelegateCompat GetAccessibilityDelegate (Android.Views.View view);
-public static string GetAccessibilityPaneTitle (Android.Views.View view);
-public static Java.Lang.ICharSequence GetAccessibilityPaneTitleFormatted (Android.Views.View view);
-public static bool IsAccessibilityHeading (Android.Views.View view);
-public static bool IsScreenReaderFocusable (Android.Views.View view);
-public static void RemoveAccessibilityAction (Android.Views.View view, int actionId);
-public static void ReplaceAccessibilityAction (Android.Views.View view, Accessibiity.AccessibilityNodeInfoCompat.AccessibilityActionCompat replacedAction, Java.Lang.ICharSequence label, Accessibiity.IAccessibilityViewCommand command);
-public static void ReplaceAccessibilityAction (Android.Views.View view, Accessibiity.AccessibilityNodeInfoCompat.AccessibilityActionCompat replacedAction, string label, Accessibiity.IAccessibilityViewCommand command);
-public static void SetAccessibilityHeading (Android.Views.View view, bool isHeading);
-public static void SetAccessibilityPaneTitle (Android.Views.View view, Java.Lang.ICharSequence accessibilityPaneTitle);
-public static void SetAccessibilityPaneTitle (Android.Views.View view, string accessibilityPaneTitle);
-public static void SetScreenReaderFocusable (Android.Views.View view, bool screenReaderFocusable);
+public static int AddAccessibilityAction (Android.Views.View, Java.Lang.ICharSequence, Accessibiity.IAccessibilityViewCommand);
+public static int AddAccessibilityAction (Android.Views.View, string, Accessibiity.IAccessibilityViewCommand);
+public static void DispatchNestedScroll (Android.Views.View, int, int, int, int, int[], int, int[]);
+public static void EnableAccessibleClickableSpanSupport (Android.Views.View);
+public static AccessibilityDelegateCompat GetAccessibilityDelegate (Android.Views.View);
+public static string GetAccessibilityPaneTitle (Android.Views.View);
+public static Java.Lang.ICharSequence GetAccessibilityPaneTitleFormatted (Android.Views.View);
+public static bool IsAccessibilityHeading (Android.Views.View);
+public static bool IsScreenReaderFocusable (Android.Views.View);
+public static void RemoveAccessibilityAction (Android.Views.View, int);
+public static void ReplaceAccessibilityAction (Android.Views.View, Accessibiity.AccessibilityNodeInfoCompat.AccessibilityActionCompat, Java.Lang.ICharSequence, Accessibiity.IAccessibilityViewCommand);
+public static void ReplaceAccessibilityAction (Android.Views.View, Accessibiity.AccessibilityNodeInfoCompat.AccessibilityActionCompat, string, Accessibiity.IAccessibilityViewCommand);
+public static void SetAccessibilityHeading (Android.Views.View, bool);
+public static void SetAccessibilityPaneTitle (Android.Views.View, Java.Lang.ICharSequence);
+public static void SetAccessibilityPaneTitle (Android.Views.View, string);
+public static void SetScreenReaderFocusable (Android.Views.View, bool);
 ```
 
 #### New Type: AndroidX.Core.View.ViewCompat.AccessibilityPaneVisibilityManager
@@ -1938,14 +1784,14 @@ public static void SetScreenReaderFocusable (Android.Views.View view, bool scree
 ```csharp
 public class AccessibilityPaneVisibilityManager : Java.Lang.Object, Android.Runtime.IJavaObject, Android.Views.View.IOnAttachStateChangeListener, Android.Views.ViewTreeObserver.IOnGlobalLayoutListener, System.IDisposable {
 	// constructors
-	protected ViewCompat.AccessibilityPaneVisibilityManager (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ViewCompat.AccessibilityPaneVisibilityManager (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void OnGlobalLayout ();
-	public virtual void OnViewAttachedToWindow (Android.Views.View view);
-	public virtual void OnViewDetachedFromWindow (Android.Views.View view);
+	public virtual void OnViewAttachedToWindow (Android.Views.View);
+	public virtual void OnViewDetachedFromWindow (Android.Views.View);
 }
 ```
 
@@ -1954,10 +1800,10 @@ public class AccessibilityPaneVisibilityManager : Java.Lang.Object, Android.Runt
 ```csharp
 public abstract class AccessibilityViewProperty : Java.Lang.Object {
 	// constructors
-	protected ViewCompat.AccessibilityViewProperty (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ViewCompat.AccessibilityViewProperty (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -1967,7 +1813,7 @@ public abstract class AccessibilityViewProperty : Java.Lang.Object {
 Added method:
 
 ```csharp
-public static void OnNestedScroll (Android.Views.IViewParent parent, Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, int[] consumed);
+public static void OnNestedScroll (Android.Views.IViewParent, Android.Views.View, int, int, int, int, int, int[]);
 ```
 
 
@@ -1976,7 +1822,7 @@ public static void OnNestedScroll (Android.Views.IViewParent parent, Android.Vie
 ```csharp
 public interface INestedScrollingChild3 : Android.Runtime.IJavaObject, INestedScrollingChild, INestedScrollingChild2, System.IDisposable {
 	// methods
-	public virtual void DispatchNestedScroll (int p0, int p1, int p2, int p3, int[] p4, int p5, int[] p6);
+	public virtual void DispatchNestedScroll (int, int, int, int, int[], int, int[]);
 }
 ```
 
@@ -1985,7 +1831,7 @@ public interface INestedScrollingChild3 : Android.Runtime.IJavaObject, INestedSc
 ```csharp
 public interface INestedScrollingParent3 : Android.Runtime.IJavaObject, INestedScrollingParent, INestedScrollingParent2, System.IDisposable {
 	// methods
-	public virtual void OnNestedScroll (Android.Views.View p0, int p1, int p2, int p3, int p4, int p5, int[] p6);
+	public virtual void OnNestedScroll (Android.Views.View, int, int, int, int, int, int[]);
 }
 ```
 
@@ -1994,13 +1840,13 @@ public interface INestedScrollingParent3 : Android.Runtime.IJavaObject, INestedS
 ```csharp
 public sealed class OneShotPreDrawListener : Java.Lang.Object, Android.Runtime.IJavaObject, Android.Views.View.IOnAttachStateChangeListener, Android.Views.ViewTreeObserver.IOnPreDrawListener, System.IDisposable {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static OneShotPreDrawListener Add (Android.Views.View view, Java.Lang.IRunnable runnable);
+	public static OneShotPreDrawListener Add (Android.Views.View, Java.Lang.IRunnable);
 	public virtual bool OnPreDraw ();
-	public virtual void OnViewAttachedToWindow (Android.Views.View v);
-	public virtual void OnViewDetachedFromWindow (Android.Views.View v);
+	public virtual void OnViewAttachedToWindow (Android.Views.View);
+	public virtual void OnViewDetachedFromWindow (Android.Views.View);
 	public void RemoveListener ();
 }
 ```
@@ -2021,9 +1867,9 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static EditTextPreferenceDialogFragment NewInstance (string key);
+ public static EditTextPreferenceDialogFragment NewInstance (string);
  [Obsolete ("deprecated")]
- public override void OnDialogClosed (bool positiveResult);
+ public override void OnDialogClosed (bool);
 ```
 
 
@@ -2040,9 +1886,9 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static ListPreferenceDialogFragment NewInstance (string key);
+ public static ListPreferenceDialogFragment NewInstance (string);
  [Obsolete ("deprecated")]
- public override void OnDialogClosed (bool positiveResult);
+ public override void OnDialogClosed (bool);
 ```
 
 
@@ -2053,22 +1899,6 @@ Modified base type:
 ```diff
 -Android.Support.V7.Preference.Internal.AbstractMultiSelectListPreference
 +AndroidX.Preference.DialogPreference
-```
-
-Modified properties:
-
-```diff
--public override System.Collections.Generic.ICollection<string> Values { get; set; }
-+public virtual System.Collections.Generic.ICollection<string> Values { get; set; }
-```
-
-Modified methods:
-
-```diff
--public override Java.Lang.ICharSequence[] GetEntriesFormatted ()
-+public virtual Java.Lang.ICharSequence[] GetEntriesFormatted ()
--public override Java.Lang.ICharSequence[] GetEntryValuesFormatted ()
-+public virtual Java.Lang.ICharSequence[] GetEntryValuesFormatted ()
 ```
 
 
@@ -2085,9 +1915,9 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static MultiSelectListPreferenceDialogFragment NewInstance (string key);
+ public static MultiSelectListPreferenceDialogFragment NewInstance (string);
  [Obsolete ("deprecated")]
- public override void OnDialogClosed (bool positiveResult);
+ public override void OnDialogClosed (bool);
 ```
 
 
@@ -2111,20 +1941,20 @@ Obsoleted properties:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual DialogPreference Preference { get; }
+ public DialogPreference Preference { get; }
 ```
 
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- protected virtual void OnBindDialogView (Android.Views.View view);
+ protected virtual void OnBindDialogView (Android.Views.View);
  [Obsolete ("deprecated")]
- public virtual void OnClick (Android.Content.IDialogInterface dialog, int which);
+ public virtual void OnClick (Android.Content.IDialogInterface, int);
  [Obsolete ("deprecated")]
- protected virtual Android.Views.View OnCreateDialogView (Android.Content.Context context);
+ protected virtual Android.Views.View OnCreateDialogView (Android.Content.Context);
  [Obsolete ("deprecated")]
- protected virtual void OnPrepareDialogBuilder (Android.App.AlertDialog.Builder builder);
+ protected virtual void OnPrepareDialogBuilder (Android.App.AlertDialog.Builder);
 ```
 
 
@@ -2150,45 +1980,45 @@ Obsoleted properties:
  [Obsolete ("deprecated")]
  public AndroidX.RecyclerView.Widget.RecyclerView ListView { get; }
  [Obsolete ("deprecated")]
- public virtual PreferenceManager PreferenceManager { get; }
+ public PreferenceManager PreferenceManager { get; }
  [Obsolete ("deprecated")]
- public virtual PreferenceScreen PreferenceScreen { get; set; }
+ public PreferenceScreen PreferenceScreen { get; set; }
 ```
 
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void AddPreferencesFromResource (int preferencesResId);
+ public virtual void AddPreferencesFromResource (int);
  [Obsolete ("deprecated")]
- protected virtual AndroidX.RecyclerView.Widget.RecyclerView.Adapter OnCreateAdapter (PreferenceScreen preferenceScreen);
+ protected virtual AndroidX.RecyclerView.Widget.RecyclerView.Adapter OnCreateAdapter (PreferenceScreen);
  [Obsolete ("deprecated")]
  public virtual AndroidX.RecyclerView.Widget.RecyclerView.LayoutManager OnCreateLayoutManager ();
  [Obsolete ("deprecated")]
- public virtual AndroidX.RecyclerView.Widget.RecyclerView OnCreateRecyclerView (Android.Views.LayoutInflater inflater, Android.Views.ViewGroup parent, Android.OS.Bundle savedInstanceState);
+ public virtual AndroidX.RecyclerView.Widget.RecyclerView OnCreateRecyclerView (Android.Views.LayoutInflater, Android.Views.ViewGroup, Android.OS.Bundle);
  [Obsolete ("deprecated")]
- public virtual void OnDisplayPreferenceDialog (Preference preference);
+ public virtual void OnDisplayPreferenceDialog (Preference);
  [Obsolete ("deprecated")]
- public virtual void OnNavigateToScreen (PreferenceScreen preferenceScreen);
+ public virtual void OnNavigateToScreen (PreferenceScreen);
  [Obsolete ("deprecated")]
- public virtual bool OnPreferenceTreeClick (Preference preference);
+ public virtual bool OnPreferenceTreeClick (Preference);
  [Obsolete ("deprecated")]
- public virtual void ScrollToPreference (Preference preference);
+ public virtual void ScrollToPreference (Preference);
  [Obsolete ("deprecated")]
- public virtual void ScrollToPreference (string key);
+ public virtual void ScrollToPreference (string);
  [Obsolete ("deprecated")]
- public virtual void SetDivider (Android.Graphics.Drawables.Drawable divider);
+ public virtual void SetDivider (Android.Graphics.Drawables.Drawable);
  [Obsolete ("deprecated")]
- public virtual void SetDividerHeight (int height);
+ public virtual void SetDividerHeight (int);
  [Obsolete ("deprecated")]
- public virtual void SetPreferencesFromResource (int preferencesResId, string key);
+ public virtual void SetPreferencesFromResource (int, string);
 ```
 
 Added methods:
@@ -2196,10 +2026,10 @@ Added methods:
 ```csharp
 
 [Obsolete ("deprecated")]
-public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
+public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence);
 
 [Obsolete ("deprecated")]
-public Java.Lang.Object FindPreference (string key);
+public Java.Lang.Object FindPreference (string);
 ```
 
 
@@ -2222,13 +2052,13 @@ public static const int AndroidRSwitchWidget;
 Removed method:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
 ```
 
 Added method:
 
 ```csharp
-public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
+public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence);
 ```
 
 
@@ -2238,13 +2068,13 @@ public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
 Removed method:
 
 ```csharp
-public static Preference FindPreference (this DialogPreference.ITargetFragment self, string key);
+public static Preference FindPreference (this DialogPreference.ITargetFragment, string);
 ```
 
 Added method:
 
 ```csharp
-public static Java.Lang.Object FindPreference (this DialogPreference.ITargetFragment self, string key);
+public static Java.Lang.Object FindPreference (this DialogPreference.ITargetFragment, string);
 ```
 
 
@@ -2253,7 +2083,7 @@ public static Java.Lang.Object FindPreference (this DialogPreference.ITargetFrag
 Removed method:
 
 ```csharp
-public virtual int FindSpinnerIndexOfValue (string value);
+public virtual int FindSpinnerIndexOfValue (string);
 ```
 
 
@@ -2268,7 +2098,7 @@ public event System.EventHandler<EditTextPreference.BindEditTextEventArgs> BindE
 Added method:
 
 ```csharp
-public virtual void SetOnBindEditTextListener (EditTextPreference.IOnBindEditTextListener onBindEditTextListener);
+public virtual void SetOnBindEditTextListener (EditTextPreference.IOnBindEditTextListener);
 ```
 
 
@@ -2304,20 +2134,20 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Removed property:
 
 ```csharp
-public virtual Android.Content.ISharedPreferences SharedPreferences { get; }
+public Android.Content.ISharedPreferences SharedPreferences { get; }
 ```
 
 Added property:
 
 ```csharp
-public virtual bool CopyingEnabled { get; set; }
+public bool CopyingEnabled { get; set; }
 ```
 
 Removed methods:
 
 ```csharp
 public void ClearWasDetached ();
-protected virtual Preference FindPreferenceInHierarchy (string key);
+protected virtual Preference FindPreferenceInHierarchy (string);
 public bool WasDetached ();
 ```
 
@@ -2325,13 +2155,13 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void OnInitializeAccessibilityNodeInfo (AndroidX.Core.View.Accessibiity.AccessibilityNodeInfoCompat info);
+ public virtual void OnInitializeAccessibilityNodeInfo (AndroidX.Core.View.Accessibiity.AccessibilityNodeInfoCompat);
 ```
 
 Added method:
 
 ```csharp
-protected virtual Java.Lang.Object FindPreferenceInHierarchy (string key);
+protected virtual Java.Lang.Object FindPreferenceInHierarchy (string);
 ```
 
 
@@ -2362,15 +2192,15 @@ Modified fields:
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
-public Java.Lang.Object FindPreference (string key);
+public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence);
+public Java.Lang.Object FindPreference (string);
 ```
 
 
@@ -2379,17 +2209,17 @@ public Java.Lang.Object FindPreference (string key);
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
-public Java.Lang.Object FindPreference (string key);
-public virtual bool RemovePreferenceRecursively (Java.Lang.ICharSequence key);
-public bool RemovePreferenceRecursively (string key);
+public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence);
+public Java.Lang.Object FindPreference (string);
+public virtual bool RemovePreferenceRecursively (Java.Lang.ICharSequence);
+public bool RemovePreferenceRecursively (string);
 ```
 
 
@@ -2398,22 +2228,22 @@ public bool RemovePreferenceRecursively (string key);
 Removed property:
 
 ```csharp
-public virtual Android.Content.ISharedPreferences SharedPreferences { get; }
+public Android.Content.ISharedPreferences SharedPreferences { get; }
 ```
 
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
-public static Android.Content.ISharedPreferences GetDefaultSharedPreferences (Android.Content.Context context);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
+public static Android.Content.ISharedPreferences GetDefaultSharedPreferences (Android.Content.Context);
 ```
 
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence key);
-public Java.Lang.Object FindPreference (string key);
+public virtual Java.Lang.Object FindPreference (Java.Lang.ICharSequence);
+public Java.Lang.Object FindPreference (string);
 ```
 
 
@@ -2422,8 +2252,8 @@ public Java.Lang.Object FindPreference (string key);
 Added properties:
 
 ```csharp
-public virtual bool ShowSeekBarValue { get; set; }
-public virtual bool UpdatesContinuously { get; set; }
+public bool ShowSeekBarValue { get; set; }
+public bool UpdatesContinuously { get; set; }
 ```
 
 
@@ -2434,8 +2264,8 @@ public virtual bool UpdatesContinuously { get; set; }
 Removed constructors:
 
 ```csharp
-public TwoStatePreference.SavedState (Android.OS.IParcelable superState);
-public TwoStatePreference.SavedState (Android.OS.Parcel source);
+public TwoStatePreference.SavedState (Android.OS.IParcelable);
+public TwoStatePreference.SavedState (Android.OS.Parcel);
 ```
 
 
@@ -2511,15 +2341,15 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 Added methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 
@@ -2543,15 +2373,15 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 Added methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<AndroidX.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 #### Type Changed: AndroidX.Leanback.App.GuidedStepSupportFragment.DummyFragment
@@ -2676,13 +2506,13 @@ Modified properties:
 Removed method:
 
 ```csharp
-public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> subActions);
+public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>);
 ```
 
 Added method:
 
 ```csharp
-public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<GuidedAction> subActions);
+public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<GuidedAction>);
 ```
 
 
@@ -2692,13 +2522,13 @@ public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Gui
 Removed constructor:
 
 ```csharp
-public GuidedActionAdapter (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, GuidedActionAdapter.IClickListener clickListener, GuidedActionAdapter.IFocusListener focusListener, GuidedActionsStylist presenter, bool isSubAdapter);
+public GuidedActionAdapter (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, GuidedActionAdapter.IClickListener, GuidedActionAdapter.IFocusListener, GuidedActionsStylist, bool);
 ```
 
 Added constructor:
 
 ```csharp
-public GuidedActionAdapter (System.Collections.Generic.IList<GuidedAction> actions, GuidedActionAdapter.IClickListener clickListener, GuidedActionAdapter.IFocusListener focusListener, GuidedActionsStylist presenter, bool isSubAdapter);
+public GuidedActionAdapter (System.Collections.Generic.IList<GuidedAction>, GuidedActionAdapter.IClickListener, GuidedActionAdapter.IFocusListener, GuidedActionsStylist, bool);
 ```
 
 Modified properties:
@@ -2714,8 +2544,8 @@ Modified properties:
 Added methods:
 
 ```csharp
-public void OnBindViewHolder (Java.Lang.Object holder, int position);
-public virtual Java.Lang.Object OnCreateViewHolder (Android.Views.ViewGroup parent, int viewType);
+public void OnBindViewHolder (Java.Lang.Object, int);
+public virtual Java.Lang.Object OnCreateViewHolder (Android.Views.ViewGroup, int);
 ```
 
 
@@ -2777,30 +2607,14 @@ AndroidX.Core.View.INestedScrollingChild3
 Removed method:
 
 ```csharp
-public virtual void SetColumns (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Picker.PickerColumn> columns);
+public virtual void SetColumns (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Picker.PickerColumn>);
 ```
 
 Added method:
 
 ```csharp
-public virtual void SetColumns (System.Collections.Generic.IList<PickerColumn> columns);
+public virtual void SetColumns (System.Collections.Generic.IList<PickerColumn>);
 ```
-
-
-
-### Namespace AndroidX.Leanback.Preference
-
-#### Type Changed: AndroidX.Leanback.Preference.LeanbackListPreferenceDialogFragment
-
-#### Type Changed: AndroidX.Leanback.Preference.LeanbackListPreferenceDialogFragment.AdapterMulti
-
-Modified methods:
-
-```diff
--public override void OnBindViewHolder (AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder p0, int p1---position---)
-+public override void OnBindViewHolder (AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder holder, int +++p1+++position)
-```
-
 
 
 
@@ -2811,7 +2625,7 @@ Modified methods:
 Added method:
 
 ```csharp
-public static void Recreate (Android.App.Activity activity);
+public static void Recreate (Android.App.Activity);
 ```
 
 
@@ -2827,20 +2641,6 @@ JobIntentService.IGenericWorkItem
 System.IDisposable
 ```
 
-Modified properties:
-
-```diff
--public virtual Android.Content.Intent Intent { get; }
-+public final Android.Content.Intent Intent { get; }
-```
-
-Modified methods:
-
-```diff
--public virtual void Complete ()
-+public final void Complete ()
-```
-
 
 #### Type Changed: AndroidX.Core.App.JobIntentService.JobServiceEngineImpl.JobServiceEngineImpl
 
@@ -2852,15 +2652,6 @@ JobIntentService.ICompatJobEngine
 System.IDisposable
 ```
 
-Modified methods:
-
-```diff
--public virtual Android.OS.IBinder CompatGetBinder ()
-+public final Android.OS.IBinder CompatGetBinder ()
--public virtual JobIntentService.IGenericWorkItem DequeueWork ()
-+public final JobIntentService.IGenericWorkItem DequeueWork ()
-```
-
 #### Type Changed: AndroidX.Core.App.JobIntentService.JobServiceEngineImpl.WrapperWorkItem
 
 Removed interfaces:
@@ -2869,20 +2660,6 @@ Removed interfaces:
 Android.Runtime.IJavaObject
 JobIntentService.IGenericWorkItem
 System.IDisposable
-```
-
-Modified properties:
-
-```diff
--public virtual Android.Content.Intent Intent { get; }
-+public final Android.Content.Intent Intent { get; }
-```
-
-Modified methods:
-
-```diff
--public virtual void Complete ()
-+public final void Complete ()
 ```
 
 
@@ -2899,13 +2676,13 @@ public static const string CategoryNavigation = "navigation";
 Removed method:
 
 ```csharp
-public static System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> GetInvisibleActions (Android.App.Notification notification);
+public static System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> GetInvisibleActions (Android.App.Notification);
 ```
 
 Added method:
 
 ```csharp
-public static System.Collections.Generic.IList<NotificationCompat.Action> GetInvisibleActions (Android.App.Notification notification);
+public static System.Collections.Generic.IList<NotificationCompat.Action> GetInvisibleActions (Android.App.Notification);
 ```
 
 #### Type Changed: AndroidX.Core.App.NotificationCompat.MessagingStyle.MessagingStyle
@@ -2964,30 +2741,30 @@ Obsoleted properties:
 Removed method:
 
 ```csharp
-public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> actions);
+public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action>);
 ```
 
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public NotificationCompat.WearableExtender AddPage (Android.App.Notification page);
+ public NotificationCompat.WearableExtender AddPage (Android.App.Notification);
  [Obsolete ("deprecated")]
- public NotificationCompat.WearableExtender AddPages (System.Collections.Generic.IList<Android.App.Notification> pages);
+ public NotificationCompat.WearableExtender AddPages (System.Collections.Generic.IList<Android.App.Notification>);
  [Obsolete ("deprecated")]
  public NotificationCompat.WearableExtender ClearPages ();
  [Obsolete ("deprecated")]
- public NotificationCompat.WearableExtender SetBackground (Android.Graphics.Bitmap background);
+ public NotificationCompat.WearableExtender SetBackground (Android.Graphics.Bitmap);
  [Obsolete ("deprecated")]
- public NotificationCompat.WearableExtender SetDisplayIntent (Android.App.PendingIntent intent);
+ public NotificationCompat.WearableExtender SetDisplayIntent (Android.App.PendingIntent);
  [Obsolete ("deprecated")]
- public NotificationCompat.WearableExtender SetHintAmbientBigPicture (bool hintAmbientBigPicture);
+ public NotificationCompat.WearableExtender SetHintAmbientBigPicture (bool);
 ```
 
 Added method:
 
 ```csharp
-public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<NotificationCompat.Action> actions);
+public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<NotificationCompat.Action>);
 ```
 
 
@@ -3004,14 +2781,14 @@ public System.Collections.Generic.IList<Android.App.NotificationChannel> Notific
 Added methods:
 
 ```csharp
-public void CreateNotificationChannel (Android.App.NotificationChannel channel);
-public void CreateNotificationChannelGroup (Android.App.NotificationChannelGroup group);
-public void CreateNotificationChannelGroups (System.Collections.Generic.IList<Android.App.NotificationChannelGroup> groups);
-public void CreateNotificationChannels (System.Collections.Generic.IList<Android.App.NotificationChannel> channels);
-public void DeleteNotificationChannel (string channelId);
-public void DeleteNotificationChannelGroup (string groupId);
-public Android.App.NotificationChannel GetNotificationChannel (string channelId);
-public Android.App.NotificationChannelGroup GetNotificationChannelGroup (string channelGroupId);
+public void CreateNotificationChannel (Android.App.NotificationChannel);
+public void CreateNotificationChannelGroup (Android.App.NotificationChannelGroup);
+public void CreateNotificationChannelGroups (System.Collections.Generic.IList<Android.App.NotificationChannelGroup>);
+public void CreateNotificationChannels (System.Collections.Generic.IList<Android.App.NotificationChannel>);
+public void DeleteNotificationChannel (string);
+public void DeleteNotificationChannelGroup (string);
+public Android.App.NotificationChannel GetNotificationChannel (string);
+public Android.App.NotificationChannelGroup GetNotificationChannelGroup (string);
 ```
 
 
@@ -3020,7 +2797,7 @@ public Android.App.NotificationChannelGroup GetNotificationChannelGroup (string 
 Added methods:
 
 ```csharp
-public static Person FromPersistableBundle (Android.OS.PersistableBundle bundle);
+public static Person FromPersistableBundle (Android.OS.PersistableBundle);
 public virtual Android.OS.PersistableBundle ToPersistableBundle ();
 ```
 
@@ -3037,8 +2814,8 @@ public static const int SourceFreeFormInput;
 Added methods:
 
 ```csharp
-public static int GetResultsSource (Android.Content.Intent intent);
-public static void SetResultsSource (Android.Content.Intent intent, int source);
+public static int GetResultsSource (Android.Content.Intent);
+public static void SetResultsSource (Android.Content.Intent, int);
 ```
 
 #### New Type: AndroidX.Core.App.RemoteInput.ISource
@@ -3075,24 +2852,24 @@ public static const string ExtraCallingPackageInterop = "android.support.v4.app.
 public class ComponentActivity : Android.App.Activity, Android.Runtime.IJavaObject, AndroidX.Core.View.KeyEventDispatcher.IComponent, AndroidX.Lifecycle.ILifecycleOwner, System.IDisposable {
 	// constructors
 	public ComponentActivity ();
-	protected ComponentActivity (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ComponentActivity (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Java.Lang.Object GetExtraData (Java.Lang.Class extraDataClass);
-	public virtual void PutExtraData (ComponentActivity.ExtraData extraData);
-	public virtual bool SuperDispatchKeyEvent (Android.Views.KeyEvent e);
+	public virtual Java.Lang.Object GetExtraData (Java.Lang.Class);
+	public virtual void PutExtraData (ComponentActivity.ExtraData);
+	public virtual bool SuperDispatchKeyEvent (Android.Views.KeyEvent);
 
 	// inner types
 	public class ExtraData : Java.Lang.Object {
 		// constructors
 		public ComponentActivity.ExtraData ();
-		protected ComponentActivity.ExtraData (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected ComponentActivity.ExtraData (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -3102,12 +2879,12 @@ public class ComponentActivity : Android.App.Activity, Android.Runtime.IJavaObje
 ```csharp
 public class DialogCompat : Java.Lang.Object {
 	// constructors
-	protected DialogCompat (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DialogCompat (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Android.Views.View RequireViewById (Android.App.Dialog dialog, int id);
+	public static Android.Views.View RequireViewById (Android.App.Dialog, int);
 }
 ```
 
@@ -3117,9 +2894,9 @@ public class DialogCompat : Java.Lang.Object {
 public sealed class RemoteActionCompat : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
 	public RemoteActionCompat ();
-	public RemoteActionCompat (RemoteActionCompat other);
-	public RemoteActionCompat (AndroidX.Core.Graphics.Drawable.IconCompat icon, Java.Lang.ICharSequence title, Java.Lang.ICharSequence contentDescription, Android.App.PendingIntent intent);
-	public RemoteActionCompat (AndroidX.Core.Graphics.Drawable.IconCompat icon, string title, string contentDescription, Android.App.PendingIntent intent);
+	public RemoteActionCompat (RemoteActionCompat);
+	public RemoteActionCompat (AndroidX.Core.Graphics.Drawable.IconCompat, Java.Lang.ICharSequence, Java.Lang.ICharSequence, Android.App.PendingIntent);
+	public RemoteActionCompat (AndroidX.Core.Graphics.Drawable.IconCompat, string, string, Android.App.PendingIntent);
 	// properties
 	public Android.App.PendingIntent ActionIntent { get; }
 	public string ContentDescription { get; }
@@ -3132,13 +2909,13 @@ public sealed class RemoteActionCompat : Java.Lang.Object, Android.Runtime.IJava
 	public AndroidX.Core.Graphics.Drawable.IconCompat MIcon { get; set; }
 	public bool MShouldShowIcon { get; set; }
 	public Java.Lang.ICharSequence MTitle { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public string Title { get; }
 	public Java.Lang.ICharSequence TitleFormatted { get; }
 	// methods
-	public static RemoteActionCompat CreateFromRemoteAction (Android.App.RemoteAction remoteAction);
-	public void SetShouldShowIcon (bool shouldShowIcon);
+	public static RemoteActionCompat CreateFromRemoteAction (Android.App.RemoteAction);
+	public void SetShouldShowIcon (bool);
 	public bool ShouldShowIcon ();
 	public Android.App.RemoteAction ToRemoteAction ();
 }
@@ -3150,13 +2927,13 @@ public sealed class RemoteActionCompat : Java.Lang.Object, Android.Runtime.IJava
 public class RemoteActionCompatParcelizer : Java.Lang.Object {
 	// constructors
 	public RemoteActionCompatParcelizer ();
-	protected RemoteActionCompatParcelizer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected RemoteActionCompatParcelizer (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static RemoteActionCompat Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (RemoteActionCompat obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static RemoteActionCompat Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (RemoteActionCompat, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -3183,7 +2960,7 @@ public Android.App.Dialog RequireDialog ();
 Added constructor:
 
 ```csharp
-public Fragment (int contentLayoutId);
+public Fragment (int);
 ```
 
 Added interface:
@@ -3196,29 +2973,29 @@ Obsoleted properties:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual bool UserVisibleHint { get; set; }
+ public bool UserVisibleHint { get; set; }
 ```
 
 Added property:
 
 ```csharp
-public virtual AndroidX.SavedState.SavedStateRegistry SavedStateRegistry { get; }
+public AndroidX.SavedState.SavedStateRegistry SavedStateRegistry { get; }
 ```
 
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static Fragment Instantiate (Android.Content.Context context, string fname);
+ public static Fragment Instantiate (Android.Content.Context, string);
  [Obsolete ("deprecated")]
- public static Fragment Instantiate (Android.Content.Context context, string fname, Android.OS.Bundle args);
+ public static Fragment Instantiate (Android.Content.Context, string, Android.OS.Bundle);
 ```
 
 Added methods:
 
 ```csharp
-public virtual void OnPrimaryNavigationFragmentChanged (bool isPrimaryNavigationFragment);
-public void PostponeEnterTransition (long duration, Java.Util.Concurrent.TimeUnit timeUnit);
+public virtual void OnPrimaryNavigationFragmentChanged (bool);
+public void PostponeEnterTransition (long, Java.Util.Concurrent.TimeUnit);
 public Android.OS.Bundle RequireArguments ();
 public Fragment RequireParentFragment ();
 public Android.Views.View RequireView ();
@@ -3237,7 +3014,7 @@ Modified base type:
 Added constructor:
 
 ```csharp
-public FragmentActivity (int contentLayoutId);
+public FragmentActivity (int);
 ```
 
 Added interfaces:
@@ -3251,15 +3028,8 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Removed properties:
 
 ```csharp
-public virtual Java.Lang.Object LastCustomNonConfigurationInstance { get; }
-public virtual AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
-```
-
-Modified properties:
-
-```diff
--public virtual AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
-+public override AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
+public Java.Lang.Object LastCustomNonConfigurationInstance { get; }
+public AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
 ```
 
 Removed methods:
@@ -3273,7 +3043,7 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- protected virtual bool OnPrepareOptionsPanel (Android.Views.View view, Android.Views.IMenu menu);
+ protected virtual bool OnPrepareOptionsPanel (Android.Views.View, Android.Views.IMenu);
 ```
 
 #### Type Changed: AndroidX.Fragment.App.FragmentActivity.HostCallbacks
@@ -3291,9 +3061,9 @@ System.IDisposable
 Added properties:
 
 ```csharp
-public virtual AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
-public virtual AndroidX.Activity.OnBackPressedDispatcher OnBackPressedDispatcher { get; }
-public virtual AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
+public AndroidX.Lifecycle.Lifecycle Lifecycle { get; }
+public AndroidX.Activity.OnBackPressedDispatcher OnBackPressedDispatcher { get; }
+public AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
 ```
 
 
@@ -3305,7 +3075,7 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual Fragment Instantiate (Android.Content.Context context, string className, Android.OS.Bundle arguments);
+ public virtual Fragment Instantiate (Android.Content.Context, string, Android.OS.Bundle);
 ```
 
 
@@ -3314,10 +3084,10 @@ Obsoleted methods:
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> GetActiveFragments (System.Collections.Generic.IList<Android.Support.V4.App.Fragment> actives);
+public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> GetActiveFragments (System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
 
 [Obsolete ("deprecated")]
-public virtual void RestoreAllState (Android.OS.IParcelable state, System.Collections.Generic.IList<Android.Support.V4.App.Fragment> nonConfigList);
+public virtual void RestoreAllState (Android.OS.IParcelable, System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
 
 [Obsolete ("deprecated")]
 public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> RetainNonConfig ();
@@ -3327,7 +3097,7 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void RestoreAllState (Android.OS.IParcelable state, FragmentManagerNonConfig nonConfig);
+ public virtual void RestoreAllState (Android.OS.IParcelable, FragmentManagerNonConfig);
  [Obsolete ("deprecated")]
  public virtual FragmentManagerNonConfig RetainNestedNonConfig ();
 ```
@@ -3335,11 +3105,11 @@ Obsoleted methods:
 Added methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Fragment> GetActiveFragments (System.Collections.Generic.IList<Fragment> actives);
+public virtual System.Collections.Generic.IList<Fragment> GetActiveFragments (System.Collections.Generic.IList<Fragment>);
 
 [Obsolete ("deprecated")]
-public virtual void RestoreAllState (Android.OS.IParcelable state, System.Collections.Generic.IList<Fragment> nonConfigList);
-public virtual void RestoreSaveState (Android.OS.IParcelable state);
+public virtual void RestoreAllState (Android.OS.IParcelable, System.Collections.Generic.IList<Fragment>);
+public virtual void RestoreSaveState (Android.OS.IParcelable);
 
 [Obsolete ("deprecated")]
 public virtual System.Collections.Generic.IList<Fragment> RetainNonConfig ();
@@ -3358,7 +3128,7 @@ Modified properties:
 Added property:
 
 ```csharp
-public virtual FragmentFactory FragmentFactory { get; set; }
+public FragmentFactory FragmentFactory { get; set; }
 ```
 
 
@@ -3368,13 +3138,13 @@ Obsoleted constructors:
 
 ```diff
  [Obsolete ("deprecated")]
- public FragmentPagerAdapter (FragmentManager fm);
+ public FragmentPagerAdapter (FragmentManager);
 ```
 
 Added constructor:
 
 ```csharp
-public FragmentPagerAdapter (FragmentManager fm, int behavior);
+public FragmentPagerAdapter (FragmentManager, int);
 ```
 
 Added fields:
@@ -3393,13 +3163,13 @@ Obsoleted constructors:
 
 ```diff
  [Obsolete ("deprecated")]
- public FragmentStatePagerAdapter (FragmentManager fm);
+ public FragmentStatePagerAdapter (FragmentManager);
 ```
 
 Added constructor:
 
 ```csharp
-public FragmentStatePagerAdapter (FragmentManager fm, int behavior);
+public FragmentStatePagerAdapter (FragmentManager, int);
 ```
 
 Added fields:
@@ -3418,102 +3188,38 @@ Obsoleted constructors:
 
 ```diff
  [Obsolete ("deprecated")]
- public FragmentTabHost (Android.Content.Context context);
+ public FragmentTabHost (Android.Content.Context);
  [Obsolete ("deprecated")]
- public FragmentTabHost (Android.Content.Context context, Android.Util.IAttributeSet attrs);
+ public FragmentTabHost (Android.Content.Context, Android.Util.IAttributeSet);
 ```
 
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void AddTab (Android.Widget.TabHost.TabSpec tabSpec, Java.Lang.Class clss, Android.OS.Bundle args);
+ public virtual void AddTab (Android.Widget.TabHost.TabSpec, Java.Lang.Class, Android.OS.Bundle);
  [Obsolete ("deprecated")]
- public virtual void OnTabChanged (string tabId);
+ public virtual void OnTabChanged (string);
  [Obsolete ("deprecated")]
- public virtual void Setup (Android.Content.Context context, FragmentManager manager);
+ public virtual void Setup (Android.Content.Context, FragmentManager);
  [Obsolete ("deprecated")]
- public virtual void Setup (Android.Content.Context context, FragmentManager manager, int containerId);
+ public virtual void Setup (Android.Content.Context, FragmentManager, int);
 ```
 
 
 #### Type Changed: AndroidX.Fragment.App.FragmentTransaction
 
-Modified properties:
-
-```diff
--public abstract bool IsAddToBackStackAllowed { get; }
-+public virtual bool IsAddToBackStackAllowed { get; }
--public abstract bool IsEmpty { get; }
-+public virtual bool IsEmpty { get; }
-```
-
-Modified methods:
-
-```diff
--public abstract FragmentTransaction Add (Fragment fragment, string tag)
-+public virtual FragmentTransaction Add (Fragment fragment, string tag)
--public abstract FragmentTransaction Add (int containerViewId, Fragment fragment)
-+public virtual FragmentTransaction Add (int containerViewId, Fragment fragment)
--public abstract FragmentTransaction Add (int containerViewId, Fragment fragment, string tag)
-+public virtual FragmentTransaction Add (int containerViewId, Fragment fragment, string tag)
--public abstract FragmentTransaction AddSharedElement (Android.Views.View sharedElement, string name)
-+public virtual FragmentTransaction AddSharedElement (Android.Views.View sharedElement, string name)
--public abstract FragmentTransaction AddToBackStack (string name)
-+public virtual FragmentTransaction AddToBackStack (string name)
--public abstract FragmentTransaction Attach (Fragment fragment)
-+public virtual FragmentTransaction Attach (Fragment fragment)
--public abstract FragmentTransaction Detach (Fragment fragment)
-+public virtual FragmentTransaction Detach (Fragment fragment)
--public abstract FragmentTransaction DisallowAddToBackStack ()
-+public virtual FragmentTransaction DisallowAddToBackStack ()
--public abstract FragmentTransaction Hide (Fragment fragment)
-+public virtual FragmentTransaction Hide (Fragment fragment)
--public abstract FragmentTransaction Remove (Fragment fragment)
-+public virtual FragmentTransaction Remove (Fragment fragment)
--public abstract FragmentTransaction Replace (int containerViewId, Fragment fragment)
-+public virtual FragmentTransaction Replace (int containerViewId, Fragment fragment)
--public abstract FragmentTransaction Replace (int containerViewId, Fragment fragment, string tag)
-+public virtual FragmentTransaction Replace (int containerViewId, Fragment fragment, string tag)
--public abstract FragmentTransaction RunOnCommit (Java.Lang.IRunnable runnable)
-+public virtual FragmentTransaction RunOnCommit (Java.Lang.IRunnable runnable)
--public abstract FragmentTransaction SetAllowOptimization (bool allowOptimization)
-+public virtual FragmentTransaction SetAllowOptimization (bool allowOptimization)
--public abstract FragmentTransaction SetBreadCrumbShortTitle (Java.Lang.ICharSequence text)
-+public virtual FragmentTransaction SetBreadCrumbShortTitle (Java.Lang.ICharSequence text)
--public abstract FragmentTransaction SetBreadCrumbShortTitle (int res)
-+public virtual FragmentTransaction SetBreadCrumbShortTitle (int res)
--public abstract FragmentTransaction SetBreadCrumbTitle (Java.Lang.ICharSequence text)
-+public virtual FragmentTransaction SetBreadCrumbTitle (Java.Lang.ICharSequence text)
--public abstract FragmentTransaction SetBreadCrumbTitle (int res)
-+public virtual FragmentTransaction SetBreadCrumbTitle (int res)
--public abstract FragmentTransaction SetCustomAnimations (int enter, int exit)
-+public virtual FragmentTransaction SetCustomAnimations (int enter, int exit)
--public abstract FragmentTransaction SetCustomAnimations (int enter, int exit, int popEnter, int popExit)
-+public virtual FragmentTransaction SetCustomAnimations (int enter, int exit, int popEnter, int popExit)
--public abstract FragmentTransaction SetPrimaryNavigationFragment (Fragment fragment)
-+public virtual FragmentTransaction SetPrimaryNavigationFragment (Fragment fragment)
--public abstract FragmentTransaction SetReorderingAllowed (bool reorderingAllowed)
-+public virtual FragmentTransaction SetReorderingAllowed (bool reorderingAllowed)
--public abstract FragmentTransaction SetTransition (int transit)
-+public virtual FragmentTransaction SetTransition (int transit)
--public abstract FragmentTransaction SetTransitionStyle (int styleRes)
-+public virtual FragmentTransaction SetTransitionStyle (int styleRes)
--public abstract FragmentTransaction Show (Fragment fragment)
-+public virtual FragmentTransaction Show (Fragment fragment)
-```
-
 Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual FragmentTransaction SetAllowOptimization (bool allowOptimization);
+ public virtual FragmentTransaction SetAllowOptimization (bool);
 ```
 
 Added method:
 
 ```csharp
-public virtual FragmentTransaction SetMaxLifecycle (Fragment fragment, AndroidX.Lifecycle.Lifecycle.State state);
+public virtual FragmentTransaction SetMaxLifecycle (Fragment, AndroidX.Lifecycle.Lifecycle.State);
 ```
 
 
@@ -3538,13 +3244,13 @@ public Android.Widget.IListAdapter RequireListAdapter ();
 public class FragmentFactory : Java.Lang.Object {
 	// constructors
 	public FragmentFactory ();
-	protected FragmentFactory (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FragmentFactory (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Fragment Instantiate (Java.Lang.ClassLoader classLoader, string className);
-	public static Java.Lang.Class LoadFragmentClass (Java.Lang.ClassLoader classLoader, string className);
+	public virtual Fragment Instantiate (Java.Lang.ClassLoader, string);
+	public static Java.Lang.Class LoadFragmentClass (Java.Lang.ClassLoader, string);
 }
 ```
 
@@ -3558,48 +3264,13 @@ public sealed class RemoteActionCompatParcelizer : AndroidX.Core.App.RemoteActio
 	// constructors
 	public RemoteActionCompatParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static AndroidX.Core.App.RemoteActionCompat Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (AndroidX.Core.App.RemoteActionCompat obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static AndroidX.Core.App.RemoteActionCompat Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (AndroidX.Core.App.RemoteActionCompat, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
-
-
-### Namespace AndroidX.Loader.App
-
-#### Type Changed: AndroidX.Loader.App.LoaderManager
-
-Modified methods:
-
-```diff
--public abstract void DestroyLoader (int id)
-+public abstract void DestroyLoader (int p0)
--public abstract void Dump (string prefix, Java.IO.FileDescriptor fd---p1---, Java.IO.PrintWriter writer---p2---, string[] args---p3---)
-+public abstract void Dump (string p0, Java.IO.FileDescriptor +++fd+++p1, Java.IO.PrintWriter +++writer+++p2, string[] +++args+++p3)
--public abstract AndroidX.Loader.Content.Loader GetLoader (int id)
-+public abstract AndroidX.Loader.Content.Loader GetLoader (int p0)
--public abstract AndroidX.Loader.Content.Loader InitLoader (int id, Android.OS.Bundle args---p1---, LoaderManager.ILoaderCallbacks callback---p2---)
-+public abstract AndroidX.Loader.Content.Loader InitLoader (int p0, Android.OS.Bundle +++args+++p1, LoaderManager.ILoaderCallbacks +++callback+++p2)
--public abstract AndroidX.Loader.Content.Loader RestartLoader (int id, Android.OS.Bundle args---p1---, LoaderManager.ILoaderCallbacks callback---p2---)
-+public abstract AndroidX.Loader.Content.Loader RestartLoader (int p0, Android.OS.Bundle +++args+++p1, LoaderManager.ILoaderCallbacks +++callback+++p2)
-```
-
-#### Type Changed: AndroidX.Loader.App.LoaderManager.ILoaderCallbacks
-
-Modified methods:
-
-```diff
--public abstract AndroidX.Loader.Content.Loader OnCreateLoader (int id, Android.OS.Bundle args---p1---)
-+public abstract AndroidX.Loader.Content.Loader OnCreateLoader (int p0, Android.OS.Bundle +++args+++p1)
--public abstract void OnLoadFinished (AndroidX.Loader.Content.Loader loader, Java.Lang.Object data---p1---)
-+public abstract void OnLoadFinished (AndroidX.Loader.Content.Loader p0, Java.Lang.Object +++data+++p1)
--public abstract void OnLoaderReset (AndroidX.Loader.Content.Loader loader)
-+public abstract void OnLoaderReset (AndroidX.Loader.Content.Loader p0)
-```
-
-
 
 
 ### Namespace AndroidX.Loader.Content
@@ -3609,7 +3280,7 @@ Modified methods:
 Added property:
 
 ```csharp
-protected virtual Java.Util.Concurrent.IExecutor Executor { get; }
+protected Java.Util.Concurrent.IExecutor Executor { get; }
 ```
 
 Removed method:
@@ -3627,7 +3298,7 @@ public virtual void WaitForLoader ();
 Added method:
 
 ```csharp
-public static Java.Util.Concurrent.IExecutor GetMainExecutor (Android.Content.Context context);
+public static Java.Util.Concurrent.IExecutor GetMainExecutor (Android.Content.Context);
 ```
 
 
@@ -3653,7 +3324,7 @@ Removed method:
 
 ```csharp
 [Obsolete ("deprecated")]
-public void Apply (Android.Content.ISharedPreferencesEditor editor);
+public void Apply (Android.Content.ISharedPreferencesEditor);
 ```
 
 
@@ -3666,8 +3337,8 @@ public void Apply (Android.Content.ISharedPreferencesEditor editor);
 Added properties:
 
 ```csharp
-public virtual System.Collections.Generic.ICollection<string> Categories { get; }
-public virtual AndroidX.Core.Graphics.Drawable.IconCompat Icon { get; }
+public System.Collections.Generic.ICollection<string> Categories { get; }
+public AndroidX.Core.Graphics.Drawable.IconCompat Icon { get; }
 ```
 
 #### Type Changed: AndroidX.Core.Content.PM.ShortcutInfoCompat.Builder
@@ -3675,17 +3346,17 @@ public virtual AndroidX.Core.Graphics.Drawable.IconCompat Icon { get; }
 Added constructors:
 
 ```csharp
-public ShortcutInfoCompat.Builder (ShortcutInfoCompat shortcutInfo);
-public ShortcutInfoCompat.Builder (Android.Content.Context context, Android.Content.PM.ShortcutInfo shortcutInfo);
+public ShortcutInfoCompat.Builder (ShortcutInfoCompat);
+public ShortcutInfoCompat.Builder (Android.Content.Context, Android.Content.PM.ShortcutInfo);
 ```
 
 Added methods:
 
 ```csharp
-public virtual ShortcutInfoCompat.Builder SetCategories (System.Collections.Generic.ICollection<string> categories);
+public virtual ShortcutInfoCompat.Builder SetCategories (System.Collections.Generic.ICollection<string>);
 public virtual ShortcutInfoCompat.Builder SetLongLived ();
-public virtual ShortcutInfoCompat.Builder SetPerson (AndroidX.Core.App.Person person);
-public virtual ShortcutInfoCompat.Builder SetPersons (AndroidX.Core.App.Person[] persons);
+public virtual ShortcutInfoCompat.Builder SetPerson (AndroidX.Core.App.Person);
+public virtual ShortcutInfoCompat.Builder SetPersons (AndroidX.Core.App.Person[]);
 ```
 
 
@@ -3701,12 +3372,12 @@ public static const string ExtraShortcutId = "android.intent.extra.shortcut.ID";
 Added methods:
 
 ```csharp
-public static bool AddDynamicShortcuts (Android.Content.Context context, System.Collections.Generic.IList<ShortcutInfoCompat> shortcutInfoList);
-public static System.Collections.Generic.IList<ShortcutInfoCompat> GetDynamicShortcuts (Android.Content.Context context);
-public static int GetMaxShortcutCountPerActivity (Android.Content.Context context);
-public static void RemoveAllDynamicShortcuts (Android.Content.Context context);
-public virtual void RemoveDynamicShortcuts (Android.Content.Context context, System.Collections.Generic.IList<string> shortcutIds);
-public static bool UpdateShortcuts (Android.Content.Context context, System.Collections.Generic.IList<ShortcutInfoCompat> shortcutInfoList);
+public static bool AddDynamicShortcuts (Android.Content.Context, System.Collections.Generic.IList<ShortcutInfoCompat>);
+public static System.Collections.Generic.IList<ShortcutInfoCompat> GetDynamicShortcuts (Android.Content.Context);
+public static int GetMaxShortcutCountPerActivity (Android.Content.Context);
+public static void RemoveAllDynamicShortcuts (Android.Content.Context);
+public virtual void RemoveDynamicShortcuts (Android.Content.Context, System.Collections.Generic.IList<string>);
+public static bool UpdateShortcuts (Android.Content.Context, System.Collections.Generic.IList<ShortcutInfoCompat>);
 ```
 
 
@@ -3716,28 +3387,28 @@ public static bool UpdateShortcuts (Android.Content.Context context, System.Coll
 public abstract class ShortcutInfoCompatSaver : Java.Lang.Object {
 	// constructors
 	public ShortcutInfoCompatSaver ();
-	protected ShortcutInfoCompatSaver (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ShortcutInfoCompatSaver (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual System.Collections.Generic.IList<ShortcutInfoCompat> Shortcuts { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public System.Collections.Generic.IList<ShortcutInfoCompat> Shortcuts { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Java.Lang.Object AddShortcuts (System.Collections.Generic.IList<ShortcutInfoCompat> p0);
+	public virtual Java.Lang.Object AddShortcuts (System.Collections.Generic.IList<ShortcutInfoCompat>);
 	public virtual Java.Lang.Object RemoveAllShortcuts ();
-	public virtual Java.Lang.Object RemoveShortcuts (System.Collections.Generic.IList<string> p0);
+	public virtual Java.Lang.Object RemoveShortcuts (System.Collections.Generic.IList<string>);
 
 	// inner types
 	public class NoopImpl : AndroidX.Core.Content.PM.ShortcutInfoCompatSaver {
 		// constructors
 		public ShortcutInfoCompatSaver.NoopImpl ();
-		protected ShortcutInfoCompatSaver.NoopImpl (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected ShortcutInfoCompatSaver.NoopImpl (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public override Java.Lang.Object AddShortcuts (System.Collections.Generic.IList<ShortcutInfoCompat> shortcuts);
+		public override Java.Lang.Object AddShortcuts (System.Collections.Generic.IList<ShortcutInfoCompat>);
 		public override Java.Lang.Object RemoveAllShortcuts ();
-		public override Java.Lang.Object RemoveShortcuts (System.Collections.Generic.IList<string> shortcutIds);
+		public override Java.Lang.Object RemoveShortcuts (System.Collections.Generic.IList<string>);
 	}
 }
 ```
@@ -3750,7 +3421,7 @@ public abstract class ShortcutInfoCompatSaver : Java.Lang.Object {
 Added method:
 
 ```csharp
-public static Android.Content.Res.ColorStateList Inflate (Android.Content.Res.Resources resources, int resId, Android.Content.Res.Resources.Theme theme);
+public static Android.Content.Res.ColorStateList Inflate (Android.Content.Res.Resources, int, Android.Content.Res.Resources.Theme);
 ```
 
 
@@ -3759,7 +3430,7 @@ public static Android.Content.Res.ColorStateList Inflate (Android.Content.Res.Re
 Added method:
 
 ```csharp
-public static float GetFloat (Android.Content.Res.Resources res, int id);
+public static float GetFloat (Android.Content.Res.Resources, int);
 ```
 
 
@@ -3768,7 +3439,7 @@ public static float GetFloat (Android.Content.Res.Resources res, int id);
 Added method:
 
 ```csharp
-public static Android.Content.Res.ColorStateList GetNamedColorStateList (Android.Content.Res.TypedArray a, System.Xml.XmlReader parser, Android.Content.Res.Resources.Theme theme, string attrName, int resId);
+public static Android.Content.Res.ColorStateList GetNamedColorStateList (Android.Content.Res.TypedArray, System.Xml.XmlReader, Android.Content.Res.Resources.Theme, string, int);
 ```
 
 
@@ -3780,7 +3451,7 @@ public static Android.Content.Res.ColorStateList GetNamedColorStateList (Android
 Added method:
 
 ```csharp
-public static bool InterpolatePathDataNodes (PathParser.PathDataNode[] target, PathParser.PathDataNode[] from, PathParser.PathDataNode[] to, float fraction);
+public static bool InterpolatePathDataNodes (PathParser.PathDataNode[], PathParser.PathDataNode[], PathParser.PathDataNode[], float);
 ```
 
 
@@ -3789,15 +3460,15 @@ public static bool InterpolatePathDataNodes (PathParser.PathDataNode[] target, P
 Removed methods:
 
 ```csharp
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path path);
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path path, float error);
+public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path);
+public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path, float);
 ```
 
 Added methods:
 
 ```csharp
-public static System.Collections.Generic.ICollection<PathSegment> Flatten (Android.Graphics.Path path);
-public static System.Collections.Generic.ICollection<PathSegment> Flatten (Android.Graphics.Path path, float error);
+public static System.Collections.Generic.ICollection<PathSegment> Flatten (Android.Graphics.Path);
+public static System.Collections.Generic.ICollection<PathSegment> Flatten (Android.Graphics.Path, float);
 ```
 
 
@@ -3806,7 +3477,7 @@ public static System.Collections.Generic.ICollection<PathSegment> Flatten (Andro
 Added method:
 
 ```csharp
-public static Android.Graphics.Typeface Create (Android.Content.Context context, Android.Graphics.Typeface family, int style);
+public static Android.Graphics.Typeface Create (Android.Content.Context, Android.Graphics.Typeface, int);
 ```
 
 
@@ -3818,7 +3489,7 @@ public static Android.Graphics.Typeface Create (Android.Content.Context context,
 Added property:
 
 ```csharp
-public virtual Android.Graphics.Bitmap Bitmap { get; }
+public Android.Graphics.Bitmap Bitmap { get; }
 ```
 
 
@@ -3843,7 +3514,7 @@ public virtual bool RequiresOverflow ();
 Removed methods:
 
 ```csharp
-public static AudioAttributesCompat FromBundle (Android.OS.Bundle bundle);
+public static AudioAttributesCompat FromBundle (Android.OS.Bundle);
 public virtual Android.OS.Bundle ToBundle ();
 ```
 
@@ -3875,13 +3546,13 @@ System.IDisposable
 ```csharp
 public class ResultWrapper : Java.Lang.Object {
 	// constructors
-	protected MediaBrowserServiceCompat.ResultWrapper (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaBrowserServiceCompat.ResultWrapper (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void Detach ();
-	public virtual void SendResult (Java.Lang.Object result);
+	public virtual void SendResult (Java.Lang.Object);
 }
 ```
 
@@ -3904,7 +3575,7 @@ public static const int UnknownUid;
 Added constructor:
 
 ```csharp
-protected AudioAttributesCompatParcelizer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+protected AudioAttributesCompatParcelizer (IntPtr, Android.Runtime.JniHandleOwnership);
 ```
 
 
@@ -3913,20 +3584,20 @@ protected AudioAttributesCompatParcelizer (IntPtr javaReference, Android.Runtime
 Added constructor:
 
 ```csharp
-protected AudioAttributesImplBaseParcelizer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+protected AudioAttributesImplBaseParcelizer (IntPtr, Android.Runtime.JniHandleOwnership);
 ```
 
 Removed method:
 
 ```csharp
-public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel);
 ```
 
 Added methods:
 
 ```csharp
-public static AudioAttributesImplBase Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-public static void Write (AudioAttributesImplBase obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+public static AudioAttributesImplBase Read (AndroidX.VersionedParcelable.VersionedParcel);
+public static void Write (AudioAttributesImplBase, AndroidX.VersionedParcelable.VersionedParcel);
 ```
 
 
@@ -3935,35 +3606,35 @@ public static void Write (AudioAttributesImplBase obj, AndroidX.VersionedParcela
 ```csharp
 public class AudioAttributesImplBase : Java.Lang.Object {
 	// constructors
-	protected AudioAttributesImplBase (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AudioAttributesImplBase (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual Java.Lang.Object AudioAttributes { get; }
-	public virtual int ContentType { get; }
-	public virtual int Flags { get; }
-	public virtual int LegacyStreamType { get; }
+	public Java.Lang.Object AudioAttributes { get; }
+	public int ContentType { get; }
+	public int Flags { get; }
+	public int LegacyStreamType { get; }
 	public int MContentType { get; set; }
 	public int MFlags { get; set; }
 	public int MLegacyStream { get; set; }
 	public int MUsage { get; set; }
-	public virtual int RawLegacyStreamType { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual int Usage { get; }
-	public virtual int VolumeControlStream { get; }
+	public int RawLegacyStreamType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public int Usage { get; }
+	public int VolumeControlStream { get; }
 
 	// inner types
 	public class Builder : Java.Lang.Object {
 		// constructors
-		protected AudioAttributesImplBase.Builder (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected AudioAttributesImplBase.Builder (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public virtual Java.Lang.Object Build ();
-		public virtual Java.Lang.Object SetContentType (int contentType);
-		public virtual Java.Lang.Object SetFlags (int flags);
-		public virtual Java.Lang.Object SetLegacyStreamType (int streamType);
-		public virtual Java.Lang.Object SetUsage (int usage);
+		public virtual Java.Lang.Object SetContentType (int);
+		public virtual Java.Lang.Object SetFlags (int);
+		public virtual Java.Lang.Object SetLegacyStreamType (int);
+		public virtual Java.Lang.Object SetUsage (int);
 	}
 }
 ```
@@ -3973,32 +3644,32 @@ public class AudioAttributesImplBase : Java.Lang.Object {
 ```csharp
 public class AudioFocusRequestCompat : Java.Lang.Object {
 	// constructors
-	protected AudioFocusRequestCompat (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AudioFocusRequestCompat (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual AudioAttributesCompat AudioAttributesCompat { get; }
-	public virtual Android.OS.Handler FocusChangeHandler { get; }
-	public virtual int FocusGain { get; }
-	public virtual Android.Media.AudioManager.IOnAudioFocusChangeListener OnAudioFocusChangeListener { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public AudioAttributesCompat AudioAttributesCompat { get; }
+	public Android.OS.Handler FocusChangeHandler { get; }
+	public int FocusGain { get; }
+	public Android.Media.AudioManager.IOnAudioFocusChangeListener OnAudioFocusChangeListener { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual bool WillPauseWhenDucked ();
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
-		public AudioFocusRequestCompat.Builder (AudioFocusRequestCompat requestToCopy);
-		public AudioFocusRequestCompat.Builder (int focusGain);
+		public AudioFocusRequestCompat.Builder (AudioFocusRequestCompat);
+		public AudioFocusRequestCompat.Builder (int);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public AudioFocusRequestCompat Build ();
-		public AudioFocusRequestCompat.Builder SetAudioAttributes (AudioAttributesCompat attributes);
-		public AudioFocusRequestCompat.Builder SetFocusGain (int focusGain);
-		public AudioFocusRequestCompat.Builder SetOnAudioFocusChangeListener (Android.Media.AudioManager.IOnAudioFocusChangeListener listener);
-		public AudioFocusRequestCompat.Builder SetOnAudioFocusChangeListener (Android.Media.AudioManager.IOnAudioFocusChangeListener listener, Android.OS.Handler handler);
-		public AudioFocusRequestCompat.Builder SetWillPauseWhenDucked (bool pauseOnDuck);
+		public AudioFocusRequestCompat.Builder SetAudioAttributes (AudioAttributesCompat);
+		public AudioFocusRequestCompat.Builder SetFocusGain (int);
+		public AudioFocusRequestCompat.Builder SetOnAudioFocusChangeListener (Android.Media.AudioManager.IOnAudioFocusChangeListener);
+		public AudioFocusRequestCompat.Builder SetOnAudioFocusChangeListener (Android.Media.AudioManager.IOnAudioFocusChangeListener, Android.OS.Handler);
+		public AudioFocusRequestCompat.Builder SetWillPauseWhenDucked (bool);
 	}
 	public interface IFocusGainType : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
@@ -4015,11 +3686,11 @@ public sealed class AudioManagerCompat : Java.Lang.Object {
 	public static const int AudiofocusGainTransientExclusive;
 	public static const int AudiofocusGainTransientMayDuck;
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static int AbandonAudioFocusRequest (Android.Media.AudioManager audioManager, AudioFocusRequestCompat focusRequest);
-	public static int RequestAudioFocus (Android.Media.AudioManager audioManager, AudioFocusRequestCompat focusRequest);
+	public static int AbandonAudioFocusRequest (Android.Media.AudioManager, AudioFocusRequestCompat);
+	public static int RequestAudioFocus (Android.Media.AudioManager, AudioFocusRequestCompat);
 }
 ```
 
@@ -4048,11 +3719,11 @@ public sealed class AudioAttributesCompatParcelizer : AndroidX.Media.AudioAttrib
 	// constructors
 	public AudioAttributesCompatParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static AndroidX.Media.AudioAttributesCompat Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (AndroidX.Media.AudioAttributesCompat obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static AndroidX.Media.AudioAttributesCompat Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (AndroidX.Media.AudioAttributesCompat, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -4063,11 +3734,11 @@ public sealed class AudioAttributesImplBaseParcelizer : AndroidX.Media.AudioAttr
 	// constructors
 	public AudioAttributesImplBaseParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static AndroidX.Media.AudioAttributesImplBase Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (AndroidX.Media.AudioAttributesImplBase obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static AndroidX.Media.AudioAttributesImplBase Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (AndroidX.Media.AudioAttributesImplBase, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -4079,13 +3750,13 @@ public sealed class AudioAttributesImplBaseParcelizer : AndroidX.Media.AudioAttr
 Added property:
 
 ```csharp
-public virtual Android.OS.Bundle SessionInfo { get; }
+public Android.OS.Bundle SessionInfo { get; }
 ```
 
 Added method:
 
 ```csharp
-public virtual void SetPlaybackSpeed (float p0);
+public virtual void SetPlaybackSpeed (float);
 ```
 
 
@@ -4109,7 +3780,7 @@ public Android.OS.Bundle SessionInfo { get; }
 Added property:
 
 ```csharp
-public virtual Android.OS.Bundle SessionInfo { get; }
+public Android.OS.Bundle SessionInfo { get; }
 ```
 
 
@@ -4126,7 +3797,7 @@ System.IDisposable
 Added property:
 
 ```csharp
-public virtual Android.OS.Bundle SessionInfo { get; }
+public Android.OS.Bundle SessionInfo { get; }
 ```
 
 
@@ -4151,7 +3822,7 @@ public AndroidX.Media.AudioAttributesCompat AudioAttributes { get; }
 Added method:
 
 ```csharp
-public virtual void SetPlaybackSpeed (float speed);
+public virtual void SetPlaybackSpeed (float);
 ```
 
 
@@ -4161,14 +3832,14 @@ public virtual void SetPlaybackSpeed (float speed);
 Removed constructor:
 
 ```csharp
-public MediaSessionCompat (Android.Content.Context context, string tag, Android.OS.Bundle token2Bundle);
+public MediaSessionCompat (Android.Content.Context, string, Android.OS.Bundle);
 ```
 
 Added constructors:
 
 ```csharp
-public MediaSessionCompat (Android.Content.Context context, string tag, Android.Content.ComponentName mbrComponent, Android.App.PendingIntent mbrIntent, Android.OS.Bundle sessionInfo);
-public MediaSessionCompat (Android.Content.Context context, string tag, Android.Content.ComponentName mbrComponent, Android.App.PendingIntent mbrIntent, Android.OS.Bundle sessionInfo, AndroidX.VersionedParcelable.IVersionedParcelable session2Token);
+public MediaSessionCompat (Android.Content.Context, string, Android.Content.ComponentName, Android.App.PendingIntent, Android.OS.Bundle);
+public MediaSessionCompat (Android.Content.Context, string, Android.Content.ComponentName, Android.App.PendingIntent, Android.OS.Bundle, AndroidX.VersionedParcelable.IVersionedParcelable);
 ```
 
 Removed field:
@@ -4199,7 +3870,7 @@ public static const string KeySession2Token = "android.support.v4.media.session.
 Added method:
 
 ```csharp
-public virtual void OnSetPlaybackSpeed (float speed);
+public virtual void OnSetPlaybackSpeed (float);
 ```
 
 
@@ -4208,13 +3879,13 @@ public virtual void OnSetPlaybackSpeed (float speed);
 Removed constructor:
 
 ```csharp
-public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context context, string tag, Android.Content.ComponentName mbrComponent, Android.App.PendingIntent mbrIntent);
+public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context, string, Android.Content.ComponentName, Android.App.PendingIntent);
 ```
 
 Added constructor:
 
 ```csharp
-public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context context, string tag, Android.Content.ComponentName mbrComponent, Android.App.PendingIntent mbrIntent, Android.OS.Bundle sessionInfo);
+public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context, string, Android.Content.ComponentName, Android.App.PendingIntent, Android.OS.Bundle);
 ```
 
 Removed interfaces:
@@ -4230,13 +3901,13 @@ System.IDisposable
 Added property:
 
 ```csharp
-public override Android.OS.Bundle SessionInfo { get; }
+public Android.OS.Bundle SessionInfo { get; }
 ```
 
 Added method:
 
 ```csharp
-public override void SetPlaybackSpeed (float speed);
+public override void SetPlaybackSpeed (float);
 ```
 
 
@@ -4262,13 +3933,13 @@ public AndroidX.VersionedParcelable.IVersionedParcelable Session2Token { get; se
 Added property:
 
 ```csharp
-public virtual Android.OS.Bundle SessionInfo { get; }
+public Android.OS.Bundle SessionInfo { get; }
 ```
 
 Added method:
 
 ```csharp
-public virtual void SetPlaybackSpeed (float p0);
+public virtual void SetPlaybackSpeed (float);
 ```
 
 
@@ -4280,8 +3951,8 @@ public virtual void SetPlaybackSpeed (float p0);
 Added methods:
 
 ```csharp
-public static Android.OS.Handler CreateAsync (Android.OS.Looper looper);
-public static Android.OS.Handler CreateAsync (Android.OS.Looper looper, Android.OS.Handler.ICallback callback);
+public static Android.OS.Handler CreateAsync (Android.OS.Looper);
+public static Android.OS.Handler CreateAsync (Android.OS.Looper, Android.OS.Handler.ICallback);
 ```
 
 
@@ -4291,20 +3962,13 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public static LocaleListCompat Wrap (Java.Lang.Object localeList);
-```
-
-Modified methods:
-
-```diff
--public LocaleListCompat Wrap (Java.Lang.Object object)
-+public LocaleListCompat Wrap (Java.Lang.Object localeList)
+ public static LocaleListCompat Wrap (Java.Lang.Object);
 ```
 
 Added method:
 
 ```csharp
-public static LocaleListCompat Wrap (Android.OS.LocaleList localeList);
+public static LocaleListCompat Wrap (Android.OS.LocaleList);
 ```
 
 
@@ -4313,11 +3977,11 @@ public static LocaleListCompat Wrap (Android.OS.LocaleList localeList);
 ```csharp
 public sealed class MessageCompat : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static bool IsAsynchronous (Android.OS.Message message);
-	public static void SetAsynchronous (Android.OS.Message message, bool async);
+	public static bool IsAsynchronous (Android.OS.Message);
+	public static void SetAsynchronous (Android.OS.Message, bool);
 }
 ```
 
@@ -4331,7 +3995,7 @@ public sealed class MessageCompat : Java.Lang.Object {
 Added method:
 
 ```csharp
-public bool EqualsWithoutTextDirection (PrecomputedTextCompat.Params other);
+public bool EqualsWithoutTextDirection (PrecomputedTextCompat.Params);
 ```
 
 
@@ -4349,16 +4013,16 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void Delete (long key);
+ public virtual void Delete (long);
 ```
 
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object PutIfAbsent (long key, Java.Lang.Object value);
-public virtual bool Remove (long key, Java.Lang.Object value);
-public virtual Java.Lang.Object Replace (long key, Java.Lang.Object value);
-public virtual bool Replace (long key, Java.Lang.Object oldValue, Java.Lang.Object newValue);
+public virtual Java.Lang.Object PutIfAbsent (long, Java.Lang.Object);
+public virtual bool Remove (long, Java.Lang.Object);
+public virtual Java.Lang.Object Replace (long, Java.Lang.Object);
+public virtual bool Replace (long, Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -4367,11 +4031,11 @@ public virtual bool Replace (long key, Java.Lang.Object oldValue, Java.Lang.Obje
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object GetOrDefault (Java.Lang.Object key, Java.Lang.Object defaultValue);
-public virtual Java.Lang.Object PutIfAbsent (Java.Lang.Object key, Java.Lang.Object value);
-public virtual bool Remove (Java.Lang.Object key, Java.Lang.Object value);
-public virtual Java.Lang.Object Replace (Java.Lang.Object key, Java.Lang.Object value);
-public virtual bool Replace (Java.Lang.Object key, Java.Lang.Object oldValue, Java.Lang.Object newValue);
+public virtual Java.Lang.Object GetOrDefault (Java.Lang.Object, Java.Lang.Object);
+public virtual Java.Lang.Object PutIfAbsent (Java.Lang.Object, Java.Lang.Object);
+public virtual bool Remove (Java.Lang.Object, Java.Lang.Object);
+public virtual Java.Lang.Object Replace (Java.Lang.Object, Java.Lang.Object);
+public virtual bool Replace (Java.Lang.Object, Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -4381,16 +4045,16 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual void Delete (int key);
+ public virtual void Delete (int);
 ```
 
 Added methods:
 
 ```csharp
-public virtual Java.Lang.Object PutIfAbsent (int key, Java.Lang.Object value);
-public virtual bool Remove (int key, Java.Lang.Object value);
-public virtual Java.Lang.Object Replace (int key, Java.Lang.Object value);
-public virtual bool Replace (int key, Java.Lang.Object oldValue, Java.Lang.Object newValue);
+public virtual Java.Lang.Object PutIfAbsent (int, Java.Lang.Object);
+public virtual bool Remove (int, Java.Lang.Object);
+public virtual Java.Lang.Object Replace (int, Java.Lang.Object);
+public virtual bool Replace (int, Java.Lang.Object, Java.Lang.Object);
 ```
 
 
@@ -4402,23 +4066,23 @@ public virtual bool Replace (int key, Java.Lang.Object oldValue, Java.Lang.Objec
 Removed constructor:
 
 ```csharp
-protected Preconditions (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+protected Preconditions (IntPtr, Android.Runtime.JniHandleOwnership);
 ```
 
 Removed methods:
 
 ```csharp
-public static float CheckArgumentFinite (float value, string valueName);
-public static long CheckArgumentInRange (long value, long lower, long upper, string valueName);
-public static float CheckArgumentInRange (float value, float lower, float upper, string valueName);
-public static long CheckArgumentNonnegative (long value);
-public static long CheckArgumentNonnegative (long value, string errorMessage);
-public static int CheckArgumentPositive (int value, string errorMessage);
-public static float[] CheckArrayElementsInRange (float[] value, float lower, float upper, string valueName);
-public static Java.Lang.Object[] CheckArrayElementsNotNull (Java.Lang.Object[] value, string valueName);
-public static Java.Lang.Object CheckCollectionElementsNotNull (Java.Lang.Object value, string valueName);
-public static System.Collections.ICollection CheckCollectionNotEmpty (System.Collections.ICollection value, string valueName);
-public static int CheckFlagsArgument (int requestedFlags, int allowedFlags);
+public static float CheckArgumentFinite (float, string);
+public static long CheckArgumentInRange (long, long, long, string);
+public static float CheckArgumentInRange (float, float, float, string);
+public static long CheckArgumentNonnegative (long);
+public static long CheckArgumentNonnegative (long, string);
+public static int CheckArgumentPositive (int, string);
+public static float[] CheckArrayElementsInRange (float[], float, float, string);
+public static Java.Lang.Object[] CheckArrayElementsNotNull (Java.Lang.Object[], string);
+public static Java.Lang.Object CheckCollectionElementsNotNull (Java.Lang.Object, string);
+public static System.Collections.ICollection CheckCollectionNotEmpty (System.Collections.ICollection, string);
+public static int CheckFlagsArgument (int, int);
 ```
 
 
@@ -4457,25 +4121,25 @@ Modified properties:
 Added property:
 
 ```csharp
-public virtual bool TextEntryKey { get; set; }
+public bool TextEntryKey { get; set; }
 ```
 
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text);
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string viewId);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string);
 ```
 
 Added methods:
 
 ```csharp
-public virtual void AddSpansToExtras (Java.Lang.ICharSequence text, Android.Views.View view);
-public void AddSpansToExtras (string text, Android.Views.View view);
-public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text);
-public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string viewId);
-public static Android.Text.Style.ClickableSpan[] GetClickableSpans (Java.Lang.ICharSequence text);
-public static Android.Text.Style.ClickableSpan[] GetClickableSpans (string text);
+public virtual void AddSpansToExtras (Java.Lang.ICharSequence, Android.Views.View);
+public void AddSpansToExtras (string, Android.Views.View);
+public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string);
+public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string);
+public static Android.Text.Style.ClickableSpan[] GetClickableSpans (Java.Lang.ICharSequence);
+public static Android.Text.Style.ClickableSpan[] GetClickableSpans (string);
 ```
 
 #### Type Changed: AndroidX.Core.View.Accessibiity.AccessibilityNodeInfoCompat.AccessibilityActionCompat
@@ -4483,8 +4147,8 @@ public static Android.Text.Style.ClickableSpan[] GetClickableSpans (string text)
 Added constructors:
 
 ```csharp
-public AccessibilityNodeInfoCompat.AccessibilityActionCompat (int actionId, Java.Lang.ICharSequence label, IAccessibilityViewCommand command);
-public AccessibilityNodeInfoCompat.AccessibilityActionCompat (int actionId, string label, IAccessibilityViewCommand command);
+public AccessibilityNodeInfoCompat.AccessibilityActionCompat (int, Java.Lang.ICharSequence, IAccessibilityViewCommand);
+public AccessibilityNodeInfoCompat.AccessibilityActionCompat (int, string, IAccessibilityViewCommand);
 ```
 
 Added property:
@@ -4496,9 +4160,9 @@ protected IAccessibilityViewCommand MCommand { get; set; }
 Added methods:
 
 ```csharp
-public virtual AccessibilityNodeInfoCompat.AccessibilityActionCompat CreateReplacementAction (Java.Lang.ICharSequence label, IAccessibilityViewCommand command);
-public AccessibilityNodeInfoCompat.AccessibilityActionCompat CreateReplacementAction (string label, IAccessibilityViewCommand command);
-public virtual bool Perform (Android.Views.View view, Android.OS.Bundle arguments);
+public virtual AccessibilityNodeInfoCompat.AccessibilityActionCompat CreateReplacementAction (Java.Lang.ICharSequence, IAccessibilityViewCommand);
+public AccessibilityNodeInfoCompat.AccessibilityActionCompat CreateReplacementAction (string, IAccessibilityViewCommand);
+public virtual bool Perform (Android.Views.View, Android.OS.Bundle);
 ```
 
 
@@ -4508,13 +4172,13 @@ public virtual bool Perform (Android.Views.View view, Android.OS.Bundle argument
 Removed method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text, int virtualViewId);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string, int);
 ```
 
 Added method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text, int virtualViewId);
+public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string, int);
 ```
 
 
@@ -4523,14 +4187,14 @@ public virtual System.Collections.Generic.IList<AccessibilityNodeInfoCompat> Fin
 ```csharp
 public sealed class AccessibilityClickableSpanCompat : Android.Text.Style.ClickableSpan {
 	// constructors
-	public AccessibilityClickableSpanCompat (int originalClickableSpanId, AccessibilityNodeInfoCompat nodeInfoCompat, int clickableSpanActionId);
+	public AccessibilityClickableSpanCompat (int, AccessibilityNodeInfoCompat, int);
 	// fields
 	public static const string SpanId = "ACCESSIBILITY_CLICKABLE_SPAN_ID";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public override void OnClick (Android.Views.View unused);
+	public override void OnClick (Android.Views.View);
 }
 ```
 
@@ -4540,12 +4204,12 @@ public sealed class AccessibilityClickableSpanCompat : Android.Text.Style.Clicka
 public abstract class AccessibilityViewCommandCommandArguments : Java.Lang.Object {
 	// constructors
 	public AccessibilityViewCommandCommandArguments ();
-	protected AccessibilityViewCommandCommandArguments (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AccessibilityViewCommandCommandArguments (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void SetBundle (Android.OS.Bundle bundle);
+	public virtual void SetBundle (Android.OS.Bundle);
 }
 ```
 
@@ -4558,8 +4222,8 @@ public sealed class AccessibilityViewCommandMoveAtGranularityArguments : Android
 	// properties
 	public bool ExtendSelection { get; }
 	public int Granularity { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4571,8 +4235,8 @@ public sealed class AccessibilityViewCommandMoveHtmlArguments : AndroidX.Core.Vi
 	public AccessibilityViewCommandMoveHtmlArguments ();
 	// properties
 	public string HTMLElement { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4583,8 +4247,8 @@ public sealed class AccessibilityViewCommandMoveWindowArguments : AndroidX.Core.
 	// constructors
 	public AccessibilityViewCommandMoveWindowArguments ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public int GetX ();
 	public int GetY ();
@@ -4600,8 +4264,8 @@ public sealed class AccessibilityViewCommandScrollToPositionArguments : AndroidX
 	// properties
 	public int Column { get; }
 	public int Row { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4613,8 +4277,8 @@ public sealed class AccessibilityViewCommandSetProgressArguments : AndroidX.Core
 	public AccessibilityViewCommandSetProgressArguments ();
 	// properties
 	public float Progress { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4627,8 +4291,8 @@ public sealed class AccessibilityViewCommandSetSelectionArguments : AndroidX.Cor
 	// properties
 	public int End { get; }
 	public int Start { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4641,8 +4305,8 @@ public sealed class AccessibilityViewCommandSetTextArguments : AndroidX.Core.Vie
 	// properties
 	public string Text { get; }
 	public Java.Lang.ICharSequence TextFormatted { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -4651,7 +4315,7 @@ public sealed class AccessibilityViewCommandSetTextArguments : AndroidX.Core.Vie
 ```csharp
 public interface IAccessibilityViewCommand : Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual bool Perform (Android.Views.View p0, AccessibilityViewCommandCommandArguments p1);
+	public virtual bool Perform (Android.Views.View, AccessibilityViewCommandCommandArguments);
 }
 ```
 
@@ -4670,9 +4334,9 @@ AndroidX.Core.View.INestedScrollingParent3
 Added methods:
 
 ```csharp
-public virtual void DispatchNestedScroll (int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow, int type, int[] consumed);
-public virtual void OnNestedScroll (Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, int[] consumed);
-public override void OnNestedScrollAccepted (Android.Views.View p0, Android.Views.View p1, Android.Views.ScrollAxis p2);
+public virtual void DispatchNestedScroll (int, int, int, int, int[], int, int[]);
+public virtual void OnNestedScroll (Android.Views.View, int, int, int, int, int, int[]);
+public override void OnNestedScrollAccepted (Android.Views.View, Android.Views.View, Android.Views.ScrollAxis);
 ```
 
 
@@ -4681,10 +4345,10 @@ public override void OnNestedScrollAccepted (Android.Views.View p0, Android.View
 Added methods:
 
 ```csharp
-public static Android.Content.Res.ColorStateList GetCompoundDrawableTintList (Android.Widget.TextView textView);
-public static Android.Graphics.PorterDuff.Mode GetCompoundDrawableTintMode (Android.Widget.TextView textView);
-public static void SetCompoundDrawableTintList (Android.Widget.TextView textView, Android.Content.Res.ColorStateList tint);
-public static void SetCompoundDrawableTintMode (Android.Widget.TextView textView, Android.Graphics.PorterDuff.Mode tintMode);
+public static Android.Content.Res.ColorStateList GetCompoundDrawableTintList (Android.Widget.TextView);
+public static Android.Graphics.PorterDuff.Mode GetCompoundDrawableTintMode (Android.Widget.TextView);
+public static void SetCompoundDrawableTintList (Android.Widget.TextView, Android.Content.Res.ColorStateList);
+public static void SetCompoundDrawableTintMode (Android.Widget.TextView, Android.Graphics.PorterDuff.Mode);
 ```
 
 
@@ -4693,8 +4357,8 @@ public static void SetCompoundDrawableTintMode (Android.Widget.TextView textView
 ```csharp
 public interface ITintableCompoundDrawablesView : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual Android.Content.Res.ColorStateList SupportCompoundDrawablesTintList { get; set; }
-	public virtual Android.Graphics.PorterDuff.Mode SupportCompoundDrawablesTintMode { get; set; }
+	public Android.Content.Res.ColorStateList SupportCompoundDrawablesTintList { get; set; }
+	public Android.Graphics.PorterDuff.Mode SupportCompoundDrawablesTintMode { get; set; }
 }
 ```
 
@@ -4736,7 +4400,7 @@ CursorFilter.ICursorFilterClient
 Added constructor:
 
 ```csharp
-public AppCompatActivity (int contentLayoutId);
+public AppCompatActivity (int);
 ```
 
 Added interfaces:
@@ -4750,7 +4414,7 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Added method:
 
 ```csharp
-protected virtual void OnNightModeChanged (int mode);
+protected virtual void OnNightModeChanged (int);
 ```
 
 
@@ -4776,15 +4440,15 @@ public static const int ModeNightUnspecified;
 Added property:
 
 ```csharp
-public virtual int LocalNightMode { get; }
+public int LocalNightMode { get; }
 ```
 
 Added methods:
 
 ```csharp
-public virtual void AttachBaseContext (Android.Content.Context context);
-public static AppCompatDelegate Create (Android.Content.Context context, Android.App.Activity activity, IAppCompatCallback callback);
-public virtual void SetTheme (int themeResId);
+public virtual void AttachBaseContext (Android.Content.Context);
+public static AppCompatDelegate Create (Android.Content.Context, Android.App.Activity, IAppCompatCallback);
+public virtual void SetTheme (int);
 ```
 
 
@@ -4802,7 +4466,7 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Added method:
 
 ```csharp
-protected virtual AndroidX.AppCompat.Widget.AppCompatToggleButton CreateToggleButton (Android.Content.Context context, Android.Util.IAttributeSet attrs);
+protected virtual AndroidX.AppCompat.Widget.AppCompatToggleButton CreateToggleButton (Android.Content.Context, Android.Util.IAttributeSet);
 ```
 
 
@@ -4815,7 +4479,7 @@ Added methods:
 
 ```csharp
 public virtual void EnableDynamicGroup ();
-public virtual void SetAlwaysVisible (bool alwaysVisible);
+public virtual void SetAlwaysVisible (bool);
 ```
 
 
@@ -4825,7 +4489,7 @@ Added methods:
 
 ```csharp
 public virtual void EnableDynamicGroup ();
-public virtual void SetAlwaysVisible (bool alwaysVisible);
+public virtual void SetAlwaysVisible (bool);
 ```
 
 
@@ -4834,13 +4498,13 @@ public virtual void SetAlwaysVisible (bool alwaysVisible);
 Removed method:
 
 ```csharp
-public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo> routes);
+public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo>);
 ```
 
 Added method:
 
 ```csharp
-public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo> routes);
+public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo>);
 ```
 
 #### Type Changed: AndroidX.MediaRouter.App.MediaRouteChooserDialog.RouteComparator
@@ -4848,7 +4512,7 @@ public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.Me
 Added method:
 
 ```csharp
-public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo lhs, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo rhs);
+public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo);
 ```
 
 
@@ -4864,13 +4528,13 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Removed method:
 
 ```csharp
-public virtual Android.Support.V7.App.MediaRouteDevicePickerDialog OnCreateDevicePickerDialog (Android.Content.Context context);
+public virtual Android.Support.V7.App.MediaRouteDevicePickerDialog OnCreateDevicePickerDialog (Android.Content.Context);
 ```
 
 Added method:
 
 ```csharp
-public virtual MediaRouteDynamicChooserDialog OnCreateDynamicChooserDialog (Android.Content.Context context);
+public virtual MediaRouteDynamicChooserDialog OnCreateDynamicChooserDialog (Android.Content.Context);
 ```
 
 
@@ -4885,13 +4549,13 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 Removed method:
 
 ```csharp
-public virtual Android.Support.V7.App.MediaRouteCastDialog OnCreateCastDialog (Android.Content.Context context);
+public virtual Android.Support.V7.App.MediaRouteCastDialog OnCreateCastDialog (Android.Content.Context);
 ```
 
 Added method:
 
 ```csharp
-public virtual MediaRouteDynamicControllerDialog OnCreateDynamicControllerDialog (Android.Content.Context context);
+public virtual MediaRouteDynamicControllerDialog OnCreateDynamicControllerDialog (Android.Content.Context);
 ```
 
 
@@ -4916,7 +4580,7 @@ public class MediaRouteDevicePickerDialog {
 		// constructors
 		public MediaRouteDevicePickerDialog.RouteComparator ();
 		// methods
-		public int Compare (Java.Lang.Object lhs, Java.Lang.Object rhs);
+		public int Compare (Java.Lang.Object, Java.Lang.Object);
 	}
 }
 ```
@@ -4926,27 +4590,27 @@ public class MediaRouteDevicePickerDialog {
 ```csharp
 public class MediaRouteDynamicChooserDialog : AndroidX.AppCompat.App.AppCompatDialog, Android.Runtime.IJavaObject, AndroidX.AppCompat.App.IAppCompatCallback, System.IDisposable {
 	// constructors
-	public MediaRouteDynamicChooserDialog (Android.Content.Context context);
-	public MediaRouteDynamicChooserDialog (Android.Content.Context context, int theme);
-	protected MediaRouteDynamicChooserDialog (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public MediaRouteDynamicChooserDialog (Android.Content.Context);
+	public MediaRouteDynamicChooserDialog (Android.Content.Context, int);
+	protected MediaRouteDynamicChooserDialog (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual AndroidX.MediaRouter.Media.MediaRouteSelector RouteSelector { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public AndroidX.MediaRouter.Media.MediaRouteSelector RouteSelector { get; set; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual bool OnFilterRoute (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo route);
-	public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo> routes);
+	public virtual bool OnFilterRoute (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo);
+	public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo>);
 	public virtual void RefreshRoutes ();
 
 	// inner types
 	public sealed class RouteComparator : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Util.IComparator, System.IDisposable {
 		// properties
 		public static MediaRouteDynamicChooserDialog.RouteComparator SInstance { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo lhs, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo rhs);
-		public virtual int Compare (Java.Lang.Object lhs, Java.Lang.Object rhs);
+		public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo);
+		public virtual int Compare (Java.Lang.Object, Java.Lang.Object);
 	}
 }
 ```
@@ -4956,26 +4620,26 @@ public class MediaRouteDynamicChooserDialog : AndroidX.AppCompat.App.AppCompatDi
 ```csharp
 public class MediaRouteDynamicControllerDialog : AndroidX.AppCompat.App.AppCompatDialog, Android.Runtime.IJavaObject, AndroidX.AppCompat.App.IAppCompatCallback, System.IDisposable {
 	// constructors
-	public MediaRouteDynamicControllerDialog (Android.Content.Context context);
-	public MediaRouteDynamicControllerDialog (Android.Content.Context context, int theme);
-	protected MediaRouteDynamicControllerDialog (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public MediaRouteDynamicControllerDialog (Android.Content.Context);
+	public MediaRouteDynamicControllerDialog (Android.Content.Context, int);
+	protected MediaRouteDynamicControllerDialog (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual Android.Support.V4.Media.Session.MediaSessionCompat.Token MediaSession { get; }
-	public virtual AndroidX.MediaRouter.Media.MediaRouteSelector RouteSelector { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public Android.Support.V4.Media.Session.MediaSessionCompat.Token MediaSession { get; }
+	public AndroidX.MediaRouter.Media.MediaRouteSelector RouteSelector { get; set; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual bool OnFilterRoute (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo route);
-	public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo> routes);
+	public virtual bool OnFilterRoute (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo);
+	public virtual void OnFilterRoutes (System.Collections.Generic.IList<AndroidX.MediaRouter.Media.MediaRouter.RouteInfo>);
 
 	// inner types
 	public sealed class RouteComparator : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Util.IComparator, System.IDisposable {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo lhs, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo rhs);
-		public virtual int Compare (Java.Lang.Object lhs, Java.Lang.Object rhs);
+		public int Compare (AndroidX.MediaRouter.Media.MediaRouter.RouteInfo, AndroidX.MediaRouter.Media.MediaRouter.RouteInfo);
+		public virtual int Compare (Java.Lang.Object, Java.Lang.Object);
 	}
 }
 ```
@@ -4997,13 +4661,13 @@ Modified properties:
 Removed method:
 
 ```csharp
-public static Palette From (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch> swatches);
+public static Palette From (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
 ```
 
 Added method:
 
 ```csharp
-public static Palette From (System.Collections.Generic.IList<Palette.Swatch> swatches);
+public static Palette From (System.Collections.Generic.IList<Palette.Swatch>);
 ```
 
 #### Type Changed: AndroidX.Palette.Graphics.Palette.Builder
@@ -5011,13 +4675,13 @@ public static Palette From (System.Collections.Generic.IList<Palette.Swatch> swa
 Removed constructor:
 
 ```csharp
-public Palette.Builder (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch> swatches);
+public Palette.Builder (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
 ```
 
 Added constructor:
 
 ```csharp
-public Palette.Builder (System.Collections.Generic.IList<Palette.Swatch> swatches);
+public Palette.Builder (System.Collections.Generic.IList<Palette.Swatch>);
 ```
 
 
@@ -5054,22 +4718,7 @@ Removed methods:
 
 ```csharp
 public override Android.Graphics.Drawables.Drawable.ConstantState GetConstantState ();
-public override void SetAlpha (int p0);
-```
-
-Modified methods:
-
-```diff
--public virtual void InvalidateDrawable (Android.Graphics.Drawables.Drawable p0)
-+public override void InvalidateDrawable (Android.Graphics.Drawables.Drawable p0)
--public virtual void ScheduleDrawable (Android.Graphics.Drawables.Drawable p0, Java.Lang.IRunnable p1, long p2)
-+public override void ScheduleDrawable (Android.Graphics.Drawables.Drawable p0, Java.Lang.IRunnable p1, long p2)
--public virtual void SetEnterFadeDuration (int p0)
-+public override void SetEnterFadeDuration (int p0)
--public virtual void SetExitFadeDuration (int p0)
-+public override void SetExitFadeDuration (int p0)
--public virtual void UnscheduleDrawable (Android.Graphics.Drawables.Drawable p0, Java.Lang.IRunnable p1)
-+public override void UnscheduleDrawable (Android.Graphics.Drawables.Drawable p0, Java.Lang.IRunnable p1)
+public override void SetAlpha (int);
 ```
 
 
@@ -5078,41 +4727,41 @@ Modified methods:
 ```csharp
 public class DrawableContainer : Android.Graphics.Drawables.Drawable, Android.Graphics.Drawables.Drawable.ICallback, Android.Runtime.IJavaObject, System.IDisposable {
 	// constructors
-	protected DrawableContainer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DrawableContainer (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public override int Opacity { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public int Opacity { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public override void Draw (Android.Graphics.Canvas canvas);
+	public override void Draw (Android.Graphics.Canvas);
 	public override Android.Graphics.Drawables.Drawable.ConstantState GetConstantState ();
-	public virtual void InvalidateDrawable (Android.Graphics.Drawables.Drawable who);
-	public virtual void ScheduleDrawable (Android.Graphics.Drawables.Drawable who, Java.Lang.IRunnable what, long when);
-	public override void SetAlpha (int alpha);
-	public override void SetColorFilter (Android.Graphics.ColorFilter colorFilter);
-	public virtual void SetEnterFadeDuration (int ms);
-	public virtual void SetExitFadeDuration (int ms);
-	public virtual void UnscheduleDrawable (Android.Graphics.Drawables.Drawable who, Java.Lang.IRunnable what);
+	public virtual void InvalidateDrawable (Android.Graphics.Drawables.Drawable);
+	public virtual void ScheduleDrawable (Android.Graphics.Drawables.Drawable, Java.Lang.IRunnable, long);
+	public override void SetAlpha (int);
+	public override void SetColorFilter (Android.Graphics.ColorFilter);
+	public virtual void SetEnterFadeDuration (int);
+	public virtual void SetExitFadeDuration (int);
+	public virtual void UnscheduleDrawable (Android.Graphics.Drawables.Drawable, Java.Lang.IRunnable);
 
 	// inner types
 	public class BlockInvalidateCallback : Java.Lang.Object, Android.Graphics.Drawables.Drawable.ICallback, Android.Runtime.IJavaObject, System.IDisposable {
 		// constructors
-		protected DrawableContainer.BlockInvalidateCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected DrawableContainer.BlockInvalidateCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void InvalidateDrawable (Android.Graphics.Drawables.Drawable who);
-		public virtual void ScheduleDrawable (Android.Graphics.Drawables.Drawable who, Java.Lang.IRunnable what, long when);
-		public virtual void UnscheduleDrawable (Android.Graphics.Drawables.Drawable who, Java.Lang.IRunnable what);
+		public virtual void InvalidateDrawable (Android.Graphics.Drawables.Drawable);
+		public virtual void ScheduleDrawable (Android.Graphics.Drawables.Drawable, Java.Lang.IRunnable, long);
+		public virtual void UnscheduleDrawable (Android.Graphics.Drawables.Drawable, Java.Lang.IRunnable);
 		public virtual Android.Graphics.Drawables.Drawable.ICallback Unwrap ();
-		public virtual Java.Lang.Object Wrap (Android.Graphics.Drawables.Drawable.ICallback callback);
+		public virtual Java.Lang.Object Wrap (Android.Graphics.Drawables.Drawable.ICallback);
 	}
 	public abstract class DrawableContainerState : Android.Graphics.Drawables.Drawable+ConstantState {
 		// constructors
-		protected DrawableContainer.DrawableContainerState (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected DrawableContainer.DrawableContainerState (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public override Android.Content.PM.ConfigChanges ChangingConfigurations { get; }
+		public Android.Content.PM.ConfigChanges ChangingConfigurations { get; }
 		public int ChildCount { get; }
 		public int ConstantHeight { get; }
 		public int ConstantMinimumHeight { get; }
@@ -5124,15 +4773,15 @@ public class DrawableContainer : Android.Graphics.Drawables.Drawable, Android.Gr
 		public int ExitFadeDuration { get; set; }
 		public bool IsStateful { get; }
 		public int Opacity { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public int AddChild (Android.Graphics.Drawables.Drawable dr);
+		public int AddChild (Android.Graphics.Drawables.Drawable);
 		public virtual bool CanConstantState ();
 		protected virtual void ComputeConstantSize ();
-		public Android.Graphics.Drawables.Drawable GetChild (int index);
-		public virtual void GrowArray (int oldSize, int newSize);
-		public void SetVariablePadding (bool variable);
+		public Android.Graphics.Drawables.Drawable GetChild (int);
+		public virtual void GrowArray (int, int);
+		public void SetVariablePadding (bool);
 	}
 }
 ```
@@ -5153,8 +4802,8 @@ public bool IsDynamicGroupRoute { get; }
 Added methods:
 
 ```csharp
-public MediaRouteDescriptor.Builder RemoveGroupMemberId (string memberRouteId);
-public MediaRouteDescriptor.Builder SetIsDynamicGroupRoute (bool isDynamicGroupRoute);
+public MediaRouteDescriptor.Builder RemoveGroupMemberId (string);
+public MediaRouteDescriptor.Builder SetIsDynamicGroupRoute (bool);
 ```
 
 
@@ -5164,7 +4813,7 @@ public MediaRouteDescriptor.Builder SetIsDynamicGroupRoute (bool isDynamicGroupR
 Added method:
 
 ```csharp
-public virtual MediaRouteProvider.DynamicGroupRouteController OnCreateDynamicGroupRouteController (string initialMemberRouteId);
+public virtual MediaRouteProvider.DynamicGroupRouteController OnCreateDynamicGroupRouteController (string);
 ```
 
 #### New Type: AndroidX.MediaRouter.Media.MediaRouteProvider.DynamicGroupRouteController
@@ -5173,17 +4822,17 @@ public virtual MediaRouteProvider.DynamicGroupRouteController OnCreateDynamicGro
 public abstract class DynamicGroupRouteController : AndroidX.MediaRouter.Media.MediaRouteProvider+RouteController {
 	// constructors
 	public MediaRouteProvider.DynamicGroupRouteController ();
-	protected MediaRouteProvider.DynamicGroupRouteController (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaRouteProvider.DynamicGroupRouteController (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual string GroupableSelectionTitle { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual string TransferableSectionTitle { get; }
+	public string GroupableSelectionTitle { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public string TransferableSectionTitle { get; }
 	// methods
-	public void NotifyDynamicRoutesChanged (System.Collections.Generic.ICollection<MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor> routes);
-	public virtual void OnAddMemberRoute (string p0);
-	public virtual void OnRemoveMemberRoute (string p0);
-	public virtual void OnUpdateMemberRoutes (System.Collections.Generic.IList<string> p0);
+	public void NotifyDynamicRoutesChanged (System.Collections.Generic.ICollection<MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor>);
+	public virtual void OnAddMemberRoute (string);
+	public virtual void OnRemoveMemberRoute (string);
+	public virtual void OnUpdateMemberRoutes (System.Collections.Generic.IList<string>);
 
 	// inner types
 	public sealed class DynamicRouteDescriptor : Java.Lang.Object {
@@ -5198,23 +4847,23 @@ public abstract class DynamicGroupRouteController : AndroidX.MediaRouter.Media.M
 		public bool IsUnselectable { get; }
 		public MediaRouteDescriptor RouteDescriptor { get; }
 		public int SelectionState { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder (MediaRouteDescriptor descriptor);
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder (MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor dynamicRouteDescriptor);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder (MediaRouteDescriptor);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder (MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor);
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor Build ();
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsGroupable (bool value);
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsTransferable (bool value);
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsUnselectable (bool value);
-			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetSelectionState (int state);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsGroupable (bool);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsTransferable (bool);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetIsUnselectable (bool);
+			public MediaRouteProvider.DynamicGroupRouteController.DynamicRouteDescriptor.Builder SetSelectionState (int);
 		}
 		public interface ISelectionState : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 		}
@@ -5243,14 +4892,14 @@ public bool SupportsDynamicGroupRoute ();
 Removed method:
 
 ```csharp
-public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<Android.Support.V7.Media.MediaRouteDescriptor> routes);
+public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<Android.Support.V7.Media.MediaRouteDescriptor>);
 ```
 
 Added methods:
 
 ```csharp
-public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<MediaRouteDescriptor> routes);
-public MediaRouteProviderDescriptor.Builder SetSupportsDynamicGroupRoute (bool value);
+public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<MediaRouteDescriptor>);
+public MediaRouteProviderDescriptor.Builder SetSupportsDynamicGroupRoute (bool);
 ```
 
 
@@ -5269,8 +4918,8 @@ Modified properties:
 Added methods:
 
 ```csharp
-public void AddMemberToDynamicGroup (MediaRouter.RouteInfo route);
-public void RemoveMemberFromDynamicGroup (MediaRouter.RouteInfo route);
+public void AddMemberToDynamicGroup (MediaRouter.RouteInfo);
+public void RemoveMemberFromDynamicGroup (MediaRouter.RouteInfo);
 ```
 
 #### Type Changed: AndroidX.MediaRouter.Media.MediaRouter.ProviderInfo
@@ -5289,15 +4938,15 @@ Obsoleted properties:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual bool IsConnecting { get; }
+ public bool IsConnecting { get; }
 ```
 
 Added properties:
 
 ```csharp
-public virtual MediaRouteProvider.DynamicGroupRouteController DynamicGroupController { get; }
-public virtual bool IsGroup { get; }
-public virtual System.Collections.Generic.IList<MediaRouter.RouteInfo> MemberRoutes { get; }
+public MediaRouteProvider.DynamicGroupRouteController DynamicGroupController { get; }
+public bool IsGroup { get; }
+public System.Collections.Generic.IList<MediaRouter.RouteInfo> MemberRoutes { get; }
 ```
 
 Added method:
@@ -5317,9 +4966,9 @@ public virtual MediaRouter.RouteInfo.DynamicGroupState GetDynamicGroupState ();
 Added methods:
 
 ```csharp
-public virtual void AddListListener (AsyncListDiffer.IListListener listener);
-public virtual void RemoveListListener (AsyncListDiffer.IListListener listener);
-public virtual void SubmitList (System.Collections.IList newList, Java.Lang.IRunnable commitCallback);
+public virtual void AddListListener (AsyncListDiffer.IListListener);
+public virtual void RemoveListListener (AsyncListDiffer.IListListener);
+public virtual void SubmitList (System.Collections.IList, Java.Lang.IRunnable);
 ```
 
 
@@ -5328,14 +4977,14 @@ public virtual void SubmitList (System.Collections.IList newList, Java.Lang.IRun
 Added property:
 
 ```csharp
-public virtual System.Collections.IList CurrentList { get; }
+public System.Collections.IList CurrentList { get; }
 ```
 
 Added methods:
 
 ```csharp
-public virtual void OnCurrentListChanged (System.Collections.IList previousList, System.Collections.IList currentList);
-public virtual void SubmitList (System.Collections.IList list, Java.Lang.IRunnable commitCallback);
+public virtual void OnCurrentListChanged (System.Collections.IList, System.Collections.IList);
+public virtual void SubmitList (System.Collections.IList, Java.Lang.IRunnable);
 ```
 
 
@@ -5344,13 +4993,13 @@ public virtual void SubmitList (System.Collections.IList list, Java.Lang.IRunnab
 Added property:
 
 ```csharp
-public virtual Android.Graphics.Drawables.Drawable Drawable { get; set; }
+public Android.Graphics.Drawables.Drawable Drawable { get; set; }
 ```
 
 Removed method:
 
 ```csharp
-public virtual void SetDrawable (Android.Graphics.Drawables.Drawable drawable);
+public virtual void SetDrawable (Android.Graphics.Drawables.Drawable);
 ```
 
 
@@ -5359,7 +5008,7 @@ public virtual void SetDrawable (Android.Graphics.Drawables.Drawable drawable);
 Added property:
 
 ```csharp
-public virtual bool UsingSpansToEstimateScrollbarDimensions { get; set; }
+public bool UsingSpansToEstimateScrollbarDimensions { get; set; }
 ```
 
 #### Type Changed: AndroidX.RecyclerView.Widget.GridLayoutManager.SpanSizeLookup
@@ -5367,7 +5016,7 @@ public virtual bool UsingSpansToEstimateScrollbarDimensions { get; set; }
 Added property:
 
 ```csharp
-public virtual bool SpanGroupIndexCacheEnabled { get; set; }
+public bool SpanGroupIndexCacheEnabled { get; set; }
 ```
 
 Added method:
@@ -5384,24 +5033,17 @@ Obsoleted methods:
 
 ```diff
  [Obsolete ("deprecated")]
- protected virtual int GetExtraLayoutSpace (RecyclerView.State state);
+ protected virtual int GetExtraLayoutSpace (RecyclerView.State);
 ```
 
 Added method:
 
 ```csharp
-protected virtual void CalculateExtraLayoutSpace (RecyclerView.State state, int[] extraLayoutSpace);
+protected virtual void CalculateExtraLayoutSpace (RecyclerView.State, int[]);
 ```
 
 
 #### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView
-
-Modified constructors:
-
-```diff
--public RecyclerView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyle)
-+public RecyclerView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr)
-```
 
 Added interface:
 
@@ -5419,7 +5061,7 @@ Obsoleted properties:
 
 ```diff
  [Obsolete ("deprecated")]
- public virtual bool LayoutFrozen { get; set; }
+ public bool LayoutFrozen { get; set; }
 ```
 
 Added property:
@@ -5431,9 +5073,9 @@ public bool IsLayoutSuppressed { get; }
 Added methods:
 
 ```csharp
-public virtual void DispatchNestedScroll (int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow, int type, int[] consumed);
-public virtual void SmoothScrollBy (int dx, int dy, Android.Views.Animations.IInterpolator interpolator, int duration);
-public void SuppressLayout (bool suppress);
+public virtual void DispatchNestedScroll (int, int, int, int, int[], int, int[]);
+public virtual void SmoothScrollBy (int, int, Android.Views.Animations.IInterpolator, int);
+public void SuppressLayout (bool);
 ```
 
 #### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView.Adapter
@@ -5447,7 +5089,7 @@ Modified properties:
 Added method:
 
 ```csharp
-public virtual void SetHasStableIds (bool hasStableIds);
+public virtual void SetHasStableIds (bool);
 ```
 
 
@@ -5466,28 +5108,12 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void SmoothScrollBy (int dx, int dy);
-public virtual void SmoothScrollBy (int dx, int dy, Android.Views.Animations.IInterpolator interpolator);
-public virtual void SmoothScrollBy (int dx, int dy, int duration);
-public virtual void SmoothScrollBy (int dx, int dy, int vx, int vy);
+public virtual void SmoothScrollBy (int, int);
+public virtual void SmoothScrollBy (int, int, Android.Views.Animations.IInterpolator);
+public virtual void SmoothScrollBy (int, int, int);
+public virtual void SmoothScrollBy (int, int, int, int);
 ```
 
-
-
-#### Type Changed: AndroidX.RecyclerView.Widget.IItemTouchUIUtil
-
-Modified methods:
-
-```diff
--public abstract void ClearView (Android.Views.View view)
-+public abstract void ClearView (Android.Views.View p0)
--public abstract void OnDraw (Android.Graphics.Canvas c, RecyclerView recyclerView---p1---, Android.Views.View view---p2---, float dX---p3---, float dY---p4---, int actionState---p5---, bool isCurrentlyActive---p6---)
-+public abstract void OnDraw (Android.Graphics.Canvas p0, RecyclerView +++recyclerView+++p1, Android.Views.View +++view+++p2, float +++dX+++p3, float +++dY+++p4, int +++actionState+++p5, bool +++isCurrentlyActive+++p6)
--public abstract void OnDrawOver (Android.Graphics.Canvas c, RecyclerView recyclerView---p1---, Android.Views.View view---p2---, float dX---p3---, float dY---p4---, int actionState---p5---, bool isCurrentlyActive---p6---)
-+public abstract void OnDrawOver (Android.Graphics.Canvas p0, RecyclerView +++recyclerView+++p1, Android.Views.View +++view+++p2, float +++dX+++p3, float +++dY+++p4, int +++actionState+++p5, bool +++isCurrentlyActive+++p6)
--public abstract void OnSelected (Android.Views.View view)
-+public abstract void OnSelected (Android.Views.View p0)
-```
 
 
 #### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper
@@ -5497,32 +5123,13 @@ Modified methods:
 Removed method:
 
 ```csharp
-public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder selected, System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder> dropTargets, int curX, int curY);
-```
-
-Modified methods:
-
-```diff
--public abstract bool OnMove (RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder---p1---, RecyclerView.ViewHolder target---p2---)
-+public abstract bool OnMove (RecyclerView p0, RecyclerView.ViewHolder +++viewHolder+++p1, RecyclerView.ViewHolder +++target+++p2)
--public abstract void OnSwiped (RecyclerView.ViewHolder viewHolder, int direction---p1---)
-+public abstract void OnSwiped (RecyclerView.ViewHolder p0, int +++direction+++p1)
+public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder, System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder>, int, int);
 ```
 
 Added method:
 
 ```csharp
-public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder selected, System.Collections.Generic.IList<RecyclerView.ViewHolder> dropTargets, int curX, int curY);
-```
-
-
-#### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper.IViewDropHandler
-
-Modified methods:
-
-```diff
--public abstract void PrepareForDrop (Android.Views.View view, Android.Views.View target---p1---, int x---p2---, int y---p3---)
-+public abstract void PrepareForDrop (Android.Views.View p0, Android.Views.View +++target+++p1, int +++x+++p2, int +++y+++p3)
+public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder, System.Collections.Generic.IList<RecyclerView.ViewHolder>, int, int);
 ```
 
 
@@ -5600,39 +5207,39 @@ System.IDisposable
 ```csharp
 public class MenuWrapperICS : Java.Lang.Object, Android.Runtime.IJavaObject, Android.Views.IMenu, System.IDisposable {
 	// constructors
-	public MenuWrapperICS (Android.Content.Context context, AndroidX.Core.Internal.View.ISupportMenu object);
-	protected MenuWrapperICS (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public MenuWrapperICS (Android.Content.Context, AndroidX.Core.Internal.View.ISupportMenu);
+	protected MenuWrapperICS (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual bool HasVisibleItems { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool HasVisibleItems { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual Android.Views.IMenuItem Add (Java.Lang.ICharSequence title);
-	public virtual Android.Views.IMenuItem Add (int titleRes);
-	public Android.Views.IMenuItem Add (string title);
-	public virtual Android.Views.IMenuItem Add (int groupId, int itemId, int order, Java.Lang.ICharSequence title);
-	public virtual Android.Views.IMenuItem Add (int groupId, int itemId, int order, int titleRes);
-	public Android.Views.IMenuItem Add (int groupId, int itemId, int order, string title);
-	public virtual int AddIntentOptions (int groupId, int itemId, int order, Android.Content.ComponentName caller, Android.Content.Intent[] specifics, Android.Content.Intent intent, Android.Views.MenuAppendFlags flags, Android.Views.IMenuItem[] outSpecificItems);
-	public virtual Android.Views.ISubMenu AddSubMenu (Java.Lang.ICharSequence title);
-	public virtual Android.Views.ISubMenu AddSubMenu (int titleRes);
-	public Android.Views.ISubMenu AddSubMenu (string title);
-	public virtual Android.Views.ISubMenu AddSubMenu (int groupId, int itemId, int order, Java.Lang.ICharSequence title);
-	public virtual Android.Views.ISubMenu AddSubMenu (int groupId, int itemId, int order, int titleRes);
-	public Android.Views.ISubMenu AddSubMenu (int groupId, int itemId, int order, string title);
+	public virtual Android.Views.IMenuItem Add (Java.Lang.ICharSequence);
+	public virtual Android.Views.IMenuItem Add (int);
+	public Android.Views.IMenuItem Add (string);
+	public virtual Android.Views.IMenuItem Add (int, int, int, Java.Lang.ICharSequence);
+	public virtual Android.Views.IMenuItem Add (int, int, int, int);
+	public Android.Views.IMenuItem Add (int, int, int, string);
+	public virtual int AddIntentOptions (int, int, int, Android.Content.ComponentName, Android.Content.Intent[], Android.Content.Intent, Android.Views.MenuAppendFlags, Android.Views.IMenuItem[]);
+	public virtual Android.Views.ISubMenu AddSubMenu (Java.Lang.ICharSequence);
+	public virtual Android.Views.ISubMenu AddSubMenu (int);
+	public Android.Views.ISubMenu AddSubMenu (string);
+	public virtual Android.Views.ISubMenu AddSubMenu (int, int, int, Java.Lang.ICharSequence);
+	public virtual Android.Views.ISubMenu AddSubMenu (int, int, int, int);
+	public Android.Views.ISubMenu AddSubMenu (int, int, int, string);
 	public virtual void Clear ();
 	public virtual void Close ();
-	public virtual Android.Views.IMenuItem FindItem (int id);
-	public virtual Android.Views.IMenuItem GetItem (int index);
-	public virtual bool IsShortcutKey (Android.Views.Keycode keyCode, Android.Views.KeyEvent e);
-	public virtual bool PerformIdentifierAction (int id, Android.Views.MenuPerformFlags flags);
-	public virtual bool PerformShortcut (Android.Views.Keycode keyCode, Android.Views.KeyEvent e, Android.Views.MenuPerformFlags flags);
-	public virtual void RemoveGroup (int groupId);
-	public virtual void RemoveItem (int id);
-	public virtual void SetGroupCheckable (int group, bool checkable, bool exclusive);
-	public virtual void SetGroupEnabled (int group, bool enabled);
-	public virtual void SetGroupVisible (int group, bool visible);
-	public virtual void SetQwertyMode (bool isQwerty);
+	public virtual Android.Views.IMenuItem FindItem (int);
+	public virtual Android.Views.IMenuItem GetItem (int);
+	public virtual bool IsShortcutKey (Android.Views.Keycode, Android.Views.KeyEvent);
+	public virtual bool PerformIdentifierAction (int, Android.Views.MenuPerformFlags);
+	public virtual bool PerformShortcut (Android.Views.Keycode, Android.Views.KeyEvent, Android.Views.MenuPerformFlags);
+	public virtual void RemoveGroup (int);
+	public virtual void RemoveItem (int);
+	public virtual void SetGroupCheckable (int, bool, bool);
+	public virtual void SetGroupEnabled (int, bool);
+	public virtual void SetGroupVisible (int, bool);
+	public virtual void SetQwertyMode (bool);
 	public virtual int Size ();
 }
 ```
@@ -5652,12 +5259,12 @@ AndroidX.Core.View.INestedScrollingParent3
 Added methods:
 
 ```csharp
-public virtual void OnNestedPreScroll (Android.Views.View target, int dx, int dy, int[] consumed, int type);
-public virtual void OnNestedScroll (Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type);
-public virtual void OnNestedScroll (Android.Views.View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, int[] consumed);
-public virtual void OnNestedScrollAccepted (Android.Views.View child, Android.Views.View target, int axes, int type);
-public virtual bool OnStartNestedScroll (Android.Views.View child, Android.Views.View target, int axes, int type);
-public virtual void OnStopNestedScroll (Android.Views.View target, int type);
+public virtual void OnNestedPreScroll (Android.Views.View, int, int, int[], int);
+public virtual void OnNestedScroll (Android.Views.View, int, int, int, int, int);
+public virtual void OnNestedScroll (Android.Views.View, int, int, int, int, int, int[]);
+public virtual void OnNestedScrollAccepted (Android.Views.View, Android.Views.View, int, int);
+public virtual bool OnStartNestedScroll (Android.Views.View, Android.Views.View, int, int);
+public virtual void OnStopNestedScroll (Android.Views.View, int);
 ```
 
 
@@ -5672,8 +5279,8 @@ AndroidX.Core.View.ITintableBackgroundView
 Added properties:
 
 ```csharp
-public virtual Android.Content.Res.ColorStateList SupportBackgroundTintList { get; set; }
-public virtual Android.Graphics.PorterDuff.Mode SupportBackgroundTintMode { get; set; }
+public Android.Content.Res.ColorStateList SupportBackgroundTintList { get; set; }
+public Android.Graphics.PorterDuff.Mode SupportBackgroundTintMode { get; set; }
 ```
 
 
@@ -5698,8 +5305,8 @@ AndroidX.Core.View.ITintableBackgroundView
 Added properties:
 
 ```csharp
-public virtual Android.Content.Res.ColorStateList SupportBackgroundTintList { get; set; }
-public virtual Android.Graphics.PorterDuff.Mode SupportBackgroundTintMode { get; set; }
+public Android.Content.Res.ColorStateList SupportBackgroundTintList { get; set; }
+public Android.Graphics.PorterDuff.Mode SupportBackgroundTintMode { get; set; }
 ```
 
 
@@ -5714,8 +5321,8 @@ AndroidX.Core.Widget.ITintableCompoundDrawablesView
 Added properties:
 
 ```csharp
-public virtual Android.Content.Res.ColorStateList SupportCompoundDrawablesTintList { get; set; }
-public virtual Android.Graphics.PorterDuff.Mode SupportCompoundDrawablesTintMode { get; set; }
+public Android.Content.Res.ColorStateList SupportCompoundDrawablesTintList { get; set; }
+public Android.Graphics.PorterDuff.Mode SupportCompoundDrawablesTintMode { get; set; }
 ```
 
 
@@ -5744,13 +5351,13 @@ System.IDisposable
 Added property:
 
 ```csharp
-public virtual Android.Graphics.Rect EpicenterBounds { get; set; }
+public Android.Graphics.Rect EpicenterBounds { get; set; }
 ```
 
 Removed method:
 
 ```csharp
-public virtual void SetEpicenterBounds (Android.Graphics.Rect bounds);
+public virtual void SetEpicenterBounds (Android.Graphics.Rect);
 ```
 
 
@@ -5760,17 +5367,17 @@ Added properties:
 
 ```csharp
 public string CollapseContentDescription { get; set; }
-public virtual Java.Lang.ICharSequence CollapseContentDescriptionFormatted { get; set; }
-public virtual Android.Graphics.Drawables.Drawable CollapseIcon { get; set; }
+public Java.Lang.ICharSequence CollapseContentDescriptionFormatted { get; set; }
+public Android.Graphics.Drawables.Drawable CollapseIcon { get; set; }
 ```
 
 Added methods:
 
 ```csharp
-public virtual void SetCollapseContentDescription (int resId);
-public virtual void SetCollapseIcon (int resId);
-public virtual void SetSubtitleTextColor (Android.Content.Res.ColorStateList color);
-public virtual void SetTitleTextColor (Android.Content.Res.ColorStateList color);
+public virtual void SetCollapseContentDescription (int);
+public virtual void SetCollapseIcon (int);
+public virtual void SetSubtitleTextColor (Android.Content.Res.ColorStateList);
+public virtual void SetTitleTextColor (Android.Content.Res.ColorStateList);
 ```
 
 
@@ -5779,7 +5386,7 @@ public virtual void SetTitleTextColor (Android.Content.Res.ColorStateList color)
 ```csharp
 public static class AppCompatSpinnerISpinnerPopupExtensions {
 	// methods
-	public static void SetPromptText (this AppCompatSpinner.ISpinnerPopup self, string p0);
+	public static void SetPromptText (this AppCompatSpinner.ISpinnerPopup, string);
 }
 ```
 
@@ -5788,13 +5395,13 @@ public static class AppCompatSpinnerISpinnerPopupExtensions {
 ```csharp
 public class AppCompatToggleButton : Android.Widget.ToggleButton {
 	// constructors
-	public AppCompatToggleButton (Android.Content.Context context);
-	public AppCompatToggleButton (Android.Content.Context context, Android.Util.IAttributeSet attrs);
-	protected AppCompatToggleButton (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public AppCompatToggleButton (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr);
+	public AppCompatToggleButton (Android.Content.Context);
+	public AppCompatToggleButton (Android.Content.Context, Android.Util.IAttributeSet);
+	protected AppCompatToggleButton (IntPtr, Android.Runtime.JniHandleOwnership);
+	public AppCompatToggleButton (Android.Content.Context, Android.Util.IAttributeSet, int);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -5805,31 +5412,31 @@ public sealed class ResourceManagerInternal : Java.Lang.Object {
 	// constructors
 	public ResourceManagerInternal ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public static ResourceManagerInternal Get ();
-	public Android.Graphics.Drawables.Drawable GetDrawable (Android.Content.Context context, int resId);
-	public static Android.Graphics.PorterDuffColorFilter GetPorterDuffColorFilter (int color, Android.Graphics.PorterDuff.Mode mode);
-	public void OnConfigurationChanged (Android.Content.Context context);
+	public Android.Graphics.Drawables.Drawable GetDrawable (Android.Content.Context, int);
+	public static Android.Graphics.PorterDuffColorFilter GetPorterDuffColorFilter (int, Android.Graphics.PorterDuff.Mode);
+	public void OnConfigurationChanged (Android.Content.Context);
 
 	// inner types
 	public class AsldcInflateDelegate : Java.Lang.Object {
 		// constructors
-		protected ResourceManagerInternal.AsldcInflateDelegate (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected ResourceManagerInternal.AsldcInflateDelegate (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Android.Graphics.Drawables.Drawable CreateFromXmlInner (Android.Content.Context context, System.Xml.XmlReader parser, Android.Util.IAttributeSet attrs, Android.Content.Res.Resources.Theme theme);
+		public virtual Android.Graphics.Drawables.Drawable CreateFromXmlInner (Android.Content.Context, System.Xml.XmlReader, Android.Util.IAttributeSet, Android.Content.Res.Resources.Theme);
 	}
 	public interface IResourceManagerHooks : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual Android.Graphics.Drawables.Drawable CreateDrawableFor (ResourceManagerInternal p0, Android.Content.Context p1, int p2);
-		public virtual Android.Content.Res.ColorStateList GetTintListForDrawableRes (Android.Content.Context p0, int p1);
-		public virtual Android.Graphics.PorterDuff.Mode GetTintModeForDrawableRes (int p0);
-		public virtual bool TintDrawable (Android.Content.Context p0, int p1, Android.Graphics.Drawables.Drawable p2);
-		public virtual bool TintDrawableUsingColorFilter (Android.Content.Context p0, int p1, Android.Graphics.Drawables.Drawable p2);
+		public virtual Android.Graphics.Drawables.Drawable CreateDrawableFor (ResourceManagerInternal, Android.Content.Context, int);
+		public virtual Android.Content.Res.ColorStateList GetTintListForDrawableRes (Android.Content.Context, int);
+		public virtual Android.Graphics.PorterDuff.Mode GetTintModeForDrawableRes (int);
+		public virtual bool TintDrawable (Android.Content.Context, int, Android.Graphics.Drawables.Drawable);
+		public virtual bool TintDrawableUsingColorFilter (Android.Content.Context, int, Android.Graphics.Drawables.Drawable);
 	}
 }
 ```
@@ -5840,14 +5447,14 @@ public sealed class ResourceManagerInternal : Java.Lang.Object {
 public class TintInfo : Java.Lang.Object {
 	// constructors
 	public TintInfo ();
-	protected TintInfo (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected TintInfo (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public bool MHasTintList { get; set; }
 	public bool MHasTintMode { get; set; }
 	public Android.Content.Res.ColorStateList MTintList { get; set; }
 	public Android.Graphics.PorterDuff.Mode MTintMode { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -5897,19 +5504,6 @@ AndroidX.SavedState.ISavedStateRegistryOwner
 
 ### Namespace AndroidX.Wear.Widget
 
-#### Type Changed: AndroidX.Wear.Widget.WearableLinearLayoutManager
-
-#### Type Changed: AndroidX.Wear.Widget.WearableLinearLayoutManager.LayoutCallback
-
-Modified methods:
-
-```diff
--public abstract void OnLayoutFinished (Android.Views.View child, AndroidX.RecyclerView.Widget.RecyclerView parent---p1---)
-+public abstract void OnLayoutFinished (Android.Views.View p0, AndroidX.RecyclerView.Widget.RecyclerView +++parent+++p1)
-```
-
-
-
 #### Type Changed: AndroidX.Wear.Widget.WearableRecyclerView
 
 Added interface:
@@ -5927,7 +5521,7 @@ AndroidX.Core.View.INestedScrollingChild3
 Removed method:
 
 ```csharp
-public virtual void OnBindViewHolder (int position);
+public virtual void OnBindViewHolder (int);
 ```
 
 
@@ -5966,10 +5560,10 @@ public string DefaultValue { get; set; }
 Added methods:
 
 ```csharp
-public static Java.Lang.Object GetVersionedParcelable (Android.OS.Bundle bundle, string key);
-public static System.Collections.IList GetVersionedParcelableList (Android.OS.Bundle bundle, string key);
-public static void PutVersionedParcelable (Android.OS.Bundle b, string key, IVersionedParcelable obj);
-public static void PutVersionedParcelableList (Android.OS.Bundle b, string key, System.Collections.Generic.IList<IVersionedParcelable> list);
+public static Java.Lang.Object GetVersionedParcelable (Android.OS.Bundle, string);
+public static System.Collections.IList GetVersionedParcelableList (Android.OS.Bundle, string);
+public static void PutVersionedParcelable (Android.OS.Bundle, string, IVersionedParcelable);
+public static void PutVersionedParcelableList (Android.OS.Bundle, string, System.Collections.Generic.IList<IVersionedParcelable>);
 ```
 
 
@@ -5984,7 +5578,7 @@ public VersionedParcel ();
 Added constructor:
 
 ```csharp
-public VersionedParcel (AndroidX.Collection.ArrayMap readCache, AndroidX.Collection.ArrayMap writeCache, AndroidX.Collection.ArrayMap parcelizerCache);
+public VersionedParcel (AndroidX.Collection.ArrayMap, AndroidX.Collection.ArrayMap, AndroidX.Collection.ArrayMap);
 ```
 
 Added properties:
@@ -5998,23 +5592,23 @@ protected AndroidX.Collection.ArrayMap MWriteCache { get; set; }
 Modified methods:
 
 ```diff
- ---static--- protected ---virtual--- Java.Lang.Object ReadFromParcel (string parcelCls, VersionedParcel versionedParcel)
- ---static--- protected ---virtual--- void WriteToParcel (Java.Lang.Object val, VersionedParcel versionedParcel)
+ ---static--- protected Java.Lang.Object ReadFromParcel (string parcelCls, VersionedParcel versionedParcel)
+ ---static--- protected void WriteToParcel (Java.Lang.Object val, VersionedParcel versionedParcel)
 ```
 
 Added methods:
 
 ```csharp
 protected string ReadCharSequence ();
-public string ReadCharSequence (string def, int fieldId);
+public string ReadCharSequence (string, int);
 protected virtual Java.Lang.ICharSequence ReadCharSequenceFormatted ();
-public virtual Java.Lang.ICharSequence ReadCharSequenceFormatted (Java.Lang.ICharSequence def, int fieldId);
-public virtual System.Collections.IDictionary ReadMap (System.Collections.IDictionary def, int fieldId);
-protected virtual void WriteCharSequence (Java.Lang.ICharSequence p0);
-protected void WriteCharSequence (string p0);
-public virtual void WriteCharSequence (Java.Lang.ICharSequence val, int fieldId);
-public void WriteCharSequence (string val, int fieldId);
-public virtual void WriteMap (System.Collections.IDictionary val, int fieldId);
+public virtual Java.Lang.ICharSequence ReadCharSequenceFormatted (Java.Lang.ICharSequence, int);
+public virtual System.Collections.IDictionary ReadMap (System.Collections.IDictionary, int);
+protected virtual void WriteCharSequence (Java.Lang.ICharSequence);
+protected void WriteCharSequence (string);
+public virtual void WriteCharSequence (Java.Lang.ICharSequence, int);
+public void WriteCharSequence (string, int);
+public virtual void WriteMap (System.Collections.IDictionary, int);
 ```
 
 
@@ -6040,30 +5634,13 @@ public static const int ForceDarkOff;
 public static const int ForceDarkOn;
 ```
 
-Modified methods:
-
-```diff
--public int GetDisabledActionModeMenuItems (Android.Webkit.WebSettings webSettings)
-+public int GetDisabledActionModeMenuItems (Android.Webkit.WebSettings settings)
--public bool GetOffscreenPreRaster (Android.Webkit.WebSettings webSettings)
-+public bool GetOffscreenPreRaster (Android.Webkit.WebSettings settings)
--public bool GetSafeBrowsingEnabled (Android.Webkit.WebSettings webSettings)
-+public bool GetSafeBrowsingEnabled (Android.Webkit.WebSettings settings)
--public void SetDisabledActionModeMenuItems (Android.Webkit.WebSettings webSettings, int menuItems)
-+public void SetDisabledActionModeMenuItems (Android.Webkit.WebSettings settings, int menuItems)
--public void SetOffscreenPreRaster (Android.Webkit.WebSettings webSettings, bool enabled)
-+public void SetOffscreenPreRaster (Android.Webkit.WebSettings settings, bool enabled)
--public void SetSafeBrowsingEnabled (Android.Webkit.WebSettings webSettings, bool enabled)
-+public void SetSafeBrowsingEnabled (Android.Webkit.WebSettings settings, bool enabled)
-```
-
 Added methods:
 
 ```csharp
-public static int GetForceDark (Android.Webkit.WebSettings settings);
-public static void SetForceDark (Android.Webkit.WebSettings settings, int forceDarkMode);
-public static void SetWillSuppressErrorPage (Android.Webkit.WebSettings settings, bool suppressed);
-public static bool WillSuppressErrorPage (Android.Webkit.WebSettings settings);
+public static int GetForceDark (Android.Webkit.WebSettings);
+public static void SetForceDark (Android.Webkit.WebSettings, int);
+public static void SetWillSuppressErrorPage (Android.Webkit.WebSettings, bool);
+public static bool WillSuppressErrorPage (Android.Webkit.WebSettings);
 ```
 
 #### New Type: AndroidX.WebKit.WebSettingsCompat.IForceDark
@@ -6085,12 +5662,12 @@ public static bool IsMultiProcessEnabled { get; }
 Added methods:
 
 ```csharp
-public static Android.Webkit.WebChromeClient GetWebChromeClient (Android.Webkit.WebView webview);
-public static Android.Webkit.WebViewClient GetWebViewClient (Android.Webkit.WebView webview);
-public static WebViewRenderProcess GetWebViewRenderProcess (Android.Webkit.WebView webview);
-public static WebViewRenderProcessClient GetWebViewRenderProcessClient (Android.Webkit.WebView webview);
-public static void SetWebViewRenderProcessClient (Android.Webkit.WebView webview, WebViewRenderProcessClient webViewRenderProcessClient);
-public static void SetWebViewRenderProcessClient (Android.Webkit.WebView webview, Java.Util.Concurrent.IExecutor executor, WebViewRenderProcessClient webViewRenderProcessClient);
+public static Android.Webkit.WebChromeClient GetWebChromeClient (Android.Webkit.WebView);
+public static Android.Webkit.WebViewClient GetWebViewClient (Android.Webkit.WebView);
+public static WebViewRenderProcess GetWebViewRenderProcess (Android.Webkit.WebView);
+public static WebViewRenderProcessClient GetWebViewRenderProcessClient (Android.Webkit.WebView);
+public static void SetWebViewRenderProcessClient (Android.Webkit.WebView, WebViewRenderProcessClient);
+public static void SetWebViewRenderProcessClient (Android.Webkit.WebView, Java.Util.Concurrent.IExecutor, WebViewRenderProcessClient);
 ```
 
 
@@ -6117,7 +5694,7 @@ public static const string WebViewRendererTerminate = "WEB_VIEW_RENDERER_TERMINA
 ```csharp
 public sealed class ProxyConfig : Java.Lang.Object {
 	// constructors
-	public ProxyConfig (System.Collections.Generic.IList<ProxyConfig.ProxyRule> proxyRules, System.Collections.Generic.IList<string> bypassRules);
+	public ProxyConfig (System.Collections.Generic.IList<ProxyConfig.ProxyRule>, System.Collections.Generic.IList<string>);
 	// fields
 	public static const string MatchAllSchemes = "*";
 	public static const string MatchHttp = "http";
@@ -6125,23 +5702,23 @@ public sealed class ProxyConfig : Java.Lang.Object {
 	// properties
 	public System.Collections.Generic.IList<string> BypassRules { get; }
 	public System.Collections.Generic.IList<ProxyConfig.ProxyRule> ProxyRules { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
 		public ProxyConfig.Builder ();
-		public ProxyConfig.Builder (ProxyConfig proxyConfig);
+		public ProxyConfig.Builder (ProxyConfig);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public ProxyConfig.Builder AddBypassRule (string bypassRule);
+		public ProxyConfig.Builder AddBypassRule (string);
 		public ProxyConfig.Builder AddDirect ();
-		public ProxyConfig.Builder AddDirect (string schemeFilter);
-		public ProxyConfig.Builder AddProxyRule (string proxyUrl);
-		public ProxyConfig.Builder AddProxyRule (string proxyUrl, string schemeFilter);
+		public ProxyConfig.Builder AddDirect (string);
+		public ProxyConfig.Builder AddProxyRule (string);
+		public ProxyConfig.Builder AddProxyRule (string, string);
 		public ProxyConfig Build ();
 		public ProxyConfig.Builder BypassSimpleHostnames ();
 		public ProxyConfig.Builder RemoveImplicitRules ();
@@ -6150,12 +5727,12 @@ public sealed class ProxyConfig : Java.Lang.Object {
 	}
 	public sealed class ProxyRule : Java.Lang.Object {
 		// constructors
-		public ProxyConfig.ProxyRule (string url);
-		public ProxyConfig.ProxyRule (string schemeFilter, string url);
+		public ProxyConfig.ProxyRule (string);
+		public ProxyConfig.ProxyRule (string, string);
 		// properties
 		public string SchemeFilter { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		public string Url { get; }
 	}
 }
@@ -6167,14 +5744,14 @@ public sealed class ProxyConfig : Java.Lang.Object {
 public abstract class ProxyController : Java.Lang.Object {
 	// constructors
 	public ProxyController ();
-	protected ProxyController (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ProxyController (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static ProxyController Instance { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void ClearProxyOverride (Java.Util.Concurrent.IExecutor p0, Java.Lang.IRunnable p1);
-	public virtual void SetProxyOverride (ProxyConfig p0, Java.Util.Concurrent.IExecutor p1, Java.Lang.IRunnable p2);
+	public virtual void ClearProxyOverride (Java.Util.Concurrent.IExecutor, Java.Lang.IRunnable);
+	public virtual void SetProxyOverride (ProxyConfig, Java.Util.Concurrent.IExecutor, Java.Lang.IRunnable);
 }
 ```
 
@@ -6183,8 +5760,8 @@ public abstract class ProxyController : Java.Lang.Object {
 ```csharp
 public class TracingConfig : Java.Lang.Object {
 	// constructors
-	protected TracingConfig (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public TracingConfig (int predefinedCategories, System.Collections.Generic.IList<string> customIncludedCategories, int tracingMode);
+	protected TracingConfig (IntPtr, Android.Runtime.JniHandleOwnership);
+	public TracingConfig (int, System.Collections.Generic.IList<string>, int);
 	// fields
 	public static const int CategoriesAll;
 	public static const int CategoriesAndroidWebview;
@@ -6197,26 +5774,26 @@ public class TracingConfig : Java.Lang.Object {
 	public static const int RecordContinuously;
 	public static const int RecordUntilFull;
 	// properties
-	public virtual System.Collections.Generic.IList<string> CustomIncludedCategories { get; }
-	public virtual int PredefinedCategories { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual int TracingMode { get; }
+	public System.Collections.Generic.IList<string> CustomIncludedCategories { get; }
+	public int PredefinedCategories { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public int TracingMode { get; }
 
 	// inner types
 	public class Builder : Java.Lang.Object {
 		// constructors
 		public TracingConfig.Builder ();
-		protected TracingConfig.Builder (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected TracingConfig.Builder (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual TracingConfig.Builder AddCategories (System.Collections.Generic.ICollection<string> categories);
-		public virtual TracingConfig.Builder AddCategories (int[] predefinedCategories);
-		public virtual TracingConfig.Builder AddCategories (string[] categories);
+		public virtual TracingConfig.Builder AddCategories (System.Collections.Generic.ICollection<string>);
+		public virtual TracingConfig.Builder AddCategories (int[]);
+		public virtual TracingConfig.Builder AddCategories (string[]);
 		public virtual TracingConfig Build ();
-		public virtual TracingConfig.Builder SetTracingMode (int tracingMode);
+		public virtual TracingConfig.Builder SetTracingMode (int);
 	}
 	public interface IPredefinedCategories : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
@@ -6231,15 +5808,15 @@ public class TracingConfig : Java.Lang.Object {
 public abstract class TracingController : Java.Lang.Object {
 	// constructors
 	public TracingController ();
-	protected TracingController (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected TracingController (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static TracingController Instance { get; }
-	public virtual bool IsTracing { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsTracing { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void Start (TracingConfig p0);
-	public virtual bool Stop (System.IO.Stream p0, Java.Util.Concurrent.IExecutor p1);
+	public virtual void Start (TracingConfig);
+	public virtual bool Stop (System.IO.Stream, Java.Util.Concurrent.IExecutor);
 }
 ```
 
@@ -6250,64 +5827,64 @@ public sealed class WebViewAssetLoader : Java.Lang.Object {
 	// fields
 	public static const string DefaultDomain = "appassets.androidplatform.net";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public Android.Webkit.WebResourceResponse ShouldInterceptRequest (Android.Net.Uri url);
+	public Android.Webkit.WebResourceResponse ShouldInterceptRequest (Android.Net.Uri);
 
 	// inner types
 	public sealed class AssetsPathHandler : Java.Lang.Object, Android.Runtime.IJavaObject, WebViewAssetLoader.IPathHandler, System.IDisposable {
 		// constructors
-		public WebViewAssetLoader.AssetsPathHandler (Android.Content.Context context);
+		public WebViewAssetLoader.AssetsPathHandler (Android.Content.Context);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Android.Webkit.WebResourceResponse Handle (string path);
+		public virtual Android.Webkit.WebResourceResponse Handle (string);
 	}
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
 		public WebViewAssetLoader.Builder ();
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public WebViewAssetLoader.Builder AddPathHandler (string path, WebViewAssetLoader.IPathHandler handler);
+		public WebViewAssetLoader.Builder AddPathHandler (string, WebViewAssetLoader.IPathHandler);
 		public WebViewAssetLoader Build ();
-		public WebViewAssetLoader.Builder SetDomain (string domain);
-		public WebViewAssetLoader.Builder SetHttpAllowed (bool httpAllowed);
+		public WebViewAssetLoader.Builder SetDomain (string);
+		public WebViewAssetLoader.Builder SetHttpAllowed (bool);
 	}
 	public interface IPathHandler : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual Android.Webkit.WebResourceResponse Handle (string p0);
+		public virtual Android.Webkit.WebResourceResponse Handle (string);
 	}
 	public sealed class InternalStoragePathHandler : Java.Lang.Object, Android.Runtime.IJavaObject, WebViewAssetLoader.IPathHandler, System.IDisposable {
 		// constructors
-		public WebViewAssetLoader.InternalStoragePathHandler (Android.Content.Context context, Java.IO.File directory);
+		public WebViewAssetLoader.InternalStoragePathHandler (Android.Content.Context, Java.IO.File);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Android.Webkit.WebResourceResponse Handle (string path);
+		public virtual Android.Webkit.WebResourceResponse Handle (string);
 	}
 	public class PathMatcher : Java.Lang.Object {
 		// constructors
-		protected WebViewAssetLoader.PathMatcher (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected WebViewAssetLoader.PathMatcher (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual string GetSuffixPath (string path);
-		public virtual WebViewAssetLoader.IPathHandler Match (Android.Net.Uri uri);
+		public virtual string GetSuffixPath (string);
+		public virtual WebViewAssetLoader.IPathHandler Match (Android.Net.Uri);
 	}
 	public sealed class ResourcesPathHandler : Java.Lang.Object, Android.Runtime.IJavaObject, WebViewAssetLoader.IPathHandler, System.IDisposable {
 		// constructors
-		public WebViewAssetLoader.ResourcesPathHandler (Android.Content.Context context);
+		public WebViewAssetLoader.ResourcesPathHandler (Android.Content.Context);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Android.Webkit.WebResourceResponse Handle (string path);
+		public virtual Android.Webkit.WebResourceResponse Handle (string);
 	}
 }
 ```
@@ -6318,10 +5895,10 @@ public sealed class WebViewAssetLoader : Java.Lang.Object {
 public abstract class WebViewRenderProcess : Java.Lang.Object {
 	// constructors
 	public WebViewRenderProcess ();
-	protected WebViewRenderProcess (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected WebViewRenderProcess (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual bool Terminate ();
 }
@@ -6333,13 +5910,13 @@ public abstract class WebViewRenderProcess : Java.Lang.Object {
 public abstract class WebViewRenderProcessClient : Java.Lang.Object {
 	// constructors
 	public WebViewRenderProcessClient ();
-	protected WebViewRenderProcessClient (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected WebViewRenderProcessClient (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void OnRenderProcessResponsive (Android.Webkit.WebView p0, WebViewRenderProcess p1);
-	public virtual void OnRenderProcessUnresponsive (Android.Webkit.WebView p0, WebViewRenderProcess p1);
+	public virtual void OnRenderProcessResponsive (Android.Webkit.WebView, WebViewRenderProcess);
+	public virtual void OnRenderProcessUnresponsive (Android.Webkit.WebView, WebViewRenderProcess);
 }
 ```
 
@@ -6351,8 +5928,8 @@ public abstract class WebViewRenderProcessClient : Java.Lang.Object {
 Added properties:
 
 ```csharp
-public virtual AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
-public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
 ```
 
 
@@ -6361,8 +5938,8 @@ public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInt
 Added properties:
 
 ```csharp
-public virtual AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
-public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
 ```
 
 
@@ -6371,13 +5948,13 @@ public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInt
 Added property:
 
 ```csharp
-public virtual int ForceDark { get; set; }
+public int ForceDark { get; set; }
 ```
 
 Added methods:
 
 ```csharp
-public virtual void SetWillSuppressErrorPage (bool suppressed);
+public virtual void SetWillSuppressErrorPage (bool);
 public virtual bool WillSuppressErrorPage ();
 ```
 
@@ -6406,29 +5983,22 @@ Removed method:
 public static string[] GetWebViewApkFeaturesForTesting ();
 ```
 
-Modified methods:
-
-```diff
--public WebViewFeatureInternal GetFeature (string feature)
-+public WebViewFeatureInternal GetFeature (string publicFeatureValue)
-```
-
 
 #### Type Changed: AndroidX.WebKit.Internal.WebViewProviderAdapter
 
 Added properties:
 
 ```csharp
-public virtual Android.Webkit.WebChromeClient WebChromeClient { get; }
-public virtual Android.Webkit.WebViewClient WebViewClient { get; }
-public virtual AndroidX.WebKit.WebViewRenderProcess WebViewRenderProcess { get; }
-public virtual AndroidX.WebKit.WebViewRenderProcessClient WebViewRenderProcessClient { get; }
+public Android.Webkit.WebChromeClient WebChromeClient { get; }
+public Android.Webkit.WebViewClient WebViewClient { get; }
+public AndroidX.WebKit.WebViewRenderProcess WebViewRenderProcess { get; }
+public AndroidX.WebKit.WebViewRenderProcessClient WebViewRenderProcessClient { get; }
 ```
 
 Added method:
 
 ```csharp
-public virtual void SetWebViewRenderProcessClient (Java.Util.Concurrent.IExecutor executor, AndroidX.WebKit.WebViewRenderProcessClient webViewRenderProcessClient);
+public virtual void SetWebViewRenderProcessClient (Java.Util.Concurrent.IExecutor, AndroidX.WebKit.WebViewRenderProcessClient);
 ```
 
 
@@ -6437,8 +6007,8 @@ public virtual void SetWebViewRenderProcessClient (Java.Util.Concurrent.IExecuto
 Added properties:
 
 ```csharp
-public virtual AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
-public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.IProxyControllerBoundaryInterface ProxyController { get; }
+public AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInterface TracingController { get; }
 ```
 
 
@@ -6447,21 +6017,21 @@ public virtual AndroidX.WebKit.ChromiumLibBoundary.ITracingControllerBoundaryInt
 ```csharp
 public class AssetHelper : Java.Lang.Object {
 	// constructors
-	public AssetHelper (Android.Content.Context context);
-	protected AssetHelper (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public AssetHelper (Android.Content.Context);
+	protected AssetHelper (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string DefaultMimeType = "text/plain";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static string GetCanonicalPath (Java.IO.File file);
-	public static Java.IO.File GetDataDir (Android.Content.Context context);
-	public static string GuessMimeType (string filePath);
-	public static bool IsCanonicalChildOf (Java.IO.File parent, Java.IO.File child);
-	public virtual System.IO.Stream OpenAsset (string path);
-	public static System.IO.Stream OpenFile (Java.IO.File file);
-	public virtual System.IO.Stream OpenResource (string path);
+	public static string GetCanonicalPath (Java.IO.File);
+	public static Java.IO.File GetDataDir (Android.Content.Context);
+	public static string GuessMimeType (string);
+	public static bool IsCanonicalChildOf (Java.IO.File, Java.IO.File);
+	public virtual System.IO.Stream OpenAsset (string);
+	public static System.IO.Stream OpenFile (Java.IO.File);
+	public virtual System.IO.Stream OpenResource (string);
 }
 ```
 
@@ -6471,13 +6041,13 @@ public class AssetHelper : Java.Lang.Object {
 public class ProxyControllerImpl : AndroidX.WebKit.ProxyController {
 	// constructors
 	public ProxyControllerImpl ();
-	protected ProxyControllerImpl (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected ProxyControllerImpl (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public override void ClearProxyOverride (Java.Util.Concurrent.IExecutor executor, Java.Lang.IRunnable listener);
-	public override void SetProxyOverride (AndroidX.WebKit.ProxyConfig proxyConfig, Java.Util.Concurrent.IExecutor executor, Java.Lang.IRunnable listener);
+	public override void ClearProxyOverride (Java.Util.Concurrent.IExecutor, Java.Lang.IRunnable);
+	public override void SetProxyOverride (AndroidX.WebKit.ProxyConfig, Java.Util.Concurrent.IExecutor, Java.Lang.IRunnable);
 }
 ```
 
@@ -6487,14 +6057,14 @@ public class ProxyControllerImpl : AndroidX.WebKit.ProxyController {
 public class TracingControllerImpl : AndroidX.WebKit.TracingController {
 	// constructors
 	public TracingControllerImpl ();
-	protected TracingControllerImpl (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected TracingControllerImpl (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public override bool IsTracing { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsTracing { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public override void Start (AndroidX.WebKit.TracingConfig tracingConfig);
-	public override bool Stop (System.IO.Stream outputStream, Java.Util.Concurrent.IExecutor executor);
+	public override void Start (AndroidX.WebKit.TracingConfig);
+	public override bool Stop (System.IO.Stream, Java.Util.Concurrent.IExecutor);
 }
 ```
 
@@ -6503,13 +6073,13 @@ public class TracingControllerImpl : AndroidX.WebKit.TracingController {
 ```csharp
 public class WebViewRenderProcessImpl : AndroidX.WebKit.WebViewRenderProcess {
 	// constructors
-	public WebViewRenderProcessImpl (AndroidX.WebKit.ChromiumLibBoundary.IWebViewRendererBoundaryInterface boundaryInterface);
-	protected WebViewRenderProcessImpl (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public WebViewRenderProcessImpl (AndroidX.WebKit.ChromiumLibBoundary.IWebViewRendererBoundaryInterface);
+	protected WebViewRenderProcessImpl (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static WebViewRenderProcessImpl ForInvocationHandler (Java.Lang.Reflect.IInvocationHandler invocationHandler);
+	public static WebViewRenderProcessImpl ForInvocationHandler (Java.Lang.Reflect.IInvocationHandler);
 	public override bool Terminate ();
 }
 ```
@@ -6530,7 +6100,7 @@ public Java.Util.Concurrent.IExecutor TaskExecutor { get; }
 Added method:
 
 ```csharp
-public Configuration.Builder SetTaskExecutor (Java.Util.Concurrent.IExecutor taskExecutor);
+public Configuration.Builder SetTaskExecutor (Java.Util.Concurrent.IExecutor);
 ```
 
 
@@ -6539,7 +6109,7 @@ public Configuration.Builder SetTaskExecutor (Java.Util.Concurrent.IExecutor tas
 ```csharp
 public interface IProvider : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual Configuration WorkManagerConfiguration { get; }
+	public Configuration WorkManagerConfiguration { get; }
 }
 ```
 
@@ -6549,8 +6119,8 @@ public interface IProvider : Android.Runtime.IJavaObject, System.IDisposable {
 Added methods:
 
 ```csharp
-public sbyte GetByte (string key, sbyte defaultValue);
-public byte[] GetByteArray (string key);
+public sbyte GetByte (string, sbyte);
+public byte[] GetByteArray (string);
 ```
 
 #### Type Changed: AndroidX.Work.Data.Builder
@@ -6558,8 +6128,8 @@ public byte[] GetByteArray (string key);
 Added methods:
 
 ```csharp
-public Data.Builder PutByte (string key, sbyte value);
-public Data.Builder PutByteArray (string key, byte[] value);
+public Data.Builder PutByte (string, sbyte);
+public Data.Builder PutByteArray (string, byte[]);
 ```
 
 
@@ -6569,7 +6139,7 @@ public Data.Builder PutByteArray (string key, byte[] value);
 Added property:
 
 ```csharp
-public virtual Google.Common.Util.Concurrent.IListenableFuture Result { get; }
+public Google.Common.Util.Concurrent.IListenableFuture Result { get; }
 ```
 
 
@@ -6589,7 +6159,7 @@ public virtual Google.Common.Util.Concurrent.IListenableFuture StartWork ();
 Added method:
 
 ```csharp
-public OneTimeWorkRequest.Builder SetInitialDelay (System.TimeSpan initialDelay);
+public OneTimeWorkRequest.Builder SetInitialDelay (System.TimeSpan);
 ```
 
 
@@ -6599,7 +6169,7 @@ public OneTimeWorkRequest.Builder SetInitialDelay (System.TimeSpan initialDelay)
 Added property:
 
 ```csharp
-public virtual Google.Common.Util.Concurrent.IListenableFuture WorkInfos { get; }
+public Google.Common.Util.Concurrent.IListenableFuture WorkInfos { get; }
 ```
 
 
@@ -6608,13 +6178,13 @@ public virtual Google.Common.Util.Concurrent.IListenableFuture WorkInfos { get; 
 Removed constructor:
 
 ```csharp
-public WorkInfo (Java.Util.UUID id, WorkInfo.State state, Data outputData, System.Collections.Generic.IList<string> tags);
+public WorkInfo (Java.Util.UUID, WorkInfo.State, Data, System.Collections.Generic.IList<string>);
 ```
 
 Added constructor:
 
 ```csharp
-public WorkInfo (Java.Util.UUID id, WorkInfo.State state, Data outputData, System.Collections.Generic.IList<string> tags, int runAttemptCount);
+public WorkInfo (Java.Util.UUID, WorkInfo.State, Data, System.Collections.Generic.IList<string>, int);
 ```
 
 Added property:
@@ -6636,16 +6206,16 @@ Obsoleted properties:
 Added property:
 
 ```csharp
-public virtual Google.Common.Util.Concurrent.IListenableFuture LastCancelAllTimeMillis { get; }
+public Google.Common.Util.Concurrent.IListenableFuture LastCancelAllTimeMillis { get; }
 ```
 
 Added methods:
 
 ```csharp
-public static WorkManager GetInstance (Android.Content.Context context);
-public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfoById (Java.Util.UUID p0);
-public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfosByTag (string p0);
-public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfosForUniqueWork (string p0);
+public static WorkManager GetInstance (Android.Content.Context);
+public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfoById (Java.Util.UUID);
+public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfosByTag (string);
+public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfosForUniqueWork (string);
 ```
 
 
@@ -6656,7 +6226,7 @@ public virtual Google.Common.Util.Concurrent.IListenableFuture GetWorkInfosForUn
 Added method:
 
 ```csharp
-public virtual Java.Lang.Object SetInitialDelay (long duration, Java.Util.Concurrent.TimeUnit timeUnit);
+public virtual Java.Lang.Object SetInitialDelay (long, Java.Util.Concurrent.TimeUnit);
 ```
 
 
@@ -6676,13 +6246,13 @@ public override Google.Common.Util.Concurrent.IListenableFuture StartWork ();
 public class DelegatingWorkerFactory : AndroidX.Work.WorkerFactory {
 	// constructors
 	public DelegatingWorkerFactory ();
-	protected DelegatingWorkerFactory (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DelegatingWorkerFactory (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddFactory (WorkerFactory workerFactory);
-	public override ListenableWorker CreateWorker (Android.Content.Context context, string workerClass, WorkerParameters parameters);
+	public void AddFactory (WorkerFactory);
+	public override ListenableWorker CreateWorker (Android.Content.Context, string, WorkerParameters);
 }
 ```
 
@@ -6694,7 +6264,7 @@ public class DelegatingWorkerFactory : AndroidX.Work.WorkerFactory {
 Added property:
 
 ```csharp
-public virtual bool IsMultiProcessEnabled { get; }
+public bool IsMultiProcessEnabled { get; }
 ```
 
 
@@ -6703,8 +6273,8 @@ public virtual bool IsMultiProcessEnabled { get; }
 Added properties:
 
 ```csharp
-public virtual int ForceDark { get; set; }
-public virtual bool WillSuppressErrorPage { get; set; }
+public int ForceDark { get; set; }
+public bool WillSuppressErrorPage { get; set; }
 ```
 
 
@@ -6713,10 +6283,10 @@ public virtual bool WillSuppressErrorPage { get; set; }
 Added properties:
 
 ```csharp
-public virtual Android.Webkit.WebChromeClient WebChromeClient { get; }
-public virtual Android.Webkit.WebViewClient WebViewClient { get; }
-public virtual Java.Lang.Reflect.IInvocationHandler WebViewRenderer { get; }
-public virtual Java.Lang.Reflect.IInvocationHandler WebViewRendererClient { get; set; }
+public Android.Webkit.WebChromeClient WebChromeClient { get; }
+public Android.Webkit.WebViewClient WebViewClient { get; }
+public Java.Lang.Reflect.IInvocationHandler WebViewRenderer { get; }
+public Java.Lang.Reflect.IInvocationHandler WebViewRendererClient { get; set; }
 ```
 
 
@@ -6725,8 +6295,8 @@ public virtual Java.Lang.Reflect.IInvocationHandler WebViewRendererClient { get;
 Added properties:
 
 ```csharp
-public virtual Java.Lang.Reflect.IInvocationHandler ProxyController { get; }
-public virtual Java.Lang.Reflect.IInvocationHandler TracingController { get; }
+public Java.Lang.Reflect.IInvocationHandler ProxyController { get; }
+public Java.Lang.Reflect.IInvocationHandler TracingController { get; }
 ```
 
 
@@ -6735,7 +6305,7 @@ public virtual Java.Lang.Reflect.IInvocationHandler TracingController { get; }
 ```csharp
 public interface IIsomorphicObjectBoundaryInterface : Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual Java.Lang.Object GetOrCreatePeer (Java.Util.Concurrent.ICallable p0);
+	public virtual Java.Lang.Object GetOrCreatePeer (Java.Util.Concurrent.ICallable);
 }
 ```
 
@@ -6744,8 +6314,8 @@ public interface IIsomorphicObjectBoundaryInterface : Android.Runtime.IJavaObjec
 ```csharp
 public interface IProxyControllerBoundaryInterface : Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void ClearProxyOverride (Java.Lang.IRunnable p0, Java.Util.Concurrent.IExecutor p1);
-	public virtual void SetProxyOverride (string[][] p0, string[] p1, Java.Lang.IRunnable p2, Java.Util.Concurrent.IExecutor p3);
+	public virtual void ClearProxyOverride (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
+	public virtual void SetProxyOverride (string[][], string[], Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
 }
 ```
 
@@ -6754,10 +6324,10 @@ public interface IProxyControllerBoundaryInterface : Android.Runtime.IJavaObject
 ```csharp
 public interface ITracingControllerBoundaryInterface : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual bool IsTracing { get; }
+	public bool IsTracing { get; }
 	// methods
-	public virtual void Start (int p0, System.Collections.Generic.ICollection<string> p1, int p2);
-	public virtual bool Stop (System.IO.Stream p0, Java.Util.Concurrent.IExecutor p1);
+	public virtual void Start (int, System.Collections.Generic.ICollection<string>, int);
+	public virtual bool Stop (System.IO.Stream, Java.Util.Concurrent.IExecutor);
 }
 ```
 
@@ -6775,8 +6345,8 @@ public interface IWebViewRendererBoundaryInterface : Android.Runtime.IJavaObject
 ```csharp
 public interface IWebViewRendererClientBoundaryInterface : Android.Runtime.IJavaObject, IFeatureFlagHolderBoundaryInterface, System.IDisposable {
 	// methods
-	public virtual void OnRendererResponsive (Android.Webkit.WebView p0, Java.Lang.Reflect.IInvocationHandler p1);
-	public virtual void OnRendererUnresponsive (Android.Webkit.WebView p0, Java.Lang.Reflect.IInvocationHandler p1);
+	public virtual void OnRendererResponsive (Android.Webkit.WebView, Java.Lang.Reflect.IInvocationHandler);
+	public virtual void OnRendererUnresponsive (Android.Webkit.WebView, Java.Lang.Reflect.IInvocationHandler);
 }
 ```
 
@@ -6788,9 +6358,9 @@ public interface IWebViewRendererClientBoundaryInterface : Android.Runtime.IJava
 Added methods:
 
 ```csharp
-public static bool ContainsFeature (System.Collections.Generic.ICollection<string> features, string soughtFeature);
-public static Java.Lang.Reflect.IInvocationHandler[] CreateInvocationHandlersForArray (Java.Lang.Object[] delegates);
-public static bool InstanceOfInOwnClassLoader (Java.Lang.Object obj, string className);
+public static bool ContainsFeature (System.Collections.Generic.ICollection<string>, string);
+public static Java.Lang.Reflect.IInvocationHandler[] CreateInvocationHandlersForArray (Java.Lang.Object[]);
+public static bool InstanceOfInOwnClassLoader (Java.Lang.Object, string);
 ```
 
 
@@ -6860,17 +6430,17 @@ public static const string WebViewRendererTerminate = "WEB_VIEW_RENDERER_TERMINA
 public class ComponentActivity : AndroidX.Core.App.ComponentActivity, Android.Runtime.IJavaObject, IOnBackPressedDispatcherOwner, AndroidX.Core.View.KeyEventDispatcher.IComponent, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public ComponentActivity ();
-	public ComponentActivity (int contentLayoutId);
-	protected ComponentActivity (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public ComponentActivity (int);
+	protected ComponentActivity (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 
 	[Obsolete ("deprecated")]
-public virtual Java.Lang.Object LastCustomNonConfigurationInstance { get; }
-	public virtual OnBackPressedDispatcher OnBackPressedDispatcher { get; }
-	public virtual AndroidX.SavedState.SavedStateRegistry SavedStateRegistry { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
+public Java.Lang.Object LastCustomNonConfigurationInstance { get; }
+	public OnBackPressedDispatcher OnBackPressedDispatcher { get; }
+	public AndroidX.SavedState.SavedStateRegistry SavedStateRegistry { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public AndroidX.Lifecycle.ViewModelStore ViewModelStore { get; }
 	// methods
 
 	[Obsolete ("deprecated")]
@@ -6880,8 +6450,8 @@ public virtual Java.Lang.Object OnRetainCustomNonConfigurationInstance ();
 	// inner types
 	public sealed class NonConfigurationInstances : Java.Lang.Object {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -6891,7 +6461,7 @@ public virtual Java.Lang.Object OnRetainCustomNonConfigurationInstance ();
 ```csharp
 public interface IOnBackPressedDispatcherOwner : Android.Runtime.IJavaObject, AndroidX.Lifecycle.ILifecycleOwner, System.IDisposable {
 	// properties
-	public virtual OnBackPressedDispatcher OnBackPressedDispatcher { get; }
+	public OnBackPressedDispatcher OnBackPressedDispatcher { get; }
 }
 ```
 
@@ -6900,12 +6470,12 @@ public interface IOnBackPressedDispatcherOwner : Android.Runtime.IJavaObject, An
 ```csharp
 public abstract class OnBackPressedCallback : Java.Lang.Object {
 	// constructors
-	public OnBackPressedCallback (bool enabled);
-	protected OnBackPressedCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public OnBackPressedCallback (bool);
+	protected OnBackPressedCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public bool Enabled { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void HandleOnBackPressed ();
 	public void Remove ();
@@ -6918,14 +6488,14 @@ public abstract class OnBackPressedCallback : Java.Lang.Object {
 public sealed class OnBackPressedDispatcher : Java.Lang.Object {
 	// constructors
 	public OnBackPressedDispatcher ();
-	public OnBackPressedDispatcher (Java.Lang.IRunnable fallbackOnBackPressed);
+	public OnBackPressedDispatcher (Java.Lang.IRunnable);
 	// properties
 	public bool HasEnabledCallbacks { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddCallback (OnBackPressedCallback onBackPressedCallback);
-	public void AddCallback (AndroidX.Lifecycle.ILifecycleOwner owner, OnBackPressedCallback onBackPressedCallback);
+	public void AddCallback (OnBackPressedCallback);
+	public void AddCallback (AndroidX.Lifecycle.ILifecycleOwner, OnBackPressedCallback);
 	public void OnBackPressed ();
 }
 ```
@@ -6980,10 +6550,10 @@ public static const string AutofillHintPhone = "phone";
 	public static const string AutofillHintSmsOtp = "smsOTPCode";
 	public static const string AutofillHintUsername = "username";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static string GenerateSmsOtpHintForCharacterPosition (int characterPosition);
+	public static string GenerateSmsOtpHintForCharacterPosition (int);
 }
 ```
 
@@ -7025,14 +6595,14 @@ public abstract class BiometricConstantsConsts : AndroidX.Biometric.BiometricCon
 public class BiometricFragment : AndroidX.Fragment.App.Fragment, Android.Content.IComponentCallbacks, Android.Runtime.IJavaObject, Android.Views.View.IOnCreateContextMenuListener, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public BiometricFragment ();
-	protected BiometricFragment (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected BiometricFragment (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	protected string NegativeButtonText { get; }
-	protected virtual Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void SetBundle (Android.OS.Bundle bundle);
+	public virtual void SetBundle (Android.OS.Bundle);
 }
 ```
 
@@ -7041,18 +6611,18 @@ public class BiometricFragment : AndroidX.Fragment.App.Fragment, Android.Content
 ```csharp
 public class BiometricManager : Java.Lang.Object {
 	// constructors
-	protected BiometricManager (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected BiometricManager (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const int BiometricErrorHwUnavailable;
 	public static const int BiometricErrorNoHardware;
 	public static const int BiometricErrorNoneEnrolled;
 	public static const int BiometricSuccess;
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual int CanAuthenticate ();
-	public static BiometricManager From (Android.Content.Context context);
+	public static BiometricManager From (Android.Content.Context);
 }
 ```
 
@@ -7061,51 +6631,51 @@ public class BiometricManager : Java.Lang.Object {
 ```csharp
 public class BiometricPrompt : Java.Lang.Object {
 	// constructors
-	protected BiometricPrompt (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public BiometricPrompt (AndroidX.Fragment.App.Fragment fragment, Java.Util.Concurrent.IExecutor executor, BiometricPrompt.AuthenticationCallback callback);
-	public BiometricPrompt (AndroidX.Fragment.App.FragmentActivity fragmentActivity, Java.Util.Concurrent.IExecutor executor, BiometricPrompt.AuthenticationCallback callback);
+	protected BiometricPrompt (IntPtr, Android.Runtime.JniHandleOwnership);
+	public BiometricPrompt (AndroidX.Fragment.App.Fragment, Java.Util.Concurrent.IExecutor, BiometricPrompt.AuthenticationCallback);
+	public BiometricPrompt (AndroidX.Fragment.App.FragmentActivity, Java.Util.Concurrent.IExecutor, BiometricPrompt.AuthenticationCallback);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void Authenticate (BiometricPrompt.PromptInfo info);
-	public virtual void Authenticate (BiometricPrompt.PromptInfo info, BiometricPrompt.CryptoObject crypto);
+	public virtual void Authenticate (BiometricPrompt.PromptInfo);
+	public virtual void Authenticate (BiometricPrompt.PromptInfo, BiometricPrompt.CryptoObject);
 	public virtual void CancelAuthentication ();
 
 	// inner types
 	public abstract class AuthenticationCallback : Java.Lang.Object {
 		// constructors
 		public BiometricPrompt.AuthenticationCallback ();
-		protected BiometricPrompt.AuthenticationCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected BiometricPrompt.AuthenticationCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnAuthenticationError (int errorCode, Java.Lang.ICharSequence errString);
-		public void OnAuthenticationError (int errorCode, string errString);
+		public virtual void OnAuthenticationError (int, Java.Lang.ICharSequence);
+		public void OnAuthenticationError (int, string);
 		public virtual void OnAuthenticationFailed ();
-		public virtual void OnAuthenticationSucceeded (BiometricPrompt.AuthenticationResult result);
+		public virtual void OnAuthenticationSucceeded (BiometricPrompt.AuthenticationResult);
 	}
 	public class AuthenticationResult : Java.Lang.Object {
 		// constructors
-		protected BiometricPrompt.AuthenticationResult (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected BiometricPrompt.AuthenticationResult (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public virtual BiometricPrompt.CryptoObject CryptoObject { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public BiometricPrompt.CryptoObject CryptoObject { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public class CryptoObject : Java.Lang.Object {
 		// constructors
-		public BiometricPrompt.CryptoObject (Java.Security.Signature signature);
-		public BiometricPrompt.CryptoObject (Javax.Crypto.Cipher cipher);
-		public BiometricPrompt.CryptoObject (Javax.Crypto.Mac mac);
-		protected BiometricPrompt.CryptoObject (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public BiometricPrompt.CryptoObject (Java.Security.Signature);
+		public BiometricPrompt.CryptoObject (Javax.Crypto.Cipher);
+		public BiometricPrompt.CryptoObject (Javax.Crypto.Mac);
+		protected BiometricPrompt.CryptoObject (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public virtual Javax.Crypto.Cipher Cipher { get; }
-		public virtual Javax.Crypto.Mac Mac { get; }
-		public virtual Java.Security.Signature Signature { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public Javax.Crypto.Cipher Cipher { get; }
+		public Javax.Crypto.Mac Mac { get; }
+		public Java.Security.Signature Signature { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public static class InterfaceConsts {
 		// fields
@@ -7127,41 +6697,41 @@ public class BiometricPrompt : Java.Lang.Object {
 	}
 	public class PromptInfo : Java.Lang.Object {
 		// constructors
-		protected BiometricPrompt.PromptInfo (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected BiometricPrompt.PromptInfo (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
 		public string Description { get; }
-		public virtual Java.Lang.ICharSequence DescriptionFormatted { get; }
-		public virtual bool IsConfirmationRequired { get; }
-		public virtual bool IsDeviceCredentialAllowed { get; }
+		public Java.Lang.ICharSequence DescriptionFormatted { get; }
+		public bool IsConfirmationRequired { get; }
+		public bool IsDeviceCredentialAllowed { get; }
 		public string NegativeButtonText { get; }
-		public virtual Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
+		public Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
 		public string Subtitle { get; }
-		public virtual Java.Lang.ICharSequence SubtitleFormatted { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public Java.Lang.ICharSequence SubtitleFormatted { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		public string Title { get; }
-		public virtual Java.Lang.ICharSequence TitleFormatted { get; }
+		public Java.Lang.ICharSequence TitleFormatted { get; }
 
 		// inner types
 		public class Builder : Java.Lang.Object {
 			// constructors
 			public BiometricPrompt.PromptInfo.Builder ();
-			protected BiometricPrompt.PromptInfo.Builder (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+			protected BiometricPrompt.PromptInfo.Builder (IntPtr, Android.Runtime.JniHandleOwnership);
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public virtual BiometricPrompt.PromptInfo Build ();
-			public virtual BiometricPrompt.PromptInfo.Builder SetConfirmationRequired (bool requireConfirmation);
-			public virtual BiometricPrompt.PromptInfo.Builder SetDescription (Java.Lang.ICharSequence description);
-			public BiometricPrompt.PromptInfo.Builder SetDescription (string description);
-			public virtual BiometricPrompt.PromptInfo.Builder SetDeviceCredentialAllowed (bool enable);
-			public virtual BiometricPrompt.PromptInfo.Builder SetNegativeButtonText (Java.Lang.ICharSequence text);
-			public BiometricPrompt.PromptInfo.Builder SetNegativeButtonText (string text);
-			public virtual BiometricPrompt.PromptInfo.Builder SetSubtitle (Java.Lang.ICharSequence subtitle);
-			public BiometricPrompt.PromptInfo.Builder SetSubtitle (string subtitle);
-			public virtual BiometricPrompt.PromptInfo.Builder SetTitle (Java.Lang.ICharSequence title);
-			public BiometricPrompt.PromptInfo.Builder SetTitle (string title);
+			public virtual BiometricPrompt.PromptInfo.Builder SetConfirmationRequired (bool);
+			public virtual BiometricPrompt.PromptInfo.Builder SetDescription (Java.Lang.ICharSequence);
+			public BiometricPrompt.PromptInfo.Builder SetDescription (string);
+			public virtual BiometricPrompt.PromptInfo.Builder SetDeviceCredentialAllowed (bool);
+			public virtual BiometricPrompt.PromptInfo.Builder SetNegativeButtonText (Java.Lang.ICharSequence);
+			public BiometricPrompt.PromptInfo.Builder SetNegativeButtonText (string);
+			public virtual BiometricPrompt.PromptInfo.Builder SetSubtitle (Java.Lang.ICharSequence);
+			public BiometricPrompt.PromptInfo.Builder SetSubtitle (string);
+			public virtual BiometricPrompt.PromptInfo.Builder SetTitle (Java.Lang.ICharSequence);
+			public BiometricPrompt.PromptInfo.Builder SetTitle (string);
 		}
 	}
 }
@@ -7173,10 +6743,10 @@ public class BiometricPrompt : Java.Lang.Object {
 public class DeviceCredentialHandlerActivity : AndroidX.AppCompat.App.AppCompatActivity, Android.Runtime.IJavaObject, AndroidX.Activity.IOnBackPressedDispatcherOwner, AndroidX.AppCompat.App.ActionBarDrawerToggle.IDelegateProvider, AndroidX.AppCompat.App.IAppCompatCallback, AndroidX.Core.App.ActivityCompat.IOnRequestPermissionsResultCallback, AndroidX.Core.App.ActivityCompat.IRequestPermissionsRequestCodeValidator, AndroidX.Core.App.TaskStackBuilder.ISupportParentable, AndroidX.Core.View.KeyEventDispatcher.IComponent, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public DeviceCredentialHandlerActivity ();
-	protected DeviceCredentialHandlerActivity (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DeviceCredentialHandlerActivity (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -7185,12 +6755,12 @@ public class DeviceCredentialHandlerActivity : AndroidX.AppCompat.App.AppCompatA
 ```csharp
 public class DeviceCredentialHandlerBridge : Java.Lang.Object {
 	// constructors
-	protected DeviceCredentialHandlerBridge (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DeviceCredentialHandlerBridge (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual FingerprintDialogFragment FingerprintDialogFragment { get; }
-	public virtual FingerprintHelperFragment FingerprintHelperFragment { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public FingerprintDialogFragment FingerprintDialogFragment { get; }
+	public FingerprintHelperFragment FingerprintHelperFragment { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -7200,20 +6770,20 @@ public class DeviceCredentialHandlerBridge : Java.Lang.Object {
 public class FingerprintDialogFragment : AndroidX.Fragment.App.DialogFragment, Android.Content.IComponentCallbacks, Android.Content.IDialogInterfaceOnCancelListener, Android.Content.IDialogInterfaceOnDismissListener, Android.Runtime.IJavaObject, Android.Views.View.IOnCreateContextMenuListener, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public FingerprintDialogFragment ();
-	protected FingerprintDialogFragment (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FingerprintDialogFragment (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	protected string NegativeButtonText { get; }
-	protected virtual Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected Java.Lang.ICharSequence NegativeButtonTextFormatted { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void SetBundle (Android.OS.Bundle bundle);
+	public virtual void SetBundle (Android.OS.Bundle);
 
 	// inner types
 	public sealed class H : Android.OS.Handler {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -7224,18 +6794,18 @@ public class FingerprintDialogFragment : AndroidX.Fragment.App.DialogFragment, A
 public class FingerprintHelperFragment : AndroidX.Fragment.App.Fragment, Android.Content.IComponentCallbacks, Android.Runtime.IJavaObject, Android.Views.View.IOnCreateContextMenuListener, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public FingerprintHelperFragment ();
-	protected FingerprintHelperFragment (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FingerprintHelperFragment (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public class MessageRouter : Java.Lang.Object {
 		// constructors
-		protected FingerprintHelperFragment.MessageRouter (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected FingerprintHelperFragment.MessageRouter (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -7248,23 +6818,23 @@ public class FingerprintHelperFragment : AndroidX.Fragment.App.Fragment, Android
 public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// constructors
 	protected AbstractResolvableFuture ();
-	protected AbstractResolvableFuture (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AbstractResolvableFuture (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual bool IsCancelled { get; }
-	public virtual bool IsDone { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsCancelled { get; }
+	public bool IsDone { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddListener (Java.Lang.IRunnable listener, Java.Util.Concurrent.IExecutor executor);
+	public virtual void AddListener (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
 	protected virtual void AfterDone ();
-	public virtual bool Cancel (bool mayInterruptIfRunning);
+	public virtual bool Cancel (bool);
 	public virtual Java.Lang.Object Get ();
-	public virtual Java.Lang.Object Get (long timeout, Java.Util.Concurrent.TimeUnit unit);
+	public virtual Java.Lang.Object Get (long, Java.Util.Concurrent.TimeUnit);
 	protected virtual void InterruptTask ();
 	protected virtual string PendingToString ();
-	protected virtual bool Set (Java.Lang.Object value);
-	protected virtual bool SetException (Java.Lang.Throwable throwable);
-	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	protected virtual bool Set (Java.Lang.Object);
+	protected virtual bool SetException (Java.Lang.Throwable);
+	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 	protected bool WasInterrupted ();
 }
 ```
@@ -7274,30 +6844,30 @@ public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runti
 ```csharp
 public sealed class CallbackToFutureAdapter : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Google.Common.Util.Concurrent.IListenableFuture GetFuture (CallbackToFutureAdapter.IResolver callback);
+	public static Google.Common.Util.Concurrent.IListenableFuture GetFuture (CallbackToFutureAdapter.IResolver);
 
 	// inner types
 	public sealed class Completer : Java.Lang.Object {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public void AddCancellationListener (Java.Lang.IRunnable runnable, Java.Util.Concurrent.IExecutor executor);
-		public bool Set (Java.Lang.Object value);
+		public void AddCancellationListener (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
+		public bool Set (Java.Lang.Object);
 		public bool SetCancelled ();
-		public bool SetException (Java.Lang.Throwable t);
+		public bool SetException (Java.Lang.Throwable);
 	}
 	public sealed class FutureGarbageCollectedException : Java.Lang.Throwable {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public interface IResolver : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual Java.Lang.Object AttachCompleter (CallbackToFutureAdapter.Completer p0);
+		public virtual Java.Lang.Object AttachCompleter (CallbackToFutureAdapter.Completer);
 	}
 }
 ```
@@ -7307,13 +6877,13 @@ public sealed class CallbackToFutureAdapter : Java.Lang.Object {
 ```csharp
 public sealed class ResolvableFuture : AndroidX.Concurrent.Futures.AbstractResolvableFuture, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public static ResolvableFuture Create ();
-	public bool Set (Java.Lang.Object value);
-	public bool SetException (Java.Lang.Throwable throwable);
-	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	public bool Set (Java.Lang.Object);
+	public bool SetException (Java.Lang.Throwable);
+	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 }
 ```
 
@@ -7324,9 +6894,9 @@ public sealed class ResolvableFuture : AndroidX.Concurrent.Futures.AbstractResol
 ```csharp
 public class ContentPager : Java.Lang.Object {
 	// constructors
-	public ContentPager (Android.Content.ContentResolver resolver, ContentPager.IQueryRunner queryRunner);
-	protected ContentPager (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public ContentPager (Android.Content.ContentResolver resolver, ContentPager.IQueryRunner queryRunner, int cursorCacheSize);
+	public ContentPager (Android.Content.ContentResolver, ContentPager.IQueryRunner);
+	protected ContentPager (IntPtr, Android.Runtime.JniHandleOwnership);
+	public ContentPager (Android.Content.ContentResolver, ContentPager.IQueryRunner, int);
 	// fields
 	public static const int CursorDispositionCopied;
 	public static const int CursorDispositionPaged;
@@ -7339,35 +6909,35 @@ public class ContentPager : Java.Lang.Object {
 	public static const string QueryArgLimit = "android:query-arg-limit";
 	public static const string QueryArgOffset = "android:query-arg-offset";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Android.OS.Bundle CreateArgs (int offset, int limit);
-	public virtual Query Query (Android.Net.Uri uri, string[] projection, Android.OS.Bundle queryArgs, Android.OS.CancellationSignal cancellationSignal, ContentPager.IContentCallback callback);
+	public static Android.OS.Bundle CreateArgs (int, int);
+	public virtual Query Query (Android.Net.Uri, string[], Android.OS.Bundle, Android.OS.CancellationSignal, ContentPager.IContentCallback);
 	public virtual void Reset ();
 
 	// inner types
 	public interface IContentCallback : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnCursorReady (Query p0, Android.Database.ICursor p1);
+		public virtual void OnCursorReady (Query, Android.Database.ICursor);
 	}
 	public interface ICursorDisposition : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
 	public interface IQueryRunner : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void Cancel (Query p0);
-		public virtual bool IsRunning (Query p0);
-		public virtual void Query (Query p0, ContentPager.IQueryRunnerCallback p1);
+		public virtual void Cancel (Query);
+		public virtual bool IsRunning (Query);
+		public virtual void Query (Query, ContentPager.IQueryRunnerCallback);
 	}
 	public interface IQueryRunnerCallback : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnQueryFinished (Query p0, Android.Database.ICursor p1);
-		public virtual Android.Database.ICursor RunQueryInBackground (Query p0);
+		public virtual void OnQueryFinished (Query, Android.Database.ICursor);
+		public virtual Android.Database.ICursor RunQueryInBackground (Query);
 	}
 	public sealed class Stats : Java.Lang.Object {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -7377,14 +6947,14 @@ public class ContentPager : Java.Lang.Object {
 ```csharp
 public sealed class LoaderQueryRunner : Java.Lang.Object, Android.Runtime.IJavaObject, ContentPager.IQueryRunner, System.IDisposable {
 	// constructors
-	public LoaderQueryRunner (Android.Content.Context context, Android.App.LoaderManager loaderMgr);
+	public LoaderQueryRunner (Android.Content.Context, Android.App.LoaderManager);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void Cancel (Query query);
-	public virtual bool IsRunning (Query query);
-	public virtual void Query (Query query, ContentPager.IQueryRunnerCallback callback);
+	public virtual void Cancel (Query);
+	public virtual bool IsRunning (Query);
+	public virtual void Query (Query, ContentPager.IQueryRunnerCallback);
 }
 ```
 
@@ -7396,8 +6966,8 @@ public sealed class Query : Java.Lang.Object {
 	public int Id { get; }
 	public int Limit { get; }
 	public int Offset { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public Android.Net.Uri Uri { get; }
 }
 ```
@@ -7409,10 +6979,10 @@ public sealed class Query : Java.Lang.Object {
 ```csharp
 public sealed class LocationManagerCompat : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static bool IsLocationEnabled (Android.Locations.LocationManager locationManager);
+	public static bool IsLocationEnabled (Android.Locations.LocationManager);
 }
 ```
 
@@ -7423,11 +6993,11 @@ public sealed class LocationManagerCompat : Java.Lang.Object {
 ```csharp
 public sealed class MbmsHelper : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static string GetBestNameForService (Android.Content.Context context, Android.Telephony.Mbms.ServiceInfo serviceInfo);
-	public static Java.Lang.ICharSequence GetBestNameForServiceFormatted (Android.Content.Context context, Android.Telephony.Mbms.ServiceInfo serviceInfo);
+	public static string GetBestNameForService (Android.Content.Context, Android.Telephony.Mbms.ServiceInfo);
+	public static Java.Lang.ICharSequence GetBestNameForServiceFormatted (Android.Content.Context, Android.Telephony.Mbms.ServiceInfo);
 }
 ```
 
@@ -7463,10 +7033,10 @@ public sealed class BitmapEntryParcelizer : Java.Lang.Object {
 	// constructors
 	public BitmapEntryParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -7475,19 +7045,19 @@ public sealed class BitmapEntryParcelizer : Java.Lang.Object {
 ```csharp
 public class CallbackMediaItem : AndroidX.Medai2.Common.MediaItem, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	protected CallbackMediaItem (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected CallbackMediaItem (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual DataSourceCallback DataSourceCallback { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public DataSourceCallback DataSourceCallback { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public sealed class Builder : AndroidX.Medai2.Common.MediaItem+Builder {
 		// constructors
-		public CallbackMediaItem.Builder (DataSourceCallback dsc2);
+		public CallbackMediaItem.Builder (DataSourceCallback);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -7499,11 +7069,11 @@ public sealed class CallbackMediaItemParcelizer : Java.Lang.Object {
 	// constructors
 	public CallbackMediaItemParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static CallbackMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (CallbackMediaItem obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static CallbackMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (CallbackMediaItem, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -7513,14 +7083,14 @@ public sealed class CallbackMediaItemParcelizer : Java.Lang.Object {
 public abstract class DataSourceCallback : Java.Lang.Object, Android.Runtime.IJavaObject, Java.IO.ICloseable, System.IDisposable {
 	// constructors
 	public DataSourceCallback ();
-	protected DataSourceCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected DataSourceCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual long Size { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public long Size { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void Close ();
-	public virtual int ReadAt (long p0, byte[] p1, int p2, int p3);
+	public virtual int ReadAt (long, byte[], int, int);
 }
 ```
 
@@ -7529,16 +7099,16 @@ public abstract class DataSourceCallback : Java.Lang.Object, Android.Runtime.IJa
 ```csharp
 public class FileMediaItem : AndroidX.Medai2.Common.MediaItem, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	protected FileMediaItem (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected FileMediaItem (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const long FdLengthUnknown;
 	// properties
-	public virtual long FileDescriptorLength { get; }
-	public virtual long FileDescriptorOffset { get; }
-	public virtual bool IsClosed { get; }
-	public virtual Android.OS.ParcelFileDescriptor ParcelFileDescriptor { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public long FileDescriptorLength { get; }
+	public long FileDescriptorOffset { get; }
+	public bool IsClosed { get; }
+	public Android.OS.ParcelFileDescriptor ParcelFileDescriptor { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual void Close ();
 	public virtual void DecreaseRefCount ();
@@ -7547,13 +7117,13 @@ public class FileMediaItem : AndroidX.Medai2.Common.MediaItem, Android.Runtime.I
 	// inner types
 	public sealed class Builder : AndroidX.Medai2.Common.MediaItem+Builder {
 		// constructors
-		public FileMediaItem.Builder (Android.OS.ParcelFileDescriptor pfd);
+		public FileMediaItem.Builder (Android.OS.ParcelFileDescriptor);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public FileMediaItem.Builder SetFileDescriptorLength (long length);
-		public FileMediaItem.Builder SetFileDescriptorOffset (long offset);
+		public FileMediaItem.Builder SetFileDescriptorLength (long);
+		public FileMediaItem.Builder SetFileDescriptorOffset (long);
 	}
 }
 ```
@@ -7565,11 +7135,11 @@ public sealed class FileMediaItemParcelizer : Java.Lang.Object {
 	// constructors
 	public FileMediaItemParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static FileMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (FileMediaItem obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static FileMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (FileMediaItem, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -7578,9 +7148,9 @@ public sealed class FileMediaItemParcelizer : Java.Lang.Object {
 ```csharp
 public interface IBaseResult : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual long CompletionTime { get; }
-	public virtual MediaItem MediaItem { get; }
-	public virtual int ResultCode { get; }
+	public long CompletionTime { get; }
+	public MediaItem MediaItem { get; }
+	public int ResultCode { get; }
 }
 ```
 
@@ -7589,7 +7159,7 @@ public interface IBaseResult : Android.Runtime.IJavaObject, System.IDisposable {
 ```csharp
 public interface IRating : Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// properties
-	public virtual bool IsRated { get; }
+	public bool IsRated { get; }
 }
 ```
 
@@ -7598,41 +7168,41 @@ public interface IRating : Android.Runtime.IJavaObject, AndroidX.VersionedParcel
 ```csharp
 public class MediaItem : AndroidX.VersionedParcelable.CustomVersionedParcelable, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	protected MediaItem (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaItem (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const long PositionUnknown;
 	// properties
-	public virtual long EndPosition { get; }
-	public virtual string MediaId { get; }
-	public virtual MediaMetadata Metadata { get; set; }
-	public virtual long StartPosition { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public long EndPosition { get; }
+	public string MediaId { get; }
+	public MediaMetadata Metadata { get; set; }
+	public long StartPosition { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddOnMetadataChangedListener (Java.Util.Concurrent.IExecutor executor, MediaItem.IOnMetadataChangedListener listener);
-	public virtual void RemoveOnMetadataChangedListener (MediaItem.IOnMetadataChangedListener listener);
+	public virtual void AddOnMetadataChangedListener (Java.Util.Concurrent.IExecutor, MediaItem.IOnMetadataChangedListener);
+	public virtual void RemoveOnMetadataChangedListener (MediaItem.IOnMetadataChangedListener);
 
 	// inner types
 	public class Builder : Java.Lang.Object {
 		// constructors
 		public MediaItem.Builder ();
-		protected MediaItem.Builder (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaItem.Builder (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public virtual MediaItem Build ();
-		public virtual MediaItem.Builder SetEndPosition (long position);
-		public virtual MediaItem.Builder SetMetadata (MediaMetadata metadata);
-		public virtual MediaItem.Builder SetStartPosition (long position);
+		public virtual MediaItem.Builder SetEndPosition (long);
+		public virtual MediaItem.Builder SetMetadata (MediaMetadata);
+		public virtual MediaItem.Builder SetStartPosition (long);
 	}
 	public interface IOnMetadataChangedListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnMetadataChanged (MediaItem p0);
+		public virtual void OnMetadataChanged (MediaItem);
 	}
 	public class MetadataChangedEventArgs : System.EventArgs {
 		// constructors
-		public MediaItem.MetadataChangedEventArgs (MediaItem p0);
+		public MediaItem.MetadataChangedEventArgs (MediaItem);
 		// properties
 		public MediaItem P0 { get; }
 	}
@@ -7646,11 +7216,11 @@ public sealed class MediaItemParcelizer : Java.Lang.Object {
 	// constructors
 	public MediaItemParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaItem Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (MediaItem obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static MediaItem Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (MediaItem, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -7708,44 +7278,44 @@ public sealed class MediaMetadata : AndroidX.VersionedParcelable.CustomVersioned
 	// properties
 	public Android.OS.Bundle Extras { get; }
 	public string MediaId { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public bool ContainsKey (string key);
-	public Android.Graphics.Bitmap GetBitmap (string key);
-	public float GetFloat (string key);
-	public long GetLong (string key);
-	public Java.Lang.Object GetObject (string key);
-	public IRating GetRating (string key);
-	public string GetString (string key);
-	public string GetText (string key);
-	public Java.Lang.ICharSequence GetTextFormatted (string key);
+	public bool ContainsKey (string);
+	public Android.Graphics.Bitmap GetBitmap (string);
+	public float GetFloat (string);
+	public long GetLong (string);
+	public Java.Lang.Object GetObject (string);
+	public IRating GetRating (string);
+	public string GetString (string);
+	public string GetText (string);
+	public Java.Lang.ICharSequence GetTextFormatted (string);
 	public System.Collections.Generic.ICollection<string> KeySet ();
 	public int Size ();
 
 	// inner types
 	public sealed class BitmapEntry : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
 		public MediaMetadata.Builder ();
-		public MediaMetadata.Builder (MediaMetadata source);
+		public MediaMetadata.Builder (MediaMetadata);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public MediaMetadata Build ();
-		public MediaMetadata.Builder PutBitmap (string key, Android.Graphics.Bitmap value);
-		public MediaMetadata.Builder PutFloat (string key, float value);
-		public MediaMetadata.Builder PutLong (string key, long value);
-		public MediaMetadata.Builder PutRating (string key, IRating value);
-		public MediaMetadata.Builder PutString (string key, string value);
-		public MediaMetadata.Builder PutText (string key, Java.Lang.ICharSequence value);
-		public MediaMetadata.Builder PutText (string key, string value);
-		public MediaMetadata.Builder SetExtras (Android.OS.Bundle extras);
+		public MediaMetadata.Builder PutBitmap (string, Android.Graphics.Bitmap);
+		public MediaMetadata.Builder PutFloat (string, float);
+		public MediaMetadata.Builder PutLong (string, long);
+		public MediaMetadata.Builder PutRating (string, IRating);
+		public MediaMetadata.Builder PutString (string, string);
+		public MediaMetadata.Builder PutText (string, Java.Lang.ICharSequence);
+		public MediaMetadata.Builder PutText (string, string);
+		public MediaMetadata.Builder SetExtras (Android.OS.Bundle);
 	}
 	public interface IBitmapKey : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
@@ -7769,11 +7339,11 @@ public sealed class MediaMetadataParcelizer : Java.Lang.Object {
 	// constructors
 	public MediaMetadataParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaMetadata Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (MediaMetadata obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static MediaMetadata Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (MediaMetadata, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -7783,17 +7353,17 @@ public sealed class MediaMetadataParcelizer : Java.Lang.Object {
 public class MediaParcelUtils : Java.Lang.Object {
 	// constructors
 	public MediaParcelUtils ();
-	protected MediaParcelUtils (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaParcelUtils (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string Tag = "MediaParcelUtils";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Java.Lang.Object FromParcelable (AndroidX.VersionedParcelable.ParcelImpl p);
-	public static System.Collections.IList FromParcelableList (System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> parcelList);
-	public static AndroidX.VersionedParcelable.ParcelImpl ToParcelable (AndroidX.VersionedParcelable.IVersionedParcelable item);
-	public static System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> ToParcelableList (System.Collections.Generic.IList<AndroidX.VersionedParcelable.IVersionedParcelable> items);
+	public static Java.Lang.Object FromParcelable (AndroidX.VersionedParcelable.ParcelImpl);
+	public static System.Collections.IList FromParcelableList (System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>);
+	public static AndroidX.VersionedParcelable.ParcelImpl ToParcelable (AndroidX.VersionedParcelable.IVersionedParcelable);
+	public static System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> ToParcelableList (System.Collections.Generic.IList<AndroidX.VersionedParcelable.IVersionedParcelable>);
 }
 ```
 
@@ -7802,16 +7372,16 @@ public class MediaParcelUtils : Java.Lang.Object {
 ```csharp
 public class ParcelImplListSlice : Java.Lang.Object, Android.OS.IParcelable, Android.Runtime.IJavaObject, System.IDisposable {
 	// constructors
-	public ParcelImplListSlice (System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> list);
-	protected ParcelImplListSlice (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public ParcelImplListSlice (System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>);
+	protected ParcelImplListSlice (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static Android.OS.IParcelableCreator Creator { get; }
-	public virtual System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> List { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> List { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual int DescribeContents ();
-	public virtual void WriteToParcel (Android.OS.Parcel dest, Android.OS.ParcelableWriteFlags flags);
+	public virtual void WriteToParcel (Android.OS.Parcel, Android.OS.ParcelableWriteFlags);
 }
 ```
 
@@ -7821,7 +7391,7 @@ public class ParcelImplListSlice : Java.Lang.Object, Android.OS.IParcelable, And
 public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Lang.IAutoCloseable, System.IDisposable {
 	// constructors
 	public SessionPlayer ();
-	protected SessionPlayer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected SessionPlayer (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const int BufferingStateBufferingAndPlayable;
 	public static const int BufferingStateBufferingAndStarved;
@@ -7841,51 +7411,51 @@ public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObj
 	public static const int ShuffleModeNone;
 	public static const long UnknownTime;
 	// properties
-	public virtual AndroidX.Media.AudioAttributesCompat AudioAttributes { get; }
-	public virtual long BufferedPosition { get; }
-	public virtual int BufferingState { get; }
+	public AndroidX.Media.AudioAttributesCompat AudioAttributes { get; }
+	public long BufferedPosition { get; }
+	public int BufferingState { get; }
 	protected System.Collections.Generic.IList<AndroidX.Core.Util.Pair> Callbacks { get; }
-	public virtual MediaItem CurrentMediaItem { get; }
-	public virtual int CurrentMediaItemIndex { get; }
-	public virtual long CurrentPosition { get; }
-	public virtual long Duration { get; }
-	public virtual int NextMediaItemIndex { get; }
-	public virtual float PlaybackSpeed { get; }
-	public virtual int PlayerState { get; }
-	public virtual System.Collections.Generic.IList<MediaItem> Playlist { get; }
-	public virtual MediaMetadata PlaylistMetadata { get; }
-	public virtual int PreviousMediaItemIndex { get; }
-	public virtual int RepeatMode { get; }
-	public virtual int ShuffleMode { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual System.Collections.Generic.IList<SessionPlayer.TrackInfo> TrackInfoInternal { get; }
-	public virtual VideoSize VideoSizeInternal { get; }
+	public MediaItem CurrentMediaItem { get; }
+	public int CurrentMediaItemIndex { get; }
+	public long CurrentPosition { get; }
+	public long Duration { get; }
+	public int NextMediaItemIndex { get; }
+	public float PlaybackSpeed { get; }
+	public int PlayerState { get; }
+	public System.Collections.Generic.IList<MediaItem> Playlist { get; }
+	public MediaMetadata PlaylistMetadata { get; }
+	public int PreviousMediaItemIndex { get; }
+	public int RepeatMode { get; }
+	public int ShuffleMode { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public System.Collections.Generic.IList<SessionPlayer.TrackInfo> TrackInfoInternal { get; }
+	public VideoSize VideoSizeInternal { get; }
 	// methods
-	public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int p0, MediaItem p1);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int, MediaItem);
 	public virtual void Close ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrackInternal (SessionPlayer.TrackInfo trackInfo);
-	public virtual SessionPlayer.TrackInfo GetSelectedTrackInternal (int trackType);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrackInternal (SessionPlayer.TrackInfo);
+	public virtual SessionPlayer.TrackInfo GetSelectedTrackInternal (int);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Pause ();
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Play ();
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Prepare ();
-	public void RegisterPlayerCallback (Java.Util.Concurrent.IExecutor executor, SessionPlayer.PlayerCallback callback);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int p0, MediaItem p1);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrackInternal (SessionPlayer.TrackInfo trackInfo);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetAudioAttributes (AndroidX.Media.AudioAttributesCompat p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (MediaItem p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<MediaItem> p0, MediaMetadata p1);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int p0);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurfaceInternal (Android.Views.Surface surface);
+	public void RegisterPlayerCallback (Java.Util.Concurrent.IExecutor, SessionPlayer.PlayerCallback);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int, MediaItem);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrackInternal (SessionPlayer.TrackInfo);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetAudioAttributes (AndroidX.Media.AudioAttributesCompat);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (MediaItem);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<MediaItem>, MediaMetadata);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurfaceInternal (Android.Views.Surface);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToNextPlaylistItem ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int p0);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPreviousPlaylistItem ();
-	public void UnregisterPlayerCallback (SessionPlayer.PlayerCallback callback);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (MediaMetadata p0);
+	public void UnregisterPlayerCallback (SessionPlayer.PlayerCallback);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (MediaMetadata);
 
 	// inner types
 	public interface IBuffState : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -7899,40 +7469,40 @@ public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObj
 	public abstract class PlayerCallback : Java.Lang.Object {
 		// constructors
 		public SessionPlayer.PlayerCallback ();
-		protected SessionPlayer.PlayerCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected SessionPlayer.PlayerCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnAudioAttributesChanged (SessionPlayer player, AndroidX.Media.AudioAttributesCompat attributes);
-		public virtual void OnBufferingStateChanged (SessionPlayer player, MediaItem item, int buffState);
-		public virtual void OnCurrentMediaItemChanged (SessionPlayer player, MediaItem item);
-		public virtual void OnPlaybackCompleted (SessionPlayer player);
-		public virtual void OnPlaybackSpeedChanged (SessionPlayer player, float playbackSpeed);
-		public virtual void OnPlayerStateChanged (SessionPlayer player, int playerState);
-		public virtual void OnPlaylistChanged (SessionPlayer player, System.Collections.Generic.IList<MediaItem> list, MediaMetadata metadata);
-		public virtual void OnPlaylistMetadataChanged (SessionPlayer player, MediaMetadata metadata);
-		public virtual void OnRepeatModeChanged (SessionPlayer player, int repeatMode);
-		public virtual void OnSeekCompleted (SessionPlayer player, long position);
-		public virtual void OnShuffleModeChanged (SessionPlayer player, int shuffleMode);
-		public virtual void OnSubtitleData (SessionPlayer player, MediaItem item, SessionPlayer.TrackInfo track, SubtitleData data);
-		public virtual void OnTrackDeselected (SessionPlayer player, SessionPlayer.TrackInfo trackInfo);
-		public virtual void OnTrackInfoChanged (SessionPlayer player, System.Collections.Generic.IList<SessionPlayer.TrackInfo> trackInfos);
-		public virtual void OnTrackSelected (SessionPlayer player, SessionPlayer.TrackInfo trackInfo);
-		public virtual void OnVideoSizeChangedInternal (SessionPlayer player, MediaItem item, VideoSize size);
+		public virtual void OnAudioAttributesChanged (SessionPlayer, AndroidX.Media.AudioAttributesCompat);
+		public virtual void OnBufferingStateChanged (SessionPlayer, MediaItem, int);
+		public virtual void OnCurrentMediaItemChanged (SessionPlayer, MediaItem);
+		public virtual void OnPlaybackCompleted (SessionPlayer);
+		public virtual void OnPlaybackSpeedChanged (SessionPlayer, float);
+		public virtual void OnPlayerStateChanged (SessionPlayer, int);
+		public virtual void OnPlaylistChanged (SessionPlayer, System.Collections.Generic.IList<MediaItem>, MediaMetadata);
+		public virtual void OnPlaylistMetadataChanged (SessionPlayer, MediaMetadata);
+		public virtual void OnRepeatModeChanged (SessionPlayer, int);
+		public virtual void OnSeekCompleted (SessionPlayer, long);
+		public virtual void OnShuffleModeChanged (SessionPlayer, int);
+		public virtual void OnSubtitleData (SessionPlayer, MediaItem, SessionPlayer.TrackInfo, SubtitleData);
+		public virtual void OnTrackDeselected (SessionPlayer, SessionPlayer.TrackInfo);
+		public virtual void OnTrackInfoChanged (SessionPlayer, System.Collections.Generic.IList<SessionPlayer.TrackInfo>);
+		public virtual void OnTrackSelected (SessionPlayer, SessionPlayer.TrackInfo);
+		public virtual void OnVideoSizeChangedInternal (SessionPlayer, MediaItem, VideoSize);
 	}
 	public class PlayerResult : Java.Lang.Object, Android.Runtime.IJavaObject, IBaseResult, System.IDisposable {
 		// constructors
-		public SessionPlayer.PlayerResult (int resultCode, MediaItem item);
-		protected SessionPlayer.PlayerResult (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public SessionPlayer.PlayerResult (int, MediaItem);
+		protected SessionPlayer.PlayerResult (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public virtual long CompletionTime { get; }
-		public virtual MediaItem MediaItem { get; }
-		public virtual int ResultCode { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public long CompletionTime { get; }
+		public MediaItem MediaItem { get; }
+		public int ResultCode { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public static Google.Common.Util.Concurrent.IListenableFuture CreateFuture (int resultCode);
+		public static Google.Common.Util.Concurrent.IListenableFuture CreateFuture (int);
 
 		// inner types
 		public interface IResultCode : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -7951,7 +7521,7 @@ public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObj
 	}
 	public sealed class TrackInfo : AndroidX.VersionedParcelable.CustomVersionedParcelable, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 		// constructors
-		public SessionPlayer.PlayerResult.TrackInfo (int id, MediaItem item, int type, Android.Media.MediaFormat format);
+		public SessionPlayer.PlayerResult.TrackInfo (int, MediaItem, int, Android.Media.MediaFormat);
 		// fields
 		public static const int MediaTrackTypeAudio;
 		public static const int MediaTrackTypeMetadata;
@@ -7963,8 +7533,8 @@ public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObj
 		public int Id { get; }
 		public Java.Util.Locale Language { get; }
 		public MediaItem MediaItem { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		public int TrackType { get; }
 
 		// inner types
@@ -7979,7 +7549,7 @@ public abstract class SessionPlayer : Java.Lang.Object, Android.Runtime.IJavaObj
 ```csharp
 public sealed class SubtitleData : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public SubtitleData (long startTimeUs, long durationUs, byte[] data);
+	public SubtitleData (long, long, byte[]);
 	// fields
 	public static const string MimetypeTextCea608 = "text/cea-608";
 	public static const string MimetypeTextCea708 = "text/cea-708";
@@ -7987,8 +7557,8 @@ public sealed class SubtitleData : Java.Lang.Object, Android.Runtime.IJavaObject
 	// properties
 	public long DurationUs { get; }
 	public long StartTimeUs { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public byte[] GetData ();
 }
@@ -8001,11 +7571,11 @@ public sealed class SubtitleDataParcelizer : Java.Lang.Object {
 	// constructors
 	public SubtitleDataParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SubtitleData Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SubtitleData obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SubtitleData Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SubtitleData, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8016,11 +7586,11 @@ public sealed class TrackInfoParcelizer : Java.Lang.Object {
 	// constructors
 	public TrackInfoParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SessionPlayer.TrackInfo Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SessionPlayer.TrackInfo obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SessionPlayer.TrackInfo Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SessionPlayer.TrackInfo, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8029,22 +7599,22 @@ public sealed class TrackInfoParcelizer : Java.Lang.Object {
 ```csharp
 public class UriMediaItem : AndroidX.Medai2.Common.MediaItem, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	protected UriMediaItem (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected UriMediaItem (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual Android.Net.Uri Uri { get; }
-	public virtual System.Collections.Generic.IList<Java.Net.HttpCookie> UriCookies { get; }
-	public virtual System.Collections.Generic.IDictionary<System.String,System.String> UriHeaders { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public Android.Net.Uri Uri { get; }
+	public System.Collections.Generic.IList<Java.Net.HttpCookie> UriCookies { get; }
+	public System.Collections.Generic.IDictionary<System.String,System.String> UriHeaders { get; }
 
 	// inner types
 	public sealed class Builder : AndroidX.Medai2.Common.MediaItem+Builder {
 		// constructors
-		public UriMediaItem.Builder (Android.Net.Uri uri);
-		public UriMediaItem.Builder (Android.Net.Uri uri, System.Collections.Generic.IDictionary<System.String,System.String> headers, System.Collections.Generic.IList<Java.Net.HttpCookie> cookies);
+		public UriMediaItem.Builder (Android.Net.Uri);
+		public UriMediaItem.Builder (Android.Net.Uri, System.Collections.Generic.IDictionary<System.String,System.String>, System.Collections.Generic.IList<Java.Net.HttpCookie>);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -8056,11 +7626,11 @@ public sealed class UriMediaItemParcelizer : Java.Lang.Object {
 	// constructors
 	public UriMediaItemParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static UriMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (UriMediaItem obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static UriMediaItem Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (UriMediaItem, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8069,11 +7639,11 @@ public sealed class UriMediaItemParcelizer : Java.Lang.Object {
 ```csharp
 public sealed class VideoSize : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public VideoSize (int width, int height);
+	public VideoSize (int, int);
 	// properties
 	public int Height { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public int Width { get; }
 }
 ```
@@ -8085,11 +7655,11 @@ public sealed class VideoSizeParcelizer : Java.Lang.Object {
 	// constructors
 	public VideoSizeParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static VideoSize Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (VideoSize obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static VideoSize Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (VideoSize, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8101,23 +7671,23 @@ public sealed class VideoSizeParcelizer : Java.Lang.Object {
 public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// constructors
 	protected AbstractResolvableFuture ();
-	protected AbstractResolvableFuture (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AbstractResolvableFuture (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual bool IsCancelled { get; }
-	public virtual bool IsDone { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsCancelled { get; }
+	public bool IsDone { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddListener (Java.Lang.IRunnable listener, Java.Util.Concurrent.IExecutor executor);
+	public virtual void AddListener (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
 	protected virtual void AfterDone ();
-	public virtual bool Cancel (bool mayInterruptIfRunning);
+	public virtual bool Cancel (bool);
 	public virtual Java.Lang.Object Get ();
-	public virtual Java.Lang.Object Get (long timeout, Java.Util.Concurrent.TimeUnit unit);
+	public virtual Java.Lang.Object Get (long, Java.Util.Concurrent.TimeUnit);
 	protected virtual void InterruptTask ();
 	protected virtual string PendingToString ();
-	protected virtual bool Set (Java.Lang.Object value);
-	protected virtual bool SetException (Java.Lang.Throwable throwable);
-	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	protected virtual bool Set (Java.Lang.Object);
+	protected virtual bool SetException (Java.Lang.Throwable);
+	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 	protected bool WasInterrupted ();
 }
 ```
@@ -8127,13 +7697,13 @@ public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runti
 ```csharp
 public sealed class ResolvableFuture : AndroidX.Medai2.Common.Futures.AbstractResolvableFuture, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public static ResolvableFuture Create ();
-	public bool Set (Java.Lang.Object value);
-	public bool SetException (Java.Lang.Throwable throwable);
-	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	public bool Set (Java.Lang.Object);
+	public bool SetException (Java.Lang.Throwable);
+	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 }
 ```
 
@@ -8146,11 +7716,11 @@ public sealed class CommandButtonParcelizer : Java.Lang.Object {
 	// constructors
 	public CommandButtonParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaSession.CommandButton Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (MediaSession.CommandButton obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static MediaSession.CommandButton Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (MediaSession.CommandButton, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8161,10 +7731,10 @@ public sealed class ConnectionRequestParcelizer : Java.Lang.Object {
 	// constructors
 	public ConnectionRequestParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8175,10 +7745,10 @@ public sealed class ConnectionResultParcelizer : Java.Lang.Object {
 	// constructors
 	public ConnectionResultParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static AndroidX.VersionedParcelable.CustomVersionedParcelable Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static AndroidX.VersionedParcelable.CustomVersionedParcelable Read (AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8188,12 +7758,12 @@ public sealed class ConnectionResultParcelizer : Java.Lang.Object {
 public sealed class HeartRating : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.Medai2.Common.IRating, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
 	public HeartRating ();
-	public HeartRating (bool hasHeart);
+	public HeartRating (bool);
 	// properties
 	public bool HasHeart { get; }
-	public virtual bool IsRated { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsRated { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -8204,11 +7774,11 @@ public sealed class HeartRatingParcelizer : Java.Lang.Object {
 	// constructors
 	public HeartRatingParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static HeartRating Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (HeartRating obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static HeartRating Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (HeartRating, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8217,31 +7787,31 @@ public sealed class HeartRatingParcelizer : Java.Lang.Object {
 ```csharp
 public interface IMediaController : Android.OS.IInterface, Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void OnAllowedCommandsChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnBufferingStateChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, int p2, long p3, long p4, long p5);
-	public virtual void OnChildrenChanged (int p0, string p1, int p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnConnected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnCurrentMediaItemChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, int p2, int p3, int p4);
-	public virtual void OnCustomCommand (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, Android.OS.Bundle p2);
-	public virtual void OnDisconnected (int p0);
-	public virtual void OnLibraryResult (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnPlaybackCompleted (int p0);
-	public virtual void OnPlaybackInfoChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnPlaybackSpeedChanged (int p0, long p1, long p2, float p3);
-	public virtual void OnPlayerStateChanged (int p0, long p1, long p2, int p3);
-	public virtual void OnPlaylistChanged (int p0, AndroidX.Medai2.Common.ParcelImplListSlice p1, AndroidX.VersionedParcelable.ParcelImpl p2, int p3, int p4, int p5);
-	public virtual void OnPlaylistMetadataChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnRepeatModeChanged (int p0, int p1, int p2, int p3, int p4);
-	public virtual void OnSearchResultChanged (int p0, string p1, int p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnSeekCompleted (int p0, long p1, long p2, long p3);
-	public virtual void OnSessionResult (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnSetCustomLayout (int p0, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> p1);
-	public virtual void OnShuffleModeChanged (int p0, int p1, int p2, int p3, int p4);
-	public virtual void OnSubtitleData (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, AndroidX.VersionedParcelable.ParcelImpl p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnTrackDeselected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnTrackInfoChanged (int p0, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> p1, AndroidX.VersionedParcelable.ParcelImpl p2, AndroidX.VersionedParcelable.ParcelImpl p3, AndroidX.VersionedParcelable.ParcelImpl p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void OnTrackSelected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnVideoSizeChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, AndroidX.VersionedParcelable.ParcelImpl p2);
+	public virtual void OnAllowedCommandsChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnBufferingStateChanged (int, AndroidX.VersionedParcelable.ParcelImpl, int, long, long, long);
+	public virtual void OnChildrenChanged (int, string, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnConnected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnCurrentMediaItemChanged (int, AndroidX.VersionedParcelable.ParcelImpl, int, int, int);
+	public virtual void OnCustomCommand (int, AndroidX.VersionedParcelable.ParcelImpl, Android.OS.Bundle);
+	public virtual void OnDisconnected (int);
+	public virtual void OnLibraryResult (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnPlaybackCompleted (int);
+	public virtual void OnPlaybackInfoChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnPlaybackSpeedChanged (int, long, long, float);
+	public virtual void OnPlayerStateChanged (int, long, long, int);
+	public virtual void OnPlaylistChanged (int, AndroidX.Medai2.Common.ParcelImplListSlice, AndroidX.VersionedParcelable.ParcelImpl, int, int, int);
+	public virtual void OnPlaylistMetadataChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnRepeatModeChanged (int, int, int, int, int);
+	public virtual void OnSearchResultChanged (int, string, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnSeekCompleted (int, long, long, long);
+	public virtual void OnSessionResult (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnSetCustomLayout (int, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>);
+	public virtual void OnShuffleModeChanged (int, int, int, int, int);
+	public virtual void OnSubtitleData (int, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackDeselected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackInfoChanged (int, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackSelected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnVideoSizeChanged (int, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
 }
 ```
 
@@ -8250,49 +7820,49 @@ public interface IMediaController : Android.OS.IInterface, Android.Runtime.IJava
 ```csharp
 public interface IMediaSession : Android.OS.IInterface, Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void AddPlaylistItem (IMediaController p0, int p1, int p2, string p3);
-	public virtual void AdjustVolume (IMediaController p0, int p1, int p2, int p3);
-	public virtual void Connect (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void DeselectTrack (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void FastForward (IMediaController p0, int p1);
-	public virtual void GetChildren (IMediaController p0, int p1, string p2, int p3, int p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void GetItem (IMediaController p0, int p1, string p2);
-	public virtual void GetLibraryRoot (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void GetSearchResult (IMediaController p0, int p1, string p2, int p3, int p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void OnControllerResult (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void OnCustomCommand (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2, Android.OS.Bundle p3);
-	public virtual void Pause (IMediaController p0, int p1);
-	public virtual void Play (IMediaController p0, int p1);
-	public virtual void PlayFromMediaId (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PlayFromSearch (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PlayFromUri (IMediaController p0, int p1, Android.Net.Uri p2, Android.OS.Bundle p3);
-	public virtual void Prepare (IMediaController p0, int p1);
-	public virtual void PrepareFromMediaId (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PrepareFromSearch (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PrepareFromUri (IMediaController p0, int p1, Android.Net.Uri p2, Android.OS.Bundle p3);
-	public virtual void Release (IMediaController p0, int p1);
-	public virtual void RemovePlaylistItem (IMediaController p0, int p1, int p2);
-	public virtual void ReplacePlaylistItem (IMediaController p0, int p1, int p2, string p3);
-	public virtual void Rewind (IMediaController p0, int p1);
-	public virtual void Search (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SeekTo (IMediaController p0, int p1, long p2);
-	public virtual void SelectTrack (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void SetMediaItem (IMediaController p0, int p1, string p2);
-	public virtual void SetPlaybackSpeed (IMediaController p0, int p1, float p2);
-	public virtual void SetPlaylist (IMediaController p0, int p1, System.Collections.Generic.IList<string> p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SetRating (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SetRepeatMode (IMediaController p0, int p1, int p2);
-	public virtual void SetShuffleMode (IMediaController p0, int p1, int p2);
-	public virtual void SetSurface (IMediaController p0, int p1, Android.Views.Surface p2);
-	public virtual void SetVolumeTo (IMediaController p0, int p1, int p2, int p3);
-	public virtual void SkipBackward (IMediaController p0, int p1);
-	public virtual void SkipForward (IMediaController p0, int p1);
-	public virtual void SkipToNextItem (IMediaController p0, int p1);
-	public virtual void SkipToPlaylistItem (IMediaController p0, int p1, int p2);
-	public virtual void SkipToPreviousItem (IMediaController p0, int p1);
-	public virtual void Subscribe (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void Unsubscribe (IMediaController p0, int p1, string p2);
-	public virtual void UpdatePlaylistMetadata (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
+	public virtual void AddPlaylistItem (IMediaController, int, int, string);
+	public virtual void AdjustVolume (IMediaController, int, int, int);
+	public virtual void Connect (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void DeselectTrack (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void FastForward (IMediaController, int);
+	public virtual void GetChildren (IMediaController, int, string, int, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void GetItem (IMediaController, int, string);
+	public virtual void GetLibraryRoot (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void GetSearchResult (IMediaController, int, string, int, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnControllerResult (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnCustomCommand (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl, Android.OS.Bundle);
+	public virtual void Pause (IMediaController, int);
+	public virtual void Play (IMediaController, int);
+	public virtual void PlayFromMediaId (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PlayFromSearch (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PlayFromUri (IMediaController, int, Android.Net.Uri, Android.OS.Bundle);
+	public virtual void Prepare (IMediaController, int);
+	public virtual void PrepareFromMediaId (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PrepareFromSearch (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PrepareFromUri (IMediaController, int, Android.Net.Uri, Android.OS.Bundle);
+	public virtual void Release (IMediaController, int);
+	public virtual void RemovePlaylistItem (IMediaController, int, int);
+	public virtual void ReplacePlaylistItem (IMediaController, int, int, string);
+	public virtual void Rewind (IMediaController, int);
+	public virtual void Search (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SeekTo (IMediaController, int, long);
+	public virtual void SelectTrack (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetMediaItem (IMediaController, int, string);
+	public virtual void SetPlaybackSpeed (IMediaController, int, float);
+	public virtual void SetPlaylist (IMediaController, int, System.Collections.Generic.IList<string>, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetRating (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetRepeatMode (IMediaController, int, int);
+	public virtual void SetShuffleMode (IMediaController, int, int);
+	public virtual void SetSurface (IMediaController, int, Android.Views.Surface);
+	public virtual void SetVolumeTo (IMediaController, int, int, int);
+	public virtual void SkipBackward (IMediaController, int);
+	public virtual void SkipForward (IMediaController, int);
+	public virtual void SkipToNextItem (IMediaController, int);
+	public virtual void SkipToPlaylistItem (IMediaController, int, int);
+	public virtual void SkipToPreviousItem (IMediaController, int);
+	public virtual void Subscribe (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void Unsubscribe (IMediaController, int, string);
+	public virtual void UpdatePlaylistMetadata (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
 }
 ```
 
@@ -8301,7 +7871,7 @@ public interface IMediaSession : Android.OS.IInterface, Android.Runtime.IJavaObj
 ```csharp
 public interface IMediaSessionService : Android.OS.IInterface, Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void Connect (IMediaController p0, AndroidX.VersionedParcelable.ParcelImpl p1);
+	public virtual void Connect (IMediaController, AndroidX.VersionedParcelable.ParcelImpl);
 }
 ```
 
@@ -8312,11 +7882,11 @@ public sealed class LibraryParamsParcelizer : Java.Lang.Object {
 	// constructors
 	public LibraryParamsParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaLibraryService.LibraryParams Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (MediaLibraryService.LibraryParams obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static MediaLibraryService.LibraryParams Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (MediaLibraryService.LibraryParams, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8325,18 +7895,18 @@ public sealed class LibraryParamsParcelizer : Java.Lang.Object {
 ```csharp
 public class LibraryResult : AndroidX.VersionedParcelable.CustomVersionedParcelable, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public LibraryResult (int resultCode);
-	protected LibraryResult (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public LibraryResult (int resultCode, AndroidX.Medai2.Common.MediaItem item, MediaLibraryService.LibraryParams params);
-	public LibraryResult (int resultCode, System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> items, MediaLibraryService.LibraryParams params);
+	public LibraryResult (int);
+	protected LibraryResult (IntPtr, Android.Runtime.JniHandleOwnership);
+	public LibraryResult (int, AndroidX.Medai2.Common.MediaItem, MediaLibraryService.LibraryParams);
+	public LibraryResult (int, System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem>, MediaLibraryService.LibraryParams);
 	// properties
-	public virtual long CompletionTime { get; }
-	public virtual MediaLibraryService.LibraryParams LibraryParams { get; }
-	public virtual AndroidX.Medai2.Common.MediaItem MediaItem { get; }
-	public virtual System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> MediaItems { get; }
-	public virtual int ResultCode { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public long CompletionTime { get; }
+	public MediaLibraryService.LibraryParams LibraryParams { get; }
+	public AndroidX.Medai2.Common.MediaItem MediaItem { get; }
+	public System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> MediaItems { get; }
+	public int ResultCode { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public interface IResultCode : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -8351,11 +7921,11 @@ public sealed class LibraryResultParcelizer : Java.Lang.Object {
 	// constructors
 	public LibraryResultParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static LibraryResult Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (LibraryResult obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static LibraryResult Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (LibraryResult, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -8364,189 +7934,189 @@ public sealed class LibraryResultParcelizer : Java.Lang.Object {
 ```csharp
 public class MediaController : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Lang.IAutoCloseable, System.IDisposable {
 	// constructors
-	protected MediaController (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaController (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual SessionCommandGroup AllowedCommands { get; }
-	public virtual long BufferedPosition { get; }
-	public virtual int BufferingState { get; }
-	public virtual SessionToken ConnectedToken { get; }
-	public virtual AndroidX.Medai2.Common.MediaItem CurrentMediaItem { get; }
-	public virtual int CurrentMediaItemIndex { get; }
-	public virtual long CurrentPosition { get; }
-	public virtual long Duration { get; }
-	public virtual System.Collections.Generic.IList<AndroidX.Core.Util.Pair> ExtraCallbacks { get; }
-	public virtual bool IsConnected { get; }
-	public virtual int NextMediaItemIndex { get; }
-	public virtual float PlaybackSpeed { get; }
-	public virtual int PlayerState { get; }
-	public virtual System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> Playlist { get; }
-	public virtual AndroidX.Medai2.Common.MediaMetadata PlaylistMetadata { get; }
-	public virtual int PreviousMediaItemIndex { get; }
-	public virtual int RepeatMode { get; }
-	public virtual Android.App.PendingIntent SessionActivity { get; }
-	public virtual int ShuffleMode { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo> TrackInfo { get; }
-	public virtual AndroidX.Medai2.Common.VideoSize VideoSize { get; }
+	public SessionCommandGroup AllowedCommands { get; }
+	public long BufferedPosition { get; }
+	public int BufferingState { get; }
+	public SessionToken ConnectedToken { get; }
+	public AndroidX.Medai2.Common.MediaItem CurrentMediaItem { get; }
+	public int CurrentMediaItemIndex { get; }
+	public long CurrentPosition { get; }
+	public long Duration { get; }
+	public System.Collections.Generic.IList<AndroidX.Core.Util.Pair> ExtraCallbacks { get; }
+	public bool IsConnected { get; }
+	public int NextMediaItemIndex { get; }
+	public float PlaybackSpeed { get; }
+	public int PlayerState { get; }
+	public System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> Playlist { get; }
+	public AndroidX.Medai2.Common.MediaMetadata PlaylistMetadata { get; }
+	public int PreviousMediaItemIndex { get; }
+	public int RepeatMode { get; }
+	public Android.App.PendingIntent SessionActivity { get; }
+	public int ShuffleMode { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo> TrackInfo { get; }
+	public AndroidX.Medai2.Common.VideoSize VideoSize { get; }
 	// methods
-	public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int index, string mediaId);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture AdjustVolume (int direction, int flags);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int, string);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture AdjustVolume (int, int);
 	public virtual void Close ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo trackInfo);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture FastForward ();
 	public virtual MediaController.PlaybackInfo GetPlaybackInfo ();
-	public virtual AndroidX.Medai2.Common.SessionPlayer.TrackInfo GetSelectedTrack (int trackType);
-	public virtual void NotifyControllerCallback (MediaController.IControllerCallbackRunnable callbackRunnable);
+	public virtual AndroidX.Medai2.Common.SessionPlayer.TrackInfo GetSelectedTrack (int);
+	public virtual void NotifyControllerCallback (MediaController.IControllerCallbackRunnable);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Pause ();
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Play ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromMediaId (string mediaId, Android.OS.Bundle extras);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromSearch (string query, Android.OS.Bundle extras);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromUri (Android.Net.Uri uri, Android.OS.Bundle extras);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromMediaId (string, Android.OS.Bundle);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromSearch (string, Android.OS.Bundle);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromUri (Android.Net.Uri, Android.OS.Bundle);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Prepare ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromMediaId (string mediaId, Android.OS.Bundle extras);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromSearch (string query, Android.OS.Bundle extras);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromUri (Android.Net.Uri uri, Android.OS.Bundle extras);
-	public virtual void RegisterExtraCallback (Java.Util.Concurrent.IExecutor executor, MediaController.ControllerCallback callback);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int index);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int index, string mediaId);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromMediaId (string, Android.OS.Bundle);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromSearch (string, Android.OS.Bundle);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromUri (Android.Net.Uri, Android.OS.Bundle);
+	public virtual void RegisterExtraCallback (Java.Util.Concurrent.IExecutor, MediaController.ControllerCallback);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int, string);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture Rewind ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long pos);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo trackInfo);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (SessionCommand command, Android.OS.Bundle args);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (string mediaId);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float speed);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<string> list, AndroidX.Medai2.Common.MediaMetadata metadata);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRating (string mediaId, AndroidX.Medai2.Common.IRating rating);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int repeatMode);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int shuffleMode);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurface (Android.Views.Surface surface);
-	public virtual void SetTimeDiff (Java.Lang.Long timeDiff);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetVolumeTo (int value, int flags);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (SessionCommand, Android.OS.Bundle);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (string);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<string>, AndroidX.Medai2.Common.MediaMetadata);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRating (string, AndroidX.Medai2.Common.IRating);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurface (Android.Views.Surface);
+	public virtual void SetTimeDiff (Java.Lang.Long);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetVolumeTo (int, int);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipBackward ();
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipForward ();
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToNextPlaylistItem ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int index);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int);
 	public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPreviousPlaylistItem ();
-	public virtual void UnregisterExtraCallback (MediaController.ControllerCallback callback);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (AndroidX.Medai2.Common.MediaMetadata metadata);
+	public virtual void UnregisterExtraCallback (MediaController.ControllerCallback);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (AndroidX.Medai2.Common.MediaMetadata);
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
-		public MediaController.Builder (Android.Content.Context context);
+		public MediaController.Builder (Android.Content.Context);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public MediaController Build ();
 	}
 	public abstract class BuilderBase : Java.Lang.Object {
 		// constructors
-		protected MediaController.BuilderBase (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaController.BuilderBase (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Java.Lang.Object SetConnectionHints (Android.OS.Bundle connectionHints);
-		public virtual Java.Lang.Object SetControllerCallback (Java.Util.Concurrent.IExecutor executor, Java.Lang.Object callback);
-		public virtual Java.Lang.Object SetSessionCompatToken (Android.Support.V4.Media.Session.MediaSessionCompat.Token compatToken);
-		public virtual Java.Lang.Object SetSessionToken (SessionToken token);
+		public virtual Java.Lang.Object SetConnectionHints (Android.OS.Bundle);
+		public virtual Java.Lang.Object SetControllerCallback (Java.Util.Concurrent.IExecutor, Java.Lang.Object);
+		public virtual Java.Lang.Object SetSessionCompatToken (Android.Support.V4.Media.Session.MediaSessionCompat.Token);
+		public virtual Java.Lang.Object SetSessionToken (SessionToken);
 	}
 	public abstract class ControllerCallback : Java.Lang.Object {
 		// constructors
 		public MediaController.ControllerCallback ();
-		protected MediaController.ControllerCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaController.ControllerCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnAllowedCommandsChanged (MediaController controller, SessionCommandGroup commands);
-		public virtual void OnBufferingStateChanged (MediaController controller, AndroidX.Medai2.Common.MediaItem item, int state);
-		public virtual void OnConnected (MediaController controller, SessionCommandGroup allowedCommands);
-		public virtual void OnCurrentMediaItemChanged (MediaController controller, AndroidX.Medai2.Common.MediaItem item);
-		public virtual SessionResult OnCustomCommand (MediaController controller, SessionCommand command, Android.OS.Bundle args);
-		public virtual void OnDisconnected (MediaController controller);
-		public virtual void OnPlaybackCompleted (MediaController controller);
-		public virtual void OnPlaybackInfoChanged (MediaController controller, MediaController.PlaybackInfo info);
-		public virtual void OnPlaybackSpeedChanged (MediaController controller, float speed);
-		public virtual void OnPlayerStateChanged (MediaController controller, int state);
-		public virtual void OnPlaylistChanged (MediaController controller, System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> list, AndroidX.Medai2.Common.MediaMetadata metadata);
-		public virtual void OnPlaylistMetadataChanged (MediaController controller, AndroidX.Medai2.Common.MediaMetadata metadata);
-		public virtual void OnRepeatModeChanged (MediaController controller, int repeatMode);
-		public virtual void OnSeekCompleted (MediaController controller, long position);
-		public virtual int OnSetCustomLayout (MediaController controller, System.Collections.Generic.IList<MediaSession.CommandButton> layout);
-		public virtual void OnShuffleModeChanged (MediaController controller, int shuffleMode);
-		public virtual void OnSubtitleData (MediaController controller, AndroidX.Medai2.Common.MediaItem item, AndroidX.Medai2.Common.SessionPlayer.TrackInfo track, AndroidX.Medai2.Common.SubtitleData data);
-		public virtual void OnTrackDeselected (MediaController controller, AndroidX.Medai2.Common.SessionPlayer.TrackInfo trackInfo);
-		public virtual void OnTrackInfoChanged (MediaController controller, System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo> trackInfos);
-		public virtual void OnTrackSelected (MediaController controller, AndroidX.Medai2.Common.SessionPlayer.TrackInfo trackInfo);
-		public virtual void OnVideoSizeChanged (MediaController controller, AndroidX.Medai2.Common.MediaItem item, AndroidX.Medai2.Common.VideoSize videoSize);
+		public virtual void OnAllowedCommandsChanged (MediaController, SessionCommandGroup);
+		public virtual void OnBufferingStateChanged (MediaController, AndroidX.Medai2.Common.MediaItem, int);
+		public virtual void OnConnected (MediaController, SessionCommandGroup);
+		public virtual void OnCurrentMediaItemChanged (MediaController, AndroidX.Medai2.Common.MediaItem);
+		public virtual SessionResult OnCustomCommand (MediaController, SessionCommand, Android.OS.Bundle);
+		public virtual void OnDisconnected (MediaController);
+		public virtual void OnPlaybackCompleted (MediaController);
+		public virtual void OnPlaybackInfoChanged (MediaController, MediaController.PlaybackInfo);
+		public virtual void OnPlaybackSpeedChanged (MediaController, float);
+		public virtual void OnPlayerStateChanged (MediaController, int);
+		public virtual void OnPlaylistChanged (MediaController, System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem>, AndroidX.Medai2.Common.MediaMetadata);
+		public virtual void OnPlaylistMetadataChanged (MediaController, AndroidX.Medai2.Common.MediaMetadata);
+		public virtual void OnRepeatModeChanged (MediaController, int);
+		public virtual void OnSeekCompleted (MediaController, long);
+		public virtual int OnSetCustomLayout (MediaController, System.Collections.Generic.IList<MediaSession.CommandButton>);
+		public virtual void OnShuffleModeChanged (MediaController, int);
+		public virtual void OnSubtitleData (MediaController, AndroidX.Medai2.Common.MediaItem, AndroidX.Medai2.Common.SessionPlayer.TrackInfo, AndroidX.Medai2.Common.SubtitleData);
+		public virtual void OnTrackDeselected (MediaController, AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
+		public virtual void OnTrackInfoChanged (MediaController, System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo>);
+		public virtual void OnTrackSelected (MediaController, AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
+		public virtual void OnVideoSizeChanged (MediaController, AndroidX.Medai2.Common.MediaItem, AndroidX.Medai2.Common.VideoSize);
 	}
 	public interface IControllerCallbackRunnable : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void Run (MediaController.ControllerCallback p0);
+		public virtual void Run (MediaController.ControllerCallback);
 	}
 	public interface IMediaControllerImpl : Android.Runtime.IJavaObject, Java.Lang.IAutoCloseable, System.IDisposable {
 		// properties
-		public virtual SessionCommandGroup AllowedCommands { get; }
-		public virtual Android.Support.V4.Media.MediaBrowserCompat BrowserCompat { get; }
-		public virtual long BufferedPosition { get; }
-		public virtual int BufferingState { get; }
-		public virtual SessionToken ConnectedToken { get; }
-		public virtual Android.Content.Context Context { get; }
-		public virtual AndroidX.Medai2.Common.MediaItem CurrentMediaItem { get; }
-		public virtual int CurrentMediaItemIndex { get; }
-		public virtual long CurrentPosition { get; }
-		public virtual long Duration { get; }
-		public virtual bool IsConnected { get; }
-		public virtual int NextMediaItemIndex { get; }
-		public virtual MediaController.PlaybackInfo PlaybackInfo { get; }
-		public virtual float PlaybackSpeed { get; }
-		public virtual int PlayerState { get; }
-		public virtual System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> Playlist { get; }
-		public virtual AndroidX.Medai2.Common.MediaMetadata PlaylistMetadata { get; }
-		public virtual int PreviousMediaItemIndex { get; }
-		public virtual int RepeatMode { get; }
-		public virtual Android.App.PendingIntent SessionActivity { get; }
-		public virtual int ShuffleMode { get; }
-		public virtual System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo> TrackInfo { get; }
-		public virtual AndroidX.Medai2.Common.VideoSize VideoSize { get; }
+		public SessionCommandGroup AllowedCommands { get; }
+		public Android.Support.V4.Media.MediaBrowserCompat BrowserCompat { get; }
+		public long BufferedPosition { get; }
+		public int BufferingState { get; }
+		public SessionToken ConnectedToken { get; }
+		public Android.Content.Context Context { get; }
+		public AndroidX.Medai2.Common.MediaItem CurrentMediaItem { get; }
+		public int CurrentMediaItemIndex { get; }
+		public long CurrentPosition { get; }
+		public long Duration { get; }
+		public bool IsConnected { get; }
+		public int NextMediaItemIndex { get; }
+		public MediaController.PlaybackInfo PlaybackInfo { get; }
+		public float PlaybackSpeed { get; }
+		public int PlayerState { get; }
+		public System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> Playlist { get; }
+		public AndroidX.Medai2.Common.MediaMetadata PlaylistMetadata { get; }
+		public int PreviousMediaItemIndex { get; }
+		public int RepeatMode { get; }
+		public Android.App.PendingIntent SessionActivity { get; }
+		public int ShuffleMode { get; }
+		public System.Collections.Generic.IList<AndroidX.Medai2.Common.SessionPlayer.TrackInfo> TrackInfo { get; }
+		public AndroidX.Medai2.Common.VideoSize VideoSize { get; }
 		// methods
-		public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int p0, string p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture AdjustVolume (int p0, int p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo p0);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture AddPlaylistItem (int, string);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture AdjustVolume (int, int);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture DeselectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture FastForward ();
-		public virtual AndroidX.Medai2.Common.SessionPlayer.TrackInfo GetSelectedTrack (int p0);
+		public virtual AndroidX.Medai2.Common.SessionPlayer.TrackInfo GetSelectedTrack (int);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture Pause ();
 		public virtual Google.Common.Util.Concurrent.IListenableFuture Play ();
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromMediaId (string p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromSearch (string p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromUri (Android.Net.Uri p0, Android.OS.Bundle p1);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromMediaId (string, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromSearch (string, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PlayFromUri (Android.Net.Uri, Android.OS.Bundle);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture Prepare ();
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromMediaId (string p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromSearch (string p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromUri (Android.Net.Uri p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int p0, string p1);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromMediaId (string, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromSearch (string, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture PrepareFromUri (Android.Net.Uri, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture RemovePlaylistItem (int);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture ReplacePlaylistItem (int, string);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture Rewind ();
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (SessionCommand p0, Android.OS.Bundle p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (string p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<string> p0, AndroidX.Medai2.Common.MediaMetadata p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetRating (string p0, AndroidX.Medai2.Common.IRating p1);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurface (Android.Views.Surface p0);
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SetVolumeTo (int p0, int p1);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SeekTo (long);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SelectTrack (AndroidX.Medai2.Common.SessionPlayer.TrackInfo);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (SessionCommand, Android.OS.Bundle);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetMediaItem (string);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaybackSpeed (float);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetPlaylist (System.Collections.Generic.IList<string>, AndroidX.Medai2.Common.MediaMetadata);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetRating (string, AndroidX.Medai2.Common.IRating);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetRepeatMode (int);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetShuffleMode (int);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetSurface (Android.Views.Surface);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SetVolumeTo (int, int);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipBackward ();
 		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipForward ();
 		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToNextItem ();
-		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int p0);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPlaylistItem (int);
 		public virtual Google.Common.Util.Concurrent.IListenableFuture SkipToPreviousItem ();
-		public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (AndroidX.Medai2.Common.MediaMetadata p0);
+		public virtual Google.Common.Util.Concurrent.IListenableFuture UpdatePlaylistMetadata (AndroidX.Medai2.Common.MediaMetadata);
 	}
 	public interface IVolumeDirection : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
@@ -8562,8 +8132,8 @@ public class MediaController : Java.Lang.Object, Android.Runtime.IJavaObject, Ja
 		public int CurrentVolume { get; }
 		public int MaxVolume { get; }
 		public int PlaybackType { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -8574,39 +8144,39 @@ public class MediaController : Java.Lang.Object, Android.Runtime.IJavaObject, Ja
 public abstract class MediaControllerStub : Android.OS.Binder, Android.OS.IInterface, Android.Runtime.IJavaObject, IMediaController, System.IDisposable {
 	// constructors
 	public MediaControllerStub ();
-	protected MediaControllerStub (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaControllerStub (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual Android.OS.IBinder AsBinder ();
-	public static IMediaController AsInterface (Android.OS.IBinder obj);
-	public virtual void OnAllowedCommandsChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnBufferingStateChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, int p2, long p3, long p4, long p5);
-	public virtual void OnChildrenChanged (int p0, string p1, int p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnConnected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnCurrentMediaItemChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, int p2, int p3, int p4);
-	public virtual void OnCustomCommand (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, Android.OS.Bundle p2);
-	public virtual void OnDisconnected (int p0);
-	public virtual void OnLibraryResult (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnPlaybackCompleted (int p0);
-	public virtual void OnPlaybackInfoChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnPlaybackSpeedChanged (int p0, long p1, long p2, float p3);
-	public virtual void OnPlayerStateChanged (int p0, long p1, long p2, int p3);
-	public virtual void OnPlaylistChanged (int p0, AndroidX.Medai2.Common.ParcelImplListSlice p1, AndroidX.VersionedParcelable.ParcelImpl p2, int p3, int p4, int p5);
-	public virtual void OnPlaylistMetadataChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnRepeatModeChanged (int p0, int p1, int p2, int p3, int p4);
-	public virtual void OnSearchResultChanged (int p0, string p1, int p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnSeekCompleted (int p0, long p1, long p2, long p3);
-	public virtual void OnSessionResult (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnSetCustomLayout (int p0, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> p1);
-	public virtual void OnShuffleModeChanged (int p0, int p1, int p2, int p3, int p4);
-	public virtual void OnSubtitleData (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, AndroidX.VersionedParcelable.ParcelImpl p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void OnTrackDeselected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual void OnTrackInfoChanged (int p0, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> p1, AndroidX.VersionedParcelable.ParcelImpl p2, AndroidX.VersionedParcelable.ParcelImpl p3, AndroidX.VersionedParcelable.ParcelImpl p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void OnTrackSelected (int p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual bool OnTransact (int code, Android.OS.Parcel data, Android.OS.Parcel reply, int flags);
-	public virtual void OnVideoSizeChanged (int p0, AndroidX.VersionedParcelable.ParcelImpl p1, AndroidX.VersionedParcelable.ParcelImpl p2);
+	public static IMediaController AsInterface (Android.OS.IBinder);
+	public virtual void OnAllowedCommandsChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnBufferingStateChanged (int, AndroidX.VersionedParcelable.ParcelImpl, int, long, long, long);
+	public virtual void OnChildrenChanged (int, string, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnConnected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnCurrentMediaItemChanged (int, AndroidX.VersionedParcelable.ParcelImpl, int, int, int);
+	public virtual void OnCustomCommand (int, AndroidX.VersionedParcelable.ParcelImpl, Android.OS.Bundle);
+	public virtual void OnDisconnected (int);
+	public virtual void OnLibraryResult (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnPlaybackCompleted (int);
+	public virtual void OnPlaybackInfoChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnPlaybackSpeedChanged (int, long, long, float);
+	public virtual void OnPlayerStateChanged (int, long, long, int);
+	public virtual void OnPlaylistChanged (int, AndroidX.Medai2.Common.ParcelImplListSlice, AndroidX.VersionedParcelable.ParcelImpl, int, int, int);
+	public virtual void OnPlaylistMetadataChanged (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnRepeatModeChanged (int, int, int, int, int);
+	public virtual void OnSearchResultChanged (int, string, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnSeekCompleted (int, long, long, long);
+	public virtual void OnSessionResult (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnSetCustomLayout (int, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>);
+	public virtual void OnShuffleModeChanged (int, int, int, int, int);
+	public virtual void OnSubtitleData (int, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackDeselected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackInfoChanged (int, System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl>, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnTrackSelected (int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual bool OnTransact (int, Android.OS.Parcel, Android.OS.Parcel, int);
+	public virtual void OnVideoSizeChanged (int, AndroidX.VersionedParcelable.ParcelImpl, AndroidX.VersionedParcelable.ParcelImpl);
 }
 ```
 
@@ -8616,12 +8186,12 @@ public abstract class MediaControllerStub : Android.OS.Binder, Android.OS.IInter
 public abstract class MediaLibraryService : AndroidX.Media2.Session.MediaSessionService {
 	// constructors
 	public MediaLibraryService ();
-	protected MediaLibraryService (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaLibraryService (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string ServiceInterface = "androidx.media2.session.MediaLibraryService";
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public sealed class LibraryParams : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
@@ -8630,60 +8200,60 @@ public abstract class MediaLibraryService : AndroidX.Media2.Session.MediaSession
 		public bool IsOffline { get; }
 		public bool IsRecent { get; }
 		public bool IsSuggested { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
 			public MediaLibraryService.LibraryParams.Builder ();
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public MediaLibraryService.LibraryParams Build ();
-			public MediaLibraryService.LibraryParams.Builder SetExtras (Android.OS.Bundle extras);
-			public MediaLibraryService.LibraryParams.Builder SetOffline (bool offline);
-			public MediaLibraryService.LibraryParams.Builder SetRecent (bool recent);
-			public MediaLibraryService.LibraryParams.Builder SetSuggested (bool suggested);
+			public MediaLibraryService.LibraryParams.Builder SetExtras (Android.OS.Bundle);
+			public MediaLibraryService.LibraryParams.Builder SetOffline (bool);
+			public MediaLibraryService.LibraryParams.Builder SetRecent (bool);
+			public MediaLibraryService.LibraryParams.Builder SetSuggested (bool);
 		}
 	}
 	public sealed class MediaLibrarySession : AndroidX.Media2.Session.MediaSession, Android.Runtime.IJavaObject, Java.Lang.IAutoCloseable, System.IDisposable {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public void NotifyChildrenChanged (string parentId, int itemCount, MediaLibraryService.LibraryParams params);
-		public void NotifyChildrenChanged (MediaSession.ControllerInfo controller, string parentId, int itemCount, MediaLibraryService.LibraryParams params);
-		public void NotifySearchResultChanged (MediaSession.ControllerInfo controller, string query, int itemCount, MediaLibraryService.LibraryParams params);
+		public void NotifyChildrenChanged (string, int, MediaLibraryService.LibraryParams);
+		public void NotifyChildrenChanged (MediaSession.ControllerInfo, string, int, MediaLibraryService.LibraryParams);
+		public void NotifySearchResultChanged (MediaSession.ControllerInfo, string, int, MediaLibraryService.LibraryParams);
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
-			public MediaLibraryService.LibraryParams.MediaLibrarySession.Builder (MediaLibraryService service, AndroidX.Medai2.Common.SessionPlayer player, Java.Util.Concurrent.IExecutor callbackExecutor, MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback callback);
+			public MediaLibraryService.LibraryParams.MediaLibrarySession.Builder (MediaLibraryService, AndroidX.Medai2.Common.SessionPlayer, Java.Util.Concurrent.IExecutor, MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback);
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public MediaLibraryService.MediaLibrarySession Build ();
-			public MediaLibraryService.MediaLibrarySession.Builder SetId (string id);
-			public MediaLibraryService.MediaLibrarySession.Builder SetSessionActivity (Android.App.PendingIntent pi);
+			public MediaLibraryService.MediaLibrarySession.Builder SetId (string);
+			public MediaLibraryService.MediaLibrarySession.Builder SetSessionActivity (Android.App.PendingIntent);
 		}
 		public class MediaLibrarySessionCallback : AndroidX.Media2.Session.MediaSession+SessionCallback {
 			// constructors
 			public MediaLibraryService.LibraryParams.MediaLibrarySession.MediaLibrarySessionCallback ();
-			protected MediaLibraryService.LibraryParams.MediaLibrarySession.MediaLibrarySessionCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+			protected MediaLibraryService.LibraryParams.MediaLibrarySession.MediaLibrarySessionCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
-			public virtual LibraryResult OnGetChildren (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string parentId, int page, int pageSize, MediaLibraryService.LibraryParams params);
-			public virtual LibraryResult OnGetItem (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string mediaId);
-			public virtual LibraryResult OnGetLibraryRoot (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, MediaLibraryService.LibraryParams params);
-			public virtual LibraryResult OnGetSearchResult (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string query, int page, int pageSize, MediaLibraryService.LibraryParams params);
-			public virtual int OnSearch (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string query, MediaLibraryService.LibraryParams params);
-			public virtual int OnSubscribe (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string parentId, MediaLibraryService.LibraryParams params);
-			public virtual int OnUnsubscribe (MediaLibraryService.MediaLibrarySession session, MediaSession.ControllerInfo controller, string parentId);
+			public virtual LibraryResult OnGetChildren (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string, int, int, MediaLibraryService.LibraryParams);
+			public virtual LibraryResult OnGetItem (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string);
+			public virtual LibraryResult OnGetLibraryRoot (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, MediaLibraryService.LibraryParams);
+			public virtual LibraryResult OnGetSearchResult (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string, int, int, MediaLibraryService.LibraryParams);
+			public virtual int OnSearch (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string, MediaLibraryService.LibraryParams);
+			public virtual int OnSubscribe (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string, MediaLibraryService.LibraryParams);
+			public virtual int OnUnsubscribe (MediaLibraryService.MediaLibrarySession, MediaSession.ControllerInfo, string);
 		}
 	}
 }
@@ -8694,15 +8264,15 @@ public abstract class MediaLibraryService : AndroidX.Media2.Session.MediaSession
 ```csharp
 public class MediaNotificationHandler : Java.Lang.Object {
 	// constructors
-	public MediaNotificationHandler (MediaSessionService service);
-	protected MediaNotificationHandler (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public MediaNotificationHandler (MediaSessionService);
+	protected MediaNotificationHandler (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void OnPlayerStateChanged (MediaSession session, int state);
-	public virtual void OnSessionClosed (MediaSession session);
-	public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession session);
+	public virtual void OnPlayerStateChanged (MediaSession, int);
+	public virtual void OnSessionClosed (MediaSession);
+	public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession);
 }
 ```
 
@@ -8711,45 +8281,45 @@ public class MediaNotificationHandler : Java.Lang.Object {
 ```csharp
 public class MediaSession : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Lang.IAutoCloseable, System.IDisposable {
 	// constructors
-	protected MediaSession (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaSession (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual System.Collections.Generic.IList<MediaSession.ControllerInfo> ConnectedControllers { get; }
-	public virtual string Id { get; }
-	public virtual bool IsClosed { get; }
-	public virtual AndroidX.Medai2.Common.SessionPlayer Player { get; }
-	public virtual Android.Support.V4.Media.Session.MediaSessionCompat SessionCompat { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual SessionToken Token { get; }
+	public System.Collections.Generic.IList<MediaSession.ControllerInfo> ConnectedControllers { get; }
+	public string Id { get; }
+	public bool IsClosed { get; }
+	public AndroidX.Medai2.Common.SessionPlayer Player { get; }
+	public Android.Support.V4.Media.Session.MediaSessionCompat SessionCompat { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public SessionToken Token { get; }
 	// methods
-	public virtual void BroadcastCustomCommand (SessionCommand command, Android.OS.Bundle args);
+	public virtual void BroadcastCustomCommand (SessionCommand, Android.OS.Bundle);
 	public virtual void Close ();
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (MediaSession.ControllerInfo controller, SessionCommand command, Android.OS.Bundle args);
-	public virtual void SetAllowedCommands (MediaSession.ControllerInfo controller, SessionCommandGroup commands);
-	public virtual Google.Common.Util.Concurrent.IListenableFuture SetCustomLayout (MediaSession.ControllerInfo controller, System.Collections.Generic.IList<MediaSession.CommandButton> layout);
-	public virtual void UpdatePlayer (AndroidX.Medai2.Common.SessionPlayer player);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SendCustomCommand (MediaSession.ControllerInfo, SessionCommand, Android.OS.Bundle);
+	public virtual void SetAllowedCommands (MediaSession.ControllerInfo, SessionCommandGroup);
+	public virtual Google.Common.Util.Concurrent.IListenableFuture SetCustomLayout (MediaSession.ControllerInfo, System.Collections.Generic.IList<MediaSession.CommandButton>);
+	public virtual void UpdatePlayer (AndroidX.Medai2.Common.SessionPlayer);
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
-		public MediaSession.Builder (Android.Content.Context context, AndroidX.Medai2.Common.SessionPlayer player);
+		public MediaSession.Builder (Android.Content.Context, AndroidX.Medai2.Common.SessionPlayer);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public MediaSession Build ();
-		public MediaSession.Builder SetId (string id);
-		public MediaSession.Builder SetSessionActivity (Android.App.PendingIntent pi);
-		public MediaSession.Builder SetSessionCallback (Java.Util.Concurrent.IExecutor executor, MediaSession.SessionCallback callback);
+		public MediaSession.Builder SetId (string);
+		public MediaSession.Builder SetSessionActivity (Android.App.PendingIntent);
+		public MediaSession.Builder SetSessionCallback (Java.Util.Concurrent.IExecutor, MediaSession.SessionCallback);
 	}
 	public abstract class BuilderBase : Java.Lang.Object {
 		// constructors
-		protected MediaSession.BuilderBase (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaSession.BuilderBase (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual Java.Lang.Object SetExtras (Android.OS.Bundle extras);
+		public virtual Java.Lang.Object SetExtras (Android.OS.Bundle);
 	}
 	public sealed class CommandButton : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 		// properties
@@ -8759,32 +8329,32 @@ public class MediaSession : Java.Lang.Object, Android.Runtime.IJavaObject, Java.
 		public Android.OS.Bundle Extras { get; }
 		public int IconResId { get; }
 		public bool IsEnabled { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
 			public MediaSession.CommandButton.Builder ();
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public MediaSession.CommandButton Build ();
-			public MediaSession.CommandButton.Builder SetCommand (SessionCommand command);
-			public MediaSession.CommandButton.Builder SetDisplayName (Java.Lang.ICharSequence displayName);
-			public MediaSession.CommandButton.Builder SetDisplayName (string displayName);
-			public MediaSession.CommandButton.Builder SetEnabled (bool enabled);
-			public MediaSession.CommandButton.Builder SetExtras (Android.OS.Bundle extras);
-			public MediaSession.CommandButton.Builder SetIconResId (int resId);
+			public MediaSession.CommandButton.Builder SetCommand (SessionCommand);
+			public MediaSession.CommandButton.Builder SetDisplayName (Java.Lang.ICharSequence);
+			public MediaSession.CommandButton.Builder SetDisplayName (string);
+			public MediaSession.CommandButton.Builder SetEnabled (bool);
+			public MediaSession.CommandButton.Builder SetExtras (Android.OS.Bundle);
+			public MediaSession.CommandButton.Builder SetIconResId (int);
 		}
 	}
 	public abstract class ControllerCb : Java.Lang.Object {
 		// constructors
-		protected MediaSession.CommandButton.ControllerCb (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaSession.CommandButton.ControllerCb (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public sealed class ControllerInfo : Java.Lang.Object {
 		// properties
@@ -8792,46 +8362,46 @@ public class MediaSession : Java.Lang.Object, Android.Runtime.IJavaObject, Java.
 		public bool IsTrusted { get; }
 		public string PackageName { get; }
 		public AndroidX.Media.MediaSessionManager.RemoteUserInfo RemoteUserInfo { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		public int Uid { get; }
 	}
 	public abstract class SessionCallback : Java.Lang.Object {
 		// constructors
 		public MediaSession.CommandButton.SessionCallback ();
-		protected MediaSession.CommandButton.SessionCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected MediaSession.CommandButton.SessionCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual int OnCommandRequest (MediaSession session, MediaSession.ControllerInfo controller, SessionCommand command);
-		public virtual SessionCommandGroup OnConnect (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual AndroidX.Medai2.Common.MediaItem OnCreateMediaItem (MediaSession session, MediaSession.ControllerInfo controller, string mediaId);
-		public virtual SessionResult OnCustomCommand (MediaSession session, MediaSession.ControllerInfo controller, SessionCommand customCommand, Android.OS.Bundle args);
-		public virtual void OnDisconnected (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual int OnFastForward (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual int OnPlayFromMediaId (MediaSession session, MediaSession.ControllerInfo controller, string mediaId, Android.OS.Bundle extras);
-		public virtual int OnPlayFromSearch (MediaSession session, MediaSession.ControllerInfo controller, string query, Android.OS.Bundle extras);
-		public virtual int OnPlayFromUri (MediaSession session, MediaSession.ControllerInfo controller, Android.Net.Uri uri, Android.OS.Bundle extras);
-		public virtual void OnPostConnect (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual int OnPrepareFromMediaId (MediaSession session, MediaSession.ControllerInfo controller, string mediaId, Android.OS.Bundle extras);
-		public virtual int OnPrepareFromSearch (MediaSession session, MediaSession.ControllerInfo controller, string query, Android.OS.Bundle extras);
-		public virtual int OnPrepareFromUri (MediaSession session, MediaSession.ControllerInfo controller, Android.Net.Uri uri, Android.OS.Bundle extras);
-		public virtual int OnRewind (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual int OnSetRating (MediaSession session, MediaSession.ControllerInfo controller, string mediaId, AndroidX.Medai2.Common.IRating rating);
-		public virtual int OnSkipBackward (MediaSession session, MediaSession.ControllerInfo controller);
-		public virtual int OnSkipForward (MediaSession session, MediaSession.ControllerInfo controller);
+		public virtual int OnCommandRequest (MediaSession, MediaSession.ControllerInfo, SessionCommand);
+		public virtual SessionCommandGroup OnConnect (MediaSession, MediaSession.ControllerInfo);
+		public virtual AndroidX.Medai2.Common.MediaItem OnCreateMediaItem (MediaSession, MediaSession.ControllerInfo, string);
+		public virtual SessionResult OnCustomCommand (MediaSession, MediaSession.ControllerInfo, SessionCommand, Android.OS.Bundle);
+		public virtual void OnDisconnected (MediaSession, MediaSession.ControllerInfo);
+		public virtual int OnFastForward (MediaSession, MediaSession.ControllerInfo);
+		public virtual int OnPlayFromMediaId (MediaSession, MediaSession.ControllerInfo, string, Android.OS.Bundle);
+		public virtual int OnPlayFromSearch (MediaSession, MediaSession.ControllerInfo, string, Android.OS.Bundle);
+		public virtual int OnPlayFromUri (MediaSession, MediaSession.ControllerInfo, Android.Net.Uri, Android.OS.Bundle);
+		public virtual void OnPostConnect (MediaSession, MediaSession.ControllerInfo);
+		public virtual int OnPrepareFromMediaId (MediaSession, MediaSession.ControllerInfo, string, Android.OS.Bundle);
+		public virtual int OnPrepareFromSearch (MediaSession, MediaSession.ControllerInfo, string, Android.OS.Bundle);
+		public virtual int OnPrepareFromUri (MediaSession, MediaSession.ControllerInfo, Android.Net.Uri, Android.OS.Bundle);
+		public virtual int OnRewind (MediaSession, MediaSession.ControllerInfo);
+		public virtual int OnSetRating (MediaSession, MediaSession.ControllerInfo, string, AndroidX.Medai2.Common.IRating);
+		public virtual int OnSkipBackward (MediaSession, MediaSession.ControllerInfo);
+		public virtual int OnSkipForward (MediaSession, MediaSession.ControllerInfo);
 
 		// inner types
 		public abstract class ForegroundServiceEventCallback : Java.Lang.Object {
 			// constructors
-			protected MediaSession.CommandButton.SessionCallback.ForegroundServiceEventCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+			protected MediaSession.CommandButton.SessionCallback.ForegroundServiceEventCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
-			public virtual void OnPlayerStateChanged (MediaSession session, int state);
-			public virtual void OnSessionClosed (MediaSession session);
+			public virtual void OnPlayerStateChanged (MediaSession, int);
+			public virtual void OnSessionClosed (MediaSession);
 		}
 	}
 }
@@ -8843,10 +8413,10 @@ public class MediaSession : Java.Lang.Object, Android.Runtime.IJavaObject, Java.
 public sealed class MediaSessionManager : Java.Lang.Object {
 	// properties
 	public System.Collections.Generic.ICollection<SessionToken> SessionServiceTokens { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaSessionManager GetInstance (Android.Content.Context context);
+	public static MediaSessionManager GetInstance (Android.Content.Context);
 }
 ```
 
@@ -8856,42 +8426,42 @@ public sealed class MediaSessionManager : Java.Lang.Object {
 public abstract class MediaSessionService : Android.App.Service {
 	// constructors
 	public MediaSessionService ();
-	protected MediaSessionService (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaSessionService (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string ServiceInterface = "androidx.media2.session.MediaSessionService";
 	// properties
 	public System.Collections.Generic.IList<MediaSession> Sessions { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddSession (MediaSession session);
-	public override Android.OS.IBinder OnBind (Android.Content.Intent intent);
-	public virtual MediaSession OnGetSession (MediaSession.ControllerInfo p0);
-	public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession session);
-	public void RemoveSession (MediaSession session);
+	public void AddSession (MediaSession);
+	public override Android.OS.IBinder OnBind (Android.Content.Intent);
+	public virtual MediaSession OnGetSession (MediaSession.ControllerInfo);
+	public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession);
+	public void RemoveSession (MediaSession);
 
 	// inner types
 	public interface IMediaSessionServiceImpl : Android.Runtime.IJavaObject, System.IDisposable {
 		// properties
-		public virtual System.Collections.Generic.IList<MediaSession> Sessions { get; }
+		public System.Collections.Generic.IList<MediaSession> Sessions { get; }
 		// methods
-		public virtual void AddSession (MediaSession p0);
-		public virtual Android.OS.IBinder OnBind (Android.Content.Intent p0);
-		public virtual void OnCreate (MediaSessionService p0);
+		public virtual void AddSession (MediaSession);
+		public virtual Android.OS.IBinder OnBind (Android.Content.Intent);
+		public virtual void OnCreate (MediaSessionService);
 		public virtual void OnDestroy ();
-		public virtual int OnStartCommand (Android.Content.Intent p0, int p1, int p2);
-		public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession p0);
-		public virtual void RemoveSession (MediaSession p0);
+		public virtual int OnStartCommand (Android.Content.Intent, int, int);
+		public virtual MediaSessionService.MediaNotification OnUpdateNotification (MediaSession);
+		public virtual void RemoveSession (MediaSession);
 	}
 	public class MediaNotification : Java.Lang.Object {
 		// constructors
-		public MediaSessionService.MediaNotification (int notificationId, Android.App.Notification notification);
-		protected MediaSessionService.MediaNotification (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public MediaSessionService.MediaNotification (int, Android.App.Notification);
+		protected MediaSessionService.MediaNotification (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public virtual Android.App.Notification Notification { get; }
-		public virtual int NotificationId { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public Android.App.Notification Notification { get; }
+		public int NotificationId { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -8902,15 +8472,15 @@ public abstract class MediaSessionService : Android.App.Service {
 public abstract class MediaSessionServiceStub : Android.OS.Binder, Android.OS.IInterface, Android.Runtime.IJavaObject, IMediaSessionService, System.IDisposable {
 	// constructors
 	public MediaSessionServiceStub ();
-	protected MediaSessionServiceStub (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaSessionServiceStub (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual Android.OS.IBinder AsBinder ();
-	public static IMediaSessionService AsInterface (Android.OS.IBinder obj);
-	public virtual void Connect (IMediaController p0, AndroidX.VersionedParcelable.ParcelImpl p1);
-	public virtual bool OnTransact (int code, Android.OS.Parcel data, Android.OS.Parcel reply, int flags);
+	public static IMediaSessionService AsInterface (Android.OS.IBinder);
+	public virtual void Connect (IMediaController, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual bool OnTransact (int, Android.OS.Parcel, Android.OS.Parcel, int);
 }
 ```
 
@@ -8920,57 +8490,57 @@ public abstract class MediaSessionServiceStub : Android.OS.Binder, Android.OS.II
 public abstract class MediaSessionStub : Android.OS.Binder, Android.OS.IInterface, Android.Runtime.IJavaObject, IMediaSession, System.IDisposable {
 	// constructors
 	public MediaSessionStub ();
-	protected MediaSessionStub (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaSessionStub (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddPlaylistItem (IMediaController p0, int p1, int p2, string p3);
-	public virtual void AdjustVolume (IMediaController p0, int p1, int p2, int p3);
+	public virtual void AddPlaylistItem (IMediaController, int, int, string);
+	public virtual void AdjustVolume (IMediaController, int, int, int);
 	public virtual Android.OS.IBinder AsBinder ();
-	public static IMediaSession AsInterface (Android.OS.IBinder obj);
-	public virtual void Connect (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void DeselectTrack (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void FastForward (IMediaController p0, int p1);
-	public virtual void GetChildren (IMediaController p0, int p1, string p2, int p3, int p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void GetItem (IMediaController p0, int p1, string p2);
-	public virtual void GetLibraryRoot (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void GetSearchResult (IMediaController p0, int p1, string p2, int p3, int p4, AndroidX.VersionedParcelable.ParcelImpl p5);
-	public virtual void OnControllerResult (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void OnCustomCommand (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2, Android.OS.Bundle p3);
-	public virtual bool OnTransact (int code, Android.OS.Parcel data, Android.OS.Parcel reply, int flags);
-	public virtual void Pause (IMediaController p0, int p1);
-	public virtual void Play (IMediaController p0, int p1);
-	public virtual void PlayFromMediaId (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PlayFromSearch (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PlayFromUri (IMediaController p0, int p1, Android.Net.Uri p2, Android.OS.Bundle p3);
-	public virtual void Prepare (IMediaController p0, int p1);
-	public virtual void PrepareFromMediaId (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PrepareFromSearch (IMediaController p0, int p1, string p2, Android.OS.Bundle p3);
-	public virtual void PrepareFromUri (IMediaController p0, int p1, Android.Net.Uri p2, Android.OS.Bundle p3);
-	public virtual void Release (IMediaController p0, int p1);
-	public virtual void RemovePlaylistItem (IMediaController p0, int p1, int p2);
-	public virtual void ReplacePlaylistItem (IMediaController p0, int p1, int p2, string p3);
-	public virtual void Rewind (IMediaController p0, int p1);
-	public virtual void Search (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SeekTo (IMediaController p0, int p1, long p2);
-	public virtual void SelectTrack (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
-	public virtual void SetMediaItem (IMediaController p0, int p1, string p2);
-	public virtual void SetPlaybackSpeed (IMediaController p0, int p1, float p2);
-	public virtual void SetPlaylist (IMediaController p0, int p1, System.Collections.Generic.IList<string> p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SetRating (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void SetRepeatMode (IMediaController p0, int p1, int p2);
-	public virtual void SetShuffleMode (IMediaController p0, int p1, int p2);
-	public virtual void SetSurface (IMediaController p0, int p1, Android.Views.Surface p2);
-	public virtual void SetVolumeTo (IMediaController p0, int p1, int p2, int p3);
-	public virtual void SkipBackward (IMediaController p0, int p1);
-	public virtual void SkipForward (IMediaController p0, int p1);
-	public virtual void SkipToNextItem (IMediaController p0, int p1);
-	public virtual void SkipToPlaylistItem (IMediaController p0, int p1, int p2);
-	public virtual void SkipToPreviousItem (IMediaController p0, int p1);
-	public virtual void Subscribe (IMediaController p0, int p1, string p2, AndroidX.VersionedParcelable.ParcelImpl p3);
-	public virtual void Unsubscribe (IMediaController p0, int p1, string p2);
-	public virtual void UpdatePlaylistMetadata (IMediaController p0, int p1, AndroidX.VersionedParcelable.ParcelImpl p2);
+	public static IMediaSession AsInterface (Android.OS.IBinder);
+	public virtual void Connect (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void DeselectTrack (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void FastForward (IMediaController, int);
+	public virtual void GetChildren (IMediaController, int, string, int, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void GetItem (IMediaController, int, string);
+	public virtual void GetLibraryRoot (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void GetSearchResult (IMediaController, int, string, int, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnControllerResult (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void OnCustomCommand (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl, Android.OS.Bundle);
+	public virtual bool OnTransact (int, Android.OS.Parcel, Android.OS.Parcel, int);
+	public virtual void Pause (IMediaController, int);
+	public virtual void Play (IMediaController, int);
+	public virtual void PlayFromMediaId (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PlayFromSearch (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PlayFromUri (IMediaController, int, Android.Net.Uri, Android.OS.Bundle);
+	public virtual void Prepare (IMediaController, int);
+	public virtual void PrepareFromMediaId (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PrepareFromSearch (IMediaController, int, string, Android.OS.Bundle);
+	public virtual void PrepareFromUri (IMediaController, int, Android.Net.Uri, Android.OS.Bundle);
+	public virtual void Release (IMediaController, int);
+	public virtual void RemovePlaylistItem (IMediaController, int, int);
+	public virtual void ReplacePlaylistItem (IMediaController, int, int, string);
+	public virtual void Rewind (IMediaController, int);
+	public virtual void Search (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SeekTo (IMediaController, int, long);
+	public virtual void SelectTrack (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetMediaItem (IMediaController, int, string);
+	public virtual void SetPlaybackSpeed (IMediaController, int, float);
+	public virtual void SetPlaylist (IMediaController, int, System.Collections.Generic.IList<string>, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetRating (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void SetRepeatMode (IMediaController, int, int);
+	public virtual void SetShuffleMode (IMediaController, int, int);
+	public virtual void SetSurface (IMediaController, int, Android.Views.Surface);
+	public virtual void SetVolumeTo (IMediaController, int, int, int);
+	public virtual void SkipBackward (IMediaController, int);
+	public virtual void SkipForward (IMediaController, int);
+	public virtual void SkipToNextItem (IMediaController, int);
+	public virtual void SkipToPlaylistItem (IMediaController, int, int);
+	public virtual void SkipToPreviousItem (IMediaController, int);
+	public virtual void Subscribe (IMediaController, int, string, AndroidX.VersionedParcelable.ParcelImpl);
+	public virtual void Unsubscribe (IMediaController, int, string);
+	public virtual void UpdatePlaylistMetadata (IMediaController, int, AndroidX.VersionedParcelable.ParcelImpl);
 }
 ```
 
@@ -8979,7 +8549,7 @@ public abstract class MediaSessionStub : Android.OS.Binder, Android.OS.IInterfac
 ```csharp
 public class MediaUtils : Java.Lang.Object {
 	// constructors
-	protected MediaUtils (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected MediaUtils (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const int CurrentVersion;
 	public static const string Tag = "MediaUtils";
@@ -8988,40 +8558,40 @@ public class MediaUtils : Java.Lang.Object {
 	// properties
 	public static Java.Util.Concurrent.IExecutor DirectExecutor { get; }
 	public static AndroidX.Media.MediaBrowserServiceCompat.BrowserRoot SDefaultBrowserRoot { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> ConvertCommandButtonListToParcelImplList (System.Collections.Generic.IList<MediaSession.CommandButton> commandButtonList);
-	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertMediaItemListToMediaItemList (System.Collections.Generic.IList<Android.Support.V4.Media.MediaBrowserCompat.MediaItem> items);
-	public static AndroidX.Medai2.Common.ParcelImplListSlice ConvertMediaItemListToParcelImplListSlice (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> mediaItemList);
-	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertParcelImplListSliceToMediaItemList (AndroidX.Medai2.Common.ParcelImplListSlice listSlice);
-	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertQueueItemListToMediaItemList (System.Collections.Generic.IList<Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem> items);
-	public static System.Collections.Generic.IList<MediaSession.CommandButton> ConvertToCustomLayout (Android.Support.V4.Media.Session.PlaybackStateCompat state);
-	public static MediaLibraryService.LibraryParams ConvertToLibraryParams (Android.Content.Context context, Android.OS.Bundle legacyBundle);
-	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaBrowserCompat.MediaItem item);
-	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaDescriptionCompat descriptionCompat);
-	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaMetadataCompat metadataCompat);
-	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem item);
-	public static Android.Support.V4.Media.MediaBrowserCompat.MediaItem ConvertToMediaItem (AndroidX.Medai2.Common.MediaItem item2);
-	public static System.Collections.Generic.IList<Android.Support.V4.Media.MediaBrowserCompat.MediaItem> ConvertToMediaItemList (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> items);
-	public static AndroidX.Medai2.Common.MediaMetadata ConvertToMediaMetadata (Java.Lang.ICharSequence queueTitle);
-	public static AndroidX.Medai2.Common.MediaMetadata ConvertToMediaMetadata (string queueTitle);
-	public static Android.Support.V4.Media.MediaMetadataCompat ConvertToMediaMetadataCompat (AndroidX.Medai2.Common.MediaMetadata metadata);
-	public static int ConvertToPlaybackStateCompatState (int playerState, int bufferingState);
-	public static int ConvertToPlayerState (Android.Support.V4.Media.Session.PlaybackStateCompat state);
-	public static System.Collections.Generic.IList<Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem> ConvertToQueueItemList (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> items);
-	public static AndroidX.Medai2.Common.IRating ConvertToRating (Android.Support.V4.Media.RatingCompat ratingCompat);
-	public static Android.Support.V4.Media.RatingCompat ConvertToRatingCompat (AndroidX.Medai2.Common.IRating rating);
-	public static Android.OS.Bundle ConvertToRootHints (MediaLibraryService.LibraryParams params);
-	public static SessionCommandGroup ConvertToSessionCommandGroup (long sessionFlags, Android.Support.V4.Media.Session.PlaybackStateCompat state);
-	public static Android.Support.V4.Media.MediaDescriptionCompat CreateMediaDescriptionCompat (string mediaId);
-	public static bool IsUnparcelableBundle (Android.OS.Bundle bundle);
-	public static void KeepUnparcelableBundlesOnly (System.Collections.Generic.IList<Android.OS.Bundle> bundles);
-	public static System.Collections.IList RemoveNullElements (System.Collections.IList list);
-	public static int ToBufferingState (int playbackStateCompatState);
-	public static MediaController.PlaybackInfo ToPlaybackInfo2 (Android.Support.V4.Media.Session.MediaControllerCompat.PlaybackInfo info);
-	public static System.Collections.IList TruncateListBySize (System.Collections.IList list, int sizeLimitInBytes);
-	public static AndroidX.Medai2.Common.MediaItem UpcastForPreparceling (AndroidX.Medai2.Common.MediaItem item);
+	public static System.Collections.Generic.IList<AndroidX.VersionedParcelable.ParcelImpl> ConvertCommandButtonListToParcelImplList (System.Collections.Generic.IList<MediaSession.CommandButton>);
+	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertMediaItemListToMediaItemList (System.Collections.Generic.IList<Android.Support.V4.Media.MediaBrowserCompat.MediaItem>);
+	public static AndroidX.Medai2.Common.ParcelImplListSlice ConvertMediaItemListToParcelImplListSlice (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem>);
+	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertParcelImplListSliceToMediaItemList (AndroidX.Medai2.Common.ParcelImplListSlice);
+	public static System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem> ConvertQueueItemListToMediaItemList (System.Collections.Generic.IList<Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem>);
+	public static System.Collections.Generic.IList<MediaSession.CommandButton> ConvertToCustomLayout (Android.Support.V4.Media.Session.PlaybackStateCompat);
+	public static MediaLibraryService.LibraryParams ConvertToLibraryParams (Android.Content.Context, Android.OS.Bundle);
+	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaBrowserCompat.MediaItem);
+	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaDescriptionCompat);
+	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.MediaMetadataCompat);
+	public static AndroidX.Medai2.Common.MediaItem ConvertToMediaItem (Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem);
+	public static Android.Support.V4.Media.MediaBrowserCompat.MediaItem ConvertToMediaItem (AndroidX.Medai2.Common.MediaItem);
+	public static System.Collections.Generic.IList<Android.Support.V4.Media.MediaBrowserCompat.MediaItem> ConvertToMediaItemList (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem>);
+	public static AndroidX.Medai2.Common.MediaMetadata ConvertToMediaMetadata (Java.Lang.ICharSequence);
+	public static AndroidX.Medai2.Common.MediaMetadata ConvertToMediaMetadata (string);
+	public static Android.Support.V4.Media.MediaMetadataCompat ConvertToMediaMetadataCompat (AndroidX.Medai2.Common.MediaMetadata);
+	public static int ConvertToPlaybackStateCompatState (int, int);
+	public static int ConvertToPlayerState (Android.Support.V4.Media.Session.PlaybackStateCompat);
+	public static System.Collections.Generic.IList<Android.Support.V4.Media.Session.MediaSessionCompat.QueueItem> ConvertToQueueItemList (System.Collections.Generic.IList<AndroidX.Medai2.Common.MediaItem>);
+	public static AndroidX.Medai2.Common.IRating ConvertToRating (Android.Support.V4.Media.RatingCompat);
+	public static Android.Support.V4.Media.RatingCompat ConvertToRatingCompat (AndroidX.Medai2.Common.IRating);
+	public static Android.OS.Bundle ConvertToRootHints (MediaLibraryService.LibraryParams);
+	public static SessionCommandGroup ConvertToSessionCommandGroup (long, Android.Support.V4.Media.Session.PlaybackStateCompat);
+	public static Android.Support.V4.Media.MediaDescriptionCompat CreateMediaDescriptionCompat (string);
+	public static bool IsUnparcelableBundle (Android.OS.Bundle);
+	public static void KeepUnparcelableBundlesOnly (System.Collections.Generic.IList<Android.OS.Bundle>);
+	public static System.Collections.IList RemoveNullElements (System.Collections.IList);
+	public static int ToBufferingState (int);
+	public static MediaController.PlaybackInfo ToPlaybackInfo2 (Android.Support.V4.Media.Session.MediaControllerCompat.PlaybackInfo);
+	public static System.Collections.IList TruncateListBySize (System.Collections.IList, int);
+	public static AndroidX.Medai2.Common.MediaItem UpcastForPreparceling (AndroidX.Medai2.Common.MediaItem);
 }
 ```
 
@@ -9031,12 +8601,12 @@ public class MediaUtils : Java.Lang.Object {
 public sealed class PercentageRating : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.Medai2.Common.IRating, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
 	public PercentageRating ();
-	public PercentageRating (float percent);
+	public PercentageRating (float);
 	// properties
-	public virtual bool IsRated { get; }
+	public bool IsRated { get; }
 	public float PercentRating { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -9047,11 +8617,11 @@ public sealed class PercentageRatingParcelizer : Java.Lang.Object {
 	// constructors
 	public PercentageRatingParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static PercentageRating Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (PercentageRating obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static PercentageRating Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (PercentageRating, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9062,11 +8632,11 @@ public sealed class PlaybackInfoParcelizer : Java.Lang.Object {
 	// constructors
 	public PlaybackInfoParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static MediaController.PlaybackInfo Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (MediaController.PlaybackInfo obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static MediaController.PlaybackInfo Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (MediaController.PlaybackInfo, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9075,8 +8645,8 @@ public sealed class PlaybackInfoParcelizer : Java.Lang.Object {
 ```csharp
 public sealed class SessionCommand : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public SessionCommand (int commandCode);
-	public SessionCommand (string action, Android.OS.Bundle extras);
+	public SessionCommand (int);
+	public SessionCommand (string, Android.OS.Bundle);
 	// fields
 	public static const int CommandCodeCustom;
 	public static const int CommandCodeLibraryGetChildren;
@@ -9127,8 +8697,8 @@ public sealed class SessionCommand : Java.Lang.Object, Android.Runtime.IJavaObje
 	public int CommandCode { get; }
 	public string CustomAction { get; }
 	public Android.OS.Bundle CustomExtras { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public interface ICommandCode : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -9138,8 +8708,8 @@ public sealed class SessionCommand : Java.Lang.Object, Android.Runtime.IJavaObje
 	public sealed class Range : Java.Lang.Object {
 		// properties
 		public int Lower { get; set; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		public int Upper { get; set; }
 	}
 }
@@ -9151,28 +8721,28 @@ public sealed class SessionCommand : Java.Lang.Object, Android.Runtime.IJavaObje
 public sealed class SessionCommandGroup : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
 	public SessionCommandGroup ();
-	public SessionCommandGroup (System.Collections.Generic.ICollection<SessionCommand> commands);
+	public SessionCommandGroup (System.Collections.Generic.ICollection<SessionCommand>);
 	// properties
 	public System.Collections.Generic.ICollection<SessionCommand> Commands { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public bool HasCommand (SessionCommand command);
-	public bool HasCommand (int commandCode);
+	public bool HasCommand (SessionCommand);
+	public bool HasCommand (int);
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
 		public SessionCommandGroup.Builder ();
-		public SessionCommandGroup.Builder (SessionCommandGroup commandGroup);
+		public SessionCommandGroup.Builder (SessionCommandGroup);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public SessionCommandGroup.Builder AddAllPredefinedCommands (int version);
-		public SessionCommandGroup.Builder AddCommand (SessionCommand command);
+		public SessionCommandGroup.Builder AddAllPredefinedCommands (int);
+		public SessionCommandGroup.Builder AddCommand (SessionCommand);
 		public SessionCommandGroup Build ();
-		public SessionCommandGroup.Builder RemoveCommand (SessionCommand command);
+		public SessionCommandGroup.Builder RemoveCommand (SessionCommand);
 	}
 }
 ```
@@ -9184,11 +8754,11 @@ public sealed class SessionCommandGroupParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionCommandGroupParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SessionCommandGroup Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SessionCommandGroup obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SessionCommandGroup Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SessionCommandGroup, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9199,11 +8769,11 @@ public sealed class SessionCommandParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionCommandParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SessionCommand Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SessionCommand obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SessionCommand Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SessionCommand, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9212,17 +8782,17 @@ public sealed class SessionCommandParcelizer : Java.Lang.Object {
 ```csharp
 public class SessionResult : AndroidX.VersionedParcelable.CustomVersionedParcelable, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public SessionResult (int resultCode, Android.OS.Bundle customCommandResult);
-	protected SessionResult (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public SessionResult (int, Android.OS.Bundle);
+	protected SessionResult (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const int ResultSuccess;
 	// properties
-	public virtual long CompletionTime { get; }
-	public virtual Android.OS.Bundle CustomCommandResult { get; }
-	public virtual AndroidX.Medai2.Common.MediaItem MediaItem { get; }
-	public virtual int ResultCode { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public long CompletionTime { get; }
+	public Android.OS.Bundle CustomCommandResult { get; }
+	public AndroidX.Medai2.Common.MediaItem MediaItem { get; }
+	public int ResultCode { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 
 	// inner types
 	public interface IResultCode : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -9237,11 +8807,11 @@ public sealed class SessionResultParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionResultParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SessionResult Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SessionResult obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SessionResult Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SessionResult, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9250,7 +8820,7 @@ public sealed class SessionResultParcelizer : Java.Lang.Object {
 ```csharp
 public sealed class SessionToken : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public SessionToken (Android.Content.Context context, Android.Content.ComponentName serviceComponent);
+	public SessionToken (Android.Content.Context, Android.Content.ComponentName);
 	// fields
 	public static const int TypeLibraryService;
 	public static const int TypeSession;
@@ -9262,34 +8832,34 @@ public sealed class SessionToken : Java.Lang.Object, Android.Runtime.IJavaObject
 	public bool IsLegacySession { get; }
 	public string PackageName { get; }
 	public string ServiceName { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public int Type { get; }
 	public int Uid { get; }
 	// methods
-	public static void CreateSessionToken (Android.Content.Context context, Android.Support.V4.Media.Session.MediaSessionCompat.Token compatToken, Java.Util.Concurrent.IExecutor executor, SessionToken.IOnSessionTokenCreatedListener listener);
+	public static void CreateSessionToken (Android.Content.Context, Android.Support.V4.Media.Session.MediaSessionCompat.Token, Java.Util.Concurrent.IExecutor, SessionToken.IOnSessionTokenCreatedListener);
 
 	// inner types
 	public interface IOnSessionTokenCreatedListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnSessionTokenCreated (Android.Support.V4.Media.Session.MediaSessionCompat.Token p0, SessionToken p1);
+		public virtual void OnSessionTokenCreated (Android.Support.V4.Media.Session.MediaSessionCompat.Token, SessionToken);
 	}
 	public interface ISessionTokenImpl : Android.Runtime.IJavaObject, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 		// properties
-		public virtual Java.Lang.Object Binder { get; }
-		public virtual Android.Content.ComponentName ComponentName { get; }
-		public virtual Android.OS.Bundle Extras { get; }
-		public virtual bool IsLegacySession { get; }
-		public virtual string PackageName { get; }
-		public virtual string ServiceName { get; }
-		public virtual int Type { get; }
-		public virtual int Uid { get; }
+		public Java.Lang.Object Binder { get; }
+		public Android.Content.ComponentName ComponentName { get; }
+		public Android.OS.Bundle Extras { get; }
+		public bool IsLegacySession { get; }
+		public string PackageName { get; }
+		public string ServiceName { get; }
+		public int Type { get; }
+		public int Uid { get; }
 	}
 	public interface ITokenType : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
 	public class SessionTokenCreatedEventArgs : System.EventArgs {
 		// constructors
-		public SessionToken.SessionTokenCreatedEventArgs (Android.Support.V4.Media.Session.MediaSessionCompat.Token p0, SessionToken p1);
+		public SessionToken.SessionTokenCreatedEventArgs (Android.Support.V4.Media.Session.MediaSessionCompat.Token, SessionToken);
 		// properties
 		public Android.Support.V4.Media.Session.MediaSessionCompat.Token P0 { get; }
 		public SessionToken P1 { get; }
@@ -9304,10 +8874,10 @@ public sealed class SessionTokenImplBaseParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionTokenImplBaseParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9318,10 +8888,10 @@ public sealed class SessionTokenImplLegacyParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionTokenImplLegacyParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static AndroidX.VersionedParcelable.CustomVersionedParcelable Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static AndroidX.VersionedParcelable.CustomVersionedParcelable Read (AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9332,11 +8902,11 @@ public sealed class SessionTokenParcelizer : Java.Lang.Object {
 	// constructors
 	public SessionTokenParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SessionToken Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (SessionToken obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static SessionToken Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (SessionToken, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9345,13 +8915,13 @@ public sealed class SessionTokenParcelizer : Java.Lang.Object {
 ```csharp
 public sealed class StarRating : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.Medai2.Common.IRating, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
-	public StarRating (int maxStars);
-	public StarRating (int maxStars, float starRating);
+	public StarRating (int);
+	public StarRating (int, float);
 	// properties
-	public virtual bool IsRated { get; }
+	public bool IsRated { get; }
 	public int MaxStars { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public float GetStarRating ();
 }
@@ -9364,11 +8934,11 @@ public sealed class StarRatingParcelizer : Java.Lang.Object {
 	// constructors
 	public StarRatingParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static StarRating Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (StarRating obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static StarRating Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (StarRating, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9378,12 +8948,12 @@ public sealed class StarRatingParcelizer : Java.Lang.Object {
 public sealed class ThumbRating : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.Medai2.Common.IRating, AndroidX.VersionedParcelable.IVersionedParcelable, System.IDisposable {
 	// constructors
 	public ThumbRating ();
-	public ThumbRating (bool thumbIsUp);
+	public ThumbRating (bool);
 	// properties
-	public virtual bool IsRated { get; }
+	public bool IsRated { get; }
 	public bool IsThumbUp { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -9394,11 +8964,11 @@ public sealed class ThumbRatingParcelizer : Java.Lang.Object {
 	// constructors
 	public ThumbRatingParcelizer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static ThumbRating Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
-	public static void Write (ThumbRating obj, AndroidX.VersionedParcelable.VersionedParcel parcel);
+	public static ThumbRating Read (AndroidX.VersionedParcelable.VersionedParcel);
+	public static void Write (ThumbRating, AndroidX.VersionedParcelable.VersionedParcel);
 }
 ```
 
@@ -9410,23 +8980,23 @@ public sealed class ThumbRatingParcelizer : Java.Lang.Object {
 public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// constructors
 	protected AbstractResolvableFuture ();
-	protected AbstractResolvableFuture (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected AbstractResolvableFuture (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual bool IsCancelled { get; }
-	public virtual bool IsDone { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsCancelled { get; }
+	public bool IsDone { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddListener (Java.Lang.IRunnable listener, Java.Util.Concurrent.IExecutor executor);
+	public virtual void AddListener (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
 	protected virtual void AfterDone ();
-	public virtual bool Cancel (bool mayInterruptIfRunning);
+	public virtual bool Cancel (bool);
 	public virtual Java.Lang.Object Get ();
-	public virtual Java.Lang.Object Get (long timeout, Java.Util.Concurrent.TimeUnit unit);
+	public virtual Java.Lang.Object Get (long, Java.Util.Concurrent.TimeUnit);
 	protected virtual void InterruptTask ();
 	protected virtual string PendingToString ();
-	protected virtual bool Set (Java.Lang.Object value);
-	protected virtual bool SetException (Java.Lang.Throwable throwable);
-	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	protected virtual bool Set (Java.Lang.Object);
+	protected virtual bool SetException (Java.Lang.Throwable);
+	protected virtual bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 	protected bool WasInterrupted ();
 }
 ```
@@ -9436,13 +9006,13 @@ public abstract class AbstractResolvableFuture : Java.Lang.Object, Android.Runti
 ```csharp
 public sealed class ResolvableFuture : AndroidX.Media2.Session.Futures.AbstractResolvableFuture, Android.Runtime.IJavaObject, Google.Common.Util.Concurrent.IListenableFuture, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public static ResolvableFuture Create ();
-	public bool Set (Java.Lang.Object value);
-	public bool SetException (Java.Lang.Throwable throwable);
-	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture future);
+	public bool Set (Java.Lang.Object);
+	public bool SetException (Java.Lang.Throwable);
+	public bool SetFuture (Google.Common.Util.Concurrent.IListenableFuture);
 }
 ```
 
@@ -9453,34 +9023,34 @@ public sealed class ResolvableFuture : AndroidX.Media2.Session.Futures.AbstractR
 ```csharp
 public class MediaControlView : Android.Views.ViewGroup {
 	// constructors
-	public MediaControlView (Android.Content.Context context);
-	public MediaControlView (Android.Content.Context context, Android.Util.IAttributeSet attrs);
-	protected MediaControlView (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public MediaControlView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr);
+	public MediaControlView (Android.Content.Context);
+	public MediaControlView (Android.Content.Context, Android.Util.IAttributeSet);
+	protected MediaControlView (IntPtr, Android.Runtime.JniHandleOwnership);
+	public MediaControlView (Android.Content.Context, Android.Util.IAttributeSet, int);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// events
 	public event System.EventHandler<MediaControlView.FullScreenEventArgs> FullScreen;
 	// methods
-	protected override void OnLayout (bool changed, int left, int top, int right, int bottom);
-	public override void OnVisibilityAggregated (bool p0);
+	protected override void OnLayout (bool, int, int, int, int);
+	public override void OnVisibilityAggregated (bool);
 	public virtual void RequestPlayButtonFocus ();
-	public virtual void SetMediaController (AndroidX.Media2.Session.MediaController controller);
-	public virtual void SetOnFullScreenListener (MediaControlView.IOnFullScreenListener listener);
-	public virtual void SetPlayer (AndroidX.Medai2.Common.SessionPlayer player);
+	public virtual void SetMediaController (AndroidX.Media2.Session.MediaController);
+	public virtual void SetOnFullScreenListener (MediaControlView.IOnFullScreenListener);
+	public virtual void SetPlayer (AndroidX.Medai2.Common.SessionPlayer);
 
 	// inner types
 	public class FullScreenEventArgs : System.EventArgs {
 		// constructors
-		public MediaControlView.FullScreenEventArgs (Android.Views.View p0, bool p1);
+		public MediaControlView.FullScreenEventArgs (Android.Views.View, bool);
 		// properties
 		public Android.Views.View P0 { get; }
 		public bool P1 { get; }
 	}
 	public interface IOnFullScreenListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnFullScreen (Android.Views.View p0, bool p1);
+		public virtual void OnFullScreen (Android.Views.View, bool);
 	}
 }
 ```
@@ -9490,38 +9060,38 @@ public class MediaControlView : Android.Views.ViewGroup {
 ```csharp
 public class VideoView : Android.Views.ViewGroup {
 	// constructors
-	public VideoView (Android.Content.Context context);
-	public VideoView (Android.Content.Context context, Android.Util.IAttributeSet attrs);
-	protected VideoView (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public VideoView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr);
+	public VideoView (Android.Content.Context);
+	public VideoView (Android.Content.Context, Android.Util.IAttributeSet);
+	protected VideoView (IntPtr, Android.Runtime.JniHandleOwnership);
+	public VideoView (Android.Content.Context, Android.Util.IAttributeSet, int);
 	// fields
 	public static const int ViewTypeSurfaceview;
 	public static const int ViewTypeTextureview;
 	// properties
-	public virtual MediaControlView MediaControlView { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
-	public virtual int ViewType { get; set; }
+	public MediaControlView MediaControlView { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
+	public int ViewType { get; set; }
 	// events
 	public event System.EventHandler<VideoView.ViewTypeChangedEventArgs> ViewTypeChanged;
 	// methods
-	public override Android.Views.ViewGroup.LayoutParams GenerateLayoutParams (Android.Util.IAttributeSet p0);
-	protected override void OnLayout (bool changed, int left, int top, int right, int bottom);
-	public override void OnVisibilityAggregated (bool p0);
-	public virtual void SetMediaControlView (MediaControlView mediaControlView, long intervalMs);
-	public virtual void SetMediaController (AndroidX.Media2.Session.MediaController controller);
-	public virtual void SetOnViewTypeChangedListener (VideoView.IOnViewTypeChangedListener listener);
-	public virtual void SetPlayer (AndroidX.Medai2.Common.SessionPlayer player);
+	public override Android.Views.ViewGroup.LayoutParams GenerateLayoutParams (Android.Util.IAttributeSet);
+	protected override void OnLayout (bool, int, int, int, int);
+	public override void OnVisibilityAggregated (bool);
+	public virtual void SetMediaControlView (MediaControlView, long);
+	public virtual void SetMediaController (AndroidX.Media2.Session.MediaController);
+	public virtual void SetOnViewTypeChangedListener (VideoView.IOnViewTypeChangedListener);
+	public virtual void SetPlayer (AndroidX.Medai2.Common.SessionPlayer);
 	public override bool ShouldDelayChildPressedState ();
 
 	// inner types
 	public interface IOnViewTypeChangedListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnViewTypeChanged (Android.Views.View p0, int p1);
+		public virtual void OnViewTypeChanged (Android.Views.View, int);
 	}
 	public class ViewTypeChangedEventArgs : System.EventArgs {
 		// constructors
-		public VideoView.ViewTypeChangedEventArgs (Android.Views.View p0, int p1);
+		public VideoView.ViewTypeChangedEventArgs (Android.Views.View, int);
 		// properties
 		public Android.Views.View P0 { get; }
 		public int P1 { get; }
@@ -9536,12 +9106,12 @@ public class VideoView : Android.Views.ViewGroup {
 ```csharp
 public sealed class ActionOnlyNavDirections : Java.Lang.Object, Android.Runtime.IJavaObject, INavDirections, System.IDisposable {
 	// constructors
-	public ActionOnlyNavDirections (int actionId);
+	public ActionOnlyNavDirections (int);
 	// properties
-	public virtual int ActionId { get; }
-	public virtual Android.OS.Bundle Arguments { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public int ActionId { get; }
+	public Android.OS.Bundle Arguments { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -9550,23 +9120,23 @@ public sealed class ActionOnlyNavDirections : Java.Lang.Object, Android.Runtime.
 ```csharp
 public class ActivityNavigator : AndroidX.Navigation.Navigator {
 	// constructors
-	public ActivityNavigator (Android.Content.Context context);
-	protected ActivityNavigator (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public ActivityNavigator (Android.Content.Context);
+	protected ActivityNavigator (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static void ApplyPopAnimationsToPendingTransition (Android.App.Activity activity);
+	public static void ApplyPopAnimationsToPendingTransition (Android.App.Activity);
 	public override Java.Lang.Object CreateDestination ();
-	public override NavDestination Navigate (Java.Lang.Object destination, Android.OS.Bundle args, NavOptions navOptions, Navigator.IExtras navigatorExtras);
+	public override NavDestination Navigate (Java.Lang.Object, Android.OS.Bundle, NavOptions, Navigator.IExtras);
 	public override bool PopBackStack ();
 
 	// inner types
 	public class Destination : AndroidX.Navigation.NavDestination {
 		// constructors
-		public ActivityNavigator.Destination (Navigator activityNavigator);
-		public ActivityNavigator.Destination (NavigatorProvider navigatorProvider);
-		protected ActivityNavigator.Destination (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public ActivityNavigator.Destination (Navigator);
+		public ActivityNavigator.Destination (NavigatorProvider);
+		protected ActivityNavigator.Destination (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
 		public string Action { get; }
 		public Android.Content.ComponentName Component { get; }
@@ -9574,34 +9144,34 @@ public class ActivityNavigator : AndroidX.Navigation.Navigator {
 		public string DataPattern { get; }
 		public Android.Content.Intent Intent { get; }
 		public string TargetPackage { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public ActivityNavigator.Destination SetAction (string action);
-		public ActivityNavigator.Destination SetComponentName (Android.Content.ComponentName name);
-		public ActivityNavigator.Destination SetData (Android.Net.Uri data);
-		public ActivityNavigator.Destination SetDataPattern (string dataPattern);
-		public ActivityNavigator.Destination SetIntent (Android.Content.Intent intent);
-		public ActivityNavigator.Destination SetTargetPackage (string packageName);
+		public ActivityNavigator.Destination SetAction (string);
+		public ActivityNavigator.Destination SetComponentName (Android.Content.ComponentName);
+		public ActivityNavigator.Destination SetData (Android.Net.Uri);
+		public ActivityNavigator.Destination SetDataPattern (string);
+		public ActivityNavigator.Destination SetIntent (Android.Content.Intent);
+		public ActivityNavigator.Destination SetTargetPackage (string);
 	}
 	public sealed class Extras : Java.Lang.Object, Android.Runtime.IJavaObject, Navigator.IExtras, System.IDisposable {
 		// properties
 		public AndroidX.Core.App.ActivityOptionsCompat ActivityOptions { get; }
 		public int Flags { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
 			public ActivityNavigator.Extras.Builder ();
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
-			public ActivityNavigator.Extras.Builder AddFlags (int flags);
+			public ActivityNavigator.Extras.Builder AddFlags (int);
 			public ActivityNavigator.Extras Build ();
-			public ActivityNavigator.Extras.Builder SetActivityOptions (AndroidX.Core.App.ActivityOptionsCompat activityOptions);
+			public ActivityNavigator.Extras.Builder SetActivityOptions (AndroidX.Core.App.ActivityOptionsCompat);
 		}
 	}
 }
@@ -9626,8 +9196,8 @@ public interface INavArgs : Android.Runtime.IJavaObject, System.IDisposable {
 ```csharp
 public interface INavDirections : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual int ActionId { get; }
-	public virtual Android.OS.Bundle Arguments { get; }
+	public int ActionId { get; }
+	public Android.OS.Bundle Arguments { get; }
 }
 ```
 
@@ -9636,7 +9206,7 @@ public interface INavDirections : Android.Runtime.IJavaObject, System.IDisposabl
 ```csharp
 public interface INavHost : Android.Runtime.IJavaObject, System.IDisposable {
 	// properties
-	public virtual NavController NavController { get; }
+	public NavController NavController { get; }
 }
 ```
 
@@ -9645,15 +9215,15 @@ public interface INavHost : Android.Runtime.IJavaObject, System.IDisposable {
 ```csharp
 public sealed class NavAction : Java.Lang.Object {
 	// constructors
-	public NavAction (int destinationId);
-	public NavAction (int destinationId, NavOptions navOptions);
-	public NavAction (int destinationId, NavOptions navOptions, Android.OS.Bundle defaultArgs);
+	public NavAction (int);
+	public NavAction (int, NavOptions);
+	public NavAction (int, NavOptions, Android.OS.Bundle);
 	// properties
 	public Android.OS.Bundle DefaultArguments { get; set; }
 	public int DestinationId { get; }
 	public NavOptions NavOptions { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -9665,8 +9235,8 @@ public sealed class NavArgument : Java.Lang.Object {
 	public Java.Lang.Object DefaultValue { get; }
 	public bool IsDefaultValuePresent { get; }
 	public bool IsNullable { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public NavType Type { get; }
 
 	// inner types
@@ -9674,13 +9244,13 @@ public sealed class NavArgument : Java.Lang.Object {
 		// constructors
 		public NavArgument.Builder ();
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public NavArgument Build ();
-		public NavArgument.Builder SetDefaultValue (Java.Lang.Object defaultValue);
-		public NavArgument.Builder SetIsNullable (bool isNullable);
-		public NavArgument.Builder SetType (NavType type);
+		public NavArgument.Builder SetDefaultValue (Java.Lang.Object);
+		public NavArgument.Builder SetIsNullable (bool);
+		public NavArgument.Builder SetType (NavType);
 	}
 }
 ```
@@ -9690,48 +9260,48 @@ public sealed class NavArgument : Java.Lang.Object {
 ```csharp
 public class NavController : Java.Lang.Object {
 	// constructors
-	public NavController (Android.Content.Context context);
-	protected NavController (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public NavController (Android.Content.Context);
+	protected NavController (IntPtr, Android.Runtime.JniHandleOwnership);
 	// fields
 	public static const string KeyDeepLinkIntent = "android-support-nav:controller:deepLinkIntent";
 	// properties
-	public virtual NavDestination CurrentDestination { get; }
-	public virtual NavGraph Graph { get; set; }
-	public virtual NavInflater NavInflater { get; }
-	public virtual NavigatorProvider NavigatorProvider { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public NavDestination CurrentDestination { get; }
+	public NavGraph Graph { get; set; }
+	public NavInflater NavInflater { get; }
+	public NavigatorProvider NavigatorProvider { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// events
 	public event System.EventHandler<NavController.DestinationChangedEventArgs> DestinationChanged;
 	// methods
-	public virtual void AddOnDestinationChangedListener (NavController.IOnDestinationChangedListener listener);
+	public virtual void AddOnDestinationChangedListener (NavController.IOnDestinationChangedListener);
 	public virtual NavDeepLinkBuilder CreateDeepLink ();
-	public virtual AndroidX.Lifecycle.IViewModelStoreOwner GetViewModelStoreOwner (int navGraphId);
-	public virtual bool HandleDeepLink (Android.Content.Intent intent);
-	public virtual void Navigate (Android.Net.Uri deepLink);
-	public virtual void Navigate (INavDirections directions);
-	public virtual void Navigate (int resId);
-	public virtual void Navigate (Android.Net.Uri deepLink, NavOptions navOptions);
-	public virtual void Navigate (INavDirections directions, NavOptions navOptions);
-	public virtual void Navigate (INavDirections directions, Navigator.IExtras navigatorExtras);
-	public virtual void Navigate (int resId, Android.OS.Bundle args);
-	public virtual void Navigate (Android.Net.Uri deepLink, NavOptions navOptions, Navigator.IExtras navigatorExtras);
-	public virtual void Navigate (int resId, Android.OS.Bundle args, NavOptions navOptions);
-	public virtual void Navigate (int resId, Android.OS.Bundle args, NavOptions navOptions, Navigator.IExtras navigatorExtras);
+	public virtual AndroidX.Lifecycle.IViewModelStoreOwner GetViewModelStoreOwner (int);
+	public virtual bool HandleDeepLink (Android.Content.Intent);
+	public virtual void Navigate (Android.Net.Uri);
+	public virtual void Navigate (INavDirections);
+	public virtual void Navigate (int);
+	public virtual void Navigate (Android.Net.Uri, NavOptions);
+	public virtual void Navigate (INavDirections, NavOptions);
+	public virtual void Navigate (INavDirections, Navigator.IExtras);
+	public virtual void Navigate (int, Android.OS.Bundle);
+	public virtual void Navigate (Android.Net.Uri, NavOptions, Navigator.IExtras);
+	public virtual void Navigate (int, Android.OS.Bundle, NavOptions);
+	public virtual void Navigate (int, Android.OS.Bundle, NavOptions, Navigator.IExtras);
 	public virtual bool NavigateUp ();
 	public virtual bool PopBackStack ();
-	public virtual bool PopBackStack (int destinationId, bool inclusive);
-	public virtual void RemoveOnDestinationChangedListener (NavController.IOnDestinationChangedListener listener);
-	public virtual void RestoreState (Android.OS.Bundle navState);
+	public virtual bool PopBackStack (int, bool);
+	public virtual void RemoveOnDestinationChangedListener (NavController.IOnDestinationChangedListener);
+	public virtual void RestoreState (Android.OS.Bundle);
 	public virtual Android.OS.Bundle SaveState ();
-	public virtual void SetGraph (int graphResId);
-	public virtual void SetGraph (NavGraph graph, Android.OS.Bundle startDestinationArgs);
-	public virtual void SetGraph (int graphResId, Android.OS.Bundle startDestinationArgs);
+	public virtual void SetGraph (int);
+	public virtual void SetGraph (NavGraph, Android.OS.Bundle);
+	public virtual void SetGraph (int, Android.OS.Bundle);
 
 	// inner types
 	public class DestinationChangedEventArgs : System.EventArgs {
 		// constructors
-		public NavController.DestinationChangedEventArgs (NavController p0, NavDestination p1, Android.OS.Bundle p2);
+		public NavController.DestinationChangedEventArgs (NavController, NavDestination, Android.OS.Bundle);
 		// properties
 		public NavController P0 { get; }
 		public NavDestination P1 { get; }
@@ -9739,7 +9309,7 @@ public class NavController : Java.Lang.Object {
 	}
 	public interface IOnDestinationChangedListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnDestinationChanged (NavController p0, NavDestination p1, Android.OS.Bundle p2);
+		public virtual void OnDestinationChanged (NavController, NavDestination, Android.OS.Bundle);
 	}
 }
 ```
@@ -9749,19 +9319,19 @@ public class NavController : Java.Lang.Object {
 ```csharp
 public sealed class NavDeepLinkBuilder : Java.Lang.Object {
 	// constructors
-	public NavDeepLinkBuilder (Android.Content.Context context);
+	public NavDeepLinkBuilder (Android.Content.Context);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public Android.App.PendingIntent CreatePendingIntent ();
 	public AndroidX.Core.App.TaskStackBuilder CreateTaskStackBuilder ();
-	public NavDeepLinkBuilder SetArguments (Android.OS.Bundle args);
-	public NavDeepLinkBuilder SetComponentName (Android.Content.ComponentName componentName);
-	public NavDeepLinkBuilder SetComponentName (Java.Lang.Class activityClass);
-	public NavDeepLinkBuilder SetDestination (int destId);
-	public NavDeepLinkBuilder SetGraph (NavGraph navGraph);
-	public NavDeepLinkBuilder SetGraph (int navGraphId);
+	public NavDeepLinkBuilder SetArguments (Android.OS.Bundle);
+	public NavDeepLinkBuilder SetComponentName (Android.Content.ComponentName);
+	public NavDeepLinkBuilder SetComponentName (Java.Lang.Class);
+	public NavDeepLinkBuilder SetDestination (int);
+	public NavDeepLinkBuilder SetGraph (NavGraph);
+	public NavDeepLinkBuilder SetGraph (int);
 }
 ```
 
@@ -9770,9 +9340,9 @@ public sealed class NavDeepLinkBuilder : Java.Lang.Object {
 ```csharp
 public class NavDestination : Java.Lang.Object {
 	// constructors
-	public NavDestination (Navigator navigator);
-	public NavDestination (string navigatorName);
-	protected NavDestination (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public NavDestination (Navigator);
+	public NavDestination (string);
+	protected NavDestination (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public System.Collections.Generic.IDictionary<System.String,AndroidX.Navigation.NavArgument> Arguments { get; }
 	public int Id { get; set; }
@@ -9780,29 +9350,29 @@ public class NavDestination : Java.Lang.Object {
 	public Java.Lang.ICharSequence LabelFormatted { get; set; }
 	public string NavigatorName { get; }
 	public NavGraph Parent { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddArgument (string argumentName, NavArgument argument);
-	public void AddDeepLink (string uriPattern);
-	public NavAction GetAction (int id);
-	public virtual bool HasDeepLink (Android.Net.Uri deepLink);
-	public virtual void OnInflate (Android.Content.Context context, Android.Util.IAttributeSet attrs);
-	protected static Java.Lang.Class ParseClassFromName (Android.Content.Context context, string name, Java.Lang.Class expectedClassType);
-	public void PutAction (int actionId, NavAction action);
-	public void PutAction (int actionId, int destId);
-	public void RemoveAction (int actionId);
-	public void RemoveArgument (string argumentName);
+	public void AddArgument (string, NavArgument);
+	public void AddDeepLink (string);
+	public NavAction GetAction (int);
+	public virtual bool HasDeepLink (Android.Net.Uri);
+	public virtual void OnInflate (Android.Content.Context, Android.Util.IAttributeSet);
+	protected static Java.Lang.Class ParseClassFromName (Android.Content.Context, string, Java.Lang.Class);
+	public void PutAction (int, NavAction);
+	public void PutAction (int, int);
+	public void RemoveAction (int);
+	public void RemoveArgument (string);
 
 	// inner types
 	public class DeepLinkMatch : Java.Lang.Object, Android.Runtime.IJavaObject, Java.Lang.IComparable, System.IDisposable {
 		// constructors
-		protected NavDestination.DeepLinkMatch (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected NavDestination.DeepLinkMatch (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual int CompareTo (Java.Lang.Object p0);
+		public virtual int CompareTo (Java.Lang.Object);
 	}
 	public interface IClassType : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 		// methods
@@ -9816,21 +9386,21 @@ public class NavDestination : Java.Lang.Object {
 ```csharp
 public class NavGraph : AndroidX.Navigation.NavDestination, Android.Runtime.IJavaObject, Java.Lang.IIterable, System.IDisposable {
 	// constructors
-	public NavGraph (Navigator navGraphNavigator);
-	protected NavGraph (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public NavGraph (Navigator);
+	protected NavGraph (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public int StartDestination { get; set; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddAll (NavGraph other);
-	public void AddDestination (NavDestination node);
-	public void AddDestinations (NavDestination[] nodes);
-	public void AddDestinations (System.Collections.Generic.ICollection<NavDestination> nodes);
+	public void AddAll (NavGraph);
+	public void AddDestination (NavDestination);
+	public void AddDestinations (NavDestination[]);
+	public void AddDestinations (System.Collections.Generic.ICollection<NavDestination>);
 	public void Clear ();
-	public NavDestination FindNode (int resid);
+	public NavDestination FindNode (int);
 	public virtual Java.Util.IIterator Iterator ();
-	public void Remove (NavDestination node);
+	public void Remove (NavDestination);
 }
 ```
 
@@ -9839,14 +9409,14 @@ public class NavGraph : AndroidX.Navigation.NavDestination, Android.Runtime.IJav
 ```csharp
 public class NavGraphNavigator : AndroidX.Navigation.Navigator {
 	// constructors
-	public NavGraphNavigator (NavigatorProvider navigatorProvider);
-	protected NavGraphNavigator (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public NavGraphNavigator (NavigatorProvider);
+	protected NavGraphNavigator (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public override Java.Lang.Object CreateDestination ();
-	public override NavDestination Navigate (Java.Lang.Object destination, Android.OS.Bundle args, NavOptions navOptions, Navigator.IExtras navigatorExtras);
+	public override NavDestination Navigate (Java.Lang.Object, Android.OS.Bundle, NavOptions, Navigator.IExtras);
 	public override bool PopBackStack ();
 }
 ```
@@ -9856,15 +9426,15 @@ public class NavGraphNavigator : AndroidX.Navigation.Navigator {
 ```csharp
 public sealed class NavHostController : AndroidX.Navigation.NavController {
 	// constructors
-	public NavHostController (Android.Content.Context context);
+	public NavHostController (Android.Content.Context);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void EnableOnBackPressed (bool enabled);
-	public void SetLifecycleOwner (AndroidX.Lifecycle.ILifecycleOwner owner);
-	public void SetOnBackPressedDispatcher (AndroidX.Activity.OnBackPressedDispatcher dispatcher);
-	public void SetViewModelStore (AndroidX.Lifecycle.ViewModelStore viewModelStore);
+	public void EnableOnBackPressed (bool);
+	public void SetLifecycleOwner (AndroidX.Lifecycle.ILifecycleOwner);
+	public void SetOnBackPressedDispatcher (AndroidX.Activity.OnBackPressedDispatcher);
+	public void SetViewModelStore (AndroidX.Lifecycle.ViewModelStore);
 }
 ```
 
@@ -9873,12 +9443,12 @@ public sealed class NavHostController : AndroidX.Navigation.NavController {
 ```csharp
 public sealed class NavInflater : Java.Lang.Object {
 	// constructors
-	public NavInflater (Android.Content.Context context, NavigatorProvider navigatorProvider);
+	public NavInflater (Android.Content.Context, NavigatorProvider);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public NavGraph Inflate (int graphResId);
+	public NavGraph Inflate (int);
 }
 ```
 
@@ -9893,8 +9463,8 @@ public sealed class NavOptions : Java.Lang.Object {
 	public int PopEnterAnim { get; }
 	public int PopExitAnim { get; }
 	public int PopUpTo { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public bool ShouldLaunchSingleTop ();
 
@@ -9903,16 +9473,16 @@ public sealed class NavOptions : Java.Lang.Object {
 		// constructors
 		public NavOptions.Builder ();
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public NavOptions Build ();
-		public NavOptions.Builder SetEnterAnim (int enterAnim);
-		public NavOptions.Builder SetExitAnim (int exitAnim);
-		public NavOptions.Builder SetLaunchSingleTop (bool singleTop);
-		public NavOptions.Builder SetPopEnterAnim (int popEnterAnim);
-		public NavOptions.Builder SetPopExitAnim (int popExitAnim);
-		public NavOptions.Builder SetPopUpTo (int destinationId, bool inclusive);
+		public NavOptions.Builder SetEnterAnim (int);
+		public NavOptions.Builder SetExitAnim (int);
+		public NavOptions.Builder SetLaunchSingleTop (bool);
+		public NavOptions.Builder SetPopEnterAnim (int);
+		public NavOptions.Builder SetPopExitAnim (int);
+		public NavOptions.Builder SetPopUpTo (int, bool);
 	}
 }
 ```
@@ -9922,7 +9492,7 @@ public sealed class NavOptions : Java.Lang.Object {
 ```csharp
 public abstract class NavType : Java.Lang.Object {
 	// constructors
-	protected NavType (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected NavType (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
 	public static NavType BoolArrayType { get; }
 	public static NavType BoolType { get; }
@@ -9930,76 +9500,76 @@ public abstract class NavType : Java.Lang.Object {
 	public static NavType FloatType { get; }
 	public static NavType IntArrayType { get; }
 	public static NavType IntType { get; }
-	public virtual bool IsNullableAllowed { get; }
+	public bool IsNullableAllowed { get; }
 	public static NavType LongArrayType { get; }
 	public static NavType LongType { get; }
-	public virtual string Name { get; }
+	public string Name { get; }
 	public static NavType ReferenceType { get; }
 	public static NavType StringArrayType { get; }
 	public static NavType StringType { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static NavType FromArgType (string type, string packageName);
-	public virtual Java.Lang.Object Get (Android.OS.Bundle p0, string p1);
-	public virtual Java.Lang.Object ParseValue (string p0);
+	public static NavType FromArgType (string, string);
+	public virtual Java.Lang.Object Get (Android.OS.Bundle, string);
+	public virtual Java.Lang.Object ParseValue (string);
 
 	// inner types
 	public sealed class EnumType : AndroidX.Navigation.NavType+SerializableType {
 		// constructors
-		public NavType.EnumType (Java.Lang.Class type);
+		public NavType.EnumType (Java.Lang.Class);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 	public sealed class ParcelableArrayType : AndroidX.Navigation.NavType {
 		// constructors
-		public NavType.ParcelableArrayType (Java.Lang.Class type);
+		public NavType.ParcelableArrayType (Java.Lang.Class);
 		// properties
-		public override string Name { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public string Name { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public override Java.Lang.Object Get (Android.OS.Bundle bundle, string key);
-		public override Java.Lang.Object ParseValue (string value);
-		public void Put (Android.OS.Bundle bundle, string key, Java.Lang.Object[] value);
+		public override Java.Lang.Object Get (Android.OS.Bundle, string);
+		public override Java.Lang.Object ParseValue (string);
+		public void Put (Android.OS.Bundle, string, Java.Lang.Object[]);
 	}
 	public sealed class ParcelableType : AndroidX.Navigation.NavType {
 		// constructors
-		public NavType.ParcelableType (Java.Lang.Class type);
+		public NavType.ParcelableType (Java.Lang.Class);
 		// properties
-		public override string Name { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public string Name { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public override Java.Lang.Object Get (Android.OS.Bundle bundle, string key);
-		public override Java.Lang.Object ParseValue (string value);
-		public void Put (Android.OS.Bundle bundle, string key, Java.Lang.Object value);
+		public override Java.Lang.Object Get (Android.OS.Bundle, string);
+		public override Java.Lang.Object ParseValue (string);
+		public void Put (Android.OS.Bundle, string, Java.Lang.Object);
 	}
 	public sealed class SerializableArrayType : AndroidX.Navigation.NavType {
 		// constructors
-		public NavType.SerializableArrayType (Java.Lang.Class type);
+		public NavType.SerializableArrayType (Java.Lang.Class);
 		// properties
-		public override string Name { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public string Name { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public override Java.Lang.Object Get (Android.OS.Bundle bundle, string key);
-		public override Java.Lang.Object ParseValue (string value);
-		public void Put (Android.OS.Bundle bundle, string key, Java.Lang.Object[] value);
+		public override Java.Lang.Object Get (Android.OS.Bundle, string);
+		public override Java.Lang.Object ParseValue (string);
+		public void Put (Android.OS.Bundle, string, Java.Lang.Object[]);
 	}
 	public class SerializableType : AndroidX.Navigation.NavType {
 		// constructors
-		public NavType.SerializableType (Java.Lang.Class type);
-		protected NavType.SerializableType (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public NavType.SerializableType (Java.Lang.Class);
+		protected NavType.SerializableType (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		public override string Name { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		public string Name { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public override Java.Lang.Object Get (Android.OS.Bundle bundle, string key);
-		public override Java.Lang.Object ParseValue (string value);
-		public virtual void Put (Android.OS.Bundle bundle, string key, Java.Lang.Object value);
+		public override Java.Lang.Object Get (Android.OS.Bundle, string);
+		public override Java.Lang.Object ParseValue (string);
+		public virtual void Put (Android.OS.Bundle, string, Java.Lang.Object);
 	}
 }
 ```
@@ -10009,15 +9579,15 @@ public abstract class NavType : Java.Lang.Object {
 ```csharp
 public sealed class Navigation : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (INavDirections directions);
-	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (int resId);
-	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (int resId, Android.OS.Bundle args);
-	public static NavController FindNavController (Android.Views.View view);
-	public static NavController FindNavController (Android.App.Activity activity, int viewId);
-	public static void SetViewNavController (Android.Views.View view, NavController controller);
+	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (INavDirections);
+	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (int);
+	public static Android.Views.View.IOnClickListener CreateNavigateOnClickListener (int, Android.OS.Bundle);
+	public static NavController FindNavController (Android.Views.View);
+	public static NavController FindNavController (Android.App.Activity, int);
+	public static void SetViewNavController (Android.Views.View, NavController);
 }
 ```
 
@@ -10027,14 +9597,14 @@ public sealed class Navigation : Java.Lang.Object {
 public abstract class Navigator : Java.Lang.Object {
 	// constructors
 	public Navigator ();
-	protected Navigator (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected Navigator (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public virtual Java.Lang.Object CreateDestination ();
-	public virtual NavDestination Navigate (Java.Lang.Object p0, Android.OS.Bundle p1, NavOptions p2, Navigator.IExtras p3);
-	public virtual void OnRestoreState (Android.OS.Bundle savedState);
+	public virtual NavDestination Navigate (Java.Lang.Object, Android.OS.Bundle, NavOptions, Navigator.IExtras);
+	public virtual void OnRestoreState (Android.OS.Bundle);
 	public virtual Android.OS.Bundle OnSaveState ();
 	public virtual bool PopBackStack ();
 
@@ -10054,15 +9624,15 @@ public abstract class Navigator : Java.Lang.Object {
 public class NavigatorProvider : Java.Lang.Object {
 	// constructors
 	public NavigatorProvider ();
-	protected NavigatorProvider (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected NavigatorProvider (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public Navigator AddNavigator (Navigator navigator);
-	public virtual Navigator AddNavigator (string name, Navigator navigator);
-	public Java.Lang.Object GetNavigator (Java.Lang.Class navigatorClass);
-	public virtual Java.Lang.Object GetNavigator (string name);
+	public Navigator AddNavigator (Navigator);
+	public virtual Navigator AddNavigator (string, Navigator);
+	public Java.Lang.Object GetNavigator (Java.Lang.Class);
+	public virtual Java.Lang.Object GetNavigator (string);
 }
 ```
 
@@ -10073,27 +9643,27 @@ public class NavigatorProvider : Java.Lang.Object {
 ```csharp
 public sealed class DialogFragmentNavigator : AndroidX.Navigation.Navigator {
 	// constructors
-	public DialogFragmentNavigator (Android.Content.Context context, AndroidX.Fragment.App.FragmentManager manager);
+	public DialogFragmentNavigator (Android.Content.Context, AndroidX.Fragment.App.FragmentManager);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public override Java.Lang.Object CreateDestination ();
-	public override AndroidX.Navigation.NavDestination Navigate (Java.Lang.Object destination, Android.OS.Bundle args, AndroidX.Navigation.NavOptions navOptions, AndroidX.Navigation.Navigator.IExtras navigatorExtras);
+	public override AndroidX.Navigation.NavDestination Navigate (Java.Lang.Object, Android.OS.Bundle, AndroidX.Navigation.NavOptions, AndroidX.Navigation.Navigator.IExtras);
 	public override bool PopBackStack ();
 
 	// inner types
 	public class Destination : AndroidX.Navigation.NavDestination, Android.Runtime.IJavaObject, AndroidX.Navigation.IFloatingWindow, System.IDisposable {
 		// constructors
-		public DialogFragmentNavigator.Destination (AndroidX.Navigation.Navigator fragmentNavigator);
-		public DialogFragmentNavigator.Destination (AndroidX.Navigation.NavigatorProvider navigatorProvider);
-		protected DialogFragmentNavigator.Destination (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public DialogFragmentNavigator.Destination (AndroidX.Navigation.Navigator);
+		public DialogFragmentNavigator.Destination (AndroidX.Navigation.NavigatorProvider);
+		protected DialogFragmentNavigator.Destination (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
 		public string ClassName { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public DialogFragmentNavigator.Destination SetClassName (string className);
+		public DialogFragmentNavigator.Destination SetClassName (string);
 	}
 }
 ```
@@ -10103,48 +9673,48 @@ public sealed class DialogFragmentNavigator : AndroidX.Navigation.Navigator {
 ```csharp
 public class FragmentNavigator : AndroidX.Navigation.Navigator {
 	// constructors
-	protected FragmentNavigator (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
-	public FragmentNavigator (Android.Content.Context context, AndroidX.Fragment.App.FragmentManager manager, int containerId);
+	protected FragmentNavigator (IntPtr, Android.Runtime.JniHandleOwnership);
+	public FragmentNavigator (Android.Content.Context, AndroidX.Fragment.App.FragmentManager, int);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public override Java.Lang.Object CreateDestination ();
 
 	[Obsolete ("deprecated")]
-public virtual AndroidX.Fragment.App.Fragment InstantiateFragment (Android.Content.Context context, AndroidX.Fragment.App.FragmentManager fragmentManager, string className, Android.OS.Bundle args);
-	public override AndroidX.Navigation.NavDestination Navigate (Java.Lang.Object destination, Android.OS.Bundle args, AndroidX.Navigation.NavOptions navOptions, AndroidX.Navigation.Navigator.IExtras navigatorExtras);
+public virtual AndroidX.Fragment.App.Fragment InstantiateFragment (Android.Content.Context, AndroidX.Fragment.App.FragmentManager, string, Android.OS.Bundle);
+	public override AndroidX.Navigation.NavDestination Navigate (Java.Lang.Object, Android.OS.Bundle, AndroidX.Navigation.NavOptions, AndroidX.Navigation.Navigator.IExtras);
 	public override bool PopBackStack ();
 
 	// inner types
 	public class Destination : AndroidX.Navigation.NavDestination {
 		// constructors
-		public FragmentNavigator.Destination (AndroidX.Navigation.Navigator fragmentNavigator);
-		public FragmentNavigator.Destination (AndroidX.Navigation.NavigatorProvider navigatorProvider);
-		protected FragmentNavigator.Destination (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		public FragmentNavigator.Destination (AndroidX.Navigation.Navigator);
+		public FragmentNavigator.Destination (AndroidX.Navigation.NavigatorProvider);
+		protected FragmentNavigator.Destination (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
 		public string ClassName { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public FragmentNavigator.Destination SetClassName (string className);
+		public FragmentNavigator.Destination SetClassName (string);
 	}
 	public sealed class Extras : Java.Lang.Object, Android.Runtime.IJavaObject, AndroidX.Navigation.Navigator.IExtras, System.IDisposable {
 		// properties
 		public System.Collections.Generic.IDictionary<Android.Views.View,System.String> SharedElements { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
 			public FragmentNavigator.Extras.Builder ();
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
-			public FragmentNavigator.Extras.Builder AddSharedElement (Android.Views.View sharedElement, string name);
-			public FragmentNavigator.Extras.Builder AddSharedElements (System.Collections.Generic.IDictionary<Android.Views.View,System.String> sharedElements);
+			public FragmentNavigator.Extras.Builder AddSharedElement (Android.Views.View, string);
+			public FragmentNavigator.Extras.Builder AddSharedElements (System.Collections.Generic.IDictionary<Android.Views.View,System.String>);
 			public FragmentNavigator.Extras Build ();
 		}
 	}
@@ -10157,19 +9727,19 @@ public virtual AndroidX.Fragment.App.Fragment InstantiateFragment (Android.Conte
 public class NavHostFragment : AndroidX.Fragment.App.Fragment, Android.Content.IComponentCallbacks, Android.Runtime.IJavaObject, Android.Views.View.IOnCreateContextMenuListener, AndroidX.Lifecycle.ILifecycleOwner, AndroidX.Lifecycle.IViewModelStoreOwner, AndroidX.Navigation.INavHost, AndroidX.SavedState.ISavedStateRegistryOwner, System.IDisposable {
 	// constructors
 	public NavHostFragment ();
-	protected NavHostFragment (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected NavHostFragment (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual AndroidX.Navigation.NavController NavController { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public AndroidX.Navigation.NavController NavController { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static NavHostFragment Create (int graphResId);
-	public static NavHostFragment Create (int graphResId, Android.OS.Bundle startDestinationArgs);
+	public static NavHostFragment Create (int);
+	public static NavHostFragment Create (int, Android.OS.Bundle);
 
 	[Obsolete ("deprecated")]
 protected virtual AndroidX.Navigation.Navigator CreateFragmentNavigator ();
-	public static AndroidX.Navigation.NavController FindNavController (AndroidX.Fragment.App.Fragment fragment);
-	protected virtual void OnCreateNavController (AndroidX.Navigation.NavController navController);
+	public static AndroidX.Navigation.NavController FindNavController (AndroidX.Fragment.App.Fragment);
+	protected virtual void OnCreateNavController (AndroidX.Navigation.NavController);
 }
 ```
 
@@ -10182,24 +9752,24 @@ public sealed class AppBarConfiguration : Java.Lang.Object {
 	// properties
 	public AndroidX.DrawerLayout.Widget.DrawerLayout DrawerLayout { get; }
 	public AppBarConfiguration.IOnNavigateUpListener FallbackOnNavigateUpListener { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public System.Collections.Generic.ICollection<Java.Lang.Integer> TopLevelDestinations { get; }
 
 	// inner types
 	public sealed class Builder : Java.Lang.Object {
 		// constructors
-		public AppBarConfiguration.Builder (Android.Views.IMenu topLevelMenu);
-		public AppBarConfiguration.Builder (AndroidX.Navigation.NavGraph navGraph);
-		public AppBarConfiguration.Builder (System.Collections.Generic.ICollection<Java.Lang.Integer> topLevelDestinationIds);
-		public AppBarConfiguration.Builder (int[] topLevelDestinationIds);
+		public AppBarConfiguration.Builder (Android.Views.IMenu);
+		public AppBarConfiguration.Builder (AndroidX.Navigation.NavGraph);
+		public AppBarConfiguration.Builder (System.Collections.Generic.ICollection<Java.Lang.Integer>);
+		public AppBarConfiguration.Builder (int[]);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public AppBarConfiguration Build ();
-		public AppBarConfiguration.Builder SetDrawerLayout (AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout);
-		public AppBarConfiguration.Builder SetFallbackOnNavigateUpListener (AppBarConfiguration.IOnNavigateUpListener fallbackOnNavigateUpListener);
+		public AppBarConfiguration.Builder SetDrawerLayout (AndroidX.DrawerLayout.Widget.DrawerLayout);
+		public AppBarConfiguration.Builder SetFallbackOnNavigateUpListener (AppBarConfiguration.IOnNavigateUpListener);
 	}
 	public interface IOnNavigateUpListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
@@ -10207,7 +9777,7 @@ public sealed class AppBarConfiguration : Java.Lang.Object {
 	}
 	public class NavigateUpEventArgs : System.EventArgs {
 		// constructors
-		public AppBarConfiguration.NavigateUpEventArgs (bool handled);
+		public AppBarConfiguration.NavigateUpEventArgs (bool);
 		// properties
 		public bool Handled { get; set; }
 	}
@@ -10219,23 +9789,23 @@ public sealed class AppBarConfiguration : Java.Lang.Object {
 ```csharp
 public sealed class NavigationUI : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static bool NavigateUp (AndroidX.Navigation.NavController navController, AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout);
-	public static bool NavigateUp (AndroidX.Navigation.NavController navController, AppBarConfiguration configuration);
-	public static bool OnNavDestinationSelected (Android.Views.IMenuItem item, AndroidX.Navigation.NavController navController);
-	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity activity, AndroidX.Navigation.NavController navController);
-	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity activity, AndroidX.Navigation.NavController navController, AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout);
-	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity activity, AndroidX.Navigation.NavController navController, AppBarConfiguration configuration);
-	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController);
-	public static void SetupWithNavController (Google.Android.Material.BottomNavigation.BottomNavigationView bottomNavigationView, AndroidX.Navigation.NavController navController);
-	public static void SetupWithNavController (Google.Android.Material.Navigation.NavigationView navigationView, AndroidX.Navigation.NavController navController);
-	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController, AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout);
-	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController, AppBarConfiguration configuration);
-	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout collapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController);
-	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout collapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController, AndroidX.DrawerLayout.Widget.DrawerLayout drawerLayout);
-	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout collapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar toolbar, AndroidX.Navigation.NavController navController, AppBarConfiguration configuration);
+	public static bool NavigateUp (AndroidX.Navigation.NavController, AndroidX.DrawerLayout.Widget.DrawerLayout);
+	public static bool NavigateUp (AndroidX.Navigation.NavController, AppBarConfiguration);
+	public static bool OnNavDestinationSelected (Android.Views.IMenuItem, AndroidX.Navigation.NavController);
+	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity, AndroidX.Navigation.NavController);
+	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity, AndroidX.Navigation.NavController, AndroidX.DrawerLayout.Widget.DrawerLayout);
+	public static void SetupActionBarWithNavController (AndroidX.AppCompat.App.AppCompatActivity, AndroidX.Navigation.NavController, AppBarConfiguration);
+	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController);
+	public static void SetupWithNavController (Google.Android.Material.BottomNavigation.BottomNavigationView, AndroidX.Navigation.NavController);
+	public static void SetupWithNavController (Google.Android.Material.Navigation.NavigationView, AndroidX.Navigation.NavController);
+	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController, AndroidX.DrawerLayout.Widget.DrawerLayout);
+	public static void SetupWithNavController (AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController, AppBarConfiguration);
+	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController);
+	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController, AndroidX.DrawerLayout.Widget.DrawerLayout);
+	public static void SetupWithNavController (Google.Android.Material.AppBar.CollapsingToolbarLayout, AndroidX.AppCompat.Widget.Toolbar, AndroidX.Navigation.NavController, AppBarConfiguration);
 }
 ```
 
@@ -10246,29 +9816,29 @@ public sealed class NavigationUI : Java.Lang.Object {
 ```csharp
 public class AsyncPagedListDiffer : Java.Lang.Object {
 	// constructors
-	public AsyncPagedListDiffer (AndroidX.RecyclerView.Widget.IListUpdateCallback listUpdateCallback, AndroidX.RecyclerView.Widget.AsyncDifferConfig config);
-	public AsyncPagedListDiffer (AndroidX.RecyclerView.Widget.RecyclerView.Adapter adapter, AndroidX.RecyclerView.Widget.DiffUtil.ItemCallback diffCallback);
-	protected AsyncPagedListDiffer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public AsyncPagedListDiffer (AndroidX.RecyclerView.Widget.IListUpdateCallback, AndroidX.RecyclerView.Widget.AsyncDifferConfig);
+	public AsyncPagedListDiffer (AndroidX.RecyclerView.Widget.RecyclerView.Adapter, AndroidX.RecyclerView.Widget.DiffUtil.ItemCallback);
+	protected AsyncPagedListDiffer (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual PagedList CurrentList { get; }
-	public virtual int ItemCount { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public PagedList CurrentList { get; }
+	public int ItemCount { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddPagedListListener (AsyncPagedListDiffer.IPagedListListener listener);
-	public virtual Java.Lang.Object GetItem (int index);
-	public virtual void RemovePagedListListener (AsyncPagedListDiffer.IPagedListListener listener);
-	public virtual void SubmitList (PagedList pagedList);
-	public virtual void SubmitList (PagedList pagedList, Java.Lang.IRunnable commitCallback);
+	public virtual void AddPagedListListener (AsyncPagedListDiffer.IPagedListListener);
+	public virtual Java.Lang.Object GetItem (int);
+	public virtual void RemovePagedListListener (AsyncPagedListDiffer.IPagedListListener);
+	public virtual void SubmitList (PagedList);
+	public virtual void SubmitList (PagedList, Java.Lang.IRunnable);
 
 	// inner types
 	public interface IPagedListListener : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnCurrentListChanged (PagedList p0, PagedList p1);
+		public virtual void OnCurrentListChanged (PagedList, PagedList);
 	}
 	public class PagedListEventArgs : System.EventArgs {
 		// constructors
-		public AsyncPagedListDiffer.PagedListEventArgs (PagedList p0, PagedList p1);
+		public AsyncPagedListDiffer.PagedListEventArgs (PagedList, PagedList);
 		// properties
 		public PagedList P0 { get; }
 		public PagedList P1 { get; }
@@ -10281,13 +9851,13 @@ public class AsyncPagedListDiffer : Java.Lang.Object {
 ```csharp
 public sealed class LivePagedListBuilder : Java.Lang.Object {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 	public AndroidX.Lifecycle.LiveData Build ();
-	public LivePagedListBuilder SetBoundaryCallback (PagedList.BoundaryCallback boundaryCallback);
-	public LivePagedListBuilder SetFetchExecutor (Java.Util.Concurrent.IExecutor fetchExecutor);
-	public LivePagedListBuilder SetInitialLoadKey (Java.Lang.Object key);
+	public LivePagedListBuilder SetBoundaryCallback (PagedList.BoundaryCallback);
+	public LivePagedListBuilder SetFetchExecutor (Java.Util.Concurrent.IExecutor);
+	public LivePagedListBuilder SetInitialLoadKey (Java.Lang.Object);
 }
 ```
 
@@ -10296,22 +9866,22 @@ public sealed class LivePagedListBuilder : Java.Lang.Object {
 ```csharp
 public abstract class PagedList : Java.Util.AbstractList {
 	// constructors
-	protected PagedList (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected PagedList (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual bool IsDetached { get; }
-	public virtual bool IsImmutable { get; }
-	public virtual Java.Lang.Object LastKey { get; }
-	public virtual int LoadedCount { get; }
-	public virtual int PositionOffset { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public bool IsDetached { get; }
+	public bool IsImmutable { get; }
+	public Java.Lang.Object LastKey { get; }
+	public int LoadedCount { get; }
+	public int PositionOffset { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void AddWeakCallback (System.Collections.IList previousSnapshot, PagedList.Callback callback);
+	public virtual void AddWeakCallback (System.Collections.IList, PagedList.Callback);
 	public virtual void Detach ();
-	public override Java.Lang.Object Get (int index);
+	public override Java.Lang.Object Get (int);
 	public virtual PagedList.Config GetConfig ();
-	public virtual void LoadAround (int index);
-	public virtual void RemoveWeakCallback (PagedList.Callback callback);
+	public virtual void LoadAround (int);
+	public virtual void RemoveWeakCallback (PagedList.Callback);
 	public override int Size ();
 	public virtual System.Collections.IList Snapshot ();
 
@@ -10319,41 +9889,41 @@ public abstract class PagedList : Java.Util.AbstractList {
 	public abstract class BoundaryCallback : Java.Lang.Object {
 		// constructors
 		public PagedList.BoundaryCallback ();
-		protected PagedList.BoundaryCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected PagedList.BoundaryCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnItemAtEndLoaded (Java.Lang.Object itemAtEnd);
-		public virtual void OnItemAtFrontLoaded (Java.Lang.Object itemAtFront);
+		public virtual void OnItemAtEndLoaded (Java.Lang.Object);
+		public virtual void OnItemAtFrontLoaded (Java.Lang.Object);
 		public virtual void OnZeroItemsLoaded ();
 	}
 	public sealed class Builder : Java.Lang.Object {
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
 		public PagedList Build ();
-		public PagedList.Builder SetBoundaryCallback (PagedList.BoundaryCallback boundaryCallback);
-		public PagedList.Builder SetFetchExecutor (Java.Util.Concurrent.IExecutor fetchExecutor);
-		public PagedList.Builder SetInitialKey (Java.Lang.Object initialKey);
-		public PagedList.Builder SetNotifyExecutor (Java.Util.Concurrent.IExecutor notifyExecutor);
+		public PagedList.Builder SetBoundaryCallback (PagedList.BoundaryCallback);
+		public PagedList.Builder SetFetchExecutor (Java.Util.Concurrent.IExecutor);
+		public PagedList.Builder SetInitialKey (Java.Lang.Object);
+		public PagedList.Builder SetNotifyExecutor (Java.Util.Concurrent.IExecutor);
 	}
 	public abstract class Callback : Java.Lang.Object {
 		// constructors
 		public PagedList.Callback ();
-		protected PagedList.Callback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected PagedList.Callback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnChanged (int p0, int p1);
-		public virtual void OnInserted (int p0, int p1);
-		public virtual void OnRemoved (int p0, int p1);
+		public virtual void OnChanged (int, int);
+		public virtual void OnInserted (int, int);
+		public virtual void OnRemoved (int, int);
 	}
 	public class Config : Java.Lang.Object {
 		// constructors
-		protected PagedList.Config (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected PagedList.Config (IntPtr, Android.Runtime.JniHandleOwnership);
 		// fields
 		public static const int MaxSizeUnbounded;
 		// properties
@@ -10362,23 +9932,23 @@ public abstract class PagedList : Java.Util.AbstractList {
 		public int MaxSize { get; set; }
 		public int PageSize { get; set; }
 		public int PrefetchDistance { get; set; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 
 		// inner types
 		public sealed class Builder : Java.Lang.Object {
 			// constructors
 			public PagedList.Config.Builder ();
 			// properties
-			protected override IntPtr ThresholdClass { get; }
-			protected override System.Type ThresholdType { get; }
+			protected IntPtr ThresholdClass { get; }
+			protected System.Type ThresholdType { get; }
 			// methods
 			public PagedList.Config Build ();
-			public PagedList.Config.Builder SetEnablePlaceholders (bool enablePlaceholders);
-			public PagedList.Config.Builder SetInitialLoadSizeHint (int initialLoadSizeHint);
-			public PagedList.Config.Builder SetMaxSize (int maxSize);
-			public PagedList.Config.Builder SetPageSize (int pageSize);
-			public PagedList.Config.Builder SetPrefetchDistance (int prefetchDistance);
+			public PagedList.Config.Builder SetEnablePlaceholders (bool);
+			public PagedList.Config.Builder SetInitialLoadSizeHint (int);
+			public PagedList.Config.Builder SetMaxSize (int);
+			public PagedList.Config.Builder SetPageSize (int);
+			public PagedList.Config.Builder SetPrefetchDistance (int);
 		}
 	}
 }
@@ -10389,22 +9959,22 @@ public abstract class PagedList : Java.Util.AbstractList {
 ```csharp
 public abstract class PagedListAdapter : AndroidX.RecyclerView.Widget.RecyclerView+Adapter {
 	// constructors
-	protected PagedListAdapter (AndroidX.RecyclerView.Widget.AsyncDifferConfig config);
-	protected PagedListAdapter (AndroidX.RecyclerView.Widget.DiffUtil.ItemCallback diffCallback);
-	protected PagedListAdapter (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected PagedListAdapter (AndroidX.RecyclerView.Widget.AsyncDifferConfig);
+	protected PagedListAdapter (AndroidX.RecyclerView.Widget.DiffUtil.ItemCallback);
+	protected PagedListAdapter (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	public virtual PagedList CurrentList { get; }
-	public override int ItemCount { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	public PagedList CurrentList { get; }
+	public int ItemCount { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	protected virtual Java.Lang.Object GetItem (int position);
+	protected virtual Java.Lang.Object GetItem (int);
 
 	[Obsolete ("deprecated")]
-public virtual void OnCurrentListChanged (PagedList currentList);
-	public virtual void OnCurrentListChanged (PagedList previousList, PagedList currentList);
-	public virtual void SubmitList (PagedList pagedList);
-	public virtual void SubmitList (PagedList pagedList, Java.Lang.IRunnable commitCallback);
+public virtual void OnCurrentListChanged (PagedList);
+	public virtual void OnCurrentListChanged (PagedList, PagedList);
+	public virtual void SubmitList (PagedList);
+	public virtual void SubmitList (PagedList, Java.Lang.IRunnable);
 }
 ```
 
@@ -10415,23 +9985,23 @@ public virtual void OnCurrentListChanged (PagedList currentList);
 ```csharp
 public class GuavaRoom : Java.Lang.Object {
 	// constructors
-	protected GuavaRoom (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	protected GuavaRoom (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
 
 	[Obsolete ("deprecated")]
-public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase roomDatabase, Java.Util.Concurrent.ICallable callable);
-	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase roomDatabase, bool inTransaction, Java.Util.Concurrent.ICallable callable);
+public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase, Java.Util.Concurrent.ICallable);
+	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase, bool, Java.Util.Concurrent.ICallable);
 
 	[Obsolete ("deprecated")]
-public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (Java.Util.Concurrent.ICallable callable, AndroidX.Room.RoomSQLiteQuery query, bool releaseQuery);
+public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (Java.Util.Concurrent.ICallable, AndroidX.Room.RoomSQLiteQuery, bool);
 
 	[Obsolete ("deprecated")]
-public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase roomDatabase, Java.Util.Concurrent.ICallable callable, AndroidX.Room.RoomSQLiteQuery query, bool releaseQuery);
-	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase roomDatabase, bool inTransaction, Java.Util.Concurrent.ICallable callable, AndroidX.Room.RoomSQLiteQuery query, bool releaseQuery);
-	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase roomDatabase, bool inTransaction, Java.Util.Concurrent.ICallable callable, AndroidX.Room.RoomSQLiteQuery query, bool releaseQuery, Android.OS.CancellationSignal cancellationSignal);
+public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase, Java.Util.Concurrent.ICallable, AndroidX.Room.RoomSQLiteQuery, bool);
+	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase, bool, Java.Util.Concurrent.ICallable, AndroidX.Room.RoomSQLiteQuery, bool);
+	public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFuture (AndroidX.Room.RoomDatabase, bool, Java.Util.Concurrent.ICallable, AndroidX.Room.RoomSQLiteQuery, bool, Android.OS.CancellationSignal);
 }
 ```
 
@@ -10442,7 +10012,7 @@ public static Google.Common.Util.Concurrent.IListenableFuture CreateListenableFu
 ```csharp
 public interface ISavedStateRegistryOwner : Android.Runtime.IJavaObject, AndroidX.Lifecycle.ILifecycleOwner, System.IDisposable {
 	// properties
-	public virtual SavedStateRegistry SavedStateRegistry { get; }
+	public SavedStateRegistry SavedStateRegistry { get; }
 }
 ```
 
@@ -10452,18 +10022,18 @@ public interface ISavedStateRegistryOwner : Android.Runtime.IJavaObject, Android
 public sealed class SavedStateRegistry : Java.Lang.Object {
 	// properties
 	public bool IsRestored { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public Android.OS.Bundle ConsumeRestoredStateForKey (string key);
-	public void RegisterSavedStateProvider (string key, SavedStateRegistry.ISavedStateProvider provider);
-	public void RunOnNextRecreation (Java.Lang.Class clazz);
-	public void UnregisterSavedStateProvider (string key);
+	public Android.OS.Bundle ConsumeRestoredStateForKey (string);
+	public void RegisterSavedStateProvider (string, SavedStateRegistry.ISavedStateProvider);
+	public void RunOnNextRecreation (Java.Lang.Class);
+	public void UnregisterSavedStateProvider (string);
 
 	// inner types
 	public interface IAutoRecreated : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void OnRecreated (ISavedStateRegistryOwner p0);
+		public virtual void OnRecreated (ISavedStateRegistryOwner);
 	}
 	public interface ISavedStateProvider : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
@@ -10478,12 +10048,12 @@ public sealed class SavedStateRegistry : Java.Lang.Object {
 public sealed class SavedStateRegistryController : Java.Lang.Object {
 	// properties
 	public SavedStateRegistry SavedStateRegistry { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public static SavedStateRegistryController Create (ISavedStateRegistryOwner owner);
-	public void PerformRestore (Android.OS.Bundle savedState);
-	public void PerformSave (Android.OS.Bundle outBundle);
+	public static SavedStateRegistryController Create (ISavedStateRegistryOwner);
+	public void PerformRestore (Android.OS.Bundle);
+	public void PerformSave (Android.OS.Bundle);
 }
 ```
 
@@ -10494,32 +10064,32 @@ public sealed class SavedStateRegistryController : Java.Lang.Object {
 ```csharp
 public abstract class FragmentStateAdapter : AndroidX.RecyclerView.Widget.RecyclerView+Adapter, Android.Runtime.IJavaObject, IStatefulAdapter, System.IDisposable {
 	// constructors
-	public FragmentStateAdapter (AndroidX.Fragment.App.Fragment fragment);
-	public FragmentStateAdapter (AndroidX.Fragment.App.FragmentActivity fragmentActivity);
-	public FragmentStateAdapter (AndroidX.Fragment.App.FragmentManager fragmentManager, AndroidX.Lifecycle.Lifecycle lifecycle);
-	protected FragmentStateAdapter (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+	public FragmentStateAdapter (AndroidX.Fragment.App.Fragment);
+	public FragmentStateAdapter (AndroidX.Fragment.App.FragmentActivity);
+	public FragmentStateAdapter (AndroidX.Fragment.App.FragmentManager, AndroidX.Lifecycle.Lifecycle);
+	protected FragmentStateAdapter (IntPtr, Android.Runtime.JniHandleOwnership);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual bool ContainsItem (long itemId);
-	public virtual AndroidX.Fragment.App.Fragment CreateFragment (int p0);
-	public void OnBindViewHolder (FragmentViewHolder holder, int position);
-	public override AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder OnCreateViewHolder (Android.Views.ViewGroup parent, int viewType);
-	public bool OnFailedToRecycleView (FragmentViewHolder holder);
-	public void OnViewAttachedToWindow (FragmentViewHolder holder);
-	public void OnViewRecycled (FragmentViewHolder holder);
-	public virtual void RestoreState (Android.OS.IParcelable savedState);
+	public virtual bool ContainsItem (long);
+	public virtual AndroidX.Fragment.App.Fragment CreateFragment (int);
+	public void OnBindViewHolder (FragmentViewHolder, int);
+	public override AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder OnCreateViewHolder (Android.Views.ViewGroup, int);
+	public bool OnFailedToRecycleView (FragmentViewHolder);
+	public void OnViewAttachedToWindow (FragmentViewHolder);
+	public void OnViewRecycled (FragmentViewHolder);
+	public virtual void RestoreState (Android.OS.IParcelable);
 	public virtual Android.OS.IParcelable SaveState ();
-	public override void SetHasStableIds (bool hasStableIds);
+	public override void SetHasStableIds (bool);
 
 	// inner types
 	public class FragmentMaxLifecycleEnforcer : Java.Lang.Object {
 		// constructors
-		protected FragmentStateAdapter.FragmentMaxLifecycleEnforcer (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected FragmentStateAdapter.FragmentMaxLifecycleEnforcer (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -10529,8 +10099,8 @@ public abstract class FragmentStateAdapter : AndroidX.RecyclerView.Widget.Recycl
 ```csharp
 public sealed class FragmentViewHolder : AndroidX.RecyclerView.Widget.RecyclerView+ViewHolder {
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 }
 ```
 
@@ -10539,7 +10109,7 @@ public sealed class FragmentViewHolder : AndroidX.RecyclerView.Widget.RecyclerVi
 ```csharp
 public interface IStatefulAdapter : Android.Runtime.IJavaObject, System.IDisposable {
 	// methods
-	public virtual void RestoreState (Android.OS.IParcelable p0);
+	public virtual void RestoreState (Android.OS.IParcelable);
 	public virtual Android.OS.IParcelable SaveState ();
 }
 ```
@@ -10553,12 +10123,12 @@ public sealed class CompositePageTransformer : Java.Lang.Object, Android.Runtime
 	// constructors
 	public CompositePageTransformer ();
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public void AddTransformer (ViewPager2.IPageTransformer transformer);
-	public void RemoveTransformer (ViewPager2.IPageTransformer transformer);
-	public virtual void TransformPage (Android.Views.View page, float position);
+	public void AddTransformer (ViewPager2.IPageTransformer);
+	public void RemoveTransformer (ViewPager2.IPageTransformer);
+	public virtual void TransformPage (Android.Views.View, float);
 }
 ```
 
@@ -10567,12 +10137,12 @@ public sealed class CompositePageTransformer : Java.Lang.Object, Android.Runtime
 ```csharp
 public sealed class MarginPageTransformer : Java.Lang.Object, Android.Runtime.IJavaObject, ViewPager2.IPageTransformer, System.IDisposable {
 	// constructors
-	public MarginPageTransformer (int marginPx);
+	public MarginPageTransformer (int);
 	// properties
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	// methods
-	public virtual void TransformPage (Android.Views.View page, float position);
+	public virtual void TransformPage (Android.Views.View, float);
 }
 ```
 
@@ -10581,10 +10151,10 @@ public sealed class MarginPageTransformer : Java.Lang.Object, Android.Runtime.IJ
 ```csharp
 public sealed class ViewPager2 : Android.Views.ViewGroup {
 	// constructors
-	public ViewPager2 (Android.Content.Context context);
-	public ViewPager2 (Android.Content.Context context, Android.Util.IAttributeSet attrs);
-	public ViewPager2 (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr);
-	public ViewPager2 (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr, int defStyleRes);
+	public ViewPager2 (Android.Content.Context);
+	public ViewPager2 (Android.Content.Context, Android.Util.IAttributeSet);
+	public ViewPager2 (Android.Content.Context, Android.Util.IAttributeSet, int);
+	public ViewPager2 (Android.Content.Context, Android.Util.IAttributeSet, int, int);
 	// fields
 	public static const int OffscreenPageLimitDefault;
 	public static const int OrientationHorizontal;
@@ -10600,26 +10170,26 @@ public sealed class ViewPager2 : Android.Views.ViewGroup {
 	public int OffscreenPageLimit { get; set; }
 	public int Orientation { get; set; }
 	public int ScrollState { get; }
-	protected override IntPtr ThresholdClass { get; }
-	protected override System.Type ThresholdType { get; }
+	protected IntPtr ThresholdClass { get; }
+	protected System.Type ThresholdType { get; }
 	public bool UserInputEnabled { get; set; }
 	// methods
-	public void AddItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration decor);
-	public void AddItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration decor, int index);
+	public void AddItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration);
+	public void AddItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration, int);
 	public bool BeginFakeDrag ();
-	protected override void DispatchRestoreInstanceState (Android.Util.SparseArray container);
+	protected override void DispatchRestoreInstanceState (Android.Util.SparseArray);
 	public bool EndFakeDrag ();
-	public bool FakeDragBy (float offsetPxFloat);
-	public AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration GetItemDecorationAt (int index);
+	public bool FakeDragBy (float);
+	public AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration GetItemDecorationAt (int);
 	public void InvalidateItemDecorations ();
-	protected override void OnLayout (bool changed, int l, int t, int r, int b);
-	public void RegisterOnPageChangeCallback (ViewPager2.OnPageChangeCallback callback);
-	public void RemoveItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration decor);
-	public void RemoveItemDecorationAt (int index);
+	protected override void OnLayout (bool, int, int, int, int);
+	public void RegisterOnPageChangeCallback (ViewPager2.OnPageChangeCallback);
+	public void RemoveItemDecoration (AndroidX.RecyclerView.Widget.RecyclerView.ItemDecoration);
+	public void RemoveItemDecorationAt (int);
 	public void RequestTransform ();
-	public void SetCurrentItem (int item, bool smoothScroll);
-	public void SetPageTransformer (ViewPager2.IPageTransformer transformer);
-	public void UnregisterOnPageChangeCallback (ViewPager2.OnPageChangeCallback callback);
+	public void SetCurrentItem (int, bool);
+	public void SetPageTransformer (ViewPager2.IPageTransformer);
+	public void UnregisterOnPageChangeCallback (ViewPager2.OnPageChangeCallback);
 
 	// inner types
 	public interface IOffscreenPageLimit : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
@@ -10628,29 +10198,29 @@ public sealed class ViewPager2 : Android.Views.ViewGroup {
 	}
 	public interface IPageTransformer : Android.Runtime.IJavaObject, System.IDisposable {
 		// methods
-		public virtual void TransformPage (Android.Views.View p0, float p1);
+		public virtual void TransformPage (Android.Views.View, float);
 	}
 	public interface IScrollState : Android.Runtime.IJavaObject, Java.Lang.Annotation.IAnnotation, System.IDisposable {
 	}
 	public abstract class OnPageChangeCallback : Java.Lang.Object {
 		// constructors
 		public ViewPager2.OnPageChangeCallback ();
-		protected ViewPager2.OnPageChangeCallback (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected ViewPager2.OnPageChangeCallback (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 		// methods
-		public virtual void OnPageScrollStateChanged (int state);
-		public virtual void OnPageScrolled (int position, float positionOffset, int positionOffsetPixels);
-		public virtual void OnPageSelected (int position);
+		public virtual void OnPageScrollStateChanged (int);
+		public virtual void OnPageScrolled (int, float, int);
+		public virtual void OnPageSelected (int);
 	}
 	public class SavedState : Android.Views.View+BaseSavedState {
 		// constructors
-		protected ViewPager2.SavedState (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+		protected ViewPager2.SavedState (IntPtr, Android.Runtime.JniHandleOwnership);
 		// properties
 		public static Android.OS.IParcelableCreator Creator { get; }
-		protected override IntPtr ThresholdClass { get; }
-		protected override System.Type ThresholdType { get; }
+		protected IntPtr ThresholdClass { get; }
+		protected System.Type ThresholdType { get; }
 	}
 }
 ```
@@ -10662,7 +10232,7 @@ public sealed class ViewPager2 : Android.Views.ViewGroup {
 ```csharp
 public interface IListenableFuture : Android.Runtime.IJavaObject, Java.Util.Concurrent.IFuture, System.IDisposable {
 	// methods
-	public virtual void AddListener (Java.Lang.IRunnable p0, Java.Util.Concurrent.IExecutor p1);
+	public virtual void AddListener (Java.Lang.IRunnable, Java.Util.Concurrent.IExecutor);
 }
 ```
 

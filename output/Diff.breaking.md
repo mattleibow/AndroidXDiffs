@@ -18,7 +18,7 @@ IGenericLifecycleObserver
 Removed method:
 
 ```csharp
-public virtual void OnStateChanged (ILifecycleOwner p0, Lifecycle.Event p1);
+public virtual void OnStateChanged (ILifecycleOwner, Lifecycle.Event);
 ```
 
 
@@ -52,18 +52,6 @@ IGenericLifecycleObserver
 ```
 
 
-#### Type Changed: AndroidX.Lifecycle.Transformations
-
-Modified methods:
-
-```diff
--public LiveData Map (LiveData source, AndroidX.Arch.Core.Util.IFunction func)
-+public LiveData Map (LiveData source, AndroidX.Arch.Core.Util.IFunction mapFunction)
--public LiveData SwitchMap (LiveData trigger, AndroidX.Arch.Core.Util.IFunction func---switchMapFunction---)
-+public LiveData SwitchMap (LiveData source, AndroidX.Arch.Core.Util.IFunction +++func+++switchMapFunction)
-```
-
-
 
 ### Namespace AndroidX.Room
 
@@ -72,7 +60,7 @@ Modified methods:
 Removed constructor:
 
 ```csharp
-public DatabaseConfiguration (Android.Content.Context context, string name, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory sqliteOpenHelperFactory, RoomDatabase.MigrationContainer migrationContainer, System.Collections.Generic.IList<Android.Arch.Persistence.Room.RoomDatabase.Callback> callbacks, bool allowMainThreadQueries, RoomDatabase.JournalMode journalMode, bool requireMigration, System.Collections.Generic.ICollection<Java.Lang.Integer> migrationNotRequiredFrom);
+public DatabaseConfiguration (Android.Content.Context, string, AndroidX.Sqlite.Db.ISupportSQLiteOpenHelperFactory, RoomDatabase.MigrationContainer, System.Collections.Generic.IList<Android.Arch.Persistence.Room.RoomDatabase.Callback>, bool, RoomDatabase.JournalMode, bool, System.Collections.Generic.ICollection<Java.Lang.Integer>);
 ```
 
 
@@ -83,7 +71,7 @@ public DatabaseConfiguration (Android.Content.Context context, string name, Andr
 Removed method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Arch.Persistence.Room.Migration.Migration> FindMigrationPath (int start, int end);
+public virtual System.Collections.Generic.IList<Android.Arch.Persistence.Room.Migration.Migration> FindMigrationPath (int, int);
 ```
 
 
@@ -95,19 +83,6 @@ Removed constructor:
 ```csharp
 public RoomMasterTable ();
 ```
-
-
-#### Type Changed: AndroidX.Room.RoomOpenHelper
-
-#### Type Changed: AndroidX.Room.RoomOpenHelper.HelperDelegate
-
-Modified methods:
-
-```diff
--protected abstract void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase p0---db---)
-+protected virtual void ValidateMigration (AndroidX.Sqlite.Db.ISupportSQLiteDatabase +++p0+++db)
-```
-
 
 
 
@@ -127,8 +102,8 @@ public StringUtil ();
 Removed constructors:
 
 ```csharp
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey> foreignKeys);
-public TableInfo (string name, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column> columns, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey> foreignKeys, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.Index> indices);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>);
+public TableInfo (string, System.Collections.Generic.IDictionary<System.String,Android.Arch.Persistence.Room.Util.TableInfo.Column>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.ForeignKey>, System.Collections.Generic.ICollection<Android.Arch.Persistence.Room.Util.TableInfo.Index>);
 ```
 
 
@@ -235,23 +210,8 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> FindWidgets (int x, int y, int width, int height);
-public static Rectangle GetBounds (System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> widgets);
-```
-
-
-
-### Namespace Google.Android.Material.Behavior
-
-#### Type Changed: Google.Android.Material.Behavior.SwipeDismissBehavior
-
-Modified methods:
-
-```diff
--public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
--public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
+public virtual System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget> FindWidgets (int, int, int, int);
+public static Rectangle GetBounds (System.Collections.Generic.IList<Android.Support.Constraints.Solver.Widgets.ConstraintWidget>);
 ```
 
 
@@ -351,86 +311,13 @@ Google.Android.Material.CircularReveal.CircularRevealHelper.IDelegate
 
 ### Namespace Google.Android.Material.AppBar
 
-#### Type Changed: Google.Android.Material.AppBar.AppBarLayout
-
-#### Type Changed: Google.Android.Material.AppBar.AppBarLayout.Behavior.Behavior
-
-Modified methods:
-
-```diff
--public override void OnNestedScroll (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dx, int dy---dyConsumed---, int consumed---dxUnconsumed---, int type---dyUnconsumed---, int p7---type---)
-+public override void OnNestedScroll (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout coordinatorLayout, Java.Lang.Object child, Android.Views.View target, int dxConsumed, int +++dy+++dyConsumed, int +++consumed+++dxUnconsumed, int +++type+++dyUnconsumed, int +++p7+++type)
--public override void OnRestoreInstanceState (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout state, Java.Lang.Object appBarLayout, Android.OS.IParcelable p2---state---)
-+public override void OnRestoreInstanceState (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object appBarLayout, Android.OS.IParcelable +++p2+++state)
-```
-
-
-
 #### Type Changed: Google.Android.Material.AppBar.HeaderScrollingViewBehavior
 
 Removed method:
 
 ```csharp
-public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Android.Views.View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed);
+public virtual bool OnMeasureChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout, Android.Views.View, int, int, int, int);
 ```
-
-
-
-### Namespace Google.Android.Material.BottomSheet
-
-#### Type Changed: Google.Android.Material.BottomSheet.BottomSheetBehavior
-
-Modified methods:
-
-```diff
--public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnInterceptTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
--public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent event_)
-+public virtual bool OnTouchEvent (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, Java.Lang.Object child, Android.Views.MotionEvent e)
-```
-
-#### Type Changed: Google.Android.Material.BottomSheet.BottomSheetBehavior.BottomSheetCallback
-
-Modified methods:
-
-```diff
--public abstract void OnSlide (Android.Views.View bottomSheet, float slideOffset)
-+public abstract void OnSlide (Android.Views.View bottomSheet, float newState)
--public abstract void OnStateChanged (Android.Views.View bottomSheet, int newState---p1---)
-+public abstract void OnStateChanged (Android.Views.View p0, int +++newState+++p1)
-```
-
-
-
-
-### Namespace Google.Android.Material.FloatingActionButton
-
-#### Type Changed: Google.Android.Material.FloatingActionButton.FloatingActionButton
-
-Modified methods:
-
-```diff
--public virtual void Show (FloatingActionButton.OnVisibilityChangedListener visibility)
-+public virtual void Show (FloatingActionButton.OnVisibilityChangedListener listener)
-```
-
-#### Type Changed: Google.Android.Material.FloatingActionButton.FloatingActionButton.Behavior
-
-Modified methods:
-
-```diff
--public virtual bool GetInsetDodgeRect (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, Android.Graphics.Rect rect---p2---)
-+public virtual bool GetInsetDodgeRect (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, Android.Graphics.Rect +++rect+++p2)
--public override void OnAttachedToLayoutParams (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout.LayoutParams layoutParams)
-+public override void OnAttachedToLayoutParams (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout.LayoutParams p0)
--public virtual bool OnDependentViewChanged (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, Android.Views.View dependency---p2---)
-+public virtual bool OnDependentViewChanged (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, Android.Views.View +++dependency+++p2)
--public virtual bool OnLayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout parent, FloatingActionButton child---p1---, int layoutDirection---p2---)
-+public virtual bool OnLayoutChild (AndroidX.CoordinatorLayout.Widget.CoordinatorLayout p0, FloatingActionButton +++child+++p1, int +++layoutDirection+++p2)
--public virtual void SetInternalAutoHideListener (FloatingActionButton.OnVisibilityChangedListener listener)
-+public virtual void SetInternalAutoHideListener (FloatingActionButton.OnVisibilityChangedListener p0)
-```
-
 
 
 
@@ -459,52 +346,6 @@ Modified properties:
 
 
 
-### Namespace AndroidX.Emoji.Text
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat.IMetadataRepoLoader
-
-Modified methods:
-
-```diff
--public abstract void Load (EmojiCompat.MetadataRepoLoaderCallback loaderCallback)
-+public abstract void Load (EmojiCompat.MetadataRepoLoaderCallback p0)
-```
-
-
-#### Type Changed: AndroidX.Emoji.Text.EmojiCompat.MetadataRepoLoaderCallback
-
-Modified methods:
-
-```diff
--public abstract void OnFailed (Java.Lang.Throwable throwable)
-+public abstract void OnFailed (Java.Lang.Throwable p0)
--public abstract void OnLoaded (MetadataRepo metadataRepo)
-+public abstract void OnLoaded (MetadataRepo p0)
-```
-
-
-
-
-### Namespace AndroidX.Legacy.App
-
-#### Type Changed: AndroidX.Legacy.App.ActionBarDrawerToggle
-
-#### Type Changed: AndroidX.Legacy.App.ActionBarDrawerToggle.IDelegate
-
-Modified methods:
-
-```diff
--public abstract void SetActionBarDescription (int contentDescRes)
-+public abstract void SetActionBarDescription (int p0)
--public abstract void SetActionBarUpIndicator (Android.Graphics.Drawables.Drawable upDrawable, int contentDescRes---p1---)
-+public abstract void SetActionBarUpIndicator (Android.Graphics.Drawables.Drawable p0, int +++contentDescRes+++p1)
-```
-
-
-
-
 ### Namespace AndroidX.Core.View
 
 #### Type Changed: AndroidX.Core.View.GestureDetectorCompat
@@ -519,16 +360,6 @@ GestureDetectorCompat.IGestureDetectorCompatImpl
 System.IDisposable
 ```
 
-
-
-#### Type Changed: AndroidX.Core.View.ViewCompat
-
-Modified methods:
-
-```diff
--public bool HasAccessibilityDelegate (Android.Views.View v)
-+public bool HasAccessibilityDelegate (Android.Views.View view)
-```
 
 
 
@@ -556,8 +387,8 @@ Modified fields:
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 
@@ -580,7 +411,7 @@ public static const int AndroidRSwitchWidget;
 Removed method:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
 ```
 
 
@@ -590,7 +421,7 @@ public virtual Preference FindPreference (Java.Lang.ICharSequence key);
 Removed method:
 
 ```csharp
-public static Preference FindPreference (this DialogPreference.ITargetFragment self, string key);
+public static Preference FindPreference (this DialogPreference.ITargetFragment, string);
 ```
 
 
@@ -599,7 +430,7 @@ public static Preference FindPreference (this DialogPreference.ITargetFragment s
 Removed method:
 
 ```csharp
-public virtual int FindSpinnerIndexOfValue (string value);
+public virtual int FindSpinnerIndexOfValue (string);
 ```
 
 
@@ -615,7 +446,7 @@ Removed methods:
 
 ```csharp
 public void ClearWasDetached ();
-protected virtual Preference FindPreferenceInHierarchy (string key);
+protected virtual Preference FindPreferenceInHierarchy (string);
 public bool WasDetached ();
 ```
 
@@ -632,8 +463,8 @@ Modified fields:
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 
@@ -642,8 +473,8 @@ public Preference FindPreference (string key);
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
 ```
 
 
@@ -658,9 +489,9 @@ public Android.Content.ISharedPreferences SharedPreferences { get; }
 Removed methods:
 
 ```csharp
-public virtual Preference FindPreference (Java.Lang.ICharSequence key);
-public Preference FindPreference (string key);
-public static Android.Content.ISharedPreferences GetDefaultSharedPreferences (Android.Content.Context context);
+public virtual Preference FindPreference (Java.Lang.ICharSequence);
+public Preference FindPreference (string);
+public static Android.Content.ISharedPreferences GetDefaultSharedPreferences (Android.Content.Context);
 ```
 
 
@@ -671,8 +502,8 @@ public static Android.Content.ISharedPreferences GetDefaultSharedPreferences (An
 Removed constructors:
 
 ```csharp
-public TwoStatePreference.SavedState (Android.OS.IParcelable superState);
-public TwoStatePreference.SavedState (Android.OS.Parcel source);
+public TwoStatePreference.SavedState (Android.OS.IParcelable);
+public TwoStatePreference.SavedState (Android.OS.Parcel);
 ```
 
 
@@ -694,8 +525,8 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 
@@ -713,8 +544,8 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
-public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, Android.OS.Bundle savedInstanceState);
+public virtual void OnCreateActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
+public virtual void OnCreateButtonActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, Android.OS.Bundle);
 ```
 
 
@@ -758,7 +589,7 @@ Modified properties:
 Removed method:
 
 ```csharp
-public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> subActions);
+public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>);
 ```
 
 
@@ -768,7 +599,7 @@ public virtual Java.Lang.Object SubActions (System.Collections.Generic.IList<And
 Removed constructor:
 
 ```csharp
-public GuidedActionAdapter (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction> actions, GuidedActionAdapter.IClickListener clickListener, GuidedActionAdapter.IFocusListener focusListener, GuidedActionsStylist presenter, bool isSubAdapter);
+public GuidedActionAdapter (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.GuidedAction>, GuidedActionAdapter.IClickListener, GuidedActionAdapter.IFocusListener, GuidedActionsStylist, bool);
 ```
 
 Modified properties:
@@ -819,24 +650,8 @@ Modified properties:
 Removed method:
 
 ```csharp
-public virtual void SetColumns (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Picker.PickerColumn> columns);
+public virtual void SetColumns (System.Collections.Generic.IList<Android.Support.V17.Leanback.Widget.Picker.PickerColumn>);
 ```
-
-
-
-### Namespace AndroidX.Leanback.Preference
-
-#### Type Changed: AndroidX.Leanback.Preference.LeanbackListPreferenceDialogFragment
-
-#### Type Changed: AndroidX.Leanback.Preference.LeanbackListPreferenceDialogFragment.AdapterMulti
-
-Modified methods:
-
-```diff
--public override void OnBindViewHolder (AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder p0, int p1---position---)
-+public override void OnBindViewHolder (AndroidX.RecyclerView.Widget.RecyclerView.ViewHolder holder, int +++p1+++position)
-```
-
 
 
 
@@ -883,7 +698,7 @@ System.IDisposable
 Removed method:
 
 ```csharp
-public static System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> GetInvisibleActions (Android.App.Notification notification);
+public static System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> GetInvisibleActions (Android.App.Notification);
 ```
 
 #### Type Changed: AndroidX.Core.App.NotificationCompat.MessagingStyle.MessagingStyle
@@ -908,7 +723,7 @@ Modified properties:
 Removed method:
 
 ```csharp
-public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action> actions);
+public NotificationCompat.WearableExtender AddActions (System.Collections.Generic.IList<Android.Support.V4.App.NotificationCompat.Action>);
 ```
 
 
@@ -959,10 +774,10 @@ public override Java.Lang.Object OnRetainNonConfigurationInstance ();
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> GetActiveFragments (System.Collections.Generic.IList<Android.Support.V4.App.Fragment> actives);
+public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> GetActiveFragments (System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
 
 [Obsolete ("deprecated")]
-public virtual void RestoreAllState (Android.OS.IParcelable state, System.Collections.Generic.IList<Android.Support.V4.App.Fragment> nonConfigList);
+public virtual void RestoreAllState (Android.OS.IParcelable, System.Collections.Generic.IList<Android.Support.V4.App.Fragment>);
 
 [Obsolete ("deprecated")]
 public virtual System.Collections.Generic.IList<Android.Support.V4.App.Fragment> RetainNonConfig ();
@@ -977,41 +792,6 @@ Modified properties:
 -public abstract System.Collections.Generic.IList<Android.Support.V4.App.Fragment> Fragments { get; }
 +public abstract System.Collections.Generic.IList<Fragment> Fragments { get; }
 ```
-
-
-
-### Namespace AndroidX.Loader.App
-
-#### Type Changed: AndroidX.Loader.App.LoaderManager
-
-Modified methods:
-
-```diff
--public abstract void DestroyLoader (int id)
-+public abstract void DestroyLoader (int p0)
--public abstract void Dump (string prefix, Java.IO.FileDescriptor fd---p1---, Java.IO.PrintWriter writer---p2---, string[] args---p3---)
-+public abstract void Dump (string p0, Java.IO.FileDescriptor +++fd+++p1, Java.IO.PrintWriter +++writer+++p2, string[] +++args+++p3)
--public abstract AndroidX.Loader.Content.Loader GetLoader (int id)
-+public abstract AndroidX.Loader.Content.Loader GetLoader (int p0)
--public abstract AndroidX.Loader.Content.Loader InitLoader (int id, Android.OS.Bundle args---p1---, LoaderManager.ILoaderCallbacks callback---p2---)
-+public abstract AndroidX.Loader.Content.Loader InitLoader (int p0, Android.OS.Bundle +++args+++p1, LoaderManager.ILoaderCallbacks +++callback+++p2)
--public abstract AndroidX.Loader.Content.Loader RestartLoader (int id, Android.OS.Bundle args---p1---, LoaderManager.ILoaderCallbacks callback---p2---)
-+public abstract AndroidX.Loader.Content.Loader RestartLoader (int p0, Android.OS.Bundle +++args+++p1, LoaderManager.ILoaderCallbacks +++callback+++p2)
-```
-
-#### Type Changed: AndroidX.Loader.App.LoaderManager.ILoaderCallbacks
-
-Modified methods:
-
-```diff
--public abstract AndroidX.Loader.Content.Loader OnCreateLoader (int id, Android.OS.Bundle args---p1---)
-+public abstract AndroidX.Loader.Content.Loader OnCreateLoader (int p0, Android.OS.Bundle +++args+++p1)
--public abstract void OnLoadFinished (AndroidX.Loader.Content.Loader loader, Java.Lang.Object data---p1---)
-+public abstract void OnLoadFinished (AndroidX.Loader.Content.Loader p0, Java.Lang.Object +++data+++p1)
--public abstract void OnLoaderReset (AndroidX.Loader.Content.Loader loader)
-+public abstract void OnLoaderReset (AndroidX.Loader.Content.Loader p0)
-```
-
 
 
 
@@ -1051,7 +831,7 @@ Removed method:
 
 ```csharp
 [Obsolete ("deprecated")]
-public void Apply (Android.Content.ISharedPreferencesEditor editor);
+public void Apply (Android.Content.ISharedPreferencesEditor);
 ```
 
 
@@ -1064,8 +844,8 @@ public void Apply (Android.Content.ISharedPreferencesEditor editor);
 Removed methods:
 
 ```csharp
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path path);
-public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path path, float error);
+public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path);
+public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics.PathSegment> Flatten (Android.Graphics.Path, float);
 ```
 
 
@@ -1077,7 +857,7 @@ public static System.Collections.Generic.ICollection<Android.Support.V4.Graphics
 Removed methods:
 
 ```csharp
-public static AudioAttributesCompat FromBundle (Android.OS.Bundle bundle);
+public static AudioAttributesCompat FromBundle (Android.OS.Bundle);
 public virtual Android.OS.Bundle ToBundle ();
 ```
 
@@ -1101,7 +881,7 @@ System.IDisposable
 Removed method:
 
 ```csharp
-public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel parcel);
+public static Java.Lang.Object Read (AndroidX.VersionedParcelable.VersionedParcel);
 ```
 
 
@@ -1151,7 +931,7 @@ System.IDisposable
 Removed constructor:
 
 ```csharp
-public MediaSessionCompat (Android.Content.Context context, string tag, Android.OS.Bundle token2Bundle);
+public MediaSessionCompat (Android.Content.Context, string, Android.OS.Bundle);
 ```
 
 Removed field:
@@ -1165,7 +945,7 @@ public static const string KeySessionToken2Bundle = "android.support.v4.media.se
 Removed constructor:
 
 ```csharp
-public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context context, string tag, Android.Content.ComponentName mbrComponent, Android.App.PendingIntent mbrIntent);
+public MediaSessionCompat.MediaSessionImplBase (Android.Content.Context, string, Android.Content.ComponentName, Android.App.PendingIntent);
 ```
 
 Removed interfaces:
@@ -1188,19 +968,6 @@ public Android.OS.Bundle SessionToken2Bundle { get; set; }
 
 
 
-### Namespace AndroidX.Core.OS
-
-#### Type Changed: AndroidX.Core.OS.LocaleListCompat
-
-Modified methods:
-
-```diff
--public LocaleListCompat Wrap (Java.Lang.Object object)
-+public LocaleListCompat Wrap (Java.Lang.Object localeList)
-```
-
-
-
 ### Namespace AndroidX.Core.Text
 
 #### Type Changed: AndroidX.Core.Text.TextDirectionHeuristicsCompat
@@ -1215,23 +982,23 @@ Modified methods:
 Removed constructor:
 
 ```csharp
-protected Preconditions (IntPtr javaReference, Android.Runtime.JniHandleOwnership transfer);
+protected Preconditions (IntPtr, Android.Runtime.JniHandleOwnership);
 ```
 
 Removed methods:
 
 ```csharp
-public static float CheckArgumentFinite (float value, string valueName);
-public static long CheckArgumentInRange (long value, long lower, long upper, string valueName);
-public static float CheckArgumentInRange (float value, float lower, float upper, string valueName);
-public static long CheckArgumentNonnegative (long value);
-public static long CheckArgumentNonnegative (long value, string errorMessage);
-public static int CheckArgumentPositive (int value, string errorMessage);
-public static float[] CheckArrayElementsInRange (float[] value, float lower, float upper, string valueName);
-public static Java.Lang.Object[] CheckArrayElementsNotNull (Java.Lang.Object[] value, string valueName);
-public static Java.Lang.Object CheckCollectionElementsNotNull (Java.Lang.Object value, string valueName);
-public static System.Collections.ICollection CheckCollectionNotEmpty (System.Collections.ICollection value, string valueName);
-public static int CheckFlagsArgument (int requestedFlags, int allowedFlags);
+public static float CheckArgumentFinite (float, string);
+public static long CheckArgumentInRange (long, long, long, string);
+public static float CheckArgumentInRange (float, float, float, string);
+public static long CheckArgumentNonnegative (long);
+public static long CheckArgumentNonnegative (long, string);
+public static int CheckArgumentPositive (int, string);
+public static float[] CheckArrayElementsInRange (float[], float, float, string);
+public static Java.Lang.Object[] CheckArrayElementsNotNull (Java.Lang.Object[], string);
+public static Java.Lang.Object CheckCollectionElementsNotNull (Java.Lang.Object, string);
+public static System.Collections.ICollection CheckCollectionNotEmpty (System.Collections.ICollection, string);
+public static int CheckFlagsArgument (int, int);
 ```
 
 
@@ -1250,8 +1017,8 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text);
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string viewId);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByViewId (string);
 ```
 
 
@@ -1260,7 +1027,7 @@ public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessib
 Removed method:
 
 ```csharp
-public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string text, int virtualViewId);
+public virtual System.Collections.Generic.IList<Android.Support.V4.View.Accessibility.AccessibilityNodeInfoCompat> FindAccessibilityNodeInfosByText (string, int);
 ```
 
 
@@ -1302,7 +1069,7 @@ CursorFilter.ICursorFilterClient
 Removed method:
 
 ```csharp
-public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo> routes);
+public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Support.V7.Media.MediaRouter.RouteInfo>);
 ```
 
 
@@ -1311,7 +1078,7 @@ public virtual void OnFilterRoutes (System.Collections.Generic.IList<Android.Sup
 Removed method:
 
 ```csharp
-public virtual Android.Support.V7.App.MediaRouteDevicePickerDialog OnCreateDevicePickerDialog (Android.Content.Context context);
+public virtual Android.Support.V7.App.MediaRouteDevicePickerDialog OnCreateDevicePickerDialog (Android.Content.Context);
 ```
 
 
@@ -1320,7 +1087,7 @@ public virtual Android.Support.V7.App.MediaRouteDevicePickerDialog OnCreateDevic
 Removed method:
 
 ```csharp
-public virtual Android.Support.V7.App.MediaRouteCastDialog OnCreateCastDialog (Android.Content.Context context);
+public virtual Android.Support.V7.App.MediaRouteCastDialog OnCreateCastDialog (Android.Content.Context);
 ```
 
 
@@ -1341,7 +1108,7 @@ Modified properties:
 Removed method:
 
 ```csharp
-public static Palette From (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch> swatches);
+public static Palette From (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
 ```
 
 #### Type Changed: AndroidX.Palette.Graphics.Palette.Builder
@@ -1349,7 +1116,7 @@ public static Palette From (System.Collections.Generic.IList<Android.Support.V7.
 Removed constructor:
 
 ```csharp
-public Palette.Builder (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch> swatches);
+public Palette.Builder (System.Collections.Generic.IList<Android.Support.V7.Graphics.Palette.Swatch>);
 ```
 
 
@@ -1370,7 +1137,7 @@ Removed methods:
 
 ```csharp
 public override Android.Graphics.Drawables.Drawable.ConstantState GetConstantState ();
-public override void SetAlpha (int p0);
+public override void SetAlpha (int);
 ```
 
 
@@ -1391,7 +1158,7 @@ Modified properties:
 Removed method:
 
 ```csharp
-public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<Android.Support.V7.Media.MediaRouteDescriptor> routes);
+public MediaRouteProviderDescriptor.Builder AddRoutes (System.Collections.Generic.ICollection<Android.Support.V7.Media.MediaRouteDescriptor>);
 ```
 
 
@@ -1427,18 +1194,11 @@ Modified properties:
 Removed method:
 
 ```csharp
-public virtual void SetDrawable (Android.Graphics.Drawables.Drawable drawable);
+public virtual void SetDrawable (Android.Graphics.Drawables.Drawable);
 ```
 
 
 #### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView
-
-Modified constructors:
-
-```diff
--public RecyclerView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyle)
-+public RecyclerView (Android.Content.Context context, Android.Util.IAttributeSet attrs, int defStyleAttr)
-```
 
 #### Type Changed: AndroidX.RecyclerView.Widget.RecyclerView.Adapter
 
@@ -1464,28 +1224,12 @@ Modified properties:
 Removed methods:
 
 ```csharp
-public virtual void SmoothScrollBy (int dx, int dy);
-public virtual void SmoothScrollBy (int dx, int dy, Android.Views.Animations.IInterpolator interpolator);
-public virtual void SmoothScrollBy (int dx, int dy, int duration);
-public virtual void SmoothScrollBy (int dx, int dy, int vx, int vy);
+public virtual void SmoothScrollBy (int, int);
+public virtual void SmoothScrollBy (int, int, Android.Views.Animations.IInterpolator);
+public virtual void SmoothScrollBy (int, int, int);
+public virtual void SmoothScrollBy (int, int, int, int);
 ```
 
-
-
-#### Type Changed: AndroidX.RecyclerView.Widget.IItemTouchUIUtil
-
-Modified methods:
-
-```diff
--public abstract void ClearView (Android.Views.View view)
-+public abstract void ClearView (Android.Views.View p0)
--public abstract void OnDraw (Android.Graphics.Canvas c, RecyclerView recyclerView---p1---, Android.Views.View view---p2---, float dX---p3---, float dY---p4---, int actionState---p5---, bool isCurrentlyActive---p6---)
-+public abstract void OnDraw (Android.Graphics.Canvas p0, RecyclerView +++recyclerView+++p1, Android.Views.View +++view+++p2, float +++dX+++p3, float +++dY+++p4, int +++actionState+++p5, bool +++isCurrentlyActive+++p6)
--public abstract void OnDrawOver (Android.Graphics.Canvas c, RecyclerView recyclerView---p1---, Android.Views.View view---p2---, float dX---p3---, float dY---p4---, int actionState---p5---, bool isCurrentlyActive---p6---)
-+public abstract void OnDrawOver (Android.Graphics.Canvas p0, RecyclerView +++recyclerView+++p1, Android.Views.View +++view+++p2, float +++dX+++p3, float +++dY+++p4, int +++actionState+++p5, bool +++isCurrentlyActive+++p6)
--public abstract void OnSelected (Android.Views.View view)
-+public abstract void OnSelected (Android.Views.View p0)
-```
 
 
 #### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper
@@ -1495,26 +1239,7 @@ Modified methods:
 Removed method:
 
 ```csharp
-public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder selected, System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder> dropTargets, int curX, int curY);
-```
-
-Modified methods:
-
-```diff
--public abstract bool OnMove (RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder---p1---, RecyclerView.ViewHolder target---p2---)
-+public abstract bool OnMove (RecyclerView p0, RecyclerView.ViewHolder +++viewHolder+++p1, RecyclerView.ViewHolder +++target+++p2)
--public abstract void OnSwiped (RecyclerView.ViewHolder viewHolder, int direction---p1---)
-+public abstract void OnSwiped (RecyclerView.ViewHolder p0, int +++direction+++p1)
-```
-
-
-#### Type Changed: AndroidX.RecyclerView.Widget.ItemTouchHelper.IViewDropHandler
-
-Modified methods:
-
-```diff
--public abstract void PrepareForDrop (Android.Views.View view, Android.Views.View target---p1---, int x---p2---, int y---p3---)
-+public abstract void PrepareForDrop (Android.Views.View p0, Android.Views.View +++target+++p1, int +++x+++p2, int +++y+++p3)
+public virtual RecyclerView.ViewHolder ChooseDropTarget (RecyclerView.ViewHolder, System.Collections.Generic.IList<Android.Support.V7.Widget.RecyclerView.ViewHolder>, int, int);
 ```
 
 
@@ -1569,7 +1294,7 @@ Modified base type:
 Removed method:
 
 ```csharp
-public virtual void SetEpicenterBounds (Android.Graphics.Rect bounds);
+public virtual void SetEpicenterBounds (Android.Graphics.Rect);
 ```
 
 
@@ -1605,22 +1330,6 @@ Modified fields:
 
 
 
-### Namespace AndroidX.Wear.Widget
-
-#### Type Changed: AndroidX.Wear.Widget.WearableLinearLayoutManager
-
-#### Type Changed: AndroidX.Wear.Widget.WearableLinearLayoutManager.LayoutCallback
-
-Modified methods:
-
-```diff
--public abstract void OnLayoutFinished (Android.Views.View child, AndroidX.RecyclerView.Widget.RecyclerView parent---p1---)
-+public abstract void OnLayoutFinished (Android.Views.View p0, AndroidX.RecyclerView.Widget.RecyclerView +++parent+++p1)
-```
-
-
-
-
 ### Namespace AndroidX.Slice.Widget
 
 #### Type Changed: AndroidX.Slice.Widget.LargeSliceAdapter
@@ -1628,7 +1337,7 @@ Modified methods:
 Removed method:
 
 ```csharp
-public virtual void OnBindViewHolder (int position);
+public virtual void OnBindViewHolder (int);
 ```
 
 
@@ -1652,29 +1361,6 @@ Modified methods:
 
 
 
-### Namespace AndroidX.WebKit
-
-#### Type Changed: AndroidX.WebKit.WebSettingsCompat
-
-Modified methods:
-
-```diff
--public int GetDisabledActionModeMenuItems (Android.Webkit.WebSettings webSettings)
-+public int GetDisabledActionModeMenuItems (Android.Webkit.WebSettings settings)
--public bool GetOffscreenPreRaster (Android.Webkit.WebSettings webSettings)
-+public bool GetOffscreenPreRaster (Android.Webkit.WebSettings settings)
--public bool GetSafeBrowsingEnabled (Android.Webkit.WebSettings webSettings)
-+public bool GetSafeBrowsingEnabled (Android.Webkit.WebSettings settings)
--public void SetDisabledActionModeMenuItems (Android.Webkit.WebSettings webSettings, int menuItems)
-+public void SetDisabledActionModeMenuItems (Android.Webkit.WebSettings settings, int menuItems)
--public void SetOffscreenPreRaster (Android.Webkit.WebSettings webSettings, bool enabled)
-+public void SetOffscreenPreRaster (Android.Webkit.WebSettings settings, bool enabled)
--public void SetSafeBrowsingEnabled (Android.Webkit.WebSettings webSettings, bool enabled)
-+public void SetSafeBrowsingEnabled (Android.Webkit.WebSettings settings, bool enabled)
-```
-
-
-
 ### Namespace AndroidX.WebKit.Internal
 
 #### Type Changed: AndroidX.WebKit.Internal.WebViewFeatureInternal
@@ -1683,13 +1369,6 @@ Removed method:
 
 ```csharp
 public static string[] GetWebViewApkFeaturesForTesting ();
-```
-
-Modified methods:
-
-```diff
--public WebViewFeatureInternal GetFeature (string feature)
-+public WebViewFeatureInternal GetFeature (string publicFeatureValue)
 ```
 
 
@@ -1701,7 +1380,7 @@ Modified methods:
 Removed constructor:
 
 ```csharp
-public WorkInfo (Java.Util.UUID id, WorkInfo.State state, Data outputData, System.Collections.Generic.IList<string> tags);
+public WorkInfo (Java.Util.UUID, WorkInfo.State, Data, System.Collections.Generic.IList<string>);
 ```
 
 
